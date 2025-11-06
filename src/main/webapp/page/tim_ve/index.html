@@ -3,8 +3,68 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Tìm vé</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="container">
+	<div class="img-mau-bay">
+		<img class="img-mau-bay-item" src="../../access/trang_tim_ve/anh_may_bay.png" alt="">
+	</div>
+</div>
+<div class="container">
+	<form class="form-tim-ve">
+		<div class="form-tim-ve-item">
+			<div class="form-select">
+				<div>
+					<label>Điểm đi: </label>
+					<select name="diem_di" class="select select-diem-di">
+						<option>
+							Hồ Chí Minh
+						</option>
+						<option>
+							Hà Nội
+						</option>
+					</select>
+				</div>
 
+
+				<div class="khoang-cach-form"></div>
+
+				<div>
+					<label>Điểm đến: </label>
+					<select name="diem_den" class="select select-diem-den">
+						<option>
+							Hồ Chí Minh
+						</option>
+						<option>
+							Hồ Chí Minh
+						</option>
+						<option>
+							Hà Nội
+						</option>
+					</select>
+				</div>
+
+				<div class="khoang-cach-form"></div>
+				
+				<div>
+					<input class="cb cb-gia-ve" type="checkbox" name="is-xep-ve" id="">
+					<label>Chọn vé giá thấp nhất</label>
+				</div>
+			</div>
+			<div>
+				<label>Ngày khơi hành: </label>
+				<input class="input-ngay-khoi-hanh" type="date" name="ngay-di" id="">
+			</div>
+		</div>
+
+		<div class="form-tim-ve-item form-tim-ve-item-btn">
+			<button type="submit" class="btn-tim-ve">
+				Tìm vé
+			</button>
+		</div>
+
+	</form>
+</div>
 </body>
 </html>

@@ -1,0 +1,84 @@
+
+
+:root {
+    --xanh: #438bf1;
+}
+
+.container {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.img-mau-bay {
+    display: flex;
+    justify-content: center;
+}
+
+.img-mau-bay-item {
+    height: 300px;
+    width: 50%;
+}
+.form-tim-ve {
+    padding: 20px 50px;
+    font-size: 20px;
+    border-radius: 20px;
+    align-items: center;
+    margin-top: 20px;
+    box-shadow: 0 0 10px -5px var(--xanh);
+}
+
+.form-tim-ve-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-tim-ve-item-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.form-tim-ve-item-btn button {
+    background-color: var(--xanh);
+    padding: 10px 30px;
+    color: white;
+    font-size: 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    border: none;
+}
+
+.form-tim-ve-item-btn button:hover {
+    background-color: #286090;
+}
+
+.form-select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.select {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px -5px var(--xanh);
+    border: none;
+    margin-left: 20px;
+}
+
+.input-ngay-khoi-hanh {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px -5px var(--xanh);
+    border: none;
+    margin-left: 20px;
+}
+
+
+.khoang-cach-form {
+    width: 20px;
+}
