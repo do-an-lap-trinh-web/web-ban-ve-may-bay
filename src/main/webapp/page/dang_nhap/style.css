@@ -1,0 +1,99 @@
+
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.link-quay-lai {
+    color: #438bf1;
+    font-size: 20px;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.main-content {
+    width: 600px;
+    margin: 50px 0px 0px 0px;
+    border-radius: 20px;
+    padding: 0px 0px 20px 0px;
+    box-shadow: 0 0 10px -5px;
+    color: black;
+}
+
+.title-form {
+    text-align: center;
+}
+
+.input-form {
+    width: 100%;
+}
+
+.input-form label{
+    display: block;
+    margin-left: 30px;
+    font-size: 20px;
+}
+.input-form .input{
+    display: flex;
+    justify-content: center;
+}
+.input-form .input input {
+    display: block;
+    margin: 10px 0px 0px 0px;
+    width: calc(100% - 100px);
+    border: 1px solid #337ab7;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.input-form .input input:focus {
+    border: 1px solid #337ab7;
+    outline: none;
+}
+
+
+.input-form .input input:hover {
+    scale: 1.05;
+}
+
+.btn-form {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-form button {
+    background-color: #337ab7;
+    width: 30%;
+    border: none;
+    padding: 10px 30px;
+    color: white;
+    font-size: 20px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.btn-form button:hover {
+    background-color: #286090;
+}
+
+.btn-quen-mat-khau {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-quen-mat-khau a {
+    color: red;
+    text-decoration: none;
+}
+
+.btn-quen-mat-khau a:hover {
+    text-decoration: underline;
+}
+
+.khoang-cach-form {
+    height: 20px;
+}
