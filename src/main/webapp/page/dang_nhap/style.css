@@ -87,6 +87,11 @@ main {
 
 .btn-quen-mat-khau a {
     color: red;
+    text-decoration: none;
+}
+
+.btn-quen-mat-khau a:hover {
+    text-decoration: underline;
 }
 
 .khoang-cach-form {
