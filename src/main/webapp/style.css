@@ -82,10 +82,12 @@ a {
 
 /*end vé quốc tế*/
 
-header{
+/*header*/
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-family: Arial, sans-serif
 }
 
 .logo {
@@ -101,6 +103,28 @@ header{
     object-fit: contain;
 }
 
-.menu{
+.menu {
     display: flex;
+    gap: 50px;
+    font-weight: 500;
 }
+
+.menu a {
+    color: black;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.menu a:hover {
+    color: #2589f5;
+}
+
+.auth a {
+    color: black;
+    margin: 0 5px;
+}
+
+.auth a:hover {
+    color: #2589f5;
+}
+/*end header*/
