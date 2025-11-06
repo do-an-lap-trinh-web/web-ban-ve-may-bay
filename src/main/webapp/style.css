@@ -82,3 +82,25 @@ a {
 
 /*end vé quốc tế*/
 
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.menu{
+    display: flex;
+}
