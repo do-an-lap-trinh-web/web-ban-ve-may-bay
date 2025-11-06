@@ -87,7 +87,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: Arial, sans-serif
+    font-family: Arial, sans-serif;
+    font-weight: 500;
 }
 
 .logo {
@@ -95,12 +96,18 @@ header {
     align-items: center;
     gap: 5px;
     text-decoration: none;
+    color: #438bf1;
 }
 
 .logo img {
     width: 100px;
     height: 100px;
     object-fit: contain;
+}
+
+.logo a {
+    color: #438bf1;
+
 }
 
 .menu {
@@ -110,21 +117,18 @@ header {
 }
 
 .menu a {
-    color: black;
-    font-weight: 500;
-    transition: color 0.2s;
+    transition: color 0.3s;
 }
 
 .menu a:hover {
-    color: #2589f5;
+    color: #438bf1;
 }
 
 .auth a {
-    color: black;
-    margin: 0 5px;
+    margin: 10px;
 }
 
 .auth a:hover {
-    color: #2589f5;
+    color: #438bf1;
 }
 /*end header*/
