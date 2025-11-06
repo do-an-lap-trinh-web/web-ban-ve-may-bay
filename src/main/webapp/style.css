@@ -31,7 +31,7 @@ a {
 }
 
 .card-selection:hover {
-    scale: 1.2;
+    scale: 1.1;
 }
 
 .card-selection img {
@@ -58,7 +58,7 @@ a {
 
 .btn-dat-ve-selection {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 110px;
 }
 
 .btn-dat-ve-selection a {
