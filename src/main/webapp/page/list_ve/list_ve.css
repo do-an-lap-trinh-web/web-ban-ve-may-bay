@@ -1,0 +1,178 @@
+
+
+:root {
+    --xanh: #438bf1;
+}
+
+.container {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.img-mau-bay {
+    display: flex;
+    justify-content: center;
+}
+
+.img-mau-bay-item {
+    height: 300px;
+    width: 50%;
+}
+
+.box-form {
+    width: 30%;
+    position: fixed;
+    top: 100px;
+    right: 80px;
+}
+
+.form-tim-ve {
+    padding: 20px 20px;
+    font-size: 20px;
+    border-radius: 20px;
+    align-items: center;
+    box-shadow: 0 0 10px -5px var(--xanh);
+    width: 90%;
+}
+
+.form-title {
+    text-align: center;
+    color: var(--xanh);
+}
+
+
+.form-tim-ve-item {
+    align-items: center;
+}
+
+.form-tim-ve-item-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.form-tim-ve-item-btn button {
+    background-color: var(--xanh);
+    padding: 10px 30px;
+    color: white;
+    font-size: 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    border: none;
+}
+
+.form-tim-ve-item-btn button:hover {
+    background-color: #286090;
+}
+
+.form-select {
+    align-items: center;
+}
+
+.form-select label {
+    margin-left: 20px;
+}
+
+
+.select {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px -5px var(--xanh);
+    border: none;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 90%;
+}
+
+.cb-gia-ve {
+    margin-left: 20px;
+}
+
+.form-input-ngay-khoi-hanh {
+    margin-left: 20px;
+}
+
+.input-ngay-khoi-hanh {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px -5px var(--xanh);
+    border: none;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.list-ve {
+    margin-top: 50px;
+    width: 65%;
+}
+
+.list-ve h1 {
+    color: var(--xanh);
+}
+
+.list-ve-item {
+    box-shadow: 0 0 10px -5px var(--xanh);
+    border-radius: 20px;
+    padding: 0px 40px 10px 0px;
+    margin-top: 20px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.info-dia-diem {
+    margin-top: 10px;
+}
+
+.list-ve-item .info-ve .info-hang-bay {
+    display: flex;
+    justify-content: center;
+}
+
+.list-ve-item .info-ve .info-dia-diem{
+    display: flex;
+}
+
+.info-thoi-gian {
+    font-size: 17px;
+}
+
+.list-ve-item img {
+    width: 10%;
+}
+
+.text-hang-bay
+{
+    font-size: 17px;
+}
+
+.btn-dat-ve {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-dat-ve button {
+    background-color: var(--xanh);
+    padding: 10px 30px;
+    color: white;
+    font-size: 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    border: none;
+}
+
+.khoang-cach-form {
+    height: 20px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
