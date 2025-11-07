@@ -16,7 +16,7 @@ public class RenderListVe extends HttpServlet {
         String sort = request.getParameter("is_xep_ve");
         String ngayDi = request.getParameter("ngay_di");
 
-        String url = request.getContextPath() + "/page/list_ve/index.html"
+        String url = request.getContextPath() + "/page/list_ve/list_ve.html"
                 + "?diem_di=" + URLEncoder.encode(di, "UTF-8")
                 + "&diem_den=" + URLEncoder.encode(den, "UTF-8")
                 + "&is_xep_ve=" + (sort != null ? "on" : "off")
