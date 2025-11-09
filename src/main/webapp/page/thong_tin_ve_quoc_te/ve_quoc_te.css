@@ -52,37 +52,3 @@ header {
     color: #438bf1;
 }
 /*end header*/
-
-:root {
-    --xanh: #438bf1;
-}
-
-.title {
-    text-align: center;
-    color: var(--xanh);
-}
-
-.fa-phone, .fa-envelope, .fa-location-dot {
-    background-color: var(--xanh);
-    color: white;
-    padding: 5px;
-    border-radius: 25%;
-}
-
-.info-contact {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 250px;
-    margin-top: 30px;
-}
-
-.map {
-    padding: 0px 100px;
-    margin-top: 50px;
-}
-
-.map iframe {
-    width: 100%;
-    height: 600px;
-}
