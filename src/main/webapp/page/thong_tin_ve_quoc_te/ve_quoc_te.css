@@ -52,3 +52,26 @@ header {
     color: #438bf1;
 }
 /*end header*/
+.main-footer {
+    display: flex;
+    justify-content: space-between;   /* trái - phải */
+    align-items: flex-start;
+    padding: 40px;
+    background: #f1f1f1;
+}
+
+.footer-left ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-left ul li {
+    margin-bottom: 8px;
+}
+
+.social-links img {
+    width: 35px;
+    margin-right: 10px;
+    cursor: pointer;
+}
