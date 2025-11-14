@@ -53,13 +53,6 @@ header {
 }
 /*end header*/
 
-/*heading*/
-h1 {
-    text-align: center;
-    margin-top: 25px ;
-}
-/*end heading*/
-
 /*update form*/
 .update-user-info {
     max-width: 500px;
@@ -67,6 +60,12 @@ h1 {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px ;
 }
 
 label {
@@ -87,7 +86,7 @@ input, select, textarea {
 }
 
 input:focus, select:focus, textarea:focus {
-    border-color: #337ab7;
+    border-color: #007bff;
     outline: none;
     box-shadow: 0 0 3px rgba(0,123,255,0.4);
 }
@@ -98,7 +97,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .btn-form-update button {
-    background-color: #337ab7;
+    background-color: #007bff;
     color: white;
     padding: 10px 25px;
     border: none;
