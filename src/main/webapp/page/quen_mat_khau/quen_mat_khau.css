@@ -52,11 +52,55 @@ main {
     scale: 1.05;
 }
 
+.form-input-code {
+
+}
+.form-input-code label {
+    font-size: 20px;
+    margin-left: 30px;
+}
 .btn-form {
     padding-top: 25px;
     text-align: center;
     display: flex;
     justify-content: center;
+}
+
+.input-code {
+    width: calc(100% - 60px);
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 30px;
+}
+
+.input-code .input input:hover{
+    scale: 1.05;
+}
+
+.input-code .input input {
+    display: block;
+    margin: 10px 0px 0px 0px;
+    width: 100%;
+    border: 1px solid #337ab7;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.btn-code button{
+    background-color: #337ab7;
+    border: none;
+    padding: 10px 30px;
+    color: white;
+    font-size: 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 10px 0 0 0;
+}
+
+.btn-code button:hover {
+    background-color: #286090;
 }
 
 .btn-form button {
@@ -87,4 +131,7 @@ main {
 .btn-quay-lai-dang-nhap a:hover {
     text-decoration: underline;
 }
+
+
+
 
