@@ -60,7 +60,7 @@ h1 {
 }
 /*end heading*/
 
-/*form*/
+/*update form*/
 .update-user-info {
     max-width: 500px;
     margin: 25px auto;
@@ -92,12 +92,12 @@ input:focus, select:focus, textarea:focus {
     box-shadow: 0 0 3px rgba(0,123,255,0.4);
 }
 
-.form-update {
+.btn-form-update {
     text-align: center;
     margin-top: 20px;
 }
 
-.form-update button {
+.btn-form-update button {
     background-color: #337ab7;
     color: white;
     padding: 10px 25px;
@@ -109,7 +109,7 @@ input:focus, select:focus, textarea:focus {
     font-size: 20px;
 }
 
-.form-update button:hover {
+.btn-form-update button:hover {
     scale: 1.05;
     background-color: #286090;
 }
