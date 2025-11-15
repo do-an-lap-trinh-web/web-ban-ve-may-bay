@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+    <link rel="stylesheet" href="cap_nhat_thong_tin_khach_hang.css">
+</head>
+<body>
+<!--start header-->
+<header>
+    <div class="logo">
+        <img src="../../access/trang_chu/Logo.png" alt="">
+        <a href="../../index.html">MáyBayOnline</a>
+    </div>
+
+    <div class="menu">
+        <a href="../../index.html">Trang Chủ</a>
+        <a href="../tim_ve/tim_ve.html">Đặt Vé</a>
+        <a href="../thong_tin_ve_noi_dia/ve_noi_dia.html">Vé Nội Địa</a>
+        <a href="../thong_tin_ve_quoc_te/ve_quoc_te.html">Vé Quốc Tế</a>
+        <a href="../lien_he/lien_he.html">Thông Tin Liên Hệ</a>
+    </div>
+
+    <div class="auth">
+        <a href="../thong_tin_khach_hang/thong_tin_khach_hang.html">Thông Tin</a> |
+        <a href="../dang_nhap/dang_nhap.html">Đăng Nhập</a> |
+        <a href="../dang_ky/dang_ky.html">Đăng Ký</a>
+    </div>
+</header>
+<!--end header-->
+
+<!--update form info-->
+    <div class="update-user-info">
+        <h1 class="title-update-user-info">Cập Nhật Thông Tin</h1>
+        <form>
+            <div class="update-form-info">
+                <label for="name">Họ và tên</label>
+                <div class="input">
+                    <input id="name" name="update-user-name-info" type="text" placeholder="Nhập họ và tên người dùng">
+                </div>
+            </div>
+
+            <div class="update-form-info">
+                <label for="email">Email</label>
+                <div class="input">
+                    <input id="email" name="update-email-info" type="email" placeholder="Nhập email">
+                </div>
+            </div>
+
+            <div class="update-form-info">
+                <label for="phone">Số điện thoại</label>
+                <div class="input">
+                    <input id="phone" name="update-tel-info" type="tel" placeholder="Nhập số điện thoại">
+                </div>
+            </div>
+
+            <div class="update-form-info">
+                <label for="gender">Giới tính</label>
+                <select id="gender" name="update-gender">
+                    <option value="">--Chọn Giới Tính--</option>
+                    <option value="">Nam</option>
+                    <option value="">Nữ</option>
+                </select>
+            </div>
+
+            <div class="update-form-info">
+                <label for="address">Địa chỉ</label>
+                <div class="textarea">
+                    <textarea id="address" name="update-address-info" placeholder="Nhập địa chỉ"></textarea>
+                </div>
+            </div>
+
+            <div class="btn-form-update">
+                <button type="submit">Hoàn Tất Cập Nhật</button>
+            </div>
+        </form>
+    </div>
+<!--end update form info-->
+</body>
+</html>
