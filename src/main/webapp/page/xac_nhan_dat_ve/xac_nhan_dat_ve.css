@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 30px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.page-xac-nhan-dat-ve {
+    width: 65%;
+    border-radius: 15px;
+    box-shadow:  0 5px 15px rgba(0,0,0,0.1);
+    border: 5px solid #dcdcdc;
+}
+
+.title-xac-nhan-dat-ve {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.input-so-luong {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-so-luong label {
+    width: 100px;
+}
+
+.input-so-luong input {
+    width: 100px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.btn-xac-nhan-dat-ve {
+    text-align: center;
+    margin-top: 20px;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 15px;
+    background: #007bff;
+    color: #fff;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.25s;
+}
+
+a:hover {
+    background: #005ec4;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    scale: 1.05;
+}
+
+
+
