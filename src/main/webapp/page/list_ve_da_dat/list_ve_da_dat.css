@@ -1,0 +1,316 @@
+
+:root {
+    --xanh: #438bf1;
+}
+.container{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Arial, sans-serif;
+    font-weight: 500;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #438bf1;
+}
+
+.logo img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.logo a {
+    color: #438bf1;
+
+}
+
+.menu {
+    display: flex;
+    gap: 50px;
+    font-weight: 500;
+}
+
+.menu a {
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #438bf1;
+}
+
+.auth a {
+    margin: 10px;
+}
+
+.auth a:hover {
+    color: #438bf1;
+}
+
+.list-ve h1 {
+    color: var(--xanh);
+    margin-left: 100px;
+}
+
+.list-ve-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 80px;
+    margin: 40px 0px 0px 0px;
+}
+
+.flight-card {
+    width: 600px; /* Chiều rộng thẻ */
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    color: #333;
+}
+
+/* --- Header Section (Hãng bay và Thời gian) --- */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.airline-name {
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #004d99; /* Màu xanh của hãng bay */
+}
+
+.plane-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    color: #004d99;
+}
+
+.flight-times {
+    text-align: right;
+}
+
+.time-detail {
+    line-height: 1.4;
+}
+
+.time-detail .label {
+    display: block;
+    font-size: 0.8em;
+    color: #6c757d;
+}
+
+.time-highlight {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #333;
+}
+
+/* --- Dấu phân cách --- */
+.separator {
+    border: 0;
+    border-top: 1px dashed #e0e0e0; /* Dùng đường đứt nét */
+    margin: 15px 0;
+}
+
+/* --- Body Section (Sân bay) --- */
+.card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.airport {
+    flex-basis: 40%; /* Chiếm khoảng 40% không gian */
+}
+
+.airport-code {
+    display: block;
+    font-size: 2em;
+    font-weight: 800;
+    color: #004d99; /* Mã sân bay nổi bật */
+}
+
+.airport-name {
+    display: block;
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-top: 2px;
+}
+
+.route-icon {
+    flex-basis: 20%; /* Khoảng giữa */
+    color: #aaa;
+    font-size: 1.5em;
+}
+
+/* --- Footer Section (Số lượng và Nút) --- */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid #f0f0f0; /* Viền nhẹ phía trên */
+}
+
+.quantity {
+    font-size: 1em;
+    font-weight: 500;
+    color: #6c757d;
+}
+
+.price {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #004d99;
+}
+
+.cancel-button {
+    padding: 8px 18px;
+    font-size: 1em;
+    font-weight: 600;
+    color: #fff;
+    background-color: #dc3545; /* Màu đỏ cho hành động hủy */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cancel-button:hover {
+    background-color: #c82333;
+}
+
+.content-xac-nhan {
+    display: none;
+    justify-content: center;
+}
+
+.card-xac-nhan {
+    width: 600px; /* Chiều rộng thẻ */
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    color: #333;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.card-xac-nhan .flight-card {
+    width: auto;
+    margin: 30px 0 0 0;
+}
+
+.card-xac-nhan .flight-card .button-xac-nhan{
+    display: flex;
+    justify-content: center;
+}
+
+.card-xac-nhan-title {
+    font-size: 30px;
+    color: var(--xanh);
+    font-weight: bold;
+}
+
+.btn-xac-nhan-exit {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    color: gray;
+}
+
+/*footer*/
+
+.main-footer {
+    background: #f8f9fc;
+    padding: 45px 55px; /* tăng nhẹ padding */
+    border-top: 3px solid #007bff;
+    font-family: Arial, sans-serif;
+    margin-top: 100px;
+}
+
+/* 2 khối trái – phải */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* 👉 Tăng cỡ chữ vừa phải */
+.main-footer h3 {
+    color: #007bff;
+    font-size: 24px;   /* trước là 22px → tăng chút */
+    margin-bottom: 18px;
+    font-weight: bold;
+}
+
+.footer-left ul li,
+.footer-right p {
+    font-size: 17px;   /* trước nhỏ hơn → tăng lên */
+    line-height: 1.6;
+}
+
+/* Link */
+.footer-left ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 17px;   /* đồng bộ chữ menu */
+}
+
+.footer-left ul li a:hover {
+    color: #007bff;
+    padding-left: 4px;
+}
+
+/* Icon */
+.social-links img {
+    width: 38px;  /* tăng nhẹ để đồng bộ chữ */
+    margin-right: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.social-links img:hover {
+    transform: scale(1.1);
+}
+
+/* Dòng cuối */
+.footer-bottom {
+    text-align: center;
+    margin-top: 28px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+    font-size: 15px;
+    color: #666;
+}

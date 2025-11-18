@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Danh sách vé đã đặt</title>
+	<link rel="stylesheet" href="list_ve_da_dat.css">
+
+</head>
+<body>
+<header>
+	<div class="logo">
+		<img src="../../access/trang_chu/Logo.png" alt="">
+		<a href="../../index.html">MáyBayOnline</a>
+	</div>
+
+	<div class="menu">
+		<a href="../../index.html">Trang Chủ</a>
+		<a href="../tim_ve/tim_ve.html">Đặt Vé</a>
+		<a href="../thong_tin_ve_noi_dia/ve_noi_dia.html">Vé Nội Địa</a>
+		<a href="../thong_tin_ve_quoc_te/ve_quoc_te.html">Vé Quốc Tế</a>
+		<a href="../lien_he/lien_he.html">Thông Tin Liên Hệ</a>
+		<a href="../list_ve_da_dat/list_ve_da_dat.html">Vé đã đặt</a>
+	</div>
+
+	<div class="auth">
+		<a href="../thong_tin_khach_hang/thong_tin_khach_hang.html">Thông Tin</a> |
+		<a href="../dang_nhap/dang_nhap.html">Đăng Nhập</a> |
+		<a href="../dang_ky/dang_ky.html">Đăng Ký</a>
+	</div>
+</header>
+
+<div class="list-ve">
+	<h1>
+		Danh sách vé máy bay
+	</h1>
+	<div style="" class="list-ve-item">
+		<div class="flight-card">
+			<div class="card-header">
+        <span class="airline-name">
+            <svg class="plane-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 16V14.5L14 10V3C14 2.45 13.55 2 13 2H11C10.45 2 10 2.45 10 3V10L3 14.5V16L10 13V20L8.5 22H9.5L12 21L14.5 22H15.5L14 20V13L21 16Z"
+                      fill="currentColor"/>
+            </svg>
+            Vietnam Airlines
+        </span>
+				<div class="flight-times">
+					<div class="time-detail departure">
+						<span class="label">Cất cánh</span>
+						<span class="">12:00</span>
+					</div>
+					<div class="time-detail arrival">
+						<span class="label">Hạ cánh</span>
+						<span class="">18:00</span>
+					</div>
+				</div>
+			</div>
+
+			<hr class="separator">
+
+			<div class="card-body">
+				<div class="airport departure">
+					<span class="airport-code ">SGN</span>
+					<span class="airport-name">Tân Sơn Nhất</span>
+				</div>
+				<div class="route-icon">
+					<span class="arrow">→</span>
+				</div>
+				<div class="airport arrival">
+					<span class="airport-code ">HAN</span>
+					<span class="airport-name">Nội Bài</span>
+				</div>
+			</div>
+
+			<div class="card-footer">
+				<span class="quantity">Số lượng: 1</span>
+				<span class="price">Giá: 1.200.000đ</span>
+				<button onclick="OpenXacNhan()" class="cancel-button">Hủy vé</button>
+			</div>
+
+		</div>
+		<div class="flight-card">
+			<div class="card-header">
+        <span class="airline-name">
+            <svg class="plane-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 16V14.5L14 10V3C14 2.45 13.55 2 13 2H11C10.45 2 10 2.45 10 3V10L3 14.5V16L10 13V20L8.5 22H9.5L12 21L14.5 22H15.5L14 20V13L21 16Z"
+                      fill="currentColor"/>
+            </svg>
+            Vietnam Airlines
+        </span>
+				<div class="flight-times">
+					<div class="time-detail departure">
+						<span class="label">Cất cánh</span>
+						<span class="">12:00</span>
+					</div>
+					<div class="time-detail arrival">
+						<span class="label">Hạ cánh</span>
+						<span class="">18:00</span>
+					</div>
+				</div>
+			</div>
+
+			<hr class="separator">
+
+			<div class="card-body">
+				<div class="airport departure">
+					<span class="airport-code ">SGN</span>
+					<span class="airport-name">Tân Sơn Nhất</span>
+				</div>
+				<div class="route-icon">
+					<span class="arrow">→</span>
+				</div>
+				<div class="airport arrival">
+					<span class="airport-code ">HAN</span>
+					<span class="airport-name">Nội Bài</span>
+				</div>
+			</div>
+
+			<div class="card-footer">
+				<span class="quantity">Số lượng: 1</span>
+				<span class="price">Giá: 1.200.000đ</span>
+				<button onclick="OpenXacNhan()" class="cancel-button">Hủy vé</button>
+			</div>
+
+		</div>
+	</div>
+	<div style="" class="list-ve-item">
+		<div class="flight-card">
+			<div class="card-header">
+        <span class="airline-name">
+            <svg class="plane-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 16V14.5L14 10V3C14 2.45 13.55 2 13 2H11C10.45 2 10 2.45 10 3V10L3 14.5V16L10 13V20L8.5 22H9.5L12 21L14.5 22H15.5L14 20V13L21 16Z"
+                      fill="currentColor"/>
+            </svg>
+            Vietnam Airlines
+        </span>
+				<div class="flight-times">
+					<div class="time-detail departure">
+						<span class="label">Cất cánh</span>
+						<span class="">12:00</span>
+					</div>
+					<div class="time-detail arrival">
+						<span class="label">Hạ cánh</span>
+						<span class="">18:00</span>
+					</div>
+				</div>
+			</div>
+
+			<hr class="separator">
+
+			<div class="card-body">
+				<div class="airport departure">
+					<span class="airport-code ">SGN</span>
+					<span class="airport-name">Tân Sơn Nhất</span>
+				</div>
+				<div class="route-icon">
+					<span class="arrow">→</span>
+				</div>
+				<div class="airport arrival">
+					<span class="airport-code ">HAN</span>
+					<span class="airport-name">Nội Bài</span>
+				</div>
+			</div>
+
+			<div class="card-footer">
+				<span class="quantity">Số lượng: 1</span>
+				<span class="price">Giá: 1.200.000đ</span>
+				<button onclick="OpenXacNhan()" class="cancel-button">Hủy vé</button>
+			</div>
+
+		</div>
+		<div class="flight-card">
+			<div class="card-header">
+        <span class="airline-name">
+            <svg class="plane-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 16V14.5L14 10V3C14 2.45 13.55 2 13 2H11C10.45 2 10 2.45 10 3V10L3 14.5V16L10 13V20L8.5 22H9.5L12 21L14.5 22H15.5L14 20V13L21 16Z"
+                      fill="currentColor"/>
+            </svg>
+            Vietnam Airlines
+        </span>
+				<div class="flight-times">
+					<div class="time-detail departure">
+						<span class="label">Cất cánh</span>
+						<span class="">12:00</span>
+					</div>
+					<div class="time-detail arrival">
+						<span class="label">Hạ cánh</span>
+						<span class="">18:00</span>
+					</div>
+				</div>
+			</div>
+
+			<hr class="separator">
+
+			<div class="card-body">
+				<div class="airport departure">
+					<span class="airport-code ">SGN</span>
+					<span class="airport-name">Tân Sơn Nhất</span>
+				</div>
+				<div class="route-icon">
+					<span class="arrow">→</span>
+				</div>
+				<div class="airport arrival">
+					<span class="airport-code ">HAN</span>
+					<span class="airport-name">Nội Bài</span>
+				</div>
+			</div>
+
+			<div class="card-footer">
+				<span class="quantity">Số lượng: 1</span>
+				<span class="price">Giá: 1.200.000đ</span>
+				<button onclick="OpenXacNhan()" class="cancel-button">Hủy vé</button>
+			</div>
+
+		</div>
+	</div>
+</div>
+<div id="box-xac-nhan" class="content-xac-nhan">
+	<div class="card-xac-nhan">
+		<span class="card-xac-nhan-title"><center>BẠN CÓ MUỐN HUỶ</center></span>
+		<button onclick="CloseXacNhan()" class="btn-xac-nhan-exit">X</button>
+		<div class="flight-card">
+			<div class="card-header">
+        <span class="airline-name">
+            <svg class="plane-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 16V14.5L14 10V3C14 2.45 13.55 2 13 2H11C10.45 2 10 2.45 10 3V10L3 14.5V16L10 13V20L8.5 22H9.5L12 21L14.5 22H15.5L14 20V13L21 16Z"
+                      fill="currentColor"/>
+            </svg>
+            Vietnam Airlines
+        </span>
+				<div class="flight-times">
+					<div class="time-detail departure">
+						<span class="label">Cất cánh</span>
+						<span class="">12:00</span>
+					</div>
+					<div class="time-detail arrival">
+						<span class="label">Hạ cánh</span>
+						<span class="">18:00</span>
+					</div>
+				</div>
+			</div>
+
+			<hr class="separator">
+
+			<div class="card-body">
+				<div class="airport departure">
+					<span class="airport-code ">SGN</span>
+					<span class="airport-name">Tân Sơn Nhất</span>
+				</div>
+				<div class="route-icon">
+					<span class="arrow">→</span>
+				</div>
+				<div class="airport arrival">
+					<span class="airport-code ">HAN</span>
+					<span class="airport-name">Nội Bài</span>
+				</div>
+			</div>
+
+			<div class="card-footer">
+				<span class="quantity">Số lượng: 1</span> <br>
+				<span class="price">Giá: 1.200.000đ</span>
+			</div>
+			<div class="button-xac-nhan">
+				<button onclick="HuyThanhCong()" class="cancel-button">Xác nhận huỷ vé</button>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<footer class="main-footer">
+	<div class="footer-container">
+
+		<div class="footer-left">
+			<h3><strong>Dịch vụ</strong></h3>
+			<ul>
+				<li><a href="/index.html">Trang chủ</a></li>
+				<li><a href="/page/tim_ve/tim_ve.html">Đặt vé</a></li>
+				<li><a href="/page/thong_tin_ve_noi_dia/ve_noi_dia.html">Vé nội địa</a></li>
+				<li><a href="/page/thong_tin_ve_quoc_te/ve_quoc_te.html">Vé quốc tế</a></li>
+				<li><a href="/page/lien_he/lien_he.html">Thông tin liên hệ</a></li>
+			</ul>
+		</div>
+
+		<div class="footer-right">
+			<h3><strong>Trang bán vé máy bay số 1 Việt Nam</strong></h3>
+			<p>VQCR+GP6, khu phố 6, Thủ Đức, TP. Hồ Chí Minh</p>
+			<p>email@gmail.com</p>
+			<p>Tổng đài: 1800-0909</p>
+
+			<div class="social-links">
+				<img src="/access/logoYoutube.png" alt="YouTube">
+				<img src="/access/logoFacebook.png" alt="Facebook">
+				<img src="/access/logoTiktok.jpg" alt="TikTok">
+			</div>
+		</div>
+
+	</div>
+</footer>
+<script src="list_ve_da_dat.js"></script>
+</body>
+</html>
