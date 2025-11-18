@@ -5,25 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f105947-2405-48c3-a072-9d9ae27376a7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/main/webapp/access/logoFacebook.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/webapp/access/logoTiktok.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/webapp/access/logoYoutube.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/webapp/page/chon_ve/chon_ve.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/webapp/page/gioi_thieu/gioi_thieu.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/webapp/page/cap_nhat_thong_tin_khach_hang/cap_nhat_thong_tin_khach_hang.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/webapp/page/cap_nhat_thong_tin_khach_hang/cap_nhat_thong_tin_khach_hang.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/webapp/page/dang_ky/dang_ky.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/webapp/page/dang_ky/dang_ky.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/webapp/page/dang_nhap/dang_nhap.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/webapp/page/dang_nhap/dang_nhap.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/webapp/page/lien_he/lien_he.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/webapp/page/lien_he/lien_he.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/webapp/page/lien_he/lien_he.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/webapp/page/lien_he/lien_he.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/webapp/page/thong_tin_ve_noi_dia/ve_noi_di.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/webapp/page/thong_tin_ve_noi_dia/ve_noi_di.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/webapp/page/list_ve/list_ve.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/webapp/page/list_ve/list_ve.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/webapp/page/quen_mat_khau/quen_mat_khau.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/webapp/page/quen_mat_khau/quen_mat_khau.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/webapp/page/thong_tin_khach_hang/thong_tin_khach_hang.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/webapp/page/thong_tin_khach_hang/thong_tin_khach_hang.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/webapp/page/thong_tin_ve_noi_dia/ve_noi_dia.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/webapp/page/thong_tin_ve_noi_dia/ve_noi_dia.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/webapp/page/thong_tin_ve_quoc_te/ve_quoc_te.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/webapp/page/thong_tin_ve_quoc_te/ve_quoc_te.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/webapp/page/thong_tin_ve_quoc_te/ve_quoc_te.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/webapp/page/thong_tin_ve_quoc_te/ve_quoc_te.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/webapp/page/tim_ve/tim_ve.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/webapp/page/tim_ve/tim_ve.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/webapp/page/tim_ve/tim_ve.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/webapp/page/tim_ve/tim_ve.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/webapp/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/webapp/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -56,6 +64,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "BaKhanh",
     "last_opened_file_path": "C:/Users/Admin/WebstormProjects/web-ban-ve-may-bay/src/main/webapp/access",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -90,7 +99,8 @@
       <workItem from="1762497901686" duration="90000" />
       <workItem from="1762580018507" duration="3048000" />
       <workItem from="1762617819700" duration="510000" />
-      <workItem from="1762784997658" duration="1763000" />
+      <workItem from="1762784997658" duration="2512000" />
+      <workItem from="1763426596575" duration="1933000" />
     </task>
     <servers />
   </component>
