@@ -1,17 +1,30 @@
 body {
     font-family: Arial, sans-serif;
-    padding: 30px 30px;
-    display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
 }
 
+/*p {*/
+/*    margin: 20px 20px;*/
+/*}*/
+
+/*span {*/
+/*    float: right;*/
+/*}*/
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0 0 0;
+}
 .page-xac-nhan-dat-ve {
     width: 65%;
     border-radius: 15px;
     box-shadow:  0 5px 15px rgba(0,0,0,0.1);
     border: 5px solid #dcdcdc;
+    padding: 10px 0 10px 0;
 }
 
 .title-xac-nhan-dat-ve {
@@ -21,13 +34,10 @@ body {
     margin-bottom: 20px;
 }
 
-p {
-    margin: 20px 20px;
+.flight-info{
+    padding-left: 20px;
 }
 
-span {
-    float: right;
-}
 
 .input-so-luong {
     display: flex;
@@ -52,7 +62,7 @@ span {
     margin-top: 20px;
 }
 
-a {
+.btn-xac-nhan-dat-ve a {
     display: inline-block;
     text-decoration: none;
     padding: 15px 30px;
@@ -65,7 +75,7 @@ a {
     transition: 0.25s;
 }
 
-a:hover {
+.btn-xac-nhan-dat-ve a:hover {
     background: #005ec4;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     scale: 1.05;
