@@ -1,5 +1,8 @@
 
-
+footer {
+    display: flex;
+    justify-content: space-between;
+}
 .main-footer {
     background: #f8f9fc;
     padding: 45px 55px; /* tăng nhẹ padding */
