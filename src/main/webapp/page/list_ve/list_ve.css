@@ -31,7 +31,7 @@ a {
 .box-form {
     width: 30%;
     position: fixed;
-    top: 170px;
+    top: 90px;
     right: 80px;
 }
 
@@ -160,6 +160,17 @@ a {
 .text-hang-bay
 {
     font-size: 17px;
+}
+.form-chon-hang-ghe {
+    padding: 10px 0 0 0;
+}
+
+.form-chon-hang-ghe div {
+    width: 100%;
+}
+
+.form-chon-hang-ghe div label {
+    text-align: center;
 }
 
 .btn-dat-ve {
