@@ -1,35 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Title</title>
     <link rel="stylesheet" href="cap_nhat_thong_tin_khach_hang.css">
-	<link rel="stylesheet" href="../../StyleHeader.css">
-	<link rel="stylesheet" href="../../StyleFooter.css">
+	<link rel="stylesheet" href="../../layout/StyleHeader.css">
+	<link rel="stylesheet" href="../../layout/StyleFooter.css">
 </head>
 <body>
 <!--start header-->
-<header>
-    <div class="logo">
-        <img src="../../access/trang_chu/Logo.png" alt="">
-        <a href="../../index.html">MáyBayOnline</a>
-    </div>
-
-    <div class="menu">
-        <a href="../../index.html">Trang Chủ</a>
-        <a href="../tim_ve/tim_ve.html">Đặt Vé</a>
-        <a href="../thong_tin_ve_noi_dia/ve_noi_dia.html">Vé Nội Địa</a>
-        <a href="../thong_tin_ve_quoc_te/ve_quoc_te.html">Vé Quốc Tế</a>
-        <a href="../lien_he/lien_he.html">Thông Tin Liên Hệ</a>
-	    <a href="../list_ve_da_dat/list_ve_da_dat.html">Vé đã đặt</a>
-    </div>
-
-    <div class="auth">
-        <a href="../thong_tin_khach_hang/thong_tin_khach_hang.html">Thông Tin</a> |
-        <a href="../dang_nhap/dang_nhap.html">Đăng Nhập</a> |
-        <a href="../dang_ky/dang_ky.html">Đăng Ký</a>
-    </div>
-</header>
+<%@ include file="../../layout/Header.jsp" %>
 <!--end header-->
 
 <!--update form info-->
@@ -79,5 +60,7 @@
         </form>
     </div>
 <!--end update form info-->
+
+<%@ include file="../../layout/Footer.jsp" %>
 </body>
 </html>

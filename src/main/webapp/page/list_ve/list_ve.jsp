@@ -1,34 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>danh sách vé</title>
 	<link rel="stylesheet" href="list_ve.css">
-	<link rel="stylesheet" href="../../StyleHeader.css">
-	<link rel="stylesheet" href="../../StyleFooter.css">
+	<link rel="stylesheet" href="../../layout/StyleHeader.css">
+	<link rel="stylesheet" href="../../layout/StyleFooter.css">
 </head>
 <body>
-<header>
-	<div class="logo">
-		<img src="../../access/trang_chu/Logo.png" alt="">
-		<a href="../../index.html">MáyBayOnline</a>
-	</div>
-
-	<div class="menu">
-		<a href="../../index.html">Trang Chủ</a>
-		<a href="../tim_ve/tim_ve.html">Đặt Vé</a>
-		<a href="../thong_tin_ve_noi_dia/ve_noi_dia.html">Vé Nội Địa</a>
-		<a href="../thong_tin_ve_quoc_te/ve_quoc_te.html">Vé Quốc Tế</a>
-		<a href="../lien_he/lien_he.html">Thông Tin Liên Hệ</a>
-		<a href="../list_ve_da_dat/list_ve_da_dat.html">Vé đã đặt</a>
-	</div>
-
-	<div class="auth">
-		<a href="../thong_tin_khach_hang/thong_tin_khach_hang.html">Thông Tin</a> |
-		<a href="../dang_nhap/dang_nhap.html">Đăng Nhập</a> |
-		<a href="../dang_ky/dang_ky.html">Đăng Ký</a>
-	</div>
-</header>
+<%@include file="../../layout/Header.jsp" %>
 <div class="container flex">
 
 
@@ -65,7 +46,7 @@
 
 			<div class="btn-dat-ve">
 				<button type="submit">
-					<a href="../xac_nhan_dat_ve/xac_nhan_dat_ve.html">Chọn</a>
+					<a href="../xac_nhan_dat_ve/xac_nhan_dat_ve.jsp">Chọn</a>
 				</button>
 			</div>
 
@@ -320,7 +301,7 @@
 	</div>
 
 	<div class="box-form">
-		<form action="" method="" class="form-tim-ve">
+		<form action="" class="form-tim-ve">
 			<div class="form-tim-ve-item">
 				<div class="form-title">
 					<h1>Tìm vé</h1>
@@ -540,6 +521,7 @@
 
 </div>
 
+<%@include file="../../layout/Footer.jsp"%>
 
 </body>
 </html>

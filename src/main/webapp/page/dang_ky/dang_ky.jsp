@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
 	<link rel="stylesheet" href="dang_ky.css">
 </head>
 <body>
-<a class="link-quay-lai" href="../../index.html"> <-- quay lại</a>
+<a class="link-quay-lai" href="../../index.jsp"> <-- quay lại</a>
 <main>
 	<div class="main-content">
 		<h1 class="title-form">
@@ -57,7 +58,7 @@
 
 			<div class="btn-dang-nhap">
 				<p>
-					Nếu bạn đã có tài khoảng <a href="../dang_nhap/dang_nhap.html">Đăng nhập tại đây</a>
+					Nếu bạn đã có tài khoảng <a href="../dang_nhap/dang_nhap.jsp">Đăng nhập tại đây</a>
 				</p>
 			</div>
 

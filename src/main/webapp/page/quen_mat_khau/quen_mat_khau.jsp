@@ -1,3 +1,5 @@
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,7 +64,7 @@
 		</form>
 
 		<div class="btn-quay-lai-dang-nhap">
-			<a href="../dang_nhap/dang_nhap.html"> ⬅ Quay Lại Đăng Nhập</a>
+			<a href="../dang_nhap/dang_nhap.jsp"> ⬅ Quay Lại Đăng Nhập</a>
 		</div>
 	</div>
 </main>

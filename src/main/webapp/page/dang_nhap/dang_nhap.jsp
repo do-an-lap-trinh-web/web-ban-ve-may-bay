@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
     <link rel="stylesheet" href="dang_nhap.css">
 </head>
 <body>
-<a class="link-quay-lai" href="../../index.html"> ⬅ Quay Lại</a>
+<a class="link-quay-lai" href="../../index.jsp"> ⬅ Quay Lại</a>
 <main>
     <div class="main-content">
         <h1 class="title-form">
@@ -38,7 +39,7 @@
             </div>
 
             <div class="btn-quen-mat-khau">
-	            <a href="../quen_mat_khau/quen_mat_khau.html">Quên Mật Khẩu?</a>
+	            <a href="../quen_mat_khau/quen_mat_khau.jsp">Quên Mật Khẩu?</a>
             </div>
 
         </form>

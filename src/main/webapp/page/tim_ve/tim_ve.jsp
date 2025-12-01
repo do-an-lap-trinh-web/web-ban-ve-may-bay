@@ -1,35 +1,17 @@
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Tìm vé</title>
 	<link rel="stylesheet" href="tim_ve.css">
-	<link rel="stylesheet" href="../../StyleHeader.css">
-	<link rel="stylesheet" href="../../StyleFooter.css">
+	<link rel="stylesheet" href="../../layout/StyleHeader.css">
+	<link rel="stylesheet" href="../../layout/StyleFooter.css">
 </head>
 <body>
 <!--start header-->
-<header>
-    <div class="logo">
-        <img src="../../access/trang_chu/Logo.png" alt="">
-        <a href="../../index.html">MáyBayOnline</a>
-    </div>
-
-    <div class="menu">
-        <a href="../../index.html">Trang Chủ</a>
-        <a href="tim_ve.html">Đặt Vé</a>
-        <a href="../thong_tin_ve_noi_dia/ve_noi_dia.html">Vé Nội Địa</a>
-        <a href="../thong_tin_ve_quoc_te/ve_quoc_te.html">Vé Quốc Tế</a>
-        <a href="../lien_he/lien_he.html">Thông Tin Liên Hệ</a>
-	    <a href="../list_ve_da_dat/list_ve_da_dat.html">Vé đã đặt</a>
-    </div>
-
-    <div class="auth">
-        <a href="../thong_tin_khach_hang/thong_tin_khach_hang.html">Thông Tin</a> |
-        <a href="../dang_nhap/dang_nhap.html">Đăng Nhập</a> |
-        <a href="../dang_ky/dang_ky.html">Đăng Ký</a>
-    </div>
-</header>
+<%@include file="../../layout/Header.jsp"%>
 <!--end header-->
 
 <div class="container">
@@ -38,7 +20,7 @@
 	</div>
 </div>
 <div class="container">
-	<form action="" method="" class="form-tim-ve">
+	<form action="" class="form-tim-ve">
 		<div class="form-quoc-gia">
 			<div>
 				<label>Khởi hành tại: </label>
@@ -239,37 +221,12 @@
 
 		<div class="form-tim-ve-item form-tim-ve-item-btn">
 			<button type="submit" class="btn-tim-ve">
-				<a href="../list_ve/list_ve.html">Tìm vé</a>
+				<a href="../list_ve/list_ve.jsp">Tìm vé</a>
 			</button>
 		</div>
 
 	</form>
 </div>
-<footer class="main-footer">
-    <div class="footer-left">
-        <h3><strong>Dịch vụ</strong></h3>
-        <ul>
-            <li><a href="/index.html">Trang chủ</a></li>
-            <li><a href="/page/tim_ve/tim_ve.html">Đặt vé</a></li>
-            <li><a href="/page/thong_tin_ve_noi_dia/ve_noi_dia.html">Vé nội địa</a></li>
-            <li><a href="/page/thong_tin_ve_quoc_te/ve_quoc_te.html">Vé quốc tế</a></li>
-            <li><a href="/page/lien_he/lien_he.html">Thông tin liên hệ</a></li>
-        </ul>
-    </div>
-
-    <div class="footer-right">
-        <h3><strong>Trang bán vé máy bay số 1 Việt Nam</strong></h3>
-        <p>VQCR+GP6, khu phố 6, Thủ Đức, TP. Hồ Chí Minh</p>
-        <p>email@gmail.com</p>
-        <p>Tổng đài: 1800-0909</p>
-
-        <div class="social-links">
-            <img src="../../access/logoYoutube.png">
-            <img src="../../access/logoFacebook.png">
-            <img src="../../access/logoTiktok.jpg">
-
-        </div>
-    </div>
-</footer>
+<%@include file="../../layout/Footer.jsp"%>
 </body>
 </html>
