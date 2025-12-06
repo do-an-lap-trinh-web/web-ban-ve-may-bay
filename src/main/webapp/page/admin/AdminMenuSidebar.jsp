@@ -5,7 +5,7 @@
     <title>Demo Giao Diện Admin Sidebar</title>
     <style>
         .sidebar-menu {
-            width: 260px;
+            width: 300px;
             height: 100vh;
             background-color: #1a1a2e;
             color: #bdc3c7;
