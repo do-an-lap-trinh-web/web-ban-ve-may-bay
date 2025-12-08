@@ -1,19 +1,19 @@
 package com.edu.hcmuaf.fit.webbanvemaybay.models;
 
 public class SanBay {
-    private int id_san_bay;
-    private String ten_san_bay;
-    private String thanh_pho;
-    private String quoc_gia;
+    private int idSanBay;
+    private String tenSanBay;
+    private String thanhPho;
+    private String quocGia;
 
     public SanBay() {}
 
-    public int getId_san_bay() { return id_san_bay; }
-    public void setId_san_bay(int id_san_bay) { this.id_san_bay = id_san_bay; }
-    public String getTen_san_bay() { return ten_san_bay; }
-    public void setTen_san_bay(String ten_san_bay) { this.ten_san_bay = ten_san_bay; }
-    public String getThanh_pho() { return thanh_pho; }
-    public void setThanh_pho(String thanh_pho) { this.thanh_pho = thanh_pho; }
-    public String getQuoc_gia() { return quoc_gia; }
-    public void setQuoc_gia(String quoc_gia) { this.quoc_gia = quoc_gia; }
+    public int getIdSanBay() { return idSanBay; }
+    public void setIdSanBay(int idSanBay) { this.idSanBay = idSanBay; }
+    public String getTenSanBay() { return tenSanBay; }
+    public void setTenSanBay(String tenSanBay) { this.tenSanBay = tenSanBay; }
+    public String getThanhPho() { return thanhPho; }
+    public void setThanhPho(String thanhPho) { this.thanhPho = thanhPho; }
+    public String getQuocGia() { return quocGia; }
+    public void setQuocGia(String quocGia) { this.quocGia = quocGia; }
 }
