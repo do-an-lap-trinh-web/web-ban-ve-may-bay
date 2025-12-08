@@ -1,12 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Chỉnh Sửa Hồ Sơ</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/admin/quan_ly_users/StyleUpdateUserInfo.css">
 </head>
 <body>
+
     <%// Dữ liệu giả định được tải từ database
         String currentUsername = "nguyen_van_a";
-        String currentPassword = "Password123@";
         String currentEmail = "nva@example.com";
         String currentPhone = "0987654321";
         String currentHo = "Nguyễn Văn";
@@ -33,7 +36,7 @@
 
                 <div class="input-group">
                     <label for="password">Mật khẩu:</label>
-                    <input type="password" id="password" name="password" value="<%= currentPassword %>">
+                    <input type="password" id="password" name="password" placeholder="Để trống nếu không đổi password" autocomplete="new-password">
                 </div>
 
                 <div class="input-group">
