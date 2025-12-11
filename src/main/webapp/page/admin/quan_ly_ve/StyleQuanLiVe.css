@@ -8,8 +8,7 @@ body {
 }
 
 .container {
-    width: 100%;
-    max-width: 1200px;
+    width: auto;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -78,6 +77,12 @@ body {
     color: #333;
 }
 
+.example-flights tbody td:nth-child(6){
+    text-align: center !important;
+    vertical-align: middle !important;
+    display: table-cell !important;
+}
+
 .example-flights tbody tr:hover {
     background-color: #f0f8ff;
 }
@@ -98,7 +103,7 @@ body {
     font-weight: 600;
 }
 
-.arrow {
+.icon-arrow {
     color: #1ba0e2;
     font-size: 20px;
     font-weight: bold;
@@ -109,12 +114,21 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 5px;
+}
+
+.flight-time-row{
+    display: flex;
+    align-items: center;
     gap: 10px;
+    white-space: nowrap;
 }
 
 .flight-date {
     font-size: 15px;
     color: #888;
+    margin-top: 5px;
+    white-space: nowrap;
 }
 
 .flight-price {
@@ -125,10 +139,10 @@ body {
 
 .left-ticket {
     display: inline-block;
-    padding: 5px 15px;
+    margin: 0 auto;
     border-radius: 20px;
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .left-ticket.available {
@@ -136,9 +150,9 @@ body {
     color: #28a745;
 }
 
-.status-badge.low-stock {
-    background-color: #fff3cd;
-    color: #856404;
+.left-ticket.low-stock {
+    background-color: #e6f9ea;
+    color:#ff0500;
 }
 
 .page-moving {

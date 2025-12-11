@@ -37,11 +37,13 @@
                     </td>
                     <td>
                         <div class="time-info">
-                            <span class="time">08:00</span>
-                            <span class="icon-arrow">&rarr;</span>
-                            <span class="time">10:00</span>
+                            <div class="flight-time-row">
+                                <span class="time">08:00</span>
+                                <span class="icon-arrow">&rarr;</span>
+                                <span class="time">10:00</span>
+                            </div>
+                            <div class="flight-date">10/12/2025</div>
                         </div>
-                        <div class="flight-date">10/12/2025</div>
                     </td>
                     <td class="ticket-type">Phổ thông</td>
                     <td class="flight-price">1,200,000đ</td>
@@ -60,9 +62,11 @@
                     </td>
                     <td>
                         <div class="time-info">
-                            <span class="time">14:30</span>
-                            <span class="icon-arrow">&rarr;</span>
-                            <span class="time">19:00</span>
+                            <div class="flight-time-row">
+                                <span class="time">14:30</span>
+                                <span class="icon-arrow">&rarr;</span>
+                                <span class="time">19:00</span>
+                            </div>
                             <div class="flight-date">21/12/2025</div>
                         </div>
                     </td>
@@ -83,9 +87,11 @@
                     </td>
                     <td>
                         <div class="time-info">
-                            <span class="time">23:00</span>
-                            <span class="icon-arrow">&rarr;</span>
-                            <span class="time">07:00</span>
+                            <div class="flight-time-row">
+                                <span class="time">23:00</span>
+                                <span class="icon-arrow">&rarr;</span>
+                                <span class="time">07:00</span>
+                            </div>
                             <div class="flight-date">23/12/2025 &rarr; 24/12/2025</div>
                         </div>
                     </td>
