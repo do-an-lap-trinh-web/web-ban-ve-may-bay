@@ -1,0 +1,167 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #0056b3;
+}
+
+.search-flight-bar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.search-flight-bar input {
+    flex: 1;
+    padding: 15px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-flight-bar input:focus {
+    border-color: #1ba0e2;
+    box-shadow: 0 0 0 3px rgba(10, 100, 225, 0.1);
+}
+
+.search-flight-btn {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 0 30px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+.search-flight-btn:hover {
+    background-color: #004494;
+}
+
+.example-flights {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.example-flights thead th {
+    background-color: #f8f9fa;
+    color: #495057;
+    text-align: left;
+    padding: 15px;
+    border-bottom: 5px solid #dee2e6;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.example-flights tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #e9ecef;
+    vertical-align: middle;
+    color: #333;
+}
+
+.example-flights tbody tr:hover {
+    background-color: #f0f8ff;
+}
+
+.flight-code {
+    font-weight: bold;
+    color: #0056b3;
+    font-size: 15px;
+}
+
+.route-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.location {
+    font-weight: 600;
+}
+
+.arrow {
+    color: #1ba0e2;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.time-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.flight-date {
+    font-size: 15px;
+    color: #888;
+}
+
+.flight-price {
+    color: #d9534f;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.left-ticket {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.left-ticket.available {
+    background-color: #e6f9ea;
+    color: #28a745;
+}
+
+.status-badge.low-stock {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.page-moving {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.page-link {
+    text-decoration: none;
+    color: #0056b3;
+    padding: 10px 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+
+.page-link:hover {
+    background-color: #e9ecef;
+}
+
+.page-link.active {
+    background-color: #0056b3;
+    color: white;
+    border-color: #0056b3;
+}

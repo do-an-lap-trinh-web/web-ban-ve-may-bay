@@ -2,7 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
-    <title>Title</title>
+    <title>Quản Lí Vé</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/admin/quan_ly_ve/StyleQuanLiVe.css">
 </head>
 <body>
     <div class="container">
@@ -40,11 +41,11 @@
                             <span class="icon-arrow">&rarr;</span>
                             <span class="time">10:00</span>
                         </div>
-                        <div class=flight-date">10/12/2025</div>
+                        <div class="flight-date">10/12/2025</div>
                     </td>
                     <td class="ticket-type">Phổ thông</td>
                     <td class="flight-price">1,200,000đ</td>
-                    <td class="left-ticket">Còn 20 vé</td>
+                    <td class="left-ticket available">Còn 20 vé</td>
                     <td class="flight-airline-name">Vietjet Air</td>
                 </tr>
 
@@ -62,12 +63,12 @@
                             <span class="time">14:30</span>
                             <span class="icon-arrow">&rarr;</span>
                             <span class="time">19:00</span>
-                            <div class=flight-date">21/12/2025</div>
+                            <div class="flight-date">21/12/2025</div>
                         </div>
                     </td>
                     <td class="ticket-type">Thương gia</td>
                     <td class="flight-price">2,100,000đ</td>
-                    <td class="left-ticket">Còn 25 vé</td>
+                    <td class="left-ticket available">Còn 25 vé</td>
                     <td class="flight-airline-name">Vietnam Airlines</td>
                 </tr>
 
@@ -85,12 +86,12 @@
                             <span class="time">23:00</span>
                             <span class="icon-arrow">&rarr;</span>
                             <span class="time">07:00</span>
-                            <div class=flight-date">23/12/2025 &rarr; 24/12/2025</div>
+                            <div class="flight-date">23/12/2025 &rarr; 24/12/2025</div>
                         </div>
                     </td>
                     <td class="ticket-type">Thương gia</td>
                     <td class="flight-price">1,900,000đ</td>
-                    <td class="left-ticket">Còn 10 vé</td>
+                    <td class="left-ticket low-stock">Còn 10 vé</td>
                     <td class="flight-airline-name">Bamboo Airways</td>
                 </tr>
             </tbody>
