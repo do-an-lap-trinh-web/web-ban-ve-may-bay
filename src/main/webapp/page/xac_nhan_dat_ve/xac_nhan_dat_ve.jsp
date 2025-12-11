@@ -24,7 +24,6 @@
 				<p><b>Hạ cánh tại:</b> Sân bay Nội Bài
 					<span>Thời gian: 18:00</span>
 				</p>
-
 				<p><b>Giá vé:</b> 1.200.000 đồng</p>
 			</div>
 
