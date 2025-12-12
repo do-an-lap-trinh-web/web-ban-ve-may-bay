@@ -7,18 +7,20 @@
 </head>
 <body>
     <div class="container">
-        <div class="search-side-form">
-            <form action="" class="search-by-flight-code">
-                <input type="text" placeholder="Tìm kiếm theo số hiệu chuyến bay (VD: VJ123)...">
-                <button class="btn-search-from-quanlive">Tìm kiếm</button>
-            </form>
-        </div>
+        <div class="search-flight-bar">
+            <div class="search-side-form">
+                <form action="" class="search-by-flight-code">
+                    <input type="text" placeholder="Tìm kiếm theo số hiệu chuyến bay (VD: VJ123)...">
+                    <button class="btn-search-from-quan-li-ve">Tìm kiếm</button>
+                </form>
+            </div>
 
-        <div class="search-side-form">
-            <form action="" class="search-by-flight-ticket">
-                <input type="text" placeholder="Tìm kiếm theo vé máy bay (VD: VE123)...">
-                <button class="btn-search-from-quanlive">Tìm Vé</button>
-            </form>
+            <div class="search-side-form">
+                <form action="" class="search-by-flight-ticket">
+                    <input type="text" placeholder="Tìm kiếm theo vé máy bay (VD: VE123)...">
+                    <button class="btn-search-from-quan-li-ve">Tìm Vé</button>
+                </form>
+            </div>
         </div>
 
         <table class="example-flights">
