@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Quản Lí Vé</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/admin/quan_ly_ve/StyleQuanLiVe.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/admin/quan_ly_ve/quan_li_ve.css">
 </head>
 <body>
     <div class="container">
@@ -16,10 +16,9 @@
             </div>
 
             <div class="search-side-form">
-                <form action="" class="search-by-flight-ticket">
-                    <input type="text" placeholder="Tìm kiếm theo vé máy bay (VD: VE123)...">
-                    <button class="btn-search-from-quan-li-ve">Tìm Vé</button>
-                </form>
+                <button class="btn-add-ticket">
+                    <span class="btn-add-ticket-icon">+</span>Thêm vé
+                </button>
             </div>
         </div>
 
