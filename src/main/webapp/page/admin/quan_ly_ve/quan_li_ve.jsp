@@ -31,7 +31,8 @@
                     <th>Loại vé</th>
                     <th>Giá</th>
                     <th>Số lượng tồn</th>
-                    <th>Hãng Bay</th>
+                    <th>Hãng bay</th>
+                    <th class="action-from-quan-li-ve">Thao Tác</th>
                 </tr>
             </thead>
 
@@ -58,7 +59,13 @@
                     <td class="ticket-type">Phổ thông</td>
                     <td class="flight-price">1,200,000đ</td>
                     <td class="left-ticket available">Còn 20 vé</td>
-                    <td class="flight-airline-name">Vietjet Air</td>
+                    <td class="flight-airline-name">Vietjet Air</td
+                    <td>
+                        <div class="act-btns">
+                            <button class="btn-act-edit-del btn-edit">Sửa</button>
+                            <button class="btn-act-edit-del btn-delete">Xóa</button>
+                        </div>
+                    </td>
                 </tr>
 
                 <tr>
@@ -84,6 +91,12 @@
                     <td class="flight-price">2,100,000đ</td>
                     <td class="left-ticket available">Còn 25 vé</td>
                     <td class="flight-airline-name">Vietnam Airlines</td>
+                    <td>
+                        <div class="act-btns">
+                            <button class="btn-act-edit-del btn-edit">Sửa</button>
+                            <button class="btn-act-edit-del btn-delete">Xóa</button>
+                        </div>
+                    </td>
                 </tr>
 
                 <tr>
@@ -109,6 +122,12 @@
                     <td class="flight-price">1,900,000đ</td>
                     <td class="left-ticket low-stock">Còn 10 vé</td>
                     <td class="flight-airline-name">Bamboo Airways</td>
+                    <td>
+                        <div class="act-btns">
+                            <button class="btn-act-edit-del btn-edit">Sửa</button>
+                            <button class="btn-act-edit-del btn-delete">Xóa</button>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>
