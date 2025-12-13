@@ -19,15 +19,17 @@ body {
     display: flex;
     width: 100%;
     margin-bottom: 25px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
 }
 
-.search-side-form{
-    display: flex;
+.search-form{
+    max-width: 600px;
     flex: 1;
-    padding: 15px
 }
 
-.search-by-flight-code, .search-by-flight-ticket{
+.search-by-flight-code{
     display: flex;
     padding: 5px;
     border: 1px solid #ced4da;
@@ -37,7 +39,7 @@ body {
     background-color: #fff;
 }
 
-.search-by-flight-code input, .search-by-flight-ticket input {
+.search-by-flight-code input{
     flex: 1;
     padding: 10px 15px;
     border: none;
@@ -47,7 +49,7 @@ body {
     background: transparent;
 }
 
-.search-by-flight-code input:focus, .search-by-flight-ticket input:focus {
+.search-by-flight-code input:focus{
     box-shadow: 0 0 0 2px rgba(10, 50, 250, 0.4);
 }
 
@@ -67,6 +69,40 @@ body {
 
 .btn-search-from-quan-li-ve:hover {
     background-color: #004494;
+}
+
+.btn-add-ticket-from-quan-li-ve{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-add-ticket{
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 0 25px;
+    height: 52px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(40, 167, 69, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.btn-add-ticket:hover{
+    background-color: #218838;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
+}
+
+.btn-add-ticket-icon{
+    font-size: 25px;
+    font-weight: 400;
 }
 
 .example-flights {
