@@ -59,7 +59,7 @@
                     <td class="ticket-type">Phổ thông</td>
                     <td class="flight-price">1,200,000đ</td>
                     <td class="left-ticket available">Còn 20 vé</td>
-                    <td class="flight-airline-name">Vietjet Air</td
+                    <td class="flight-airline-name">Vietjet Air</td>
                     <td>
                         <div class="act-btns">
                             <button class="btn-act-edit-del btn-edit">Sửa</button>

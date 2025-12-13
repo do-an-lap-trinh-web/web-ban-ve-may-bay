@@ -123,6 +123,11 @@ body{
     white-space: nowrap;
 }
 
+.example-flights thead th.action-from-quan-li-ve{
+    text-align: center;
+    width: 120px;
+}
+
 .example-flights tbody td{
     padding: 15px;
     border-bottom: 1px solid #e9ecef;
@@ -206,6 +211,39 @@ body{
 .left-ticket.low-stock{
     background-color: #e6f9ea;
     color:#ff0500;
+}
+
+.act-btns{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-act-edit-del{
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: white;
+}
+
+.btn-edit{
+    background-color: #f0ad4e;
+}
+
+.btn-edit:hover{
+    background-color: #ec971f;
+}
+
+.btn-delete{
+    background-color: #d9534f;
+}
+
+.btn-delete:hover{
+    background-color: #c9302c;
 }
 
 .page-moving{
