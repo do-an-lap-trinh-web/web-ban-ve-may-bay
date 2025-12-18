@@ -1,81 +1,70 @@
-
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
-    <title>Title</title>
-    <link rel="stylesheet" href="quan_ly_users.css">
+    <title>Quản lý user</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/admin/quan_ly_users/quan_ly_users.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/admin/StyleAdminMenuSidebar.css">
 </head>
 <body>
-<div class="main-content">
-    <h1><span class="emoji">🧑‍💻</span> Quản Lý Tài Khoản Người Dùng</h1>
 
-    <div class="toolbar">
-        <form action="">
-            <input type="text" id="searchUser" placeholder="Tìm kiếm theo Username, Email, SĐT...">
-            <button class="btn btn-primary">Tìm</button>
-        </form>
+<main>
+    <%@include file="../AdminMenuSidebar.jsp"%>
+    <div class="main-content">
+        <h1><span class="emoji">🧑‍💻</span> Quản Lý Tài Khoản Người Dùng</h1>
 
-        <button class="btn btn-primary">+ Thêm Người Dùng Mới</button>
+        <div class="toolbar">
+            <form action="">
+                <input type="text" id="searchUser" placeholder="Tìm kiếm theo Username, Email, SĐT...">
+                <button class="btn btn-primary">Tìm</button>
+            </form>
+
+            <a href="${pageContext.request.contextPath}/page/admin/quan_ly_users/them_user.jsp" class="btn btn-primary">+ Thêm Người Dùng Mới</a>
+        </div>
+
+
+
+        <div class="user-table-container">
+            <table>
+                <thead>
+                <tr>
+                    <th>ID User</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>SĐT</th>
+                    <th>Hạng xác thực</th>
+                    <th>code xác thực</th>
+                    <th>Thao Tác</th>
+                </tr>
+                </thead>
+                <tbody>
+                <%-- Dữ liệu được lặp từ Database qua Java/JSTL --%>
+                <c:forEach items="${listUsers}" var="user">
+                    <tr>
+
+                        <td>${user.id}</td>
+                        <td>${user.username}</td>
+                        <td>${user.email}</td>
+                        <td>${user.soDienThoai}</td>
+                        <td>${user.hangXacThuc}</td>
+                        <td>${user.codeXacThuc}</td>
+                        <td>
+                            <a >Sửa</a>
+                            <button >Hồ Sơ</button>
+                            <button >Xóa</button>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+
+
     </div>
+</main>
 
-    <div class="user-table-container">
-        <table>
-            <thead>
-            <tr>
-                <th>ID User</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>SĐT</th>
-                <th>Ngày Đăng Ký</th>
-                <th>code xác thực</th>
-                <th>hạn xác thực</th>
-                <th>Thao Tác</th>
-            </tr>
-            </thead>
-            <tbody>
-            <%-- Dữ liệu được lặp từ Database qua Java/JSTL --%>
-            <tr>
-                <td>101</td>
-                <td>nguyenvanA</td>
-                <td>vana@example.com</td>
-                <td>0901234567</td>
-                <td>2024-01-15</td>
-                <td>12345</td>
-                <td>còn hạng</td>
-                <td>
-                    <button >Sửa</button>
-                    <button >Hồ Sơ</button>
-                    <button >Xóa</button>
-                </td>
-            </tr>
-            <tr>
-                <td>102</td>
-                <td>lethib</td>
-                <td>lethib@mail.com</td>
-                <td>0987654321</td>
-                <td>2024-03-20</td>
-                <td>null</td>
-                <td>null</td>
-                <td>
-                    <button >Sửa</button>
-                    <button >Hồ Sơ</button>
-                    <button >Xóa</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
 
-    <div class="pagination">
-        <a href="#">&laquo;</a>
-        <a href="#" class="active">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">&raquo;</a>
-    </div>
-</div>
 
-<div id="userModal" class="modal">
-</div>
+
 </body>
 </html>

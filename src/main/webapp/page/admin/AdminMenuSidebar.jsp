@@ -6,7 +6,7 @@
 
         <div class="menu-group">
             <h3>Người Dùng</h3>
-            <a href="${pageContext.request.contextPath}/admin/users" class="menu-link" data-table="users">
+            <a href="${pageContext.request.contextPath}/user-controller" class="menu-link" data-table="users">
                 <span class="emoji">🧑‍💻</span> Tài Khoản Khách Hàng
             </a>
             <a href="${pageContext.request.contextPath}/admin/profiles" class="menu-link" data-table="thong_tin_nguoi_dung">
@@ -16,7 +16,7 @@
 
         <div class="menu-group">
             <h3>Hàng Không</h3>
-            <a href="${pageContext.request.contextPath}/admin/flights" class="menu-link active" data-table="chuyen_bay">
+            <a href="${pageContext.request.contextPath}/admin/flights" class="menu-link" data-table="chuyen_bay">
                 <span class="emoji">✈️</span> Quản Lý Chuyến Bay
             </a>
             <a href="${pageContext.request.contextPath}/admin/airlines" class="menu-link" data-table="hang_bay">
