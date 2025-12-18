@@ -1,0 +1,81 @@
+.profile-title {
+    color: #1a75e8;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+}
+
+.profile-section {
+    background: #f9f9fb;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(50,60,90,0.07);
+    margin: 30px auto;
+    width: 90%;
+    max-width: 550px;
+    padding: 24px 22px 14px 25px;
+}
+
+.section-heading {
+    font-weight: 600;
+    font-size: 1.15rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+}
+.icon {
+    font-size: 1.35rem;
+    margin-right: 9px;
+}
+
+.section-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #ecebed;
+    font-size: 1rem;
+}
+
+.section-row:last-child {
+    border-bottom: none;
+}
+
+.section-value {
+    font-weight: 500;
+    color: #333;
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.btn-edit, .btn-back {
+    min-width: 160px;
+    padding: 10px 20px;
+    background: #FFD337;
+    border: none;
+    border-radius: 8px;
+    color: #2f4858;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(50,60,90,0.05);
+    transition: all 0.12s;
+}
+
+.btn-back {
+    background: #575b60;
+    color: #fff;
+}
+
+.btn-edit:hover {
+    background: #FFC200;
+}
+.btn-back:hover {
+    background: #424549;
+}
