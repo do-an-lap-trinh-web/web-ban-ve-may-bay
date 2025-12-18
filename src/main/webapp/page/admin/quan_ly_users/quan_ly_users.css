@@ -1,5 +1,11 @@
 /* CSS Tùy Chỉnh cho Trang Quản Lý Người Dùng (users-management.jsp) */
-
+main{
+    display: flex;
+}
+.main-content {
+    width: 100%;
+    padding: 0 20px 0 20px;
+}
 .toolbar {
     display: flex;
     justify-content: space-between;

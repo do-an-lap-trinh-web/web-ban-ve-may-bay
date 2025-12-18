@@ -1,7 +1,7 @@
 package com.edu.hcmuaf.fit.webbanvemaybay.models;
 
 public class User {
-    private int idUser;
+    private int id;
     private String username;
     private String password;
     private String soDienThoai;
@@ -11,8 +11,8 @@ public class User {
 
     public User() {}
 
-    public int getIdUser() { return idUser; }
-    public void setIdUser(int idUser) { this.idUser = idUser; }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
     public String getUsername() { return username; }
     public void setUsername(String username) { this.username = username; }
     public String getPassword() { return password; }
