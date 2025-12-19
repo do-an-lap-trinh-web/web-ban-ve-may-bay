@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
     <title>Quản lý user</title>
@@ -9,7 +9,7 @@
 <body>
 
 <main>
-    <%@include file="../AdminMenuSidebar.jsp"%>
+    <%@include file="../AdminMenuSidebar.jsp" %>
     <div class="main-content">
         <h1><span class="emoji">🧑‍💻</span> Quản Lý Tài Khoản Người Dùng</h1>
 
@@ -19,12 +19,16 @@
                 <button class="btn btn-primary">Tìm</button>
             </form>
 
-            <a href="${pageContext.request.contextPath}/page/admin/quan_ly_users/them_user.jsp" class="btn btn-primary">+ Thêm Người Dùng Mới</a>
+            <a href="${pageContext.request.contextPath}/page/admin/quan_ly_users/them_user.jsp" class="btn btn-primary">+
+                Thêm Người Dùng Mới</a>
         </div>
 
 
-
         <div class="user-table-container">
+
+                <%= request.getAttribute("messageXoaUser")%>
+
+
             <table>
                 <thead>
                 <tr>
@@ -49,11 +53,12 @@
                         <td>${user.hangXacThuc}</td>
                         <td>${user.codeXacThuc}</td>
                         <td>
-                            <a >Sửa</a>
-                            <button >Hồ Sơ</button>
-                            <button >Xóa</button>
+                            <a class="btn-thao-tac">Sửa</a>
+                            <a class="btn-thao-tac">Hồ Sơ</a>
+                            <a class="btn-thao-tac" href="${pageContext.request.contextPath}/XoaUser?idUser=${user.id}">Xóa</a>
                         </td>
-                    </tr>
+                    </tr
+
                 </c:forEach>
                 </tbody>
             </table>
@@ -62,8 +67,6 @@
 
     </div>
 </main>
-
-
 
 
 </body>

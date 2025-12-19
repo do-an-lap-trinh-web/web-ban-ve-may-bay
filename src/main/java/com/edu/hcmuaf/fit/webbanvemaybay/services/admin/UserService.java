@@ -15,11 +15,15 @@ public class UserService {
     }
 
 
-
-
     // hàm thêm một user vào database
     public String addUser(User user) {
         UserDAO userDAO = new UserDAO();
         return userDAO.addUser(user);
+    }
+
+    // hàm xoá user trong database
+    public String removeUser(String id) {
+        UserDAO userDAO = new UserDAO();
+        return userDAO.removeUser(id);
     }
 }
