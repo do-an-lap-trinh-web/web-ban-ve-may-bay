@@ -1,7 +1,7 @@
 package com.edu.hcmuaf.fit.webbanvemaybay.models;
 
 public class DaiLy {
-    private int idDaiLy;
+    private int id;
     private String diaChi;
     private String soDienThoai;
     private String email;
@@ -12,8 +12,15 @@ public class DaiLy {
     public DaiLy() {}
 
     // Getters & Setters
-    public int getIdDaiLy() { return idDaiLy; }
-    public void setIdDaiLy(int idDaiLy) { this.idDaiLy = idDaiLy; }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getDiaChi() { return diaChi; }
     public void setDiaChi(String diaChi) { this.diaChi = diaChi; }
     public String getSoDienThoai() { return soDienThoai; }

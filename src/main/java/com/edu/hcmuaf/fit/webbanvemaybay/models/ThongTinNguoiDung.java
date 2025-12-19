@@ -8,7 +8,7 @@ public class ThongTinNguoiDung {
     private String diaChi;
     private String gioiTinh;
     private String ngaySinh;
-    private String idNguoiDung;
+    private int id;
 
     public ThongTinNguoiDung() {}
 
@@ -24,6 +24,11 @@ public class ThongTinNguoiDung {
     public void setGioiTinh(String gioiTinh) { this.gioiTinh = gioiTinh; }
     public String getNgaySinh() { return ngaySinh; }
     public void setNgaySinh(String ngaySinh) { this.ngaySinh = ngaySinh; }
-    public String getIdNguoiDung() { return idNguoiDung; }
-    public void setIdNguoiDung(String idNguoiDung) { this.idNguoiDung = idNguoiDung; }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

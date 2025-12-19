@@ -1,7 +1,7 @@
 package com.edu.hcmuaf.fit.webbanvemaybay.models;
 
 public class GioiThieuChuyenBay {
-    private int idGioiThieu;
+    private int id;
     private String img;
     private int idSanBayDi;
     private int idSanBayDen;
@@ -9,8 +9,14 @@ public class GioiThieuChuyenBay {
 
     public GioiThieuChuyenBay() {}
 
-    public int getIdGioiThieu() { return idGioiThieu; }
-    public void setIdGioiThieu(int idGioiThieu) { this.idGioiThieu = idGioiThieu; }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getImg() { return img; }
     public void setImg(String img) { this.img = img; }
     public int getIdSanBayDi() { return idSanBayDi; }

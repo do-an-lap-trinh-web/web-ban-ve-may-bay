@@ -1,7 +1,7 @@
 package com.edu.hcmuaf.fit.webbanvemaybay.models;
 
 public class Ve {
-    private int idVe;
+    private int id;
     private int idChuyenBay;
     private double gia;
     private int soLuongTon;
@@ -9,8 +9,13 @@ public class Ve {
 
     public Ve() {}
 
-    public int getIdVe() { return idVe; }
-    public void setIdVe(int idVe) { this.idVe = idVe; }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public int getIdChuyenBay() { return idChuyenBay; }
     public void setIdChuyenBay(int idChuyenBay) { this.idChuyenBay = idChuyenBay; }
     public double getGia() { return gia; }
