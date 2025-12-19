@@ -72,6 +72,7 @@ public class UserDAO extends DBContext {
         } catch (Exception e) {
             e.printStackTrace();
             return "xoá user có id: " + id + " thất bại do lỗi hệ thống";
+
         }
     }
 }
