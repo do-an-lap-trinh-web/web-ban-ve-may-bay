@@ -41,7 +41,28 @@ public class UserDAO extends DBContext {
             }
             int res = jdbi.withHandle(h -> {
                 return h.createUpdate("insert into users (id, username, password, so_dien_thoai, email, code_xac_thuc, hang_xac_thuc)" +
-                        " values (:id, :username, :password, :soDienThoai, :email, :codeXacThuc, :hangXacThuc)").bindBean(user).execute();
+                        " values (:id, :username, :password, :soDienThoai, :email, :codeXacThuc, :hangXacThuc)").bindBean(user).executeAndReturnGeneratedKeys().mapTo(Integer.class).one();
+            });
+            jdbi.withHandle(h -> {
+//                private int idUser;
+//                private String ho;
+//                private String ten;
+//                private String diaChi;
+//                private String gioiTinh;
+//                private String ngaySinh;
+//                private int id;
+                return h.createUpdate("insert into thong_tin_nguoi_dung (id_user, ho, ten, dia_chi, gioi_tinh, ngay_sinh)" +
+                        " values (:idUser, null, null, null, null,null)").bind("idUser", res).execute();
+            });
+
+            jdbi.withHandle(h -> {
+//                private int id;
+//                private int idUser;
+//                private int soLuong;
+//                private int idVe;
+//                private String ngayDat;
+                return h.createUpdate("insert into ve_da_dat (id_user, so_luong, id_ve, ngay_dat)" +
+                        " values (:idUser, null, null, null)").bind("idUser", res).execute();
             });
             return res > 0 ? "thêm tài khoảng thành công" : "thêm thài khoảng thất bại";
         } catch (Exception e) {
