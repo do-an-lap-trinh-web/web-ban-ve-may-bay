@@ -50,5 +50,29 @@ public class UserDAO extends DBContext {
         }
 
     }
+
+    // xoá user khỏi database
+    public String removeUser(String id) {
+        try {
+            Jdbi jdbi = get();
+            int isRemoveInTableThongTinNguoiDung = jdbi.withHandle(h -> {
+                return h.createUpdate("delete from thong_tin_nguoi_dung where id_user=:id").bind("id", id).execute();
+            });
+            int isRemoveInTableVeDaDat = jdbi.withHandle(h -> {
+                return h.createUpdate("delete from ve_da_dat where id_user=:id").bind("id", id).execute();
+            });
+            int isRemoveInTableUsers = jdbi.withHandle(h -> {
+                return h.createUpdate("delete from users where id=:id").bind("id", id).execute();
+            });
+            if (isRemoveInTableUsers > 0) {
+                return "xoá user có id: " + id + " thành công";
+            } else {
+                return "xoá user có id: " + id + " thất bại vì không tồn tại user";
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "xoá user có id: " + id + " thất bại do lỗi hệ thống";
+        }
+    }
 }
 
