@@ -1,15 +1,20 @@
 package com.edu.hcmuaf.fit.webbanvemaybay.models;
 
 public class SanBay {
-    private int idSanBay;
+    private int id;
     private String tenSanBay;
     private String thanhPho;
     private String quocGia;
 
     public SanBay() {}
 
-    public int getIdSanBay() { return idSanBay; }
-    public void setIdSanBay(int idSanBay) { this.idSanBay = idSanBay; }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getTenSanBay() { return tenSanBay; }
     public void setTenSanBay(String tenSanBay) { this.tenSanBay = tenSanBay; }
     public String getThanhPho() { return thanhPho; }
