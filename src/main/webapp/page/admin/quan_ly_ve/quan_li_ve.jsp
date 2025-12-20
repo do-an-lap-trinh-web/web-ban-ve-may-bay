@@ -11,7 +11,7 @@
             <div class="search-form">
                 <form action="" class="search-by-flight-code">
                     <input type="text" placeholder="Tìm kiếm theo số hiệu chuyến bay (VD: VJ123)...">
-                    <button class="btn-search-from-quan-li-ve">Tìm kiếm</button>
+                    <button type="submit" class="btn-search-from-quan-li-ve">Tìm kiếm</button>
                 </form>
             </div>
 

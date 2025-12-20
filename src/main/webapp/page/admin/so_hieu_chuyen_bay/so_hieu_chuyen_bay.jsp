@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Số Hiệu Chuyến Bay</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/admin/quan_ly_ve/StyleQuanLiVe.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/admin/so_hieu_chuyen_bay/so_hieu_chuyen_bay.css">
 </head>
 <body>
     <div class="container">
