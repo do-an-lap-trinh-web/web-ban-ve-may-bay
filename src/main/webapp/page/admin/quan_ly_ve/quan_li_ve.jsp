@@ -16,7 +16,7 @@
             </div>
 
             <div class="btn-add-ticket-from-quan-li-ve">
-                <button class="btn-add-ticket">
+                <button class="btn-add-ticket-from-qlv">
                     <span class="btn-add-ticket-icon">+</span>Thêm vé
                 </button>
             </div>

@@ -15,7 +15,7 @@
             </div>
 
             <div class="btn-add-ticket-from-so-hieu-chuyen-bay">
-                <button class="btn-add-ticket">
+                <button class="btn-add-ticket-from-shcb">
                     <span class="btn-add-ticket-icon">+</span>Thêm Chuyến Bay
                 </button>
             </div>
