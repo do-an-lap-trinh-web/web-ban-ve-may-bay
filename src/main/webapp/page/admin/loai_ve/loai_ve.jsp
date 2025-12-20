@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
-    <title>Số Hiệu Chuyến Bay</title>
+    <title>Loại Vé</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/page/admin/loai_ve/loai_ve.css">
 </head>
 <body>
