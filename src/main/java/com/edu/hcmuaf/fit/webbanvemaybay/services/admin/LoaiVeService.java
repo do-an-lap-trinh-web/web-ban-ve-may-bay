@@ -17,4 +17,9 @@ public class LoaiVeService {
         List<LoaiVe> listLoaiVe = loaiVeDAO.getAllLoaiVe();
         return listLoaiVe;
     }
+
+    public String xoaLoaiVe(String idLoaiVe) {
+        LoaiVeDAO loaiVeDAO = new LoaiVeDAO();
+        return loaiVeDAO.xoaLoaiVe(idLoaiVe);
+    }
 }
