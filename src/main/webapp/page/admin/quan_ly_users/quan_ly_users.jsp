@@ -42,7 +42,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <%-- Dữ liệu được lặp từ Database qua Java/JSTL --%>
+
                 <c:forEach items="${listUsers}" var="user">
                     <tr>
 

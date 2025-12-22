@@ -4,10 +4,10 @@
     background-color: #1a1a2e;
     color: #bdc3c7;
     padding-top: 25px;
-    /*position: fixed;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*z-index: 1000;*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
     overflow-y: auto;
     font-family: sans-serif;
     box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3);

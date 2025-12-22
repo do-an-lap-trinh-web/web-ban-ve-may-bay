@@ -1,10 +1,14 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
     <title>Loại Vé</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/page/admin/loai_ve/loai_ve.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/admin/StyleAdminMenuSidebar.css">
 </head>
 <body>
+<%@include file="../AdminMenuSidebar.jsp" %>
+
 <div class="container">
     <div class="search-ticket-bar">
         <div class="search-form">
@@ -15,9 +19,9 @@
         </div>
 
         <div class="btn-add-ticket-from-loai-ve">
-            <button class="btn-add-ticket-from-lv">
+            <a href="${pageContext.request.contextPath}/page/admin/loai_ve/them_loai_ve.jsp" class="btn-add-ticket-from-lv">
                 <span class="btn-add-ticket-icon">+</span>Thêm Loại Vé
-            </button>
+            </a>
         </div>
     </div>
 
@@ -25,23 +29,31 @@
         <thead>
         <tr>
             <th style="text-align: center; width: 60px;">ID</th>
-            <th>Tên loại vé</th>
-            <th>Mô tả</th>
-            <th class="action-from-loai-ve">Thao tác</th>
+            <th style="text-align: center;">Tên loại vé</th>
+            <th style="text-align: center;">Mô tả</th>
+            <th style="text-align: center;" class="action-from-loai-ve">Thao tác</th>
         </tr>
         </thead>
 
         <tbody>
+        <c:forEach items="${listLoaiVe}" var="loaiVe">
+            <tr style="padding-top: 30px; padding-bottom: 30px">
+
+                <td class="text-3cham">${loaiVe.id}</td>
+                <td class="text-3cham">${loaiVe.tenLoaiVe}</td>
+                <td class="text-3cham">${loaiVe.moTa}</td>
+                <td>
+                    <a class="btn-thao-tac">Sửa</a>
+                    <a class="btn-thao-tac">Hồ Sơ</a>
+                    <a class="btn-thao-tac" href="${pageContext.request.contextPath}/XoaUser?idUser=${user.id}">Xóa</a>
+                </td>
+            </tr>
+
+        </c:forEach>
         </tbody>
     </table>
 
-    <div class="page-moving">
-        <a href="#" class="page-link">&laquo;</a>
-        <a href="#" class="page-link active">1</a>
-        <a href="#" class="page-link">2</a>
-        <a href="#" class="page-link">3</a>
-        <a href="#" class="page-link">&raquo;</a>
-    </div>
+
 </div>
 </body>
 </html>

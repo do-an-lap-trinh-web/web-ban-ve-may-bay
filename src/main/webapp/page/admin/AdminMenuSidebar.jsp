@@ -38,8 +38,8 @@
             <a href="${pageContext.request.contextPath}/admin/tickets" class="menu-link" data-table="ve">
                 <span class="emoji">🎫</span> Chi Tiết Vé
             </a>
-            <a href="${pageContext.request.contextPath}/admin/ticket-types" class="menu-link" data-table="loai_ve">
-                <span class="emoji">💺</span> Loại Vé / Hạng Ghế
+            <a href="${pageContext.request.contextPath}/LoaiVe" class="menu-link" data-table="loai_ve">
+                <span class="emoji">💺</span> Loại Vé
             </a>
         </div>
 
