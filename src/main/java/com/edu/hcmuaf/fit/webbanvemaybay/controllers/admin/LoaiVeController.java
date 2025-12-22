@@ -7,12 +7,22 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "LoaiVe", value = "/LoaiVe")
 public class LoaiVeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        List<LoaiVe> listLoaiVe = new ArrayList<LoaiVe>();
+        LoaiVeService loaiVeService = new LoaiVeService();
+        listLoaiVe = loaiVeService.getAllLoaiVe();
+        String message;
+        if (listLoaiVe == null) {
+            message = "không có loại vé nào trong database";
+        }
+        request.setAttribute("listLoaiVe", listLoaiVe);
+        request.getRequestDispatcher("/page/admin/loai_ve/loai_ve.jsp").forward(request, response);
     }
 
     @Override
