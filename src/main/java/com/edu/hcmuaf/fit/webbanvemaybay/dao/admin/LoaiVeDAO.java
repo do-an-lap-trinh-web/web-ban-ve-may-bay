@@ -34,4 +34,30 @@ public class LoaiVeDAO extends DBContext {
             return null;
         }
     }
+
+    public String xoaLoaiVe(String idLoaiVe) {
+        try {
+            Jdbi jdbi = get();
+            int deleteInVeDaDat = jdbi.withHandle(h -> {
+                return h.createUpdate("delete from ve_da_dat where id_ve in (" +
+                        "select id from ve where id_loai_ve = :id)").bind("id", idLoaiVe).execute();
+            });
+            int deleteInVe = jdbi.withHandle(h -> {
+                return h.createUpdate("delete from ve where id_loai_ve=:id").bind("id", idLoaiVe).execute();
+            });
+            int delete = jdbi.withHandle(h -> {
+                return h.createUpdate("delete from loai_ve where id=:id").bind("id", idLoaiVe).execute();
+            });
+            String message;
+            if (delete > 0) {
+               message = "xoá thành công " + delete;
+            } else {
+                message = "xoá thất bại " + delete;
+            }
+            return message;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return " xoá thât bại do lỗi hệ thống " + e.getMessage();
+        }
+    }
 }

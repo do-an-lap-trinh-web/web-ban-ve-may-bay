@@ -26,6 +26,7 @@
     </div>
 
     <table class="example-tickets">
+        <%= request.getAttribute("message")%>
         <thead>
         <tr>
             <th style="text-align: center; width: 60px;">ID</th>
@@ -45,7 +46,7 @@
                 <td>
                     <a class="btn-thao-tac">Sửa</a>
                     <a class="btn-thao-tac">Hồ Sơ</a>
-                    <a class="btn-thao-tac" href="${pageContext.request.contextPath}/XoaUser?idUser=${user.id}">Xóa</a>
+                    <a class="btn-thao-tac" href="${pageContext.request.contextPath}/XoaLoaiVe?idLoaiVe=${loaiVe.id}">Xóa</a>
                 </td>
             </tr>
 
