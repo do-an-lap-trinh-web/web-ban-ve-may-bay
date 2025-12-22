@@ -19,9 +19,9 @@
         </div>
 
         <div class="btn-add-ticket-from-loai-ve">
-            <button class="btn-add-ticket-from-lv">
+            <a href="${pageContext.request.contextPath}/page/admin/loai_ve/them_loai_ve.jsp" class="btn-add-ticket-from-lv">
                 <span class="btn-add-ticket-icon">+</span>Thêm Loại Vé
-            </button>
+            </a>
         </div>
     </div>
 
@@ -29,19 +29,19 @@
         <thead>
         <tr>
             <th style="text-align: center; width: 60px;">ID</th>
-            <th>Tên loại vé</th>
-            <th>Mô tả</th>
-            <th class="action-from-loai-ve">Thao tác</th>
+            <th style="text-align: center;">Tên loại vé</th>
+            <th style="text-align: center;">Mô tả</th>
+            <th style="text-align: center;" class="action-from-loai-ve">Thao tác</th>
         </tr>
         </thead>
 
         <tbody>
         <c:forEach items="${listLoaiVe}" var="loaiVe">
-            <tr>
+            <tr style="padding-top: 30px; padding-bottom: 30px">
 
-                <td>${loaiVe.id}</td>
-                <td>${loaiVe.tenLoaiVe}</td>
-                <td>${loaiVe.moTa}</td>
+                <td class="text-3cham">${loaiVe.id}</td>
+                <td class="text-3cham">${loaiVe.tenLoaiVe}</td>
+                <td class="text-3cham">${loaiVe.moTa}</td>
                 <td>
                     <a class="btn-thao-tac">Sửa</a>
                     <a class="btn-thao-tac">Hồ Sơ</a>

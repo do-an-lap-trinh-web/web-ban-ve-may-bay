@@ -7,9 +7,21 @@ body{
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
+.text-3cham {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 60px;
+}
+
 .container{
     width: auto;
     padding: 30px;
+    margin-left: 350px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border-top: 5px solid #0056b3;
@@ -109,11 +121,17 @@ body{
     font-weight: 400;
 }
 
+.btn-thao-tac {
+    margin-right: 10px;
+}
+
 .example-tickets{
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 30px;
     text-align: center;
+    overflow: hidden;
+    table-layout: fixed;
 }
 
 .example-tickets thead th{
