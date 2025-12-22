@@ -11,12 +11,12 @@
             <div class="search-form">
                 <form action="" class="search-by-flight-code">
                     <input type="text" placeholder="Tìm kiếm theo số hiệu chuyến bay (VD: VJ123)...">
-                    <button class="btn-search-from-quan-li-ve">Tìm kiếm</button>
+                    <button type="submit" class="btn-search-from-quan-li-ve">Tìm kiếm</button>
                 </form>
             </div>
 
             <div class="btn-add-ticket-from-quan-li-ve">
-                <button class="btn-add-ticket">
+                <button class="btn-add-ticket-from-qlv">
                     <span class="btn-add-ticket-icon">+</span>Thêm vé
                 </button>
             </div>

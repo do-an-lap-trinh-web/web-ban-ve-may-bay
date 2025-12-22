@@ -56,7 +56,7 @@ body{
     box-shadow: 0 0 0 2px rgba(10, 50, 250, 0.4);
 }
 
-.btn-search-from-quan-li-ve{
+.btn-search-from-so-hieu-chuyen-bay{
     background-color: #0056b3;
     color: white;
     border: none;
@@ -70,17 +70,17 @@ body{
     white-space: nowrap;
 }
 
-.btn-search-from-quan-li-ve:hover{
+.btn-search-from-so-hieu-chuyen-bay:hover{
     background-color: #004494;
 }
 
-.btn-add-ticket-from-quan-li-ve{
+.btn-add-ticket-from-so-hieu-chuyen-bay{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.btn-add-ticket-from-qlv{
+.btn-add-ticket-from-shcb{
     background-color: #28a745;
     color: white;
     border: none;
@@ -98,7 +98,7 @@ body{
     white-space: nowrap;
 }
 
-.btn-add-ticket-from-qlv:hover{
+.btn-add-ticket-from-shcb:hover{
     background-color: #218838;
     transform: translateY(-2px);
     box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
@@ -127,12 +127,12 @@ body{
     white-space: nowrap;
 }
 
-.example-flights thead th.action-from-quan-li-ve{
+.example-flights thead th.action-from-so-hieu-chuyen-bay{
     text-align: center;
     width: 120px;
 }
 
-.example-flights tbody td{
+/*.example-flights tbody td{
     padding: 15px;
     border-bottom: 1px solid #e9ecef;
     vertical-align: middle;
@@ -248,7 +248,7 @@ body{
 
 .btn-delete:hover{
     background-color: #c9302c;
-}
+}*/
 
 .page-moving{
     display: flex;

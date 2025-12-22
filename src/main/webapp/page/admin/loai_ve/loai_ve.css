@@ -15,7 +15,7 @@ body{
     border-top: 5px solid #0056b3;
 }
 
-.search-flight-bar{
+.search-ticket-bar{
     display: flex;
     width: 100%;
     margin-bottom: 25px;
@@ -31,7 +31,7 @@ body{
     align-items: center;
 }
 
-.search-by-flight-code{
+.search-by-ticket-id{
     display: flex;
     padding: 5px;
     border: 1px solid #ced4da;
@@ -42,7 +42,7 @@ body{
     margin: 0;
 }
 
-.search-by-flight-code input{
+.search-by-ticket-id input{
     flex: 1;
     padding: 10px 15px;
     border: none;
@@ -52,11 +52,11 @@ body{
     background: transparent;
 }
 
-.search-by-flight-code input:focus{
+.search-by-ticket-idinput:focus{
     box-shadow: 0 0 0 2px rgba(10, 50, 250, 0.4);
 }
 
-.btn-search-from-quan-li-ve{
+.btn-search-from-loai-ve{
     background-color: #0056b3;
     color: white;
     border: none;
@@ -70,17 +70,17 @@ body{
     white-space: nowrap;
 }
 
-.btn-search-from-quan-li-ve:hover{
+.btn-search-from-loai-ve:hover{
     background-color: #004494;
 }
 
-.btn-add-ticket-from-quan-li-ve{
+.btn-add-ticket-from-loai-ve{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.btn-add-ticket-from-qlv{
+.btn-add-ticket-from-lv{
     background-color: #28a745;
     color: white;
     border: none;
@@ -98,7 +98,7 @@ body{
     white-space: nowrap;
 }
 
-.btn-add-ticket-from-qlv:hover{
+.btn-add-ticket-from-lv:hover{
     background-color: #218838;
     transform: translateY(-2px);
     box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
@@ -109,13 +109,13 @@ body{
     font-weight: 400;
 }
 
-.example-flights{
+.example-tickets{
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 30px;
 }
 
-.example-flights thead th{
+.example-tickets thead th{
     background-color: #f8f9fa;
     color: #495057;
     text-align: left;
@@ -127,12 +127,12 @@ body{
     white-space: nowrap;
 }
 
-.example-flights thead th.action-from-quan-li-ve{
+.example-flights thead th.action-from-loai-ve{
     text-align: center;
     width: 120px;
 }
 
-.example-flights tbody td{
+/*.example-flights tbody td{
     padding: 15px;
     border-bottom: 1px solid #e9ecef;
     vertical-align: middle;
@@ -248,7 +248,7 @@ body{
 
 .btn-delete:hover{
     background-color: #c9302c;
-}
+}*/
 
 .page-moving{
     display: flex;
