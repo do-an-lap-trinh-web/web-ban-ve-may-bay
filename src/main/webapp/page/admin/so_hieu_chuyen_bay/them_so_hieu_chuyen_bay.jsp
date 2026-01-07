@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="form-container">
-    <h2>👤 Đăng Ký Người Dùng Mới</h2>
+    <h2>Thêm số hiệu chuyến bay mới</h2>
 
     <form action="${pageContext.request.contextPath}/ThemSoHieuChuyenBayController" method="post">
 
@@ -33,7 +33,7 @@
 
         <div>
             <label for="idSanBayDen">ID sân bay đến</label>
-            <input type="number" id="idSanBayDen" name="idSanBayDen" placeholder="Nhậm id sân bay đến" required>
+            <input type="number" id="idSanBayDen" name="idSanBayDen" placeholder="Nhập id sân bay đến" required>
         </div>
         <div>
             <label for="idHangBay">ID hãng bay</label>

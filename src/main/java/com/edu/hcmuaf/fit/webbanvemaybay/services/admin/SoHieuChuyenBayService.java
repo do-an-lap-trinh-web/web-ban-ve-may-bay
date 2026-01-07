@@ -19,4 +19,12 @@ public class SoHieuChuyenBayService {
         }
         return soHieuChuyenBayDAO.addSoHieuChuyenBay(soHieuChuyenBay);
     }
+
+    public SoHieuChuyenBay getSoHieuChuyenBayById(int id) {
+        return soHieuChuyenBayDAO.getSoHieuChuyenBayById(id);
+    }
+
+    public String updateSoHieuChuyenBayById(SoHieuChuyenBay soHieuChuyenBay) {
+        return soHieuChuyenBayDAO.updateSoHieuChuyenBayById(soHieuChuyenBay);
+    }
 }

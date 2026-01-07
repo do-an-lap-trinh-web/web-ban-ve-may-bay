@@ -65,4 +65,63 @@ public class SoHieuChuyenBayDAO extends DBContext {
             return "thêm thất bại do lỗi hệ thống";
         }
     }
+
+    public SoHieuChuyenBay getSoHieuChuyenBayById(int id) {
+        try {
+            Jdbi jdbi = get();
+            List<SoHieuChuyenBay> listSoHieuChuyenBay = jdbi.withHandle(h -> {
+                String q = "select * from so_hieu_chuyen_bay where id = :id";
+                return h.createQuery(q).bind("id", id).mapToBean(SoHieuChuyenBay.class).list();
+            });
+            return listSoHieuChuyenBay.get(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public String updateSoHieuChuyenBayById(SoHieuChuyenBay soHieuChuyenBay) {
+        try {
+            Jdbi jdbi = get();
+            // lấy id sân bay đi trong bản san_bay
+            int isIdSanBayDi = jdbi.withHandle(h -> {
+                String q = "select count(*) from san_bay where id = :id";
+                return h.createQuery(q).bind("id", soHieuChuyenBay.getIdSanBayDi()).mapTo(Integer.class).one();
+            });
+            int isIdSanBayDen = jdbi.withHandle(h -> {
+                String q = "select count(*) from san_bay where id = :id";
+                return h.createQuery(q).bind("id", soHieuChuyenBay.getIdSanBayDen()).mapTo(Integer.class).one();
+            });
+            int isHangBay = jdbi.withHandle(h -> {
+                String q = "select count(*) from hang_bay where id = :id";
+                return h.createQuery(q).bind("id", soHieuChuyenBay.getIdHangBay()).mapTo(Integer.class).one();
+            });
+            if (isIdSanBayDi <= 0) {
+                return "id sân bay đi không tồn tại";
+            }
+            if (isIdSanBayDen <= 0) {
+                return "id sân bay đến không tồn tại";
+            }
+            if (isHangBay <= 0) {
+                return "id hãng bay không tồn tại";
+            }
+            int soDong = jdbi.withHandle(h -> {
+                String q = "update so_hieu_chuyen_bay " +
+                        "set ma_chuyen_bay = :maChuyenBay," +
+                        "id_san_bay_di = :idSanBayDi," +
+                        "id_san_bay_den = :idSanBayDen," +
+                        "id_hang_bay = :idHangBay " +
+                        "where id = :id";
+                return h.createUpdate(q).bindBean(soHieuChuyenBay).execute();
+            });
+            if (soDong == 1) {
+                return "Sửa thành công";
+            } else {
+                return "sửa thất bại";
+            }
+
+        } catch (Exception e) {
+            return "sửa thất bại do lỗi hệ thống";
+        }
+    }
 }

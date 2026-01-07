@@ -49,12 +49,9 @@
                 <th>${soHieuChuyenBay.idSanBayDen}</th>
                 <th>${soHieuChuyenBay.idHangBay}</th>
                 <th class="action-from-so-hieu-chuyen-bay">
-                    <button>
-                        Thêm
-                    </button>
-                    <button>
+                    <a href="${pageContext.request.contextPath}/SuaSoHieuChuyenBayController?id=${soHieuChuyenBay.id}">
                         sửa
-                    </button>
+                    </a>
                     <button>
                         xoá
                     </button>
