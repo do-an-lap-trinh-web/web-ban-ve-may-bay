@@ -12,4 +12,11 @@ public class SoHieuChuyenBayService {
     public List<SoHieuChuyenBay> getListSoHieuChuyenBay() {
         return soHieuChuyenBayDAO.getListSoHieuChuyenBay();
     }
+
+    public String addSoHieuChuyenBay(SoHieuChuyenBay soHieuChuyenBay) {
+        if ("".equals(soHieuChuyenBay.getMaChuyenBay())) {
+            return "Mã chuyến bay không được để trống";
+        }
+        return soHieuChuyenBayDAO.addSoHieuChuyenBay(soHieuChuyenBay);
+    }
 }
