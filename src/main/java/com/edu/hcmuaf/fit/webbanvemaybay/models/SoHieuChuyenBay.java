@@ -5,6 +5,7 @@ public class SoHieuChuyenBay {
     private String maChuyenBay;
     private int idSanBayDi;
     private int idSanBayDen;
+    private int idHangBay;
 
     public SoHieuChuyenBay() {}
     public int getId() {
@@ -20,4 +21,12 @@ public class SoHieuChuyenBay {
     public void setIdSanBayDi(int idSanBayDi) { this.idSanBayDi = idSanBayDi; }
     public int getIdSanBayDen() { return idSanBayDen; }
     public void setIdSanBayDen(int idSanBayDen) { this.idSanBayDen = idSanBayDen; }
+
+    public int getIdHangBay() {
+        return idHangBay;
+    }
+
+    public void setIdHangBay(int idHangBay) {
+        this.idHangBay = idHangBay;
+    }
 }
