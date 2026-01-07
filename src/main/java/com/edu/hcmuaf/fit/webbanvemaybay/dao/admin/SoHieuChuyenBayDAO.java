@@ -124,4 +124,21 @@ public class SoHieuChuyenBayDAO extends DBContext {
             return "sửa thất bại do lỗi hệ thống";
         }
     }
+
+    public String deleteSoHieuChuyenBayById(String id) {
+        try {
+            Jdbi jdbi = get();
+            int soDong = jdbi.withHandle(h -> {
+                String q = "delete from so_hieu_chuyen_bay where id = :id";
+                return h.createUpdate(q).bind("id", id).execute();
+            });
+            if (soDong == 1) {
+                return "xoá thành công";
+            } else {
+                return "xoá thất bại";
+            }
+        } catch (Exception e) {
+            return "xoá thất bại do lỗi hệ thống";
+        }
+    }
 }

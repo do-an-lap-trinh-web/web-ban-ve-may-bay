@@ -24,7 +24,9 @@
             </a>
         </div>
     </div>
-
+    <div>
+        <%= request.getAttribute("message")%>
+    </div>
     <table class="example-flights">
         <thead>
 
@@ -48,26 +50,20 @@
                 <th>${soHieuChuyenBay.idSanBayDi}</th>
                 <th>${soHieuChuyenBay.idSanBayDen}</th>
                 <th>${soHieuChuyenBay.idHangBay}</th>
-                <th class="action-from-so-hieu-chuyen-bay">
+                <th style="display: flex; justify-content: center; gap: 10px;" class="action-from-so-hieu-chuyen-bay">
                     <a href="${pageContext.request.contextPath}/SuaSoHieuChuyenBayController?id=${soHieuChuyenBay.id}">
                         sửa
                     </a>
-                    <button>
+                    <a href="${pageContext.request.contextPath}/XoaSoHieuChuyenBayController?id=${soHieuChuyenBay.id}">
                         xoá
-                    </button>
+                    </a>
                 </th>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 
-    <div class="page-moving">
-        <a href="#" class="page-link">&laquo;</a>
-        <a href="#" class="page-link active">1</a>
-        <a href="#" class="page-link">2</a>
-        <a href="#" class="page-link">3</a>
-        <a href="#" class="page-link">&raquo;</a>
-    </div>
+
 </div>
 </body>
 </html>

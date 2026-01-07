@@ -27,4 +27,8 @@ public class SoHieuChuyenBayService {
     public String updateSoHieuChuyenBayById(SoHieuChuyenBay soHieuChuyenBay) {
         return soHieuChuyenBayDAO.updateSoHieuChuyenBayById(soHieuChuyenBay);
     }
+
+    public String deleteSoHieuChuyenBayById(String id) {
+        return soHieuChuyenBayDAO.deleteSoHieuChuyenBayById(id);
+    }
 }
