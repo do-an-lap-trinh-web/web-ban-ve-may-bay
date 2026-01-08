@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/gio_hang/gio_hang.css">
 </head>
 <body>
     <div class="container">
