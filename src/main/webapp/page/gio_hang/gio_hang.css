@@ -1,3 +1,97 @@
+/*heder*/
+
+a {
+    text-decoration: none;
+    color: black;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Arial, sans-serif;
+    font-weight: 500;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #438bf1;
+}
+
+.logo img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.logo a {
+    color: #438bf1;
+
+}
+
+.menu {
+    display: flex;
+    gap: 50px;
+    font-weight: 500;
+}
+
+.menu a {
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #438bf1;
+}
+.auth {
+    display: flex;
+    align-items: center;
+}
+
+.auth a {
+    margin: 10px;
+}
+
+.auth a:hover {
+    color: #438bf1;
+}
+
+.cart-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+.cart-btn img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    transition: transform 0.2s;
+}
+
+.cart-btn:hover img {
+    transform: scale(1.1);
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background-color: #ff4d4f;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    height: 15px;
+    width: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f7f6;
