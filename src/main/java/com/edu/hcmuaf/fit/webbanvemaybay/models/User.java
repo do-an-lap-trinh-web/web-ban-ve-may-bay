@@ -8,6 +8,7 @@ public class User {
     private String email;
     private String codeXacThuc;
     private String hangXacThuc;
+    private String role;
 
     public User() {}
 
@@ -25,4 +26,12 @@ public class User {
     public void setCodeXacThuc(String codeXacThuc) { this.codeXacThuc = codeXacThuc; }
     public String getHangXacThuc() { return hangXacThuc; }
     public void setHangXacThuc(String hangXacThuc) { this.hangXacThuc = hangXacThuc; }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 }

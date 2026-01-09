@@ -28,6 +28,7 @@ public class RegisterController extends HttpServlet {
         user.setSoDienThoai(soDienThoai);
         user.setCodeXacThuc(null);
         user.setHangXacThuc(null);
+        user.setRole("user");
 
         UserService userService = new UserService();
         String message = userService.register(user);
