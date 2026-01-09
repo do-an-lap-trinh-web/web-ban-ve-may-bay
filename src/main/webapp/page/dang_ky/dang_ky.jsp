@@ -4,16 +4,28 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Đăng ký</title>
-	<link rel="stylesheet" href="dang_ky.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/dang_ky/dang_ky.css">
 </head>
 <body>
+
+<%
+    String message = (String) request.getAttribute("message");
+    if (message != null) {
+%>
+<script>
+    alert("<%= message %>")
+</script>
+<%
+    }
+%>
+
 <a class="link-quay-lai" href="../../index.jsp"> <-- quay lại</a>
 <main>
 	<div class="main-content">
 		<h1 class="title-form">
 			ĐĂNG KÝ
 		</h1>
-		<form>
+		<form action="${pageContext.request.contextPath}/RegisterController" method="post">
 			<div class="input-form">
 				<label>Username</label>
 				<div class="input">
@@ -44,14 +56,14 @@
 			<div class="input-form">
 				<label> Số điện thoại</label>
 				<div class="input">
-					<input name="so_dien_thoai" type="tel" placeholder="Số Điện thoại">
+					<input name="soDienThoai" type="tel" placeholder="Số Điện thoại">
 				</div>
 			</div>
 
 			<div class="khoang-cach-form"></div>
 
 			<div class="btn-form">
-				<button>
+				<button type="submit">
 					Đăng ký
 				</button>
 			</div>
@@ -65,6 +77,6 @@
 		</form>
 	</div>
 </main>
-
+<script src="dang_ky.js"></script>
 </body>
 </html>
