@@ -1,6 +1,6 @@
 package com.edu.hcmuaf.fit.webbanvemaybay.services.auth;
 
-import com.edu.hcmuaf.fit.webbanvemaybay.dao.admin.UserDAO;
+import com.edu.hcmuaf.fit.webbanvemaybay.dao.UserDAO;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.User;
 import com.edu.hcmuaf.fit.webbanvemaybay.services.core.KiemTraThongTinDangKy;
 
@@ -16,5 +16,17 @@ public class UserService {
             return message;
         }
         return userDAO.addUser(user);
+    }
+
+    public User login(String username, String password) {
+        UserDAO userDAO = new UserDAO();
+        User user = userDAO.kiemTraUser(username, password);
+        if (user != null) {
+            user.setCodeXacThuc(null);
+            user.setHangXacThuc(null);
+            user.setPassword(null);
+            return user;
+        }
+        return null;
     }
 }

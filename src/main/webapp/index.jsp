@@ -11,13 +11,21 @@
 </head>
 
 <body>
-
+<%
+    String messageLogin = (String) request.getAttribute("messageLogin");
+    if (messageLogin != null) {
+%>
+<script>
+    alert("<%= messageLogin %>")
+</script>
+<%
+    }
+%>
 <%@ include file="layout/Header.jsp"%>
 
 <!-- ✅ NỘI DUNG TRANG CHỦ -->
 <div>
 	<div class="container">
-
 		<div class="title-selection">
 			<h1>Chuyến bay nội địa nổi bật</h1>
 		</div>

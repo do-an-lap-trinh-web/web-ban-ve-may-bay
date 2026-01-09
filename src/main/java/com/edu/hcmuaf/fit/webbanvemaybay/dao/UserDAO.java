@@ -55,4 +55,21 @@ public class UserDAO extends DBContext {
         }
 
     }
+
+    public User kiemTraUser(String username, String password) {
+        try {
+            Jdbi jdbi = get();
+            User user = jdbi.withHandle(h-> {
+                String q = "select * from users where username=:username and password=:password";
+                return h.createQuery(q).bind("username", username).bind("password", password).mapToBean(User.class).one();
+            });
+            if (user != null) {
+                return user;
+            }
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
