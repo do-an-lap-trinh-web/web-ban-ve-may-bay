@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/page/gio_hang/gio_hang.css">
 </head>
 <body>
+    <%@ include file="../../layout/Header.jsp"%>
+
     <div class="container">
         <div class="cart-header">
             <h1 class="cart-title">Giỏ Hàng (2 vé)</h1>
