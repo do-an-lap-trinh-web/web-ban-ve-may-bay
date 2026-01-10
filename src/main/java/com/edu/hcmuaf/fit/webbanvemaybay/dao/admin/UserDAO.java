@@ -40,8 +40,8 @@ public class UserDAO extends DBContext {
                 return "username đã tồn tại";
             }
             int res = jdbi.withHandle(h -> {
-                return h.createUpdate("insert into users (id, username, password, so_dien_thoai, email, code_xac_thuc, hang_xac_thuc)" +
-                        " values (:id, :username, :password, :soDienThoai, :email, :codeXacThuc, :hangXacThuc)").bindBean(user).executeAndReturnGeneratedKeys().mapTo(Integer.class).one();
+                return h.createUpdate("insert into users (id, username, password, so_dien_thoai, email, code_xac_thuc, hang_xac_thuc, role)" +
+                        " values (:id, :username, :password, :soDienThoai, :email, :codeXacThuc, :hangXacThuc, :role)").bindBean(user).executeAndReturnGeneratedKeys().mapTo(Integer.class).one();
             });
             jdbi.withHandle(h -> {
 //                private int idUser;

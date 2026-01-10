@@ -13,6 +13,9 @@
         <a href="${pageContext.request.contextPath}/page/thong_tin_ve_quoc_te/ve_quoc_te.jsp">Vé Quốc Tế</a>
         <a href="${pageContext.request.contextPath}/page/lien_he/lien_he.jsp">Thông Tin Liên Hệ</a>
         <a href="${pageContext.request.contextPath}/page/list_ve_da_dat/list_ve_da_dat.jsp">Vé đã đặt</a>
+        <c:if test="${sessionScope.user != null && sessionScope.user.role == 'admin'}">
+            <a href="${pageContext.request.contextPath}/user-controller">Admin</a>
+        </c:if>
     </div>
 
     <div class="auth">
