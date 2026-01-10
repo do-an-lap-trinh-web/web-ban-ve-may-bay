@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Hãng Bay</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/admin/hang_bay/hang_bay.css">
 </head>
 <body>
     <div class="container">
