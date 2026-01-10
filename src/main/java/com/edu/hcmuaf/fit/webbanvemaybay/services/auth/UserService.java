@@ -23,7 +23,8 @@ public class UserService {
 
     public User login(String username, String password) {
         UserDAO userDAO = new UserDAO();
-        User user = userDAO.kiemTraUser(username, password);
+        String passwordHash = HashPassword.hashPassword(password);
+        User user = userDAO.kiemTraUser(username, passwordHash);
         if (user != null) {
             user.setCodeXacThuc(null);
             user.setHangXacThuc(null);

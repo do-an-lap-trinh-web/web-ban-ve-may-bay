@@ -18,4 +18,7 @@ public class HashPassword {
         }
 
     }
+    public static void main(String[] args) {
+        System.out.println(HashPassword.hashPassword("123"));
+    }
 }
