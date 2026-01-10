@@ -2,6 +2,7 @@ package com.edu.hcmuaf.fit.webbanvemaybay.services.auth;
 
 import com.edu.hcmuaf.fit.webbanvemaybay.dao.UserDAO;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.User;
+import com.edu.hcmuaf.fit.webbanvemaybay.services.core.HashPassword;
 import com.edu.hcmuaf.fit.webbanvemaybay.services.core.KiemTraThongTinDangKy;
 
 public class UserService {
@@ -15,6 +16,8 @@ public class UserService {
         if (!message.equals("200")) {
             return message;
         }
+        String passwordHash = HashPassword.hashPassword(user.getPassword());
+        user.setPassword(passwordHash);
         return userDAO.addUser(user);
     }
 
