@@ -2,13 +2,14 @@
 <html>
 <head>
     <title>Vé đã đặt</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/admin/ve_da_dat/ve_da_dat.css">
 </head>
 <body>
     <div class="container">
 
         <div class="searching">
             <div class="search-box">
-                <input type="text" placeholder="Tìm theo Tên khách hoặc Mã chuyến...">
+                <input type="text" placeholder="Tìm theo Mã Khách Hàng hoặc Mã Chuyến Bay">
                 <button class="btn-search">Tìm kiếm</button>
             </div>
         </div>
@@ -16,12 +17,12 @@
         <table class="data-table">
             <thead>
             <tr>
-                <th style="text-align: center;">Mã Đơn</th>
-                <th>Người Đặt</th>
-                <th>Chuyến Bay</th>
-                <th style="text-align: center;">Số Lượng</th>
+                <th>Mã Đơn</th>
+                <th>Mã Khách Hàng</th>
+                <th>Mã Chuyến Bay</th>
+                <th>Số Lượng</th>
                 <th>Ngày Đặt</th>
-                <th style="text-align: center;">Thao Tác</th>
+                <th>Thao Tác</th>
             </tr>
             </thead>
             <tbody>
@@ -34,7 +35,7 @@
                 <td>
                     <div class="main-info">VJ101</div>
                 </td>
-                <td style="text-align: center; font-weight: bold;">2</td>
+                <td>2</td>
                 <td>2026-01-10 08:30</td>
                 <td class="action-cell">
                     <button class="btn-action btn-detail">Xem</button>
@@ -50,7 +51,7 @@
                 <td>
                     <div class="main-info">VN204</div>
                 </td>
-                <td style="text-align: center; font-weight: bold;">1</td>
+                <td>1</td>
                 <td>2025-12-25 14:15</td>
                 <td class="action-cell">
                     <button class="btn-action btn-detail">Xem</button>
