@@ -1,0 +1,131 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #0056b3;
+}
+
+.searching {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+}
+
+.search-box input {
+    padding: 8px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    width: 250px;
+    outline: none;
+}
+
+.btn-search {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.data-table thead th {
+    background-color: #f8f9fa;
+    color: #495057;
+    text-align: left;
+    padding: 15px;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.data-table tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #e9ecef;
+    color: #333;
+    vertical-align: middle;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f0f8ff;
+}
+
+.id-col {
+    font-weight: bold;
+    color: #666;
+    text-align: center;
+    width: 60px;
+}
+
+.main-info {
+    font-weight: 600;
+    color: #0056b3;
+    font-size: 15px;
+}
+
+.action-cell {
+    text-align: center;
+    width: 120px;
+}
+
+.btn-action {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    font-size: 13px;
+    margin: 0 2px;
+}
+
+.btn-detail {
+    background-color: #17a2b8;
+}
+.btn-delete {
+    background-color: #dc3545;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 25px;
+}
+
+.page-link {
+    text-decoration: none;
+    color: #0056b3;
+    padding: 8px 12px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+}
+
+.page-link.active {
+    background-color: #0056b3;
+    color: white;
+}
