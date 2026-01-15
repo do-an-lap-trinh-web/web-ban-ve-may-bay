@@ -3,6 +3,8 @@ package com.edu.hcmuaf.fit.webbanvemaybay.dao;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.User;
 import org.jdbi.v3.core.Jdbi;
 
+import java.time.LocalDateTime;
+
 public class UserDAO extends DBContext {
 
     // tạo user mới và db
@@ -70,6 +72,40 @@ public class UserDAO extends DBContext {
         } catch (Exception e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public boolean isUserExist(String username) {
+        try {
+            Jdbi jdbi = get();
+            int soLuong = jdbi.withHandle(h -> {
+                String q = "select count(*) from users where username=:username";
+                return h.createQuery(q).bind("username", username).mapTo(Integer.class).one();
+            });
+            if (soLuong > 0) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean themMaXacThuc(String username, String maXacThuc, LocalDateTime hangXacThuc) {
+        try {
+            Jdbi jdbi = get();
+            int soLuong = jdbi.withHandle(h -> {
+                String q = "update users set code_xac_thuc=:maXacThuc, hang_xac_thuc=:hangXacThuc where username=:username";
+                return h.createUpdate(q).bind("maXacThuc", maXacThuc).bind("hangXacThuc", hangXacThuc).bind("username", username).execute();
+            });
+            if (soLuong > 0) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 }

@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Quên Mật Khẩu</title>
-	<link rel="stylesheet" href="quen_mat_khau.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/quen_mat_khau/quen_mat_khau.css">
 </head>
 <body>
 <main>
@@ -13,6 +13,9 @@
 		<h1 class="title-form">
 			QUÊN MẬT KHẨU
 		</h1>
+        <div>
+            <%= request.getAttribute("message")%>
+        </div>
 		<form>
 			<div class="input-form">
 				<label>Username</label>
@@ -48,10 +51,10 @@
 
 				<div class="input-code">
 					<div class="input">
-						<input name="code" type="number" placeholder=" Mã xác thực" required>
+						<input name="code" type="number" placeholder=" Mã xác thực" >
 					</div>
 					<div class="btn-code">
-						<button type="submit">Gửi Mã</button>
+                        <button type="submit" formaction="${pageContext.request.contextPath}/GuiMaXacThucController" >Gửi Mã</button>
 					</div>
 				</div>
 
