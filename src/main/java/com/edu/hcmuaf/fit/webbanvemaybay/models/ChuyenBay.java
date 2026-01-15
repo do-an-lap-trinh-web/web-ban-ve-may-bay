@@ -4,7 +4,7 @@ public class ChuyenBay {
     private int id;
     private String thoiGianKhoiHanh;
     private String thoiGianHaCanh;
-    private String maChuyenBay;
+    private int idSoHieuChuyenBay;
 
     public ChuyenBay() {}
 
@@ -20,6 +20,12 @@ public class ChuyenBay {
     public void setThoiGianKhoiHanh(String thoiGianKhoiHanh) { this.thoiGianKhoiHanh = thoiGianKhoiHanh; }
     public String getThoiGianHaCanh() { return thoiGianHaCanh; }
     public void setThoiGianHaCanh(String thoiGianHaCanh) { this.thoiGianHaCanh = thoiGianHaCanh; }
-    public String getMaChuyenBay() { return maChuyenBay; }
-    public void setMaChuyenBay(String maChuyenBay) { this.maChuyenBay = maChuyenBay; }
+
+    public int getIdSoHieuChuyenBay() {
+        return idSoHieuChuyenBay;
+    }
+
+    public void setIdSoHieuChuyenBay(int idSoHieuChuyenBay) {
+        this.idSoHieuChuyenBay = idSoHieuChuyenBay;
+    }
 }
