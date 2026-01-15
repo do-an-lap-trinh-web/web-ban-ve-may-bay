@@ -50,7 +50,7 @@
             </div>
 
             <div class="btn-quen-mat-khau">
-	            <a href="../quen_mat_khau/quen_mat_khau.jsp">Quên Mật Khẩu?</a>
+	            <a href="${pageContext.request.contextPath}/page/quen_mat_khau/quen_mat_khau.jsp">Quên Mật Khẩu?</a>
             </div>
 
         </form>

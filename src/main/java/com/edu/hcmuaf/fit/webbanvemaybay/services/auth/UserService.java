@@ -38,9 +38,9 @@ public class UserService {
         return null;
     }
 
-    public boolean isUserExist(String username) {
+    public boolean isUserAndEmailExist(String username, String email) {
         UserDAO userDAO = new UserDAO();
-        return userDAO.isUserExist(username);
+        return userDAO.isUserAndEmailExist(username, email);
     }
 
     public String guiMaXacThuc(String username, String email) {
@@ -63,6 +63,28 @@ public class UserService {
         } else {
             message = "gửi mail thất bại do email không hợp lệ hoặc không tồn tại";
         }
+        return message;
+    }
+
+    public String doiMatKhau(String username, String password, String email, String maXacThuc) {
+        KiemTraThongTinDangKy kiemTraThongTinDangKy = new KiemTraThongTinDangKy();
+        User user = new  User();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setEmail(email);
+        user.setSoDienThoai("1234567890");
+
+        String isFormatUser = kiemTraThongTinDangKy.kiemTraThongTinDangKy(user);
+        if (!isFormatUser.equals("200")) {
+            return isFormatUser;
+        }
+        String passwordHash = HashPassword.hashPassword(password);
+        user.setPassword(passwordHash);
+        user.setCodeXacThuc(maXacThuc);
+        user.setHangXacThuc(null);
+
+        UserDAO userDAO = new UserDAO();
+        String message = userDAO.doiMatKhau(user);
         return message;
     }
 }

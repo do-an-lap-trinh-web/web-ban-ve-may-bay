@@ -16,11 +16,12 @@
         <div>
             <%= request.getAttribute("message")%>
         </div>
-		<form>
+		<form action="${pageContext.request.contextPath}/DoiMatKhauController" method="post">
 			<div class="input-form">
 				<label>Username</label>
 				<div class="input">
-					<input name="username" type="text" placeholder="Username" required>
+					<input name="username" type="text" placeholder="Username"
+                           value="<%= request.getAttribute("username") != null ? request.getAttribute("username") : ""%>" required>
 				</div>
 			</div>
 
@@ -30,7 +31,8 @@
 				<label>Nhập Email Đã Đăng Kí</label>
 
 				<div class="input">
-					<input name="email" type="email" placeholder="Nhập Email Của Bạn" required>
+					<input name="email" type="email"
+                           value="<%= request.getAttribute("email") != null ? request.getAttribute("email") : ""%>" placeholder="Nhập Email Của Bạn" required>
 				</div>
 
 			</div>
@@ -40,7 +42,8 @@
 			<div class="input-form">
 				<label>Mật khẩu mới</label>
 				<div class="input">
-					<input name="password" type="password" placeholder="Mật khẩu mới" required>
+					<input name="password" type="password"
+                           value="<%= request.getAttribute("password") != null ? request.getAttribute("password") : ""%>" placeholder="Mật khẩu mới" required>
 				</div>
 			</div>
 
@@ -51,7 +54,8 @@
 
 				<div class="input-code">
 					<div class="input">
-						<input name="code" type="number" placeholder=" Mã xác thực" >
+						<input name="code"
+                               value="<%= request.getAttribute("maXacThuc") != null ? request.getAttribute("maXacThuc") : ""%>" type="number" placeholder=" Mã xác thực" >
 					</div>
 					<div class="btn-code">
                         <button type="submit" formaction="${pageContext.request.contextPath}/GuiMaXacThucController" >Gửi Mã</button>
@@ -67,7 +71,7 @@
 		</form>
 
 		<div class="btn-quay-lai-dang-nhap">
-			<a href="../dang_nhap/dang_nhap.jsp"> ⬅ Quay Lại Đăng Nhập</a>
+			<a href="${pageContext.request.contextPath}/page/dang_nhap/dang_nhap.jsp"> ⬅ Quay Lại Đăng Nhập</a>
 		</div>
 	</div>
 </main>
