@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%><html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <head>
     <title>Giỏ Hàng</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/page/gio_hang/gio_hang.css">
