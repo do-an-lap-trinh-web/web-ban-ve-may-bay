@@ -63,8 +63,8 @@
                 </c:choose>
 
                 <div class="btn-container">
-                    <a href="${pageContext.request.contextPath}/admin/quan-ly-users" class="btn btn-back">Quay lại</a>
-                    <a href="${pageContext.request.contextPath}/admin/sua-user?id=${user.id}" class="btn btn-edit">Chỉnh sửa</a>
+                    <a href="${pageContext.request.contextPath}/user-controller" class="btn btn-cancel">Quay lại</a>
+                    <a href="${pageContext.request.contextPath}/suaUser?id=${user.id}" class="btn btn-edit">Chỉnh sửa</a>
                 </div>
             </div>
         </c:if>

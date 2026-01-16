@@ -3,10 +3,11 @@
 <html>
 <head>
     <title>Sửa Hồ Sơ</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/admin/quan_ly_users/sua_ho_so.css">
 </head>
 <body>
     <div class="container">
-        <h2>Chỉnh Sửa Hồ </h2>
+        <h2>Chỉnh Sửa Hồ Sơ </h2>
 
         <form action="${pageContext.request.contextPath}/suaUser" method="post">
 

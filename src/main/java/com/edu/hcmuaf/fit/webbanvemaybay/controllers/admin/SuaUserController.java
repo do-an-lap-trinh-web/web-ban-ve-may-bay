@@ -27,7 +27,7 @@ public class SuaUserController extends HttpServlet {
 
             request.getRequestDispatcher("/page/admin/quan_ly_users/sua_ho_so.jsp").forward(request, response);
         } else {
-            response.sendRedirect(request.getContextPath() + "/admin/quan-ly-users");
+            response.sendRedirect(request.getContextPath() + "/user-controller");
         }
     }
 
@@ -63,10 +63,10 @@ public class SuaUserController extends HttpServlet {
             UserService service = new UserService();
             service.updateUserProfile(user, details);
 
-            response.sendRedirect(request.getContextPath() + "/admin/quan-ly-users");
+            response.sendRedirect(request.getContextPath() + "/user-controller");
 
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect(request.getContextPath() + "/admin/quan-ly-users");        }
+            response.sendRedirect(request.getContextPath() + "/user-controller");        }
     }
 }
