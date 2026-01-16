@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Xem Hồ Sơ</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/admin/quan_ly_users/xem_ho_so.css">
 </head>
 <body>
     <div class="container">
@@ -29,7 +30,7 @@
                     <span class="value">${user.soDienThoai}</span>
                 </div>
                 <div class="info-row">
-                    <span class="label">Vai trò (Role):</span>
+                    <span class="label">Vai trò:</span>
                     <span class="value">${user.role}</span>
                 </div>
 
