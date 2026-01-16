@@ -72,7 +72,7 @@
         <c:if test="${empty user}">
             <div class="alert-warning">Không tìm thấy thông tin người dùng!</div>
             <div class="btn-container">
-                <a href="${pageContext.request.contextPath}/admin/quan-ly-users" class="btn btn-back">Quay lại danh sách</a>
+                <a href="${pageContext.request.contextPath}//user-controller" class="btn btn-back">Quay lại danh sách</a>
             </div>
         </c:if>
     </div>

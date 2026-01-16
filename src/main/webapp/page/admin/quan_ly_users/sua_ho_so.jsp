@@ -61,7 +61,7 @@
             </div>
 
             <button type="submit" class="btn-save">Lưu Thay Đổi</button>
-            <a href="${pageContext.request.contextPath}/admin/quan-ly-users" class="btn-cancel">Hủy Bỏ</a>
+            <a href="${pageContext.request.contextPath}/user-controller" class="btn-cancel">Hủy Bỏ</a>
         </form>
     </div>
 </body>
