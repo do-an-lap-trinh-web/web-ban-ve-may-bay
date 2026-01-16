@@ -38,4 +38,9 @@ public class UserService {
         UserDAO userDAO = new UserDAO();
         return userDAO.getChiTietNguoiDung(userId);
     }
+
+    public void updateUserProfile(User user, ThongTinNguoiDung details) {
+        UserDAO userDAO = new UserDAO();
+        userDAO.updateUser(user, details);
+    }
 }

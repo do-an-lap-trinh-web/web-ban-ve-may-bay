@@ -112,5 +112,19 @@ public class UserDAO extends DBContext {
             return handle.createQuery("SELECT * FROM thong_tin_nguoi_dung WHERE id_user = :id").bind("id", userId).mapToBean(ThongTinNguoiDung.class).findFirst().orElse(null);
         });
     }
+
+    public void updateUser(User user, ThongTinNguoiDung details) {
+        Jdbi jdbi = DBContext.get();
+        jdbi.useHandle(handle -> {
+            String sqlUser = "UPDATE users SET email = :email, so_dien_thoai = :sdt, role = :role WHERE id = :id";
+            handle.createUpdate(sqlUser).bind("email", user.getEmail()).bind("sdt", user.getSoDienThoai()).bind("role", user.getRole()).bind("id", user.getId()).execute();
+
+            String sqlDetails = "INSERT INTO thong_tin_nguoi_dung (id_user, ho, ten, dia_chi, gioi_tinh, ngay_sinh) " +
+                    "VALUES (:idUser, :ho, :ten, :diaChi, :gioiTinh, :ngaySinh) " +
+                    "ON DUPLICATE KEY UPDATE " +
+                    "ho = :ho, ten = :ten, dia_chi = :diaChi, gioi_tinh = :gioiTinh, ngay_sinh = :ngaySinh";
+            handle.createUpdate(sqlDetails).bind("idUser", user.getId()).bind("ho", details.getHo()).bind("ten", details.getTen()).bind("diaChi", details.getDiaChi()).bind("gioiTinh", details.getGioiTinh()).bind("ngaySinh", details.getNgaySinh());
+        });
+    }
 }
 
