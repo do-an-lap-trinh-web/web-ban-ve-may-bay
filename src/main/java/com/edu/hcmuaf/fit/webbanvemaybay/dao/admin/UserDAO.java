@@ -1,6 +1,7 @@
 package com.edu.hcmuaf.fit.webbanvemaybay.dao.admin;
 
 import com.edu.hcmuaf.fit.webbanvemaybay.dao.DBContext;
+import com.edu.hcmuaf.fit.webbanvemaybay.models.ThongTinNguoiDung;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.User;
 import org.jdbi.v3.core.Jdbi;
 import org.jdbi.v3.core.statement.PreparedBatch;
@@ -10,6 +11,7 @@ import org.jdbi.v3.sqlobject.statement.SqlQuery;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class UserDAO extends DBContext {
     // lấy danh sách user trong database
@@ -95,6 +97,20 @@ public class UserDAO extends DBContext {
             return "xoá user có id: " + id + " thất bại do lỗi hệ thống";
 
         }
+    }
+
+    public User getUserById(int userId) {
+        Jdbi jdbi = DBContext.get();
+        return jdbi.withHandle(handle -> {
+            return handle.createQuery("SELECT * FROM users WHERE id = :id").bind("id", userId).mapToBean(User.class).findFirst().orElse(null);
+        });
+    }
+
+    public ThongTinNguoiDung getChiTietNguoiDung(int userId) {
+        Jdbi jdbi = DBContext.get();
+        return jdbi.withHandle(handle -> {
+            return handle.createQuery("SELECT * FROM thong_tin_nguoi_dung WHERE id_user = :id").bind("id", userId).mapToBean(ThongTinNguoiDung.class).findFirst().orElse(null);
+        });
     }
 }
 
