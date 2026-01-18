@@ -59,7 +59,7 @@ public class SuaUserController extends HttpServlet {
             details.setGioiTinh(gioiTinh);
             details.setNgaySinh(ngaySinh);
             details.setDiaChi(diaChi);
-
+            details.setIdUser(id);
             UserService service = new UserService();
             service.updateUserProfile(user, details);
 
