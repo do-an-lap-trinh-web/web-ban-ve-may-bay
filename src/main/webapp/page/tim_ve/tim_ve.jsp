@@ -5,9 +5,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Tìm vé</title>
-	<link rel="stylesheet" href="tim_ve.css">
-	<link rel="stylesheet" href="../../layout/StyleHeader.css">
-	<link rel="stylesheet" href="../../layout/StyleFooter.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/page/tim_ve/tim_ve.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleHeader.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleFooter.css">
 </head>
 <body>
 <!--start header-->
@@ -20,11 +20,11 @@
 	</div>
 </div>
 <div class="container">
-	<form action="" class="form-tim-ve">
+	<form action="${pageContext.request.contextPath}/TimVeController" class="form-tim-ve">
 		<div class="form-quoc-gia">
 			<div>
 				<label>Khởi hành tại: </label>
-				<select name="diem_di" class="select select-diem-di">
+				<select name="khoi_hanh" class="select select-diem-di" required>
 					<option>
 						Việt Nam
 					</option>
@@ -46,7 +46,7 @@
 			<div class="khoang-cach-form"></div>
 			<div>
 				<label>Hạ cánh tại: </label>
-				<select name="diem_di" class="select select-diem-di">
+				<select name="ha_canh" class="select select-diem-di" required>
 					<option>
 						Việt Nam
 					</option>
@@ -67,7 +67,7 @@
 			<div class="khoang-cach-form"></div>
 			<div>
 				<label>Hạng ghế: </label>
-				<select name="diem_di" class="select select-diem-di">
+				<select name="hang_ghe" class="select select-diem-di" required>
 					<option>
 						Thương gia
 					</option>
@@ -221,7 +221,7 @@
 
 		<div class="form-tim-ve-item form-tim-ve-item-btn">
 			<button type="submit" class="btn-tim-ve">
-				<a href="../list_ve/list_ve.jsp">Tìm vé</a>
+                Tìm vé
 			</button>
 		</div>
 
