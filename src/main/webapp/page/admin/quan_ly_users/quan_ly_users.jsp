@@ -53,8 +53,8 @@
                         <td>${user.hangXacThuc}</td>
                         <td>${user.codeXacThuc}</td>
                         <td>
-                            <a class="btn-thao-tac">Sửa</a>
-                            <a class="btn-thao-tac">Hồ Sơ</a>
+                            <a class="btn-thao-tac" href="${pageContext.request.contextPath}/suaUser?id=${user.id}">Sửa</a>
+                            <a class="btn-thao-tac" href="${pageContext.request.contextPath}/xemHoSo?id=${user.id}">Hồ Sơ</a>
                             <a class="btn-thao-tac" href="${pageContext.request.contextPath}/XoaUser?idUser=${user.id}">Xóa</a>
                         </td>
                     </tr

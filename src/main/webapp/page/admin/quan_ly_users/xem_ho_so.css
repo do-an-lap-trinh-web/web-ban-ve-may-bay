@@ -1,0 +1,121 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f9fd;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.1);
+    overflow: hidden;
+    border: 1px solid #e1e1e1;
+}
+
+.header {
+    background: linear-gradient(90deg, #007bff 0%, #00aaff 100%);
+    color: white;
+    padding: 25px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.content {
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.section-title {
+    width: 100%;
+    border-left: 5px solid #007bff;
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.info-row {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #f1f1f1;
+    padding-bottom: 10px;
+}
+
+.label {
+    width: 35%;
+    font-weight: bold;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+
+.value {
+    width: 65%;
+    color: #333;
+    font-size: 16px;
+}
+
+.btn-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    padding-bottom: 10px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-back {
+    background: #e9ecef;
+    color: #333;
+    border: 1px solid #ced4da;
+}
+
+.btn-back:hover {
+    background: #dde2e6;
+}
+
+.btn-cancel {
+    background: #ff0500;
+    color: #333;
+    border: none;
+}
+
+.btn-cancel:hover {
+    background: #c82333;
+}
+
+.btn-edit {
+    background: #ffc107;
+    color: #333;
+    border: none;
+}
+
+.btn-edit:hover {
+    background: #e0a800;
+}
+
+.alert-warning {
+    background: #fff3cd;
+    color: #856404;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 20px;
+}

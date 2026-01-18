@@ -1,6 +1,7 @@
 package com.edu.hcmuaf.fit.webbanvemaybay.dao.admin;
 
 import com.edu.hcmuaf.fit.webbanvemaybay.dao.DBContext;
+import com.edu.hcmuaf.fit.webbanvemaybay.models.ThongTinNguoiDung;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.User;
 import org.jdbi.v3.core.Jdbi;
 import org.jdbi.v3.core.statement.PreparedBatch;
@@ -10,6 +11,7 @@ import org.jdbi.v3.sqlobject.statement.SqlQuery;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 public class UserDAO extends DBContext {
     // lấy danh sách user trong database
@@ -95,6 +97,45 @@ public class UserDAO extends DBContext {
             return "xoá user có id: " + id + " thất bại do lỗi hệ thống";
 
         }
+    }
+
+    public User getUserById(int userId) {
+        Jdbi jdbi = DBContext.get();
+        return jdbi.withHandle(handle -> {
+            return handle.createQuery("SELECT * FROM users WHERE id = :id").bind("id", userId).mapToBean(User.class).findFirst().orElse(null);
+        });
+    }
+
+    public ThongTinNguoiDung getChiTietNguoiDung(int userId) {
+        Jdbi jdbi = DBContext.get();
+        return jdbi.withHandle(handle -> {
+            return handle.createQuery("SELECT * FROM thong_tin_nguoi_dung WHERE id_user = :id").bind("id", userId).mapToBean(ThongTinNguoiDung.class).findFirst().orElse(null);
+        });
+    }
+
+    public void updateUser(User user, ThongTinNguoiDung details) {
+        try {
+            Jdbi jdbi = DBContext.get();
+            jdbi.useHandle(handle -> {
+                String sqlUser = "UPDATE users SET email = :email, so_dien_thoai = :sdt, role = :role WHERE id = :id";
+                handle.createUpdate(sqlUser).bind("email", user.getEmail()).bind("sdt", user.getSoDienThoai()).bind("role", user.getRole()).bind("id", user.getId()).execute();
+
+//            String sqlDetails = "INSERT INTO thong_tin_nguoi_dung (id_user, ho, ten, dia_chi, gioi_tinh, ngay_sinh) " +
+//                    "VALUES (:idUser, :ho, :ten, :diaChi, :gioiTinh, :ngaySinh) " +
+//                    "ON DUPLICATE KEY UPDATE " +
+//                    "ho = :ho, ten = :ten, dia_chi = :diaChi, gioi_tinh = :gioiTinh, ngay_sinh = :ngaySinh";
+                String q = "update thong_tin_nguoi_dung set ho = :ho, " +
+                        "ten = :ten, dia_chi = :diaChi, " +
+                        "gioi_tinh = :gioiTinh, ngay_sinh = :ngaySinh where id_user=:idUser";
+                handle.createUpdate(q).bind("idUser", details.getIdUser()).bind("ho", details.getHo()).bind("ten", details.getTen()).
+                        bind("diaChi", details.getDiaChi()).
+                        bind("gioiTinh", details.getGioiTinh()).bind("ngaySinh", details.getNgaySinh())
+                        .execute();
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }
 

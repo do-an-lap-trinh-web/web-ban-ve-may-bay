@@ -11,12 +11,12 @@ public class DBContext {
         if (jdbi == null) {
             // Cấu hình kết nối MySQL
             MysqlDataSource dataSource = new MysqlDataSource();
-            dataSource.setURL("jdbc:mysql://localhost:3306/testvanicat");
+            dataSource.setURL("jdbc:mysql://localhost:3306/test");
             dataSource.setUser("root");
             dataSource.setPassword("");
 
             jdbi = Jdbi.create(dataSource);
-            jdbi.installPlugin(new SqlObjectPlugin()); // Cần thiết để dùng Interface DAO
+            jdbi.installPlugin(new SqlObjectPlugin());
         }
         return jdbi;
     }
