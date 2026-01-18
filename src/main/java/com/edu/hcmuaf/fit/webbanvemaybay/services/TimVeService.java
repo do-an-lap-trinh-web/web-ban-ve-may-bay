@@ -1,7 +1,7 @@
 package com.edu.hcmuaf.fit.webbanvemaybay.services;
 
 import com.edu.hcmuaf.fit.webbanvemaybay.dao.*;
-import com.edu.hcmuaf.fit.webbanvemaybay.dao.admin.HangBayDAO;
+import com.edu.hcmuaf.fit.webbanvemaybay.dao.HangBayDAO;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.*;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.DTO.VeDto;
 
@@ -59,7 +59,7 @@ public class TimVeService {
 
                             int idHangBay = listSoHieuChuyenbayBySanBayDiAndSanBayDen.get(k).getIdHangBay();
                             HangBayDAO hangBayDAO = new HangBayDAO();
-                            HangBay hangBay = hangBayDAO.getHangbayById(idHangBay);
+                            HangBay hangBay = hangBayDAO.getHangBayById(idHangBay);
                             veDto.setHangBay(hangBay.getTenHangBay());
                             isInfor2 = true;
                             break vong3;

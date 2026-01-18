@@ -1,11 +1,10 @@
-package com.edu.hcmuaf.fit.webbanvemaybay.dao.admin;
+package com.edu.hcmuaf.fit.webbanvemaybay.dao;
 
-import com.edu.hcmuaf.fit.webbanvemaybay.dao.DBContext;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.HangBay;
 import org.jdbi.v3.core.Jdbi;
 
 public class HangBayDAO extends DBContext {
-    public HangBay getHangbayById(int id) {
+    public HangBay getHangBayById(int id) {
         try {
             Jdbi jdbi = get();
             HangBay hangBay = jdbi.withHandle(h -> {
