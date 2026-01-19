@@ -3,6 +3,7 @@ package com.edu.hcmuaf.fit.webbanvemaybay.services;
 import com.edu.hcmuaf.fit.webbanvemaybay.dao.*;
 import com.edu.hcmuaf.fit.webbanvemaybay.dao.HangBayDAO;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.*;
+import com.edu.hcmuaf.fit.webbanvemaybay.models.DTO.ThongTinTimVeDto;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.DTO.VeDto;
 
 import java.util.ArrayList;
@@ -82,5 +83,31 @@ public class TimVeService {
             return Double.compare(gia1, gia2);
         });
         return listVeDto;
+    }
+
+    // hàm lấy thông tin tìm vé
+    public ThongTinTimVeDto getThongTinTimVeDto(String khoiHanh, String haCanh) {
+        ThongTinTimVeDto thongTinTimVeDto = new ThongTinTimVeDto();
+
+        SanBayDAO sanBayDAO = new SanBayDAO();
+        List<String> listSanBayName = sanBayDAO.getListSanBayName();
+        thongTinTimVeDto.setListKhoiHanh(listSanBayName);
+        thongTinTimVeDto.setListHaCanh(listSanBayName);
+
+        LoaiVeDAO loaiVeDAO = new LoaiVeDAO();
+        List<String> listLoaiVe = loaiVeDAO.getListLoaiVe();
+        thongTinTimVeDto.setListHangGhe(listLoaiVe);
+
+        List<String> listTPKhoiHanh = sanBayDAO.getListTPByQuocGia(khoiHanh);
+        List<String> listTPHaCanh = sanBayDAO.getListTPByQuocGia(haCanh);
+        thongTinTimVeDto.setListDiemDi(listTPKhoiHanh);
+        thongTinTimVeDto.setListDiemDen(listTPHaCanh);
+
+        return thongTinTimVeDto;
+    }
+
+    public static void main(String[] args) {
+        TimVeService timVeService = new TimVeService();
+        System.out.println(timVeService.getThongTinTimVeDto("Việt Nam", "Việt Nam").toString());
     }
 }
