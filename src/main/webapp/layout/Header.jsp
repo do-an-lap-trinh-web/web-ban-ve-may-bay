@@ -1,3 +1,5 @@
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <header>
@@ -8,7 +10,11 @@
 
     <div class="menu">
         <a href="${pageContext.request.contextPath}/index.jsp">Trang Chủ</a>
-        <a href="${pageContext.request.contextPath}/page/tim_ve/tim_ve.jsp">Đặt Vé</a>
+        <c:url var="urlTimVe" value="/ThongTinTimVeController">
+            <c:param name="khoiHanh" value="Việt Nam" />
+            <c:param name="haCanh" value="Việt Nam" />
+        </c:url>
+        <a href="${urlTimVe}">Đặt Vé</a>
         <a href="${pageContext.request.contextPath}/page/thong_tin_ve_noi_dia/ve_noi_dia.jsp">Vé Nội Địa</a>
         <a href="${pageContext.request.contextPath}/page/thong_tin_ve_quoc_te/ve_quoc_te.jsp">Vé Quốc Tế</a>
         <a href="${pageContext.request.contextPath}/page/lien_he/lien_he.jsp">Thông Tin Liên Hệ</a>
