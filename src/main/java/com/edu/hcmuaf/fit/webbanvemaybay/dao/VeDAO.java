@@ -25,7 +25,7 @@ public class VeDAO extends DBContext {
             Jdbi jdbi = get();
             Ve ve = jdbi.withHandle(h -> {
                 String q = "select * from ve where id = :id";
-                return h.createQuery(q).bind("id", id).mapToBean(Ve.class).one();
+                return h.createQuery(q).bind("id", id).mapToBean(Ve.class).findOne().orElse(null);
             });
             return ve;
         } catch (Exception e) {

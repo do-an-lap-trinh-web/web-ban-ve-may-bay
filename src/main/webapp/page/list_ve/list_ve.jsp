@@ -61,7 +61,11 @@
 
                         <div class="btn-dat-ve">
                             <button type="submit">
-                                <a href="../xac_nhan_dat_ve/xac_nhan_dat_ve.jsp">Chọn</a>
+                                <c:url var="urlDatVe" value="/DatVeController">
+                                    <c:param name="idVe" value="${item.idVe}" />
+                                    <c:param name="soLuong" value="1" />
+                                </c:url>
+                                <a href="${urlDatVe}">Chọn</a>
                             </button>
                             <form action="${pageContext.request.contextPath}/GioHangController" method="post"
                                   style="display:inline; margin-left: 10px">

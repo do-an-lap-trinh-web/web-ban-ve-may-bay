@@ -22,6 +22,17 @@
 <%
     }
 %>
+
+<%
+    String messageVeDaDat = (String) request.getAttribute("messageVeDaDat");
+    if (messageVeDaDat != null) {
+%>
+<script>
+    alert("<%= messageVeDaDat %>")
+</script>
+<%
+    }
+%>
 <%@ include file="layout/Header.jsp"%>
 
 <!-- ✅ NỘI DUNG TRANG CHỦ -->
