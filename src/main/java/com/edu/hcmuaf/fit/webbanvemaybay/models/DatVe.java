@@ -1,7 +1,7 @@
 package com.edu.hcmuaf.fit.webbanvemaybay.models;
 import java.util.Date;
 public class DatVe {
-    private int idDatVe;
+    private int id;
     private int idUser;
     private int soLuong;
     private int idVe;
@@ -9,8 +9,14 @@ public class DatVe {
 
     public DatVe() {}
 
-    public int getIdDatVe() { return idDatVe; }
-    public void setIdDatVe(int idDatVe) { this.idDatVe = idDatVe; }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getIdUser() { return idUser; }
     public void setIdUser(int idUser) { this.idUser = idUser; }
     public int getSoLuong() { return soLuong; }

@@ -114,7 +114,8 @@ a {
 
 .list-ve {
     margin-top: 10px;
-    width: 65%;
+    width: 100%;
+    height: 100%;
 }
 
 .list-ve h1 {
@@ -124,7 +125,7 @@ a {
 .list-ve-item {
     box-shadow: 0 0 10px -5px var(--xanh);
     border-radius: 20px;
-    padding: 0px 40px 10px 0px;
+    padding: 10px 10px 10px 0px;
     margin-top: 20px;
 }
 
@@ -132,6 +133,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
 
@@ -161,6 +163,10 @@ a {
 {
     font-size: 17px;
 }
+
+.text-bold {
+    font-weight: bold;
+}
 .form-chon-hang-ghe {
     padding: 10px 0 0 0;
 }
@@ -176,6 +182,13 @@ a {
 .btn-dat-ve {
     display: flex;
     justify-content: center;
+}
+
+.btn-add-cart {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
 }
 
 .btn-dat-ve button {

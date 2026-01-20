@@ -1,19 +1,30 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Đăng Nhập</title>
-    <link rel="stylesheet" href="dang_nhap.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/dang_nhap/dang_nhap.css">
 </head>
 <body>
+<%
+    String message = (String) request.getAttribute("message");
+    if (message != null) {
+%>
+<script>
+    alert("<%= message %>")
+</script>
+<%
+    }
+%>
 <a class="link-quay-lai" href="../../index.jsp"> ⬅ Quay Lại</a>
 <main>
     <div class="main-content">
         <h1 class="title-form">
             ĐĂNG NHẬP
         </h1>
-        <form>
+        <form action="${pageContext.request.contextPath}/LoginController" method="post">
             <div class="input-form">
                 <label>Username</label>
                 <div class="input">

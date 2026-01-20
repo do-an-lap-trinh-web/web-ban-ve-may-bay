@@ -1,5 +1,16 @@
 /* CSS Tùy Chỉnh cho Trang Quản Lý Người Dùng (users-management.jsp) */
-
+a {
+    text-decoration: none;
+    color: black;
+}
+main{
+    display: flex;
+}
+.main-content {
+    width: 100%;
+    margin: 0 0 0 350px;
+    padding: 0 20px 0 20px;
+}
 .toolbar {
     display: flex;
     justify-content: space-between;
@@ -65,7 +76,7 @@ table th {
 }
 
 /* Kiểu nút thao tác */
-table button {
+.btn-thao-tac {
     padding: 5px 8px;
     margin-right: 5px;
     border: 1px solid #ccc;

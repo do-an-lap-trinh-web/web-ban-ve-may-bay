@@ -18,19 +18,18 @@ a {
 }
 
 .list-ve-item {
-    display: flex;
-    justify-content: space-between;
     padding: 0px 80px;
     margin: 40px 0px 0px 0px;
 }
 
 .flight-card {
-    width: 600px; /* Chiều rộng thẻ */
+    width: 100%; /* Chiều rộng thẻ */
     background-color: #ffffff;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     padding: 25px;
     color: #333;
+    margin-top: 10px;
 }
 
 /* --- Header Section (Hãng bay và Thời gian) --- */

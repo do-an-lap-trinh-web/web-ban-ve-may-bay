@@ -9,13 +9,19 @@
 <html>
 <head>
     <title>Thêm user</title>
-    <link rel="stylesheet" href="them_user.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/admin/quan_ly_users/them_user.css">
 </head>
 <body>
 <div class="form-container">
     <h2>👤 Đăng Ký Người Dùng Mới</h2>
 
-    <form action="" method="post">
+    <form action="${pageContext.request.contextPath}/themUser" method="post">
+
+        <div style="text-align: center">
+            <%= request.getAttribute("message") %>
+        </div>
+
+
 
         <div>
             <label for="username">Tên người dùng (**Username**)</label>
@@ -28,8 +34,8 @@
         </div>
 
         <div>
-            <label for="phone">Số điện thoại (**Phone**)</label>
-            <input type="tel" id="phone" name="phone" placeholder="Ví dụ: 0901234567" required>
+            <label for="soDienThoai">Số điện thoại (**Phone**)</label>
+            <input type="tel" id="phone" name="soDienThoai" placeholder="Ví dụ: 0901234567" required>
         </div>
         <div>
             <label for="phone">Email (**Email**)</label>
@@ -39,7 +45,7 @@
 
         <div class="button-group">
             <button type="submit" class="submit-btn">Tạo Tài Khoản</button>
-            <a href="quan_ly_users.jsp" class="back-btn">Quay Lại</a>
+            <a href="${pageContext.request.contextPath}/user-controller" class="back-btn">Quay Lại</a>
         </div>
     </form>
 </div>

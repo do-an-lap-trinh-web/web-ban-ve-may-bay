@@ -1,5 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,13 +12,32 @@
 </head>
 
 <body>
+<%
+    String messageLogin = (String) request.getAttribute("messageLogin");
+    if (messageLogin != null) {
+%>
+<script>
+    alert("<%= messageLogin %>")
+</script>
+<%
+    }
+%>
 
+<%
+    String messageVeDaDat = (String) request.getAttribute("messageVeDaDat");
+    if (messageVeDaDat != null) {
+%>
+<script>
+    alert("<%= messageVeDaDat %>")
+</script>
+<%
+    }
+%>
 <%@ include file="layout/Header.jsp"%>
 
 <!-- ✅ NỘI DUNG TRANG CHỦ -->
 <div>
-	<div class="container">
-
+    <div class="container">
 		<div class="title-selection">
 			<h1>Chuyến bay nội địa nổi bật</h1>
 		</div>

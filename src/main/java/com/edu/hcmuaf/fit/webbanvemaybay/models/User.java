@@ -1,18 +1,19 @@
 package com.edu.hcmuaf.fit.webbanvemaybay.models;
 
 public class User {
-    private int idUser;
+    private int id;
     private String username;
     private String password;
     private String soDienThoai;
     private String email;
     private String codeXacThuc;
     private String hangXacThuc;
+    private String role;
 
     public User() {}
 
-    public int getIdUser() { return idUser; }
-    public void setIdUser(int idUser) { this.idUser = idUser; }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
     public String getUsername() { return username; }
     public void setUsername(String username) { this.username = username; }
     public String getPassword() { return password; }
@@ -25,4 +26,12 @@ public class User {
     public void setCodeXacThuc(String codeXacThuc) { this.codeXacThuc = codeXacThuc; }
     public String getHangXacThuc() { return hangXacThuc; }
     public void setHangXacThuc(String hangXacThuc) { this.hangXacThuc = hangXacThuc; }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 }
