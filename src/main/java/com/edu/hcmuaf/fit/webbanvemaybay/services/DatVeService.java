@@ -12,7 +12,6 @@ public class DatVeService {
 
 
     public Boolean datVeByUser(DatVe datVe) {
-
         VeDaDatDAO veDaDatDAO = new VeDaDatDAO();
         boolean isAdd = veDaDatDAO.addVeDaDat(datVe);
         if (isAdd) {
@@ -24,5 +23,20 @@ public class DatVeService {
     public List<DatVe> getAllVeDaDatByUser(int id) {
         VeDaDatDAO veDaDatDAO = new VeDaDatDAO();
         return veDaDatDAO.getAllVeDaDatByUser(id);
+    }
+
+    public boolean datListVeByUser(List<DatVe> datVeList) {
+        VeDaDatDAO veDaDatDAO = new VeDaDatDAO();
+        int soLuong = 0;
+        for (DatVe datVe : datVeList) {
+            boolean isAdd = veDaDatDAO.addVeDaDat(datVe);
+            if (isAdd) {
+                soLuong++;
+            }
+        }
+        if (soLuong == datVeList.size()) {
+            return true;
+        }
+        return false;
     }
 }

@@ -12,7 +12,16 @@
 </head>
 <body>
 <%@ include file="../../layout/Header.jsp" %>
-
+<%
+    String messageThanhToan = (String) request.getAttribute("messageThanhToan");
+    if (messageThanhToan != null) {
+%>
+<script>
+    alert("<%= messageThanhToan %>")
+</script>
+<%
+    }
+%>
 <div class="list-ve">
     <h1>Danh sách vé máy bay đã đặt</h1>
 

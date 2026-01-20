@@ -5,7 +5,16 @@
 </head>
 <body>
     <%@ include file="../../layout/Header.jsp"%>
-
+    <%
+        String messageThanhToan = (String) request.getAttribute("messageThanhToan");
+        if (messageThanhToan != null) {
+    %>
+    <script>
+        alert("<%= messageThanhToan %>")
+    </script>
+    <%
+        }
+    %>
     <div class="container">
 
         <div class="cart-layout">
@@ -81,21 +90,15 @@
                 <div class="summary-box">
                     <div class="summary-title">Chi tiết thanh toán</div>
 
-<%--                    <div class="summary-row">--%>
-<%--                        <span>Vé 1 (VJ101)</span>--%>
-<%--                        <span>1,200,000đ</span>--%>
-<%--                    </div>--%>
-<%--                    <div class="summary-row">--%>
-<%--                        <span>Vé 2 (VN204)</span>--%>
-<%--                        <span>2,500,000đ</span>--%>
-<%--                    </div>--%>
-
                     <div class="total-row">
                         <span>Tổng tiền</span>
                         <span>${sessionScope.tongTien}</span>
                     </div>
 
-                    <button class="btn-checkout">Xác nhận đặt vé</button>
+                    <form action="${pageContext.request.contextPath}/ThanhToanGioHangController" method="post">
+                        <button class="btn-checkout">Xác nhận đặt vé</button>
+                    </form>
+
                 </div>
             </div>
 
