@@ -1,6 +1,5 @@
 package com.edu.hcmuaf.fit.webbanvemaybay.dao;
 
-import com.edu.hcmuaf.fit.webbanvemaybay.models.DTO.VeDto;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.DatVe;
 import org.jdbi.v3.core.Jdbi;
 
@@ -36,6 +35,23 @@ public class VeDaDatDAO extends DBContext {
         }  catch (Exception e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public boolean remoteVeById(String idVe, int idUser) {
+        try {
+            Jdbi jdbi = get();
+            int soLuong = jdbi.withHandle(h -> {
+                String q = "delete from ve_da_dat where id_ve = :idVe and id_user = :idUser";
+                return h.createUpdate(q).bind("idVe", idVe).bind("idUser", idUser).execute();
+            });
+            if (soLuong > 0) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 }
