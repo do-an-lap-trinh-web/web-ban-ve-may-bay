@@ -19,4 +19,18 @@ public class ChuyenBayDAO extends DBContext {
             return null;
         }
     }
+
+    public ChuyenBay getChuyenBayById(int idChuyenBay) {
+        try {
+            Jdbi jdbi = get();
+            ChuyenBay chuyenBay = jdbi.withHandle(h -> {
+                String q = "select * from chuyen_bay where id = :idChuyenBay";
+                return h.createQuery(q).bind("idChuyenBay", idChuyenBay).mapToBean(ChuyenBay.class).one();
+            });
+            return chuyenBay;
+        } catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

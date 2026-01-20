@@ -216,6 +216,21 @@ body {
     border-top: 1px dashed #eee;
 }
 
+.quantity-form {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: #f9f9f9;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.quantity-form input[type="number"] {
+    outline: none;
+    text-align: center;
+}
+
 .airline-simple {
     font-size: 13px;
     font-weight: 600;

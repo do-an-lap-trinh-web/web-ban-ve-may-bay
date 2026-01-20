@@ -38,4 +38,18 @@ public class SoHieuChuyenBayDAO extends DBContext {
             return null;
         }
     }
+
+    public SoHieuChuyenBay getSoHieuChuyenBayById(int idSoHieuChuyenBay) {
+        try {
+            Jdbi jdbi = get();
+            SoHieuChuyenBay soHieuChuyenBay = jdbi.withHandle(h -> {
+                String q = "select * from so_hieu_chuyen_bay where id=:idSoHieuChuyenBay";
+                return h.createQuery(q).bind("idSoHieuChuyenBay", idSoHieuChuyenBay).mapToBean(SoHieuChuyenBay.class).one();
+            });
+            return soHieuChuyenBay;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

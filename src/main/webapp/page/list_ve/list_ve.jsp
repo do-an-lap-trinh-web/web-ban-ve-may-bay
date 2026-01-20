@@ -1,10 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>danh sách vé</title>
+    <meta charset="UTF-8">
+    <title>danh sách vé</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/page/list_ve/list_ve.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleHeader.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleFooter.css">
@@ -14,10 +14,10 @@
 <div class="container flex">
 
 
-	<div class="list-ve">
-		<h1>
-			Danh sách vé máy bay
-		</h1>
+    <div class="list-ve">
+        <h1>
+            Danh sách vé máy bay
+        </h1>
 
         <c:choose>
 
@@ -63,7 +63,17 @@
                             <button type="submit">
                                 <a href="../xac_nhan_dat_ve/xac_nhan_dat_ve.jsp">Chọn</a>
                             </button>
+                            <form action="${pageContext.request.contextPath}/GioHangController" method="post"
+                                  style="display:inline; margin-left: 10px">
+
+                                <input type="hidden" name="action" value="add">
+                                <input type="hidden" name="idVe" value="${item.idVe}">
+                                <button type="submit" class="btn-add-cart">
+                                    Thêm vào giỏ
+                                </button>
+                            </form>
                         </div>
+
                     </div>
                 </c:forEach>
             </c:when>
@@ -71,7 +81,8 @@
 
             <c:otherwise>
                 <div class="no-tickets" style="text-align: center; padding: 50px; font-size: 1.2rem; color: #666;">
-                    <img src="../../access/trang_chu/no-data-icon.png" alt="" style="width: 100px; margin-bottom: 20px;">
+                    <img src="../../access/trang_chu/no-data-icon.png" alt=""
+                         style="width: 100px; margin-bottom: 20px;">
                     <p>Rất tiếc, hiện tại không có vé nào phù hợp với yêu cầu của bạn.</p>
                     <p>Vui lòng thử lại với thời gian hoặc địa điểm khác.</p>
                 </div>
@@ -79,12 +90,12 @@
         </c:choose>
 
 
-	</div>
+    </div>
 
 
 </div>
 
-<%@include file="../../layout/Footer.jsp"%>
+<%@include file="../../layout/Footer.jsp" %>
 
 </body>
 </html>

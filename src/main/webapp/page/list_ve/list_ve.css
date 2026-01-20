@@ -184,6 +184,13 @@ a {
     justify-content: center;
 }
 
+.btn-add-cart {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
 .btn-dat-ve button {
     background-color: var(--xanh);
     padding: 10px 30px;

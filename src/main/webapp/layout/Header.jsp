@@ -25,11 +25,8 @@
     </div>
 
     <div class="auth">
-        <a href="${pageContext.request.contextPath}/page/gio_hang/gio_hang.jsp" class="cart-btn">
-
+        <a href="${pageContext.request.contextPath}/GioHangController" class="cart-btn">
             <img src="${pageContext.request.contextPath}/access/shopping-cart.png" alt="Giỏ hàng">
-
-            <span class="cart-count">0</span>
         </a>
         <a href="${pageContext.request.contextPath}/page/thong_tin_khach_hang/thong_tin_khach_hang.jsp">Thông Tin</a> |
         <a href="${pageContext.request.contextPath}/page/dang_nhap/dang_nhap.jsp">Đăng Nhập</a> |
