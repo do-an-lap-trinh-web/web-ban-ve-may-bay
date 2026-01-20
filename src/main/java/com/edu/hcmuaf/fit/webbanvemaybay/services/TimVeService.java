@@ -120,6 +120,10 @@ public class TimVeService {
         VeDAO veDAO = new VeDAO();
         Ve ve = veDAO.getVeById(id);
 
+        if (ve == null) {
+            return null;
+        }
+
         int idLoaiVe = ve.getIdLoaiVe();
         LoaiVeDAO loaiVeDAO = new LoaiVeDAO();
         LoaiVe loaiVe = loaiVeDAO.getLoaiVeById(idLoaiVe);

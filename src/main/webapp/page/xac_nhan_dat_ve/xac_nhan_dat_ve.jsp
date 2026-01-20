@@ -11,6 +11,16 @@
 </head>
 <body>
 <%@include file="../../layout/Header.jsp" %>
+<%
+    String message = (String) request.getAttribute("message");
+    if (message != null) {
+%>
+<script>
+    alert("<%= message %>")
+</script>
+<%
+    }
+%>
 <div class="main">
     <div class="page-xac-nhan-dat-ve">
         <div class="title-xac-nhan-dat-ve">Đặt Vé Máy Bay</div>
@@ -47,8 +57,12 @@
             </h3>
         </div>
 
-        <div class="btn-xac-nhan-dat-ve">
-            <a href="../../index.jsp">Thanh Toán</a>
+        <div >
+            <form action="${pageContext.request.contextPath}/ThanhToanController" method="post">
+                <input type="hidden" name="soLuong" value="${requestScope.soLuong}">
+                <input type="hidden" name="idVe" value="${requestScope.veInfo.idVe}">
+                <button class="btn-xac-nhan-dat-ve" type="submit">Thanh toán</button>
+            </form>
         </div>
     </div>
 </div>
