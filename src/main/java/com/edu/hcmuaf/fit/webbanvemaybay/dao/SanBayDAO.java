@@ -7,12 +7,12 @@ import org.jdbi.v3.core.Jdbi;
 import java.util.List;
 
 public class SanBayDAO extends DBContext{
-    public SanBay getSanBayByTPAndQG(String khoiHanh, String diemDi) {
+    public List<SanBay> getSanBayByTPAndQG(String khoiHanh, String diemDi) {
         try {
             Jdbi jdbi = get();
-            SanBay sanBay = jdbi.withHandle(h -> {
+            List<SanBay> sanBay = jdbi.withHandle(h -> {
                 String q = "select * from san_bay where quoc_gia=:khoiHanh and thanh_pho=:diemDi";
-                return h.createQuery(q).bind("khoiHanh", khoiHanh).bind("diemDi", diemDi).mapToBean(SanBay.class).findOne().orElse(null);
+                return h.createQuery(q).bind("khoiHanh", khoiHanh).bind("diemDi", diemDi).mapToBean(SanBay.class).list();
             });
             return sanBay;
         } catch (Exception e){

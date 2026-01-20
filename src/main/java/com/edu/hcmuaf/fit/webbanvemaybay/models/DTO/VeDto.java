@@ -6,6 +6,8 @@ public class VeDto {
     private String hangGhe;
     private String diemDi;
     private String diemDen;
+    private String sanBayDi;
+    private String sanBayDen;
     private String gia;
     private String thoiGianKhoiHanh;
     private String thoiGianHaCanh;
@@ -20,12 +22,30 @@ public class VeDto {
                 ", hangGhe='" + hangGhe + '\'' +
                 ", diemDi='" + diemDi + '\'' +
                 ", diemDen='" + diemDen + '\'' +
+                ", sanBayDi='" + sanBayDi + '\'' +
+                ", sanBayDen='" + sanBayDen + '\'' +
                 ", gia='" + gia + '\'' +
                 ", thoiGianKhoiHanh='" + thoiGianKhoiHanh + '\'' +
                 ", thoiGianHaCanh='" + thoiGianHaCanh + '\'' +
                 ", HangBay='" + HangBay + '\'' +
                 ", soHieuChuyenBay='" + soHieuChuyenBay + '\'' +
                 '}';
+    }
+
+    public String getSanBayDi() {
+        return sanBayDi;
+    }
+
+    public void setSanBayDi(String sanBayDi) {
+        this.sanBayDi = sanBayDi;
+    }
+
+    public String getSanBayDen() {
+        return sanBayDen;
+    }
+
+    public void setSanBayDen(String sanBayDen) {
+        this.sanBayDen = sanBayDen;
     }
 
     public String getKhoiHanh() {

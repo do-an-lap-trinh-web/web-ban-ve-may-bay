@@ -5,6 +5,7 @@ import com.edu.hcmuaf.fit.webbanvemaybay.dao.HangBayDAO;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.*;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.DTO.ThongTinTimVeDto;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.DTO.VeDto;
+import com.edu.hcmuaf.fit.webbanvemaybay.services.core.FormatVND;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,13 +34,13 @@ public class TimVeService {
         List<ChuyenBay> listChuyenBayByNgayDi = chuyenBayDAO.getListChuyenBayByNgayDi(ngayDi);
 
         SanBayDAO sanBayDAO = new SanBayDAO();
-        SanBay sanBayDi = sanBayDAO.getSanBayByTPAndQG(khoiHanh, diemDi);
-        SanBay sanBayDen = sanBayDAO.getSanBayByTPAndQG(haCanh, diemDen);
+        List<SanBay> sanBayDi = sanBayDAO.getSanBayByTPAndQG(khoiHanh, diemDi);
+        List<SanBay> sanBayDen = sanBayDAO.getSanBayByTPAndQG(haCanh, diemDen);
 
 
         SoHieuChuyenBayDAO soHieuChuyenBayDAO = new SoHieuChuyenBayDAO();
         List<SoHieuChuyenBay> listSoHieuChuyenbayBySanBayDiAndSanBayDen = soHieuChuyenBayDAO.getListSoHieuChuyenBayBySanBayDiAndSanBayDen(
-                sanBayDi.getId(), sanBayDen.getId()
+                sanBayDi, sanBayDen
         );
 
         List<VeDto> listVeDto = new ArrayList<>();
@@ -50,13 +51,19 @@ public class TimVeService {
             vong2: for (int j = 0; j < listChuyenBayByNgayDi.size(); j++) {
                 if (listVeByHangGhe.get(i).getIdChuyenBay() == listChuyenBayByNgayDi.get(j).getId()) {
                     isInfor1 = true;
-                    veDto.setGia(String.valueOf(listVeByHangGhe.get(i).getGia()));
+                    veDto.setGia(FormatVND.formatVND(listVeByHangGhe.get(i).getGia()));
                     veDto.setThoiGianKhoiHanh(listChuyenBayByNgayDi.get(j).getThoiGianKhoiHanh());
                     veDto.setThoiGianHaCanh(listChuyenBayByNgayDi.get(j).getThoiGianHaCanh());
 
                     vong3: for (int k = 0; k < listSoHieuChuyenbayBySanBayDiAndSanBayDen.size(); k++) {
                         if (listChuyenBayByNgayDi.get(j).getIdSoHieuChuyenBay() == listSoHieuChuyenbayBySanBayDiAndSanBayDen.get(k).getId()) {
                             veDto.setSoHieuChuyenBay(listSoHieuChuyenbayBySanBayDiAndSanBayDen.get(k).getMaChuyenBay());
+                            int idSanBayDi = listSoHieuChuyenbayBySanBayDiAndSanBayDen.get(k).getIdSanBayDi();
+                            String tenSanBayDi = sanBayDi.stream().filter(sb -> sb.getId() == idSanBayDi).map(SanBay::getTenSanBay).findFirst().orElse("");
+                            veDto.setSanBayDi(tenSanBayDi);
+                            int idSanBayDen = listSoHieuChuyenbayBySanBayDiAndSanBayDen.get(k).getIdSanBayDen();
+                            String tenSanBayDen = sanBayDen.stream().filter(sb -> sb.getId() == idSanBayDen).map(SanBay::getTenSanBay).findFirst().orElse("");
+                            veDto.setSanBayDen(tenSanBayDen);
 
                             int idHangBay = listSoHieuChuyenbayBySanBayDiAndSanBayDen.get(k).getIdHangBay();
                             HangBayDAO hangBayDAO = new HangBayDAO();
@@ -78,8 +85,8 @@ public class TimVeService {
             }
         }
         listVeDto.sort((v1, v2) -> {
-            double gia1 = Double.parseDouble(v1.getGia());
-            double gia2 = Double.parseDouble(v2.getGia());
+            double gia1 = Double.parseDouble(v1.getGia().replace(".", ""));
+            double gia2 = Double.parseDouble(v2.getGia().replace(".", ""));
             return Double.compare(gia1, gia2);
         });
         return listVeDto;
@@ -108,6 +115,6 @@ public class TimVeService {
 
     public static void main(String[] args) {
         TimVeService timVeService = new TimVeService();
-        System.out.println(timVeService.getThongTinTimVeDto("Việt Nam", "Việt Nam").toString());
+        System.out.println(timVeService.getListVeByFilter("Việt Nam", "Việt Nam", "Thương gia", "Thủ đô Hà Nội", "Thành phố Hồ Chí Minh", true, "2026-2-3"));
     }
 }
