@@ -20,7 +20,7 @@ public class TimVeController extends HttpServlet {
         String diemDen =  request.getParameter("diem_den");
         String isXepVe = request.getParameter("is_xep_ve");
         String ngayDi = request.getParameter("ngay_di");
-        boolean xepVe = isXepVe.equals("on") ? true : false;
+        boolean xepVe = "on".equals(isXepVe) ? true : false;
 
         TimVeService timVeService = new TimVeService();
         List<VeDto> listVeRes = timVeService.getListVeByFilter(

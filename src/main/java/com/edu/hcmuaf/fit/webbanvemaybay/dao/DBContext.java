@@ -11,7 +11,7 @@ public class DBContext {
         if (jdbi == null) {
             // Cấu hình kết nối MySQL
             MysqlDataSource dataSource = new MysqlDataSource();
-            dataSource.setURL("jdbc:mysql://localhost:3306/test");
+            dataSource.setURL("jdbc:mysql://localhost:3306/db");
             dataSource.setUser("root");
             dataSource.setPassword("");
 
