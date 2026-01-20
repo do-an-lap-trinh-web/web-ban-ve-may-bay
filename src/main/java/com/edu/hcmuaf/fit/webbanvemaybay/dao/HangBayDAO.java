@@ -3,6 +3,8 @@ package com.edu.hcmuaf.fit.webbanvemaybay.dao;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.HangBay;
 import org.jdbi.v3.core.Jdbi;
 
+import java.util.List;
+
 public class HangBayDAO extends DBContext {
     public HangBay getHangBayById(int id) {
         try {
@@ -13,6 +15,20 @@ public class HangBayDAO extends DBContext {
             });
             return hangBay;
         } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<HangBay> getAllHangBay() {
+        try {
+            Jdbi jdbi = get();
+            List<HangBay> listHangBay = jdbi.withHandle(h -> {
+                String q = "select * from hang_bay";
+                return h.createQuery(q).mapToBean(HangBay.class).list();
+            });
+            return listHangBay;
+        }  catch (Exception e) {
             e.printStackTrace();
             return null;
         }

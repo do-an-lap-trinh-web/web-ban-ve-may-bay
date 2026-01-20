@@ -19,7 +19,7 @@
             <a href="${pageContext.request.contextPath}/SoHieuChuyenBayController" class="menu-link" data-table="chuyen_bay">
                 <span class="emoji">✈️</span> Quản Lý Số Hiệu Chuyến Bay
             </a>
-            <a href="${pageContext.request.contextPath}/admin/airlines" class="menu-link" data-table="hang_bay">
+            <a href="${pageContext.request.contextPath}/HangBayController" class="menu-link" data-table="hang_bay">
                 <span class="emoji">🏢</span> Quản Lý Hãng Bay
             </a>
             <a href="${pageContext.request.contextPath}/admin/airports" class="menu-link" data-table="san_bay">
