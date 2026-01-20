@@ -1,6 +1,7 @@
 package com.edu.hcmuaf.fit.webbanvemaybay.models.DTO;
 
 public class VeDto {
+    private int idVe;
     private String khoiHanh;
     private String haCanh;
     private String hangGhe;
@@ -11,13 +12,14 @@ public class VeDto {
     private String gia;
     private String thoiGianKhoiHanh;
     private String thoiGianHaCanh;
-    private String HangBay;
+    private String hangBay;
     private String soHieuChuyenBay;
 
     @Override
     public String toString() {
         return "VeDto{" +
-                "khoiHanh='" + khoiHanh + '\'' +
+                "idVe=" + idVe +
+                ", khoiHanh='" + khoiHanh + '\'' +
                 ", haCanh='" + haCanh + '\'' +
                 ", hangGhe='" + hangGhe + '\'' +
                 ", diemDi='" + diemDi + '\'' +
@@ -27,9 +29,17 @@ public class VeDto {
                 ", gia='" + gia + '\'' +
                 ", thoiGianKhoiHanh='" + thoiGianKhoiHanh + '\'' +
                 ", thoiGianHaCanh='" + thoiGianHaCanh + '\'' +
-                ", HangBay='" + HangBay + '\'' +
+                ", HangBay='" + hangBay + '\'' +
                 ", soHieuChuyenBay='" + soHieuChuyenBay + '\'' +
                 '}';
+    }
+
+    public int getIdVe() {
+        return idVe;
+    }
+
+    public void setIdVe(int idVe) {
+        this.idVe = idVe;
     }
 
     public String getSanBayDi() {
@@ -114,11 +124,11 @@ public class VeDto {
     }
 
     public String getHangBay() {
-        return HangBay;
+        return hangBay;
     }
 
     public void setHangBay(String hangBay) {
-        HangBay = hangBay;
+        this.hangBay = hangBay;
     }
 
     public String getSoHieuChuyenBay() {

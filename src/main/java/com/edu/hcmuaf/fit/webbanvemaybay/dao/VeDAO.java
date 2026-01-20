@@ -19,4 +19,18 @@ public class VeDAO extends DBContext {
             return null;
         }
     }
+
+    public Ve getVeById(int id) {
+        try {
+            Jdbi jdbi = get();
+            Ve ve = jdbi.withHandle(h -> {
+                String q = "select * from ve where id = :id";
+                return h.createQuery(q).bind("id", id).mapToBean(Ve.class).one();
+            });
+            return ve;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

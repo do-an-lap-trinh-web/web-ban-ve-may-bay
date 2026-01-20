@@ -69,6 +69,9 @@ public class TimVeService {
                             HangBayDAO hangBayDAO = new HangBayDAO();
                             HangBay hangBay = hangBayDAO.getHangBayById(idHangBay);
                             veDto.setHangBay(hangBay.getTenHangBay());
+
+                            int idVe = listVeByHangGhe.get(i).getId();
+                            veDto.setIdVe(idVe);
                             isInfor2 = true;
                             break vong3;
                         }
@@ -111,6 +114,61 @@ public class TimVeService {
         thongTinTimVeDto.setListDiemDen(listTPHaCanh);
 
         return thongTinTimVeDto;
+    }
+
+    public VeDto getVeByIdVe(int id) {
+        VeDAO veDAO = new VeDAO();
+        Ve ve = veDAO.getVeById(id);
+
+        int idLoaiVe = ve.getIdLoaiVe();
+        LoaiVeDAO loaiVeDAO = new LoaiVeDAO();
+        LoaiVe loaiVe = loaiVeDAO.getLoaiVeById(idLoaiVe);
+
+        int idChuyenBay = ve.getIdChuyenBay();
+        ChuyenBayDAO chuyenBayDAO = new ChuyenBayDAO();
+        ChuyenBay chuyenBay = chuyenBayDAO.getChuyenBayById(idChuyenBay);
+
+        int idSoHieuChuyenBay = chuyenBay.getIdSoHieuChuyenBay();
+        SoHieuChuyenBayDAO soHieuChuyenBayDAO = new SoHieuChuyenBayDAO();
+        SoHieuChuyenBay soHieuChuyenBay = soHieuChuyenBayDAO.getSoHieuChuyenBayById(idSoHieuChuyenBay);
+
+        int idSanBayDi = soHieuChuyenBay.getIdSanBayDi();
+        int idSanBayDen = soHieuChuyenBay.getIdSanBayDen();
+        SanBayDAO sanBayDAO = new SanBayDAO();
+        SanBay sanBayDi = sanBayDAO.getSanBayById(idSanBayDi);
+        SanBay sanBayDen = sanBayDAO.getSanBayById(idSanBayDen);
+
+        int idHangBay = soHieuChuyenBay.getIdHangBay();
+        HangBayDAO hangBayDAO = new HangBayDAO();
+        HangBay hangBay = hangBayDAO.getHangBayById(idHangBay);
+        // id
+//        private String khoiHanh;
+//        private String haCanh;
+//        private String hangGhe;
+//        private String diemDi;
+//        private String diemDen;
+//        private String sanBayDi;
+//        private String sanBayDen;
+//        private String gia;
+//        private String thoiGianKhoiHanh;
+//        private String thoiGianHaCanh;
+//        private String HangBay;
+//        private String soHieuChuyenBay;
+        VeDto veDto = new VeDto();
+        veDto.setIdVe(id);
+        veDto.setKhoiHanh(sanBayDi.getQuocGia());
+        veDto.setHaCanh(sanBayDen.getQuocGia());
+        veDto.setHangGhe(loaiVe.getTenLoaiVe());
+        veDto.setDiemDi(sanBayDi.getThanhPho());
+        veDto.setDiemDen(sanBayDen.getThanhPho());
+        veDto.setSanBayDi(sanBayDi.getTenSanBay());
+        veDto.setSanBayDen(sanBayDen.getTenSanBay());
+        veDto.setGia(FormatVND.formatVND(ve.getGia()));
+        veDto.setThoiGianKhoiHanh(chuyenBay.getThoiGianKhoiHanh());
+        veDto.setThoiGianHaCanh(chuyenBay.getThoiGianHaCanh());
+        veDto.setHangBay(hangBay.getTenHangBay());
+        veDto.setSoHieuChuyenBay(soHieuChuyenBay.getMaChuyenBay());
+        return veDto;
     }
 
     public static void main(String[] args) {

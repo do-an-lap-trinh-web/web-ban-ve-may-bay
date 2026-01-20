@@ -1,5 +1,6 @@
 package com.edu.hcmuaf.fit.webbanvemaybay.dao;
 
+import com.edu.hcmuaf.fit.webbanvemaybay.models.LoaiVe;
 import org.jdbi.v3.core.Jdbi;
 
 import java.util.List;
@@ -26,6 +27,19 @@ public class LoaiVeDAO extends DBContext{
                 return h.createQuery(q).mapTo(String.class).list();
             });
             return listLoaiVe;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public LoaiVe getLoaiVeById(int idLoaiVe) {
+        try {
+            Jdbi jdbi = get();
+            LoaiVe loaiVe = jdbi.withHandle(h -> {
+                String q = "select * from loai_ve where id=:idLoaiVe";
+                return h.createQuery(q).bind("idLoaiVe", idLoaiVe).mapToBean(LoaiVe.class).one();
+            });
+            return loaiVe;
         } catch (Exception e) {
             return null;
         }

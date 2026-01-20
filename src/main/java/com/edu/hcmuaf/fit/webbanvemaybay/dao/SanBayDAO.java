@@ -47,4 +47,18 @@ public class SanBayDAO extends DBContext{
             return null;
         }
     }
+
+    public SanBay getSanBayById(int id) {
+        try {
+            Jdbi jdbi = get();
+            SanBay sanBay = jdbi.withHandle(h -> {
+                String q = "select * from san_bay where id=:idSanBayDi";
+                return h.createQuery(q).bind("idSanBayDi", id).mapToBean(SanBay.class).one();
+            });
+            return sanBay;
+        } catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
