@@ -43,7 +43,7 @@
 
                     <td>
                         <div class="action-from-hang-bay">
-                            <button class="btn-action btn-edit">Sửa</button>
+                            <a href="${pageContext.request.contextPath}/SuaHangBayController?id=${item.id}" class="btn-action btn-edit">Sửa</a>
                             <button class="btn-action btn-delete">Xóa</button>
                         </div>
                     </td>
