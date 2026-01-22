@@ -22,4 +22,9 @@ public class HangBayService {
         HangBayDAO hangBayDAO = new HangBayDAO();
         return hangBayDAO.updateHangBay(hangBay);
     }
+
+    public boolean removeHangBayById(String id) {
+        HangBayDAO hangBayDAO = new HangBayDAO();
+        return hangBayDAO.removeHangBayById(id);
+    }
 }
