@@ -137,123 +137,46 @@ a {
     width: 120px;
 }
 
-/*.example-flights tbody td{
-    padding: 15px;
-    border-bottom: 1px solid #e9ecef;
-    vertical-align: middle;
-    color: #333;
+.table-container {
+    max-height: 550px;
+    overflow-y: auto;
+    margin-top: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background: white;
 }
 
-.example-flights tbody td:nth-child(6){
-    text-align: center;
-    vertical-align: middle;
-    display: table-cell;
+
+.example-flights thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f8f9fa;
+    z-index: 1;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
 }
 
-.example-flights tbody tr:hover{
-    background-color: #f0f8ff;
-}
 
-.flight-code{
-    font-weight: bold;
-    color: #0056b3;
-    font-size: 15px;
-}
-
-.route-info{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.location{
+.action-btn {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 13px;
     font-weight: 600;
 }
 
-.icon-arrow{
-    color: #1ba0e2;
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 1;
+.action-btn.edit {
+    color: #f39c12;
+    background: rgba(243, 156, 18, 0.1);
 }
 
-.time-info{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
+.action-btn.delete {
+    color: #e74c3c;
+    background: rgba(231, 76, 60, 0.1);
 }
 
-.flight-time-row{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    white-space: nowrap;
+.action-btn:hover {
+    filter: brightness(0.9);
 }
 
-.flight-date{
-    font-size: 15px;
-    color: #888;
-    margin-top: 5px;
-    white-space: nowrap;
-}
-
-.flight-price{
-    color: #d9534f;
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.left-ticket{
-    display: inline-block;
-    margin: 0 auto;
-    border-radius: 20px;
-    font-size: 15px;
-    font-weight: 700;
-}
-
-.left-ticket.available{
-    background-color: #e6f9ea;
-    color: #28a745;
-}
-
-.left-ticket.low-stock{
-    background-color: #e6f9ea;
-    color:#ff0500;
-}
-
-.act-btns{
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.btn-act-edit-del{
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-    color: white;
-}
-
-.btn-edit{
-    background-color: #f0ad4e;
-}
-
-.btn-edit:hover{
-    background-color: #ec971f;
-}
-
-.btn-delete{
-    background-color: #d9534f;
-}
-
-.btn-delete:hover{
-    background-color: #c9302c;
-}*/
 
 .page-moving{
     display: flex;
