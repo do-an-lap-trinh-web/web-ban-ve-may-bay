@@ -52,4 +52,21 @@ public class HangBayDAO extends DBContext {
             return false;
         }
     }
+
+    public boolean removeHangBayById(String id) {
+        try {
+            Jdbi jdbi = get();
+            int soLuong = jdbi.withHandle(h -> {
+                String q = "delete from hang_bay where id=:id";
+                return h.createUpdate(q).bind("id", id).execute();
+            });
+            if (soLuong > 0) {
+                return true;
+            }
+            return false;
+        }  catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

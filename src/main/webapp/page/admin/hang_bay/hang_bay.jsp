@@ -44,7 +44,11 @@
                     <td>
                         <div class="action-from-hang-bay">
                             <a href="${pageContext.request.contextPath}/admin/SuaHangBayController?id=${item.id}" class="btn-action btn-edit">Sửa</a>
-                            <button class="btn-action btn-delete">Xóa</button>
+                            <form action="${pageContext.request.contextPath}/admin/XoaHangBayController" method="post">
+                                <input type="hidden" name="id" value="${item.id}">
+                                <button class="btn-action btn-delete">Xóa</button>
+                            </form>
+
                         </div>
                     </td>
                 </tr>
