@@ -22,4 +22,9 @@ public class LoaiVeService {
         LoaiVeDAO loaiVeDAO = new LoaiVeDAO();
         return loaiVeDAO.xoaLoaiVe(idLoaiVe);
     }
+
+    public LoaiVe getLoaiVeById(String id) {
+        LoaiVeDAO loaiVeDAO = new LoaiVeDAO();
+        return loaiVeDAO.getLoaiVeById(id);
+    }
 }

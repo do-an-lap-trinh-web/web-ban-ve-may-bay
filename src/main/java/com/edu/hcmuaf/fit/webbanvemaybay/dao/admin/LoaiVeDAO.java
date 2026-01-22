@@ -60,4 +60,18 @@ public class LoaiVeDAO extends DBContext {
             return " xoá thât bại do lỗi hệ thống " + e.getMessage();
         }
     }
+
+    public LoaiVe getLoaiVeById(String id) {
+        try {
+            Jdbi jdbi = get();
+            LoaiVe loaiVe = jdbi.withHandle(h -> {
+                String q = "select * from loai_ve where id=:id";
+                return h.createQuery(q).bind("id", id).mapToBean(LoaiVe.class).findFirst().orElse(null);
+            });
+            return loaiVe;
+        }  catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
