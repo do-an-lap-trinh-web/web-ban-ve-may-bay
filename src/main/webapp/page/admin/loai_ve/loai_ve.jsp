@@ -44,8 +44,8 @@
                 <td class="text-3cham">${loaiVe.tenLoaiVe}</td>
                 <td class="text-3cham">${loaiVe.moTa}</td>
                 <td>
-                    <a class="btn-thao-tac">Sửa</a>
-                    <a class="btn-thao-tac">Hồ Sơ</a>
+                    <a href="${pageContext.request.contextPath}/admin/SuaLoaiVeController?id=${loaiVe.id}" class="btn-thao-tac">Sửa</a>
+                    <a href="${pageContext.request.contextPath}/admin/XemHoSoLoaiVeController?id=${loaiVe.id}" class="btn-thao-tac">Hồ Sơ</a>
                     <a class="btn-thao-tac" href="${pageContext.request.contextPath}/admin/XoaLoaiVe?idLoaiVe=${loaiVe.id}">Xóa</a>
                 </td>
             </tr>
