@@ -1,11 +1,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
     <title>Hãng Bay</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/page/admin/hang_bay/hang_bay.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/admin/StyleAdminMenuSidebar.css">
 </head>
 <body>
+<%@include file="../AdminMenuSidebar.jsp" %>
     <div class="container">
         <div class="search-flight-bar">
             <div class="search-form">
