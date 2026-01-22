@@ -6,9 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Web bán vé máy bay</title>
-    <link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="layout/StyleHeader.css">
-	<link rel="stylesheet" href="layout/StyleFooter.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleHeader.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleFooter.css">
 </head>
 
 <body>
@@ -33,6 +33,17 @@
 <%
     }
 %>
+
+<%
+    String messageAdmin = (String) request.getAttribute("messageAdmin");
+    if (messageAdmin != null) {
+%>
+<script>
+    alert("<%= messageAdmin %>")
+</script>
+<%
+    }
+%>
 <%@ include file="layout/Header.jsp"%>
 
 <!-- ✅ NỘI DUNG TRANG CHỦ -->
@@ -44,31 +55,31 @@
 
 		<div class="list-card-selection">
 			<div class="card-selection">
-				<img src="access/trang_chu/anh-ho-guom.webp" alt="">
+				<img src="${pageContext.request.contextPath}/access/trang_chu/anh-ho-guom.webp" alt="">
 				<p>Vé máy bay đi Hà Nội</p>
 				<span>800.000đ</span>
 			</div>
 
 			<div class="card-selection">
-				<img src="access/trang_chu/anh-sai-gon.webp" alt="">
+				<img src="${pageContext.request.contextPath}/access/trang_chu/anh-sai-gon.webp" alt="">
 				<p>Vé máy bay đi TP.HCM</p>
 				<span>1.200.000đ</span>
 			</div>
 
 			<div class="card-selection">
-				<img src="access/trang_chu/anh-da-nang.webp" alt="">
+				<img src="${pageContext.request.contextPath}/access/trang_chu/anh-da-nang.webp" alt="">
 				<p>Vé máy bay đi Đà Nẵng</p>
 				<span>800.000đ</span>
 			</div>
 
 			<div class="card-selection">
-				<img src="access/trang_chu/anh-hue.webp" alt="">
+				<img src="${pageContext.request.contextPath}/access/trang_chu/anh-hue.webp" alt="">
 				<p>Vé máy bay đi Huế</p>
 				<span>800.000đ</span>
 			</div>
 
 			<div class="card-selection">
-				<img src="access/trang_chu/anh-nha-trang.webp" alt="">
+				<img src="${pageContext.request.contextPath}/access/trang_chu/anh-nha-trang.webp" alt="">
 				<p>Vé máy bay đi Nha Trang</p>
 				<span>800.000đ</span>
 			</div>
@@ -88,31 +99,31 @@
 
 		<div class="list-card-selection">
 			<div class="card-selection">
-				<img src="access/trang_chu/anh-uc.webp" alt="">
+				<img src="${pageContext.request.contextPath}/access/trang_chu/anh-uc.webp" alt="">
 				<p>Vé máy bay đi Úc</p>
 				<span>800.000đ</span>
 			</div>
 
 			<div class="card-selection">
-				<img src="access/trang_chu/anh-phap.webp" alt="">
+				<img src="${pageContext.request.contextPath}/access/trang_chu/anh-phap.webp" alt="">
 				<p>Vé máy bay đi Pháp</p>
 				<span>1.200.000đ</span>
 			</div>
 
 			<div class="card-selection">
-				<img src="access/trang_chu/anh-mi.webp" alt="">
+				<img src="${pageContext.request.contextPath}/access/trang_chu/anh-mi.webp" alt="">
 				<p>Vé máy bay đi Mĩ</p>
 				<span>800.000đ</span>
 			</div>
 
 			<div class="card-selection">
-				<img src="access/trang_chu/anh-singapore.webp" alt="">
+				<img src="${pageContext.request.contextPath}/access/trang_chu/anh-singapore.webp" alt="">
 				<p>Vé máy bay đi Singapore</p>
 				<span>800.000đ</span>
 			</div>
 
 			<div class="card-selection">
-				<img src="access/trang_chu/anh-nhat-ban.webp" alt="">
+				<img src="${pageContext.request.contextPath}/access/trang_chu/anh-nhat-ban.webp" alt="">
 				<p>Vé máy bay đi Nhật Bản</p>
 				<span>800.000đ</span>
 			</div>

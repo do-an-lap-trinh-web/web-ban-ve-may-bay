@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "LoaiVe", value = "/LoaiVe")
+@WebServlet(name = "LoaiVe", value = "/admin/LoaiVe")
 public class LoaiVeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

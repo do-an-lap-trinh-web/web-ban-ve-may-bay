@@ -20,7 +20,7 @@
         <a href="${pageContext.request.contextPath}/page/lien_he/lien_he.jsp">Thông Tin Liên Hệ</a>
         <a href="${pageContext.request.contextPath}/VeDaDatController">Vé đã đặt</a>
         <c:if test="${sessionScope.user != null && sessionScope.user.role == 'admin'}">
-            <a href="${pageContext.request.contextPath}/user-controller">Admin</a>
+            <a href="${pageContext.request.contextPath}/admin/user-controller">Admin</a>
         </c:if>
     </div>
 

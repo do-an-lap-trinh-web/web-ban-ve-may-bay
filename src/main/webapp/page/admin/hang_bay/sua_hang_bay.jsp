@@ -17,7 +17,7 @@
             <h2>✏️ Sửa Thông Tin Hãng Bay</h2>
         </div>
 
-        <form action="${pageContext.request.contextPath}/SuaHangBayController" method="post">
+        <form action="${pageContext.request.contextPath}/admin/SuaHangBayController" method="post">
             <div>
                 ${requestScope.message}
             </div>
@@ -38,7 +38,7 @@
 
             <div class="btn-group">
                 <button type="submit" class="btn btn-save">Cập Nhật Thay Đổi</button>
-                <a href="${pageContext.request.contextPath}/HangBayController" class="btn btn-cancel">Hủy Bỏ</a>
+                <a href="${pageContext.request.contextPath}/admin/HangBayController" class="btn btn-cancel">Hủy Bỏ</a>
             </div>
         </form>
     </div>

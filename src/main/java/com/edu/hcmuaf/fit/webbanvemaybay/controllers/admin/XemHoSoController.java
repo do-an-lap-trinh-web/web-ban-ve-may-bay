@@ -9,7 +9,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "xemHoSo", value = "/xemHoSo")
+@WebServlet(name = "xemHoSo", value = "/admin/xemHoSo")
 public class XemHoSoController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

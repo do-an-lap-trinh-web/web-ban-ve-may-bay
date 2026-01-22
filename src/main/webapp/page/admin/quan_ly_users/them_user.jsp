@@ -15,7 +15,7 @@
 <div class="form-container">
     <h2>👤 Đăng Ký Người Dùng Mới</h2>
 
-    <form action="${pageContext.request.contextPath}/themUser" method="post">
+    <form action="${pageContext.request.contextPath}/admin/themUser" method="post">
 
         <div style="text-align: center">
             <%= request.getAttribute("message") %>
@@ -45,7 +45,7 @@
 
         <div class="button-group">
             <button type="submit" class="submit-btn">Tạo Tài Khoản</button>
-            <a href="${pageContext.request.contextPath}/user-controller" class="back-btn">Quay Lại</a>
+            <a href="${pageContext.request.contextPath}/admin/user-controller" class="back-btn">Quay Lại</a>
         </div>
     </form>
 </div>

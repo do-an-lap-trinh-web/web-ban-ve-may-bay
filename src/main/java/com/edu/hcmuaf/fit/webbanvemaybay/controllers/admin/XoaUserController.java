@@ -7,7 +7,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "XoaUser", value = "/XoaUser")
+@WebServlet(name = "XoaUser", value = "/admin/XoaUser")
 public class XoaUserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
