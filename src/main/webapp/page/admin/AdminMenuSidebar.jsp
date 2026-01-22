@@ -2,7 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
     <div class="sidebar-menu">
-        <h2><span class="emoji">⚙️</span> Quản Trị Hệ Thống</h2>
+        <a href="${pageContext.request.contextPath}/admin/user-controller">
+            <h2><span class="emoji">⚙️</span> Quản Trị Hệ Thống</h2>
+        </a>
+
 
         <div class="menu-group">
             <h3>Người Dùng</h3>

@@ -29,10 +29,10 @@ public class XemHoSoController extends HttpServlet {
 
                 request.getRequestDispatcher("/page/admin/quan_ly_users/xem_ho_so.jsp").forward(request, response);
             } catch (NumberFormatException e) {
-                response.sendRedirect(request.getContextPath() + "/user-controller");
+                response.sendRedirect(request.getContextPath() + "/admin/user-controller");
             }
         } else {
-            response.sendRedirect(request.getContextPath() + "/user-controller");
+            response.sendRedirect(request.getContextPath() + "/admin/user-controller");
         }
     }
 

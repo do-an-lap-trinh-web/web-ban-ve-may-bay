@@ -23,7 +23,9 @@
                 </a>
             </div>
         </div>
-
+        <div>
+            ${requestScope.message}
+        </div>
         <table class="example-flights">
             <thead>
             <tr>

@@ -16,7 +16,7 @@
 <div class="form-container">
     <h2>Thêm số hiệu chuyến bay mới</h2>
 
-    <form action="${pageContext.request.contextPath}/admin/SoHieuChuyenBayController" method="post">
+    <form action="${pageContext.request.contextPath}/admin/ThemSoHieuChuyenBayController" method="post">
 
         <div style="text-align: center">
             <%= request.getAttribute("message") %>
