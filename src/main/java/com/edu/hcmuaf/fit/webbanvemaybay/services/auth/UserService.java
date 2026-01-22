@@ -2,8 +2,12 @@ package com.edu.hcmuaf.fit.webbanvemaybay.services.auth;
 
 import com.edu.hcmuaf.fit.webbanvemaybay.dao.UserDAO;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.User;
+import com.edu.hcmuaf.fit.webbanvemaybay.services.core.GuiMail;
 import com.edu.hcmuaf.fit.webbanvemaybay.services.core.HashPassword;
 import com.edu.hcmuaf.fit.webbanvemaybay.services.core.KiemTraThongTinDangKy;
+
+import java.time.LocalDateTime;
+import java.util.Random;
 
 public class UserService {
 
@@ -32,5 +36,55 @@ public class UserService {
             return user;
         }
         return null;
+    }
+
+    public boolean isUserAndEmailExist(String username, String email) {
+        UserDAO userDAO = new UserDAO();
+        return userDAO.isUserAndEmailExist(username, email);
+    }
+
+    public String guiMaXacThuc(String username, String email) {
+        String message = "";
+        Random rd = new Random();
+        StringBuffer sb = new StringBuffer();
+        for (int i = 1; i <= 5; i++) {
+            sb.append(rd.nextInt(11));
+        }
+        boolean isGuiMail = GuiMail.guiMaXacThuc(email, sb.toString());
+        if (isGuiMail) {
+
+            UserDAO userDAO = new UserDAO();
+            boolean isThemMaXacThuc = userDAO.themMaXacThuc(username, sb.toString(), LocalDateTime.now().plusMinutes(5));
+            if (isThemMaXacThuc) {
+                message = "đã gửi mã xác thực, hãy kiểm tra email";
+            } else {
+                message = "lỗi hệ thống";
+            }
+        } else {
+            message = "gửi mail thất bại do email không hợp lệ hoặc không tồn tại";
+        }
+        return message;
+    }
+
+    public String doiMatKhau(String username, String password, String email, String maXacThuc) {
+        KiemTraThongTinDangKy kiemTraThongTinDangKy = new KiemTraThongTinDangKy();
+        User user = new  User();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setEmail(email);
+        user.setSoDienThoai("1234567890");
+
+        String isFormatUser = kiemTraThongTinDangKy.kiemTraThongTinDangKy(user);
+        if (!isFormatUser.equals("200")) {
+            return isFormatUser;
+        }
+        String passwordHash = HashPassword.hashPassword(password);
+        user.setPassword(passwordHash);
+        user.setCodeXacThuc(maXacThuc);
+        user.setHangXacThuc(null);
+
+        UserDAO userDAO = new UserDAO();
+        String message = userDAO.doiMatKhau(user);
+        return message;
     }
 }

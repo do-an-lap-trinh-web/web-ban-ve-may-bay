@@ -3,6 +3,8 @@ package com.edu.hcmuaf.fit.webbanvemaybay.dao;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.User;
 import org.jdbi.v3.core.Jdbi;
 
+import java.time.LocalDateTime;
+
 public class UserDAO extends DBContext {
 
     // tạo user mới và db
@@ -70,6 +72,84 @@ public class UserDAO extends DBContext {
         } catch (Exception e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public boolean isUserAndEmailExist(String username, String email) {
+        try {
+            Jdbi jdbi = get();
+            int soLuong = jdbi.withHandle(h -> {
+                String q = "select count(*) from users where username=:username and email=:email";
+                return h.createQuery(q).bind("username", username).bind("email", email).mapTo(Integer.class).one();
+            });
+            if (soLuong > 0) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean themMaXacThuc(String username, String maXacThuc, LocalDateTime hangXacThuc) {
+        try {
+            Jdbi jdbi = get();
+            int soLuong = jdbi.withHandle(h -> {
+                String q = "update users set code_xac_thuc=:maXacThuc, hang_xac_thuc=:hangXacThuc where username=:username";
+                return h.createUpdate(q).bind("maXacThuc", maXacThuc).bind("hangXacThuc", hangXacThuc).bind("username", username).execute();
+            });
+            if (soLuong > 0) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean isEmailExist(String email) {
+        try {
+            Jdbi jdbi = get();
+            int soLuong = jdbi.withHandle(h -> {
+                String q = "select count(*) from users where email=:email";
+                return h.createQuery(q).bind("email", email).mapTo(Integer.class).one();
+            });
+            if (soLuong > 0) {
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public String doiMatKhau(User user) {
+        try {
+            Jdbi jdbi = get();
+            LocalDateTime hangXacThuc = jdbi.withHandle(h -> {
+                String q = "select hang_xac_thuc from users where username=:username";
+                return h.createQuery(q).bind("username", user.getUsername()).mapTo(LocalDateTime.class).one();
+            });
+            if (LocalDateTime.now().isBefore(hangXacThuc)) {
+                user.setCodeXacThuc(null);
+                user.setHangXacThuc(null);
+                int soLuong = jdbi.withHandle(h -> {
+                    String q = "update users set password=:password, code_xac_thuc=:codeXacThuc, hang_xac_thuc=:hangXacThuc where username=:username";
+                    return h.createUpdate(q).bind("password", user.getPassword()).bind("codeXacThuc", user.getCodeXacThuc())
+                            .bind("hangXacThuc", user.getHangXacThuc()).bind("username", user.getUsername()).execute();
+                });
+                if (soLuong > 0) {
+                    return "đổi mật khẩu thành công";
+                }
+                return "đổi mật khẩu thất bại do lỗi hệ thống";
+            }
+            return "code xác thực đã hết hạng";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "đổi mật khẩu thất bại do lỗi hệ thống";
         }
     }
 }
