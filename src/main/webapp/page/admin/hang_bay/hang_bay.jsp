@@ -16,7 +16,7 @@
             </div>
 
             <div class="btn-add-ticket-from-hang-bay">
-                <a href="" class="btn-add-ticket-from-hb">
+                <a href="${pageContext.request.contextPath}/page/admin/hang_bay/them_hang_bay.jsp" class="btn-add-ticket-from-hb">
                     <span class="btn-add-ticket-icon">+</span> Thêm Hãng Bay
                 </a>
             </div>

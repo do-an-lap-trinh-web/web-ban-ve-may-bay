@@ -69,4 +69,21 @@ public class HangBayDAO extends DBContext {
             return false;
         }
     }
+
+    public boolean addHangBay(HangBay hangBay) {
+        try {
+            Jdbi jdbi = get();
+            int soLuong = jdbi.withHandle(h -> {
+                String q = "insert into hang_bay (id, ten_hang_bay, quoc_gia) values (:id, :tenHangBay, :quocGia)";
+                return h.createUpdate(q).bindBean(hangBay).execute();
+            });
+            if (soLuong > 0) {
+                return true;
+            }
+            return false;
+        }  catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
