@@ -74,4 +74,18 @@ public class LoaiVeDAO extends DBContext {
             return null;
         }
     }
+
+    public boolean updateLoaiVe(LoaiVe loaiVe) {
+        try {
+            Jdbi jdbi = get();
+            int soLuong = jdbi.withHandle(h -> {
+                String q = "update loai_ve set ten_loai_ve=:tenLoaiVe, mo_ta=:moTa where id=:id";
+                return h.createUpdate(q).bindBean(loaiVe).execute();
+            });
+            return soLuong > 0;
+        }  catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

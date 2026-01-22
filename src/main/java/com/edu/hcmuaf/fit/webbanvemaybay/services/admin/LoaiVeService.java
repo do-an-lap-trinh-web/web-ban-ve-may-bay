@@ -27,4 +27,9 @@ public class LoaiVeService {
         LoaiVeDAO loaiVeDAO = new LoaiVeDAO();
         return loaiVeDAO.getLoaiVeById(id);
     }
+
+    public boolean updateLoaiVe(LoaiVe loaiVe) {
+        LoaiVeDAO loaiVeDAO = new LoaiVeDAO();
+        return loaiVeDAO.updateLoaiVe(loaiVe);
+    }
 }
