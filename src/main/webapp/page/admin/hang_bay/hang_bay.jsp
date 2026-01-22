@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -32,30 +33,25 @@
             </thead>
 
             <tbody>
-            <tr>
-                <td style="text-align: center; width: 60px;">1</td>
+            <c:forEach items="${listHangBay}" var="item">
+                <tr>
+                    <td style="text-align: center; width: 60px;">${item.id}</td>
 
-                <td>Vietnam Airlines</td>
+                    <td>${item.tenHangBay}</td>
 
-                <td>Việt Nam</td>
+                    <td>${item.quocGia}</td>
 
-                <td>
-                    <div class="action-from-hang-bay">
-                        <button class="btn-action btn-edit">Sửa</button>
-                        <button class="btn-action btn-delete">Xóa</button>
-                    </div>
-                </td>
-            </tr>
+                    <td>
+                        <div class="action-from-hang-bay">
+                            <a href="${pageContext.request.contextPath}/SuaHangBayController?id=${item.id}" class="btn-action btn-edit">Sửa</a>
+                            <button class="btn-action btn-delete">Xóa</button>
+                        </div>
+                    </td>
+                </tr>
+            </c:forEach>
+
             </tbody>
         </table>
-
-        <div class="page-moving">
-            <a href="#" class="page-link">&laquo;</a>
-            <a href="#" class="page-link active">1</a>
-            <a href="#" class="page-link">2</a>
-            <a href="#" class="page-link">3</a>
-            <a href="#" class="page-link">&raquo;</a>
-        </div>
     </div>
 </body>
 </html>
