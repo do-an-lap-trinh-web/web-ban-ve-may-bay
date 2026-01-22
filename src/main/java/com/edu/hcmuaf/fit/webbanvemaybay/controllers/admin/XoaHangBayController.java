@@ -24,6 +24,6 @@ public class XoaHangBayController extends HttpServlet {
         } else {
             request.setAttribute("message", "xoá thất bại");
         }
-        request.getRequestDispatcher("/page/admin/hang_bay/hang_bay.jsp").forward(request, response);
+        response.sendRedirect(request.getContextPath() + "/admin/HangBayController");
     }
 }

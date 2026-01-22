@@ -85,8 +85,7 @@
                     <td>${soHieuChuyenBay.idHangBay}</td>
                     <td style="display: flex; justify-content: center; gap: 10px;">
                         <a href="${pageContext.request.contextPath}/admin/SuaSoHieuChuyenBayController?id=${soHieuChuyenBay.id}" class="action-btn edit">sửa</a>
-                        <a href="${pageContext.request.contextPath}/admin/XoaSoHieuChuyenBayController?id=${soHieuChuyenBay.id}"
-                           onclick="return confirm('Bạn có chắc chắn muốn xóa?')" class="action-btn delete">xoá</a>
+                        <a href="${pageContext.request.contextPath}/admin/XoaSoHieuChuyenBayController?id=${soHieuChuyenBay.id}">xoá</a>
                     </td>
                 </tr>
             </c:forEach>
