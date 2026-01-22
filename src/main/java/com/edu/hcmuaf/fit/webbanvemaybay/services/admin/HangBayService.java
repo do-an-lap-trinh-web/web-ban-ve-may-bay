@@ -27,4 +27,9 @@ public class HangBayService {
         HangBayDAO hangBayDAO = new HangBayDAO();
         return hangBayDAO.removeHangBayById(id);
     }
+
+    public boolean addHangBay(HangBay hangBay) {
+        HangBayDAO hangBayDAO = new HangBayDAO();
+        return hangBayDAO.addHangBay(hangBay);
+    }
 }
