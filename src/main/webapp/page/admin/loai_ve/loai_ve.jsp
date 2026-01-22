@@ -46,7 +46,7 @@
                 <td>
                     <a class="btn-thao-tac">Sửa</a>
                     <a class="btn-thao-tac">Hồ Sơ</a>
-                    <a class="btn-thao-tac" href="${pageContext.request.contextPath}/XoaLoaiVe?idLoaiVe=${loaiVe.id}">Xóa</a>
+                    <a class="btn-thao-tac" href="${pageContext.request.contextPath}/admin/XoaLoaiVe?idLoaiVe=${loaiVe.id}">Xóa</a>
                 </td>
             </tr>
 

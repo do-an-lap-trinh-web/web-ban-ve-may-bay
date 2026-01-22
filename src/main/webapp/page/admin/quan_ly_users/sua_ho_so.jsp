@@ -9,7 +9,7 @@
     <div class="container">
         <h2>Chỉnh Sửa Hồ Sơ </h2>
 
-        <form action="${pageContext.request.contextPath}/suaUser" method="post">
+        <form action="${pageContext.request.contextPath}/admin/suaUser" method="post">
 
             <input type="hidden" name="id" value="${user.id}">
 
@@ -61,7 +61,7 @@
             </div>
 
             <button type="submit" class="btn-save">Lưu Thay Đổi</button>
-            <a href="${pageContext.request.contextPath}/user-controller" class="btn-cancel">Hủy Bỏ</a>
+            <a href="${pageContext.request.contextPath}/admin/user-controller" class="btn-cancel">Hủy Bỏ</a>
         </form>
     </div>
 </body>

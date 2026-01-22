@@ -9,7 +9,7 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "HangBayController", value = "/HangBayController")
+@WebServlet(name = "HangBayController", value = "/admin/HangBayController")
 public class HangBayController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -17,7 +17,7 @@ public class HangBayController extends HttpServlet {
         List<HangBay> listHangBay = hangBayService.getAllHangBay();
 
         request.setAttribute("listHangBay", listHangBay);
-        request.getRequestDispatcher("page/admin/hang_bay/hang_bay.jsp").forward(request, response);
+        request.getRequestDispatcher("/page/admin/hang_bay/hang_bay.jsp").forward(request, response);
     }
 
     @Override

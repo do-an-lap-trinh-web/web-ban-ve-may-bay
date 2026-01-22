@@ -16,7 +16,7 @@
 <div class="form-container">
     <h2>Sửa số hiệu chuyến bay</h2>
 
-    <form action="${pageContext.request.contextPath}/SuaSoHieuChuyenBayController" method="post">
+    <form action="${pageContext.request.contextPath}/admin/SuaSoHieuChuyenBayController" method="post">
 
         <div style="text-align: center">
             <%= request.getAttribute("message") %>
@@ -47,7 +47,7 @@
 
         <div class="button-group">
             <button type="submit" class="submit-btn">Sửa</button>
-            <a href="${pageContext.request.contextPath}/SoHieuChuyenBayController" class="back-btn">Quay Lại</a>
+            <a href="${pageContext.request.contextPath}/admin/SoHieuChuyenBayController" class="back-btn">Quay Lại</a>
         </div>
     </form>
 </div>

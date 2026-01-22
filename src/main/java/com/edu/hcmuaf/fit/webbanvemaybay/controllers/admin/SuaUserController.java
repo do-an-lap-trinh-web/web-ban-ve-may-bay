@@ -9,7 +9,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "suaUser", value = "/suaUser")
+@WebServlet(name = "suaUser", value = "/admin/suaUser")
 public class SuaUserController extends HttpServlet {
 
     @Override

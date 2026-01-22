@@ -6,7 +6,7 @@
 
         <div class="menu-group">
             <h3>Người Dùng</h3>
-            <a href="${pageContext.request.contextPath}/user-controller" class="menu-link" data-table="users">
+            <a href="${pageContext.request.contextPath}/admin/user-controller" class="menu-link" data-table="users">
                 <span class="emoji">🧑‍💻</span> Tài Khoản Khách Hàng
             </a>
             <a href="${pageContext.request.contextPath}/admin/profiles" class="menu-link" data-table="thong_tin_nguoi_dung">
@@ -16,10 +16,10 @@
 
         <div class="menu-group">
             <h3>Hàng Không</h3>
-            <a href="${pageContext.request.contextPath}/SoHieuChuyenBayController" class="menu-link" data-table="chuyen_bay">
+            <a href="${pageContext.request.contextPath}/admin/SoHieuChuyenBayController" class="menu-link" data-table="chuyen_bay">
                 <span class="emoji">✈️</span> Quản Lý Số Hiệu Chuyến Bay
             </a>
-            <a href="${pageContext.request.contextPath}/HangBayController" class="menu-link" data-table="hang_bay">
+            <a href="${pageContext.request.contextPath}/admin/HangBayController" class="menu-link" data-table="hang_bay">
                 <span class="emoji">🏢</span> Quản Lý Hãng Bay
             </a>
             <a href="${pageContext.request.contextPath}/admin/airports" class="menu-link" data-table="san_bay">
@@ -38,7 +38,7 @@
             <a href="${pageContext.request.contextPath}/admin/tickets" class="menu-link" data-table="ve">
                 <span class="emoji">🎫</span> Chi Tiết Vé
             </a>
-            <a href="${pageContext.request.contextPath}/LoaiVe" class="menu-link" data-table="loai_ve">
+            <a href="${pageContext.request.contextPath}/admin/LoaiVe" class="menu-link" data-table="loai_ve">
                 <span class="emoji">💺</span> Loại Vé
             </a>
         </div>
