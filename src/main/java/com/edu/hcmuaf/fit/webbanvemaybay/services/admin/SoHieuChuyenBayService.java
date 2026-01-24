@@ -31,4 +31,8 @@ public class SoHieuChuyenBayService {
     public String deleteSoHieuChuyenBayById(String id) {
         return soHieuChuyenBayDAO.deleteSoHieuChuyenBayById(id);
     }
+
+    public List<SoHieuChuyenBay> getSoHieuChuyenBayByInput(String input) {
+        return soHieuChuyenBayDAO.getSoHieuChuyenBayByInput(input.trim());
+    }
 }
