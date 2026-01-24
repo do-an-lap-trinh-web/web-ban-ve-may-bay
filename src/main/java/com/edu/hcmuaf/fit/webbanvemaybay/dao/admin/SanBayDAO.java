@@ -20,4 +20,18 @@ public class SanBayDAO extends DBContext {
             return null;
         }
     }
+
+    public boolean addSanBay(SanBay sanBay) {
+        try {
+            Jdbi jdbi = get();
+            int soLuong = jdbi.withHandle(h -> {
+                String q = "insert into san_bay(id, ten_san_bay, thanh_pho, quoc_gia) values (:id, :tenSanBay, :thanhPho, :quocGia)";
+                return h.createUpdate(q).bindBean(sanBay).execute();
+            });
+            return soLuong > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

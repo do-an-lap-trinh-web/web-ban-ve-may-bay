@@ -19,7 +19,7 @@
         </div>
 
         <div class="btn-add-ticket-from-so-hieu-chuyen-bay">
-            <a href="${pageContext.request.contextPath}/page/admin/so_hieu_chuyen_bay/them_so_hieu_chuyen_bay.jsp" class="btn-add-ticket-from-shcb">
+            <a href="${pageContext.request.contextPath}/page/admin/quan_ly_san_bay/them_san_bay.jsp" class="btn-add-ticket-from-shcb">
                 <span class="btn-add-ticket-icon">+</span>Thêm Sân Bay
             </a>
         </div>

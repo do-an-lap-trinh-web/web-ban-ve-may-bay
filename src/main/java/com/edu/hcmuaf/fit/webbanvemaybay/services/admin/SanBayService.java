@@ -10,4 +10,9 @@ public class SanBayService {
         SanBayDAO sanBayDAO = new SanBayDAO();
         return sanBayDAO.getAllSanBay();
     }
+
+    public boolean addSanBay(SanBay sanBay) {
+        SanBayDAO sanBayDAO = new SanBayDAO();
+        return sanBayDAO.addSanBay(sanBay);
+    }
 }
