@@ -22,10 +22,15 @@ public class ThanhToanController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        if (session.getAttribute("user") == null) {
+            request.setAttribute("messageLogin", "Bạn phải đăng nhập!");
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            return;
+        }
         String idVe = request.getParameter("idVe");
         int soLuong = Integer.parseInt(request.getParameter("soLuong"));
 
-        HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
         if (user != null) {
             DatVe datVe = new DatVe();

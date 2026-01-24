@@ -18,11 +18,23 @@ import java.util.List;
 public class GioHangController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        if (session.getAttribute("user") == null) {
+            request.setAttribute("messageLogin", "Bạn phải đăng nhập!");
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            return;
+        }
         request.getRequestDispatcher("page/gio_hang/gio_hang.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        if (session.getAttribute("user") == null) {
+            request.setAttribute("messageLogin", "Bạn phải đăng nhập!");
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            return;
+        }
         String idVe = request.getParameter("idVe");
         String action = request.getParameter("action");
 
@@ -30,7 +42,6 @@ public class GioHangController extends HttpServlet {
         VeDto veInfo = timVeService.getVeByIdVe(Integer.parseInt(idVe));
 
         if (action.equals("add")) {
-            HttpSession session = request.getSession();
             List<GioHangItem> listGioHang = (List<GioHangItem>) session.getAttribute("gioHang");
             double tongTien = 0;
             if (listGioHang != null) {
@@ -69,7 +80,6 @@ public class GioHangController extends HttpServlet {
 
         if (action.equals("update")) {
             String soLuong = request.getParameter("soLuong");
-            HttpSession session = request.getSession();
             List<GioHangItem> listGioHang = (List<GioHangItem>) session.getAttribute("gioHang");
             double tongTien = 0;
             for (GioHangItem item : listGioHang) {

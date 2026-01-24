@@ -14,6 +14,12 @@ import java.io.IOException;
 public class ThongTinNguoiDungController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        if (session.getAttribute("user") == null) {
+            request.setAttribute("messageLogin", "Bạn phải đăng nhập!");
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            return;
+        }
         String id = request.getParameter("id");
         UserService userService = new UserService();
         User user = userService.getUserById(id);

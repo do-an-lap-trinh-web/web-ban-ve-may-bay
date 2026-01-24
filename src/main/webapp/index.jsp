@@ -86,7 +86,11 @@
 		</div>
 
 		<div class="btn-dat-ve-selection">
-			<a href="page/tim_ve/tim_ve.jsp">Đặt vé</a>
+            <c:url var="urlTimVe" value="/ThongTinTimVeController">
+                <c:param name="khoiHanh" value="Việt Nam" />
+                <c:param name="haCanh" value="Việt Nam" />
+            </c:url>
+            <a href="${urlTimVe}">Đặt Vé</a>
 		</div>
 
 	</div>
@@ -130,7 +134,11 @@
 		</div>
 
 		<div class="btn-dat-ve-selection">
-			<a href="page/tim_ve/tim_ve.jsp">Đặt vé</a>
+            <c:url var="urlTimVe" value="/ThongTinTimVeController">
+                <c:param name="khoiHanh" value="Việt Nam" />
+                <c:param name="haCanh" value="Việt Nam" />
+            </c:url>
+            <a href="${urlTimVe}">Đặt Vé</a>
 		</div>
 
 	</div>

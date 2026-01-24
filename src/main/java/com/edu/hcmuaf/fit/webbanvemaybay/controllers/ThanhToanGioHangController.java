@@ -22,6 +22,11 @@ public class ThanhToanGioHangController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
+        if (session.getAttribute("user") == null) {
+            request.setAttribute("messageLogin", "Bạn phải đăng nhập!");
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            return;
+        }
         List<GioHangItem> listGioHangItem = (List<GioHangItem>) session.getAttribute("gioHang");
         User user = (User) session.getAttribute("user");
 
