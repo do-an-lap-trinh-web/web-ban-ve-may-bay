@@ -32,4 +32,9 @@ public class HangBayService {
         HangBayDAO hangBayDAO = new HangBayDAO();
         return hangBayDAO.addHangBay(hangBay);
     }
+
+    public List<HangBay> getHangBayByInput(String input) {
+        HangBayDAO hangBayDAO = new HangBayDAO();
+        return hangBayDAO.getHangBayByInput(input);
+    }
 }

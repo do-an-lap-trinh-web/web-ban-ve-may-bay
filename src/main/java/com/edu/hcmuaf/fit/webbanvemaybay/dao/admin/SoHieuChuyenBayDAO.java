@@ -141,4 +141,18 @@ public class SoHieuChuyenBayDAO extends DBContext {
             return "xoá thất bại do lỗi hệ thống";
         }
     }
+
+    public List<SoHieuChuyenBay> getSoHieuChuyenBayByInput(String input) {
+        try {
+            Jdbi jdbi = get();
+            String maChuyenBay = "%" + input.strip() + "%";
+            return jdbi.withHandle(h -> {
+                String q = "select * from so_hieu_chuyen_bay where id = :input or ma_chuyen_bay like :maChuyenBay or " +
+                        "id_san_bay_di = :input or id_san_bay_den = :input or id_hang_bay = :input";
+                return h.createQuery(q).bind("input", input).bind("maChuyenBay", maChuyenBay).mapToBean(SoHieuChuyenBay.class).list();
+            });
+        }  catch (Exception e) {
+            return null;
+        }
+    }
 }

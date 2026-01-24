@@ -88,4 +88,19 @@ public class LoaiVeDAO extends DBContext {
             return false;
         }
     }
+
+    public List<LoaiVe> getLoaiVeByInput(String input) {
+        try {
+            Jdbi jdbi = get();
+            String textInput = "%" +  input + "%";
+            List<LoaiVe> listLoaiVe = jdbi.withHandle(h -> {
+                String q = "select * from loai_ve where id=:input or ten_loai_ve like :textInput or mo_ta=:textInput";
+                return h.createQuery(q).bind("input", input).bind("textInput", textInput).mapToBean(LoaiVe.class).list();
+            });
+            return listLoaiVe;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

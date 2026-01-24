@@ -30,4 +30,9 @@ public class SanBayService {
         SanBayDAO sanBayDAO = new SanBayDAO();
         return sanBayDAO.removeSanBayById(id);
     }
+
+    public List<SanBay> getSanBayByInput(String input) {
+        SanBayDAO sanBayDAO = new SanBayDAO();
+        return sanBayDAO.getSanBayByInput(input);
+    }
 }
