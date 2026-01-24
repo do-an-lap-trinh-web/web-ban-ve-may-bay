@@ -35,7 +35,7 @@
             <a href="${pageContext.request.contextPath}/admin/LoaiVe" class="menu-link" data-table="loai_ve">
                 <span class="emoji">💺</span> Loại Vé
             </a>
-            <a href="${pageContext.request.contextPath}/" class="menu-link" data-table="loai_ve">
+            <a href="${pageContext.request.contextPath}/admin/VeController" class="menu-link" data-table="loai_ve">
                 <span class="emoji">💺</span> Danh Sách Ve
             </a>
         </div>

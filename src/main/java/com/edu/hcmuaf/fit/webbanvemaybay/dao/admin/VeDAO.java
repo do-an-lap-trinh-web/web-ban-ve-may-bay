@@ -7,16 +7,32 @@ import org.jdbi.v3.core.Jdbi;
 import java.util.List;
 
 public class VeDAO extends DBContext {
-    public List<Ve> getAllVe() {
+
+    public List<Ve> getVeByPage(int offset, int pageSize) {
         try {
             Jdbi jdbi = get();
             return jdbi.withHandle(h -> {
-                String q = "select * from ve";
-                return h.createQuery(q).mapToBean(Ve.class).list();
+                String q = "SELECT * FROM ve LIMIT :limit OFFSET :offset";
+                return h.createQuery(q)
+                        .bind("limit", pageSize)
+                        .bind("offset", offset)
+                        .mapToBean(Ve.class)
+                        .list();
             });
         } catch (Exception e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public int getTotalVeCount() {
+        try {
+            Jdbi jdbi = get();
+            return jdbi.withHandle(h ->
+                    h.createQuery("SELECT COUNT(*) FROM ve").mapTo(Integer.class).one()
+            );
+        } catch (Exception e) {
+            return 0;
         }
     }
 }

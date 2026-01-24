@@ -6,8 +6,15 @@ import com.edu.hcmuaf.fit.webbanvemaybay.models.Ve;
 import java.util.List;
 
 public class VeService {
-    public List<Ve> getAllVe() {
-        VeDAO veDAO = new VeDAO();
-        return veDAO.getAllVe();
+    VeDAO veDAO = new VeDAO();
+
+    public List<Ve> getVeByPage(int page, int pageSize) {
+        int offset = (page - 1) * pageSize;
+        return veDAO.getVeByPage(offset, pageSize);
+    }
+
+    public int getTotalPages(int pageSize) {
+        int totalRecords = veDAO.getTotalVeCount();
+        return (int) Math.ceil((double) totalRecords / pageSize);
     }
 }
