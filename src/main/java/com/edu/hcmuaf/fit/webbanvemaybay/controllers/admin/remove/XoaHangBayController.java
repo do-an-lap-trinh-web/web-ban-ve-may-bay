@@ -1,4 +1,4 @@
-package com.edu.hcmuaf.fit.webbanvemaybay.controllers.admin;
+package com.edu.hcmuaf.fit.webbanvemaybay.controllers.admin.remove;
 
 import com.edu.hcmuaf.fit.webbanvemaybay.services.admin.HangBayService;
 import jakarta.servlet.*;

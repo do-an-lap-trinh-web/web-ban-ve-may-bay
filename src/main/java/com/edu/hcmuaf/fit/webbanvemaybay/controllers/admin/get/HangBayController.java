@@ -1,4 +1,4 @@
-package com.edu.hcmuaf.fit.webbanvemaybay.controllers.admin;
+package com.edu.hcmuaf.fit.webbanvemaybay.controllers.admin.get;
 
 import com.edu.hcmuaf.fit.webbanvemaybay.models.HangBay;
 import com.edu.hcmuaf.fit.webbanvemaybay.services.admin.HangBayService;

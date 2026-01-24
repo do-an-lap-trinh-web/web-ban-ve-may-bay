@@ -1,15 +1,14 @@
-package com.edu.hcmuaf.fit.webbanvemaybay.controllers.admin;
+package com.edu.hcmuaf.fit.webbanvemaybay.controllers.admin.remove;
 
-import com.edu.hcmuaf.fit.webbanvemaybay.services.admin.HangBayService;
-import com.edu.hcmuaf.fit.webbanvemaybay.services.admin.SanBayService;
+import com.edu.hcmuaf.fit.webbanvemaybay.services.admin.VeService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "XoaSanBayController", value = "/admin/XoaSanBayController")
-public class XoaSanBayController extends HttpServlet {
+@WebServlet(name = "XoaVeController", value = "/admin/XoaVeController")
+public class XoaVeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
@@ -18,14 +17,14 @@ public class XoaSanBayController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id =  request.getParameter("id");
 
-        SanBayService sanBayService = new SanBayService();
-        boolean isRemove = sanBayService.removeSanBayById(id);
+        VeService veService = new VeService();
+        boolean isRemove = veService.removeVeById(id);
         HttpSession session = request.getSession();
         if (isRemove) {
             session.setAttribute("messageRemove", "xoá thành công");
         } else {
             session.setAttribute("messageRemove", "xoá thất bại");
         }
-        response.sendRedirect(request.getContextPath() + "/admin/SanBayController");
+        response.sendRedirect(request.getContextPath() + "/admin/VeController");
     }
 }
