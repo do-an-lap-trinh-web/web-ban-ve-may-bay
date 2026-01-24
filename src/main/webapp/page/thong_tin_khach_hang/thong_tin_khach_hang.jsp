@@ -56,7 +56,7 @@
         </div >
 
         <div class="btn-update">
-            <a href="../cap_nhat_thong_tin_khach_hang/cap_nhat_thong_tin_khach_hang.jsp">Cập Nhật Thông Tin</a>
+            <a href="${pageContext.request.contextPath}/CapNhatThongTinNguoiDungController?id=${info.id}">Cập Nhật Thông Tin</a>
         </div>
     </div>
 

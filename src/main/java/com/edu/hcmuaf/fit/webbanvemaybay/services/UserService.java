@@ -8,4 +8,9 @@ public class UserService {
         UserDAO userDAO = new UserDAO();
         return userDAO.getUserById(id);
     }
+
+    public boolean updateEmailById(String idUser, String newEmail) {
+        UserDAO userDAO = new UserDAO();
+        return userDAO.updateEmailById(idUser, newEmail);
+    }
 }

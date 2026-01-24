@@ -166,4 +166,18 @@ public class UserDAO extends DBContext {
             return null;
         }
     }
+
+    public boolean updateEmailById(String idUser, String newEmail) {
+        try {
+            Jdbi jdbi = get();
+            int soLuong = jdbi.withHandle(h -> {
+                String q = "update users set email=:newEmail where id=:id";
+                return h.createUpdate(q).bind("newEmail", newEmail).bind("id", idUser).execute();
+            });
+            return soLuong > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

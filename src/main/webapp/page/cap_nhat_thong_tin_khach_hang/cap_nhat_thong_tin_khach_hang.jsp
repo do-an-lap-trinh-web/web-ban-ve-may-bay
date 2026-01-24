@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Title</title>
+	<title>Cập nhật thông tin người dùng</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/page/cap_nhat_thong_tin_khach_hang/cap_nhat_thong_tin_khach_hang.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleHeader.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleFooter.css">
@@ -17,41 +17,47 @@
 <!--update form info-->
     <div class="update-user-info">
         <h1 class="title-update-user-info">Cập Nhật Thông Tin</h1>
-        <form>
+        <div>
+            ${sessionScope.mesageUpdate}
+        </div>
+        <form action="${pageContext.request.contextPath}/CapNhatThongTinNguoiDungController" method="post">
+            <input type="hidden" name="id" value="${info.id}">
+            <input type="hidden" name="idUser" value="${info.idUser}">
             <div class="update-form-info">
                 <label for="name">Họ và tên</label>
                 <div class="input">
-                    <input id="name" name="update-user-name-info" type="text" placeholder="Nhập họ và tên người dùng">
+                    <input id="name" name="fullName" type="text" placeholder="Nhập họ và tên người dùng"
+                        value="${info.ho == null || info.ten == null ? "" : info.ho += ' ' += info.ten}"
+                    >
                 </div>
             </div>
 
             <div class="update-form-info">
                 <label for="email">Email</label>
                 <div class="input">
-                    <input id="email" name="update-email-info" type="email" placeholder="Nhập email">
+                    <input value="${user.email == null ? "" : user.email}" id="email" name="email" type="email" placeholder="Nhập email">
                 </div>
             </div>
-
             <div class="update-form-info">
-                <label for="phone">Số điện thoại</label>
+                <label for="ngaySinh">Ngày sinh</label>
                 <div class="input">
-                    <input id="phone" name="update-tel-info" type="tel" placeholder="Nhập số điện thoại">
+                    <input value="${info.ngaySinh == null ? "" : info.ngaySinh}" id="ngaySinh" name="ngaySinh" type="date">
                 </div>
             </div>
 
             <div class="update-form-info">
                 <label for="gender">Giới tính</label>
-                <select id="gender" name="update-gender">
+                <select id="gender" name="gioiTinh">
                     <option value="">--Chọn Giới Tính--</option>
-                    <option value="">Nam</option>
-                    <option value="">Nữ</option>
+                    <option value="Nam" <c:if test="${info.gioiTinh == 'Nam'}">selected</c:if>>Nam</option>
+                    <option value="Nữ" <c:if test="${info.gioiTinh == 'Nu'}">selected</c:if>>Nữ</option>
                 </select>
             </div>
 
             <div class="update-form-info">
                 <label for="address">Địa chỉ</label>
                 <div class="textarea">
-                    <textarea id="address" name="update-address-info" placeholder="Nhập địa chỉ"></textarea>
+                    <textarea id="address" name="diaChi" placeholder="Nhập địa chỉ">${info.diaChi == null ? "" : info.diaChi}</textarea>
                 </div>
             </div>
 

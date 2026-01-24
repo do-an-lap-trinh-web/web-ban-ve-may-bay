@@ -8,4 +8,9 @@ public class ThongTinNguoiDungService {
         ThongTinNguoiDungDAO thongTinNguoiDungDAO = new ThongTinNguoiDungDAO();
         return thongTinNguoiDungDAO.getThongTinNguoiDungByIdUser(id);
     }
+
+    public boolean updateThongTinNguoiDungById(ThongTinNguoiDung thongTinNguoiDung) {
+        ThongTinNguoiDungDAO thongTinNguoiDungDAO = new ThongTinNguoiDungDAO();
+        return thongTinNguoiDungDAO.updateThongTinNguoiDungById(thongTinNguoiDung);
+    }
 }

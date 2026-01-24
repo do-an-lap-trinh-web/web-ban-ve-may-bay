@@ -17,4 +17,25 @@ public class ThongTinNguoiDungDAO extends DBContext{
             return null;
         }
     }
+
+    public boolean updateThongTinNguoiDungById(ThongTinNguoiDung thongTinNguoiDung) {
+        try {
+            Jdbi jdbi = get();
+            int soLuong = jdbi.withHandle(h -> {
+                String q = "update thong_tin_nguoi_dung set ho = :ho, ten=:ten, dia_chi=:diaChi, gioi_tinh=:gioiTinh, ngay_sinh=:ngaySinh where id = :id";
+                return h.createUpdate(q)
+                        .bind("ho", thongTinNguoiDung.getHo())
+                        .bind("ten", thongTinNguoiDung.getTen())
+                        .bind("diaChi",  thongTinNguoiDung.getDiaChi())
+                        .bind("gioiTinh", thongTinNguoiDung.getGioiTinh())
+                        .bind("ngaySinh", thongTinNguoiDung.getNgaySinh())
+                        .bind("id", thongTinNguoiDung.getId())
+                        .execute();
+            });
+            return soLuong > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
