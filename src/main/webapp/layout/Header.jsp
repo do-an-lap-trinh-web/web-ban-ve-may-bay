@@ -28,9 +28,14 @@
         <a href="${pageContext.request.contextPath}/GioHangController" class="cart-btn">
             <img src="${pageContext.request.contextPath}/access/shopping-cart.png" alt="Giỏ hàng">
         </a>
-        <a href="${pageContext.request.contextPath}/page/thong_tin_khach_hang/thong_tin_khach_hang.jsp">Thông Tin</a> |
-        <a href="${pageContext.request.contextPath}/page/dang_nhap/dang_nhap.jsp">Đăng Nhập</a> |
-        <a href="${pageContext.request.contextPath}/page/dang_ky/dang_ky.jsp">Đăng Ký</a>
+        <c:if test="${sessionScope.user == null}">
+            <a href="${pageContext.request.contextPath}/page/thong_tin_khach_hang/thong_tin_khach_hang.jsp">Thông Tin</a> |
+            <a href="${pageContext.request.contextPath}/page/dang_nhap/dang_nhap.jsp">Đăng Nhập</a> |
+            <a href="${pageContext.request.contextPath}/page/dang_ky/dang_ky.jsp">Đăng Ký</a>
+        </c:if>
+        <c:if test="${sessionScope.user != null}">
+            <a href="${pageContext.request.contextPath}/page/thong_tin_khach_hang/thong_tin_khach_hang.jsp">${sessionScope.user.username}</a>
+        </c:if>
     </div>
 </header>
 
