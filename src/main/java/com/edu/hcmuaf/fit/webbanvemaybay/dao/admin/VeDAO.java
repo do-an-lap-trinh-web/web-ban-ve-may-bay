@@ -49,4 +49,36 @@ public class VeDAO extends DBContext {
             return false;
         }
     }
+
+    public Ve getVeById(String id) {
+        try {
+            Jdbi jdbi = get();
+            return jdbi.withHandle(h -> {
+                String q = "select * from ve where id = :id";
+                return h.createQuery(q).bind("id", id).mapToBean(Ve.class).findFirst().orElse(null);
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public boolean updateVeById(Ve ve) {
+        try {
+            Jdbi jdbi = get();
+            int soLuong = jdbi.withHandle(h -> {
+                String q = "update ve set id_chuyen_bay = :idChuyenBay, id_loai_ve=:idLoaiVe, gia=:gia, so_luong_ton=:soLuongTon where id = :id";
+                return h.createUpdate(q).bind("idChuyenBay", ve.getIdChuyenBay())
+                        .bind("idLoaiVe", ve.getIdLoaiVe())
+                        .bind("gia", ve.getGia())
+                        .bind("soLuongTon", ve.getSoLuongTon())
+                        .bind("id", ve.getId())
+                        .execute();
+            });
+            return soLuong > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

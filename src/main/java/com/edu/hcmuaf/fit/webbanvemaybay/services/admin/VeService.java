@@ -2,6 +2,7 @@ package com.edu.hcmuaf.fit.webbanvemaybay.services.admin;
 
 import com.edu.hcmuaf.fit.webbanvemaybay.dao.admin.VeDAO;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.Ve;
+import com.edu.hcmuaf.fit.webbanvemaybay.services.core.FormatVND;
 
 import java.util.List;
 
@@ -20,5 +21,13 @@ public class VeService {
 
     public boolean addVe(Ve ve) {
         return veDAO.addVe(ve);
+    }
+
+    public Ve getVeById(String id) {
+        return veDAO.getVeById(id);
+    }
+
+    public boolean updateVeById(Ve ve) {
+        return veDAO.updateVeById(ve);
     }
 }

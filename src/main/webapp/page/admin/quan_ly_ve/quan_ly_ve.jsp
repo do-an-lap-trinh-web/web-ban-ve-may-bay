@@ -47,7 +47,7 @@
                         <td style="text-align: center">Còn ${item.soLuongTon} vé</td>
                         <td style="text-align: center">
                             <div class="act-btns">
-                                <button class="btn-act-edit-del btn-edit">Sửa</button>
+                                <a href="${pageContext.request.contextPath}/admin/SuaVeController?id=${item.id}" class="btn-act-edit-del btn-edit">Sửa</a>
                                 <button class="btn-act-edit-del btn-delete">Xóa</button>
                             </div>
                         </td>
