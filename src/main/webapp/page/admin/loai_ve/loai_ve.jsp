@@ -12,8 +12,8 @@
 <div class="container">
     <div class="search-ticket-bar">
         <div class="search-form">
-            <form action="" class="search-by-ticket-id">
-                <input type="text" placeholder="Nhập ID loại vé">
+            <form action="${pageContext.request.contextPath}/admin/TimKiemLoaiVeController" method="get" class="search-by-ticket-id">
+                <input type="text" name="input" placeholder="Nhập ID loại vé">
                 <button type="submit" class="btn-search-from-loai-ve">Tìm kiếm</button>
             </form>
         </div>

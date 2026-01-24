@@ -32,4 +32,9 @@ public class LoaiVeService {
         LoaiVeDAO loaiVeDAO = new LoaiVeDAO();
         return loaiVeDAO.updateLoaiVe(loaiVe);
     }
+
+    public List<LoaiVe> getLoaiVeByInput(String input) {
+        LoaiVeDAO loaiVeDAO = new LoaiVeDAO();
+        return loaiVeDAO.getLoaiVeByInput(input);
+    }
 }
