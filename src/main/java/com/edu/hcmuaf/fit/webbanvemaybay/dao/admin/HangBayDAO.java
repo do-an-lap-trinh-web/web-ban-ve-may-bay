@@ -86,4 +86,18 @@ public class HangBayDAO extends DBContext {
             return false;
         }
     }
+
+    public List<HangBay> getHangBayByInput(String input) {
+        try {
+            Jdbi jdbi = get();
+            String textInput = "%" +  input + "%";
+            return jdbi.withHandle(h -> {
+                String q = "select * from hang_bay where id=:input or ten_hang_bay like :textInput or quoc_gia like :textInput";
+                return h.createQuery(q).bind("input", input).bind("textInput", textInput).mapToBean(HangBay.class).list();
+            });
+        }  catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

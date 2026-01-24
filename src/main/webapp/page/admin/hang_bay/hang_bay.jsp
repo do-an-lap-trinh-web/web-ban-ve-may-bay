@@ -11,8 +11,8 @@
     <div class="container">
         <div class="search-flight-bar">
             <div class="search-form">
-                <form action="" class="search-by-flight-name">
-                    <input type="text" placeholder="Nhập tên hãng bay (VD: Vietnam Airlines)...">
+                <form action="${pageContext.request.contextPath}/admin/TimKiemHangBayController" method="get" class="search-by-flight-name">
+                    <input type="text" name="input" placeholder="Tìm kiếm...">
                     <button type="submit" class="btn-search-from-hang-bay">Tìm kiếm</button>
                 </form>
             </div>
