@@ -35,4 +35,18 @@ public class VeDAO extends DBContext {
             return 0;
         }
     }
+
+    public boolean addVe(Ve ve) {
+        try {
+            Jdbi jdbi = get();
+            int soLuong = jdbi.withHandle(h -> {
+                String q = "insert into ve(id, id_chuyen_bay, gia, so_luong_ton, id_loai_ve) values (:id, :idChuyenBay, :gia, :soLuongTon, :idLoaiVe)";
+                return h.createUpdate(q).bindBean(ve).execute();
+            });
+            return soLuong > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

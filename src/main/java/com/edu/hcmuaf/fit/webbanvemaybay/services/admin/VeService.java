@@ -17,4 +17,8 @@ public class VeService {
         int totalRecords = veDAO.getTotalVeCount();
         return (int) Math.ceil((double) totalRecords / pageSize);
     }
+
+    public boolean addVe(Ve ve) {
+        return veDAO.addVe(ve);
+    }
 }

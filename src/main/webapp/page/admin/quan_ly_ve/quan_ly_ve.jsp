@@ -19,9 +19,9 @@
             </div>
 
             <div class="btn-add-ticket-from-quan-li-ve">
-                <button class="btn-add-ticket-from-qlv">
+                <a href="${pageContext.request.contextPath}/page/admin/quan_ly_ve/them_ve.jsp" class="btn-add-ticket-from-qlv">
                     <span class="btn-add-ticket-icon">+</span>Thêm vé
-                </button>
+                </a>
             </div>
         </div>
 
