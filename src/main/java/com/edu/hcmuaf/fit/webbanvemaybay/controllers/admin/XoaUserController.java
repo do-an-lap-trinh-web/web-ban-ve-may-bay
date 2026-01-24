@@ -15,7 +15,7 @@ public class XoaUserController extends HttpServlet {
         UserService userService = new UserService();
         String message = userService.removeUser(id);
         request.setAttribute("messageXoaUser", message);
-        request.getRequestDispatcher("/user-controller").forward(request, response);
+        request.getRequestDispatcher("/admin/user-controller").forward(request, response);
     }
 
     @Override
