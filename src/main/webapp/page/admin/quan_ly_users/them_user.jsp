@@ -41,6 +41,13 @@
             <label for="phone">Email (**Email**)</label>
             <input type="email" id="email" name="email" placeholder="Ví dụ: abc@gmail.com" required>
         </div>
+        <div>
+            <label for="phone">Role (**Role**)</label>
+            <select style="width: 100%; padding: 10px 0 10px 0" name="role" id="role">
+                <option value="admin">admin</option>
+                <option value="user">user</option>
+            </select>
+        </div>
 
 
         <div class="button-group">
