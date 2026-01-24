@@ -12,9 +12,6 @@
             <a href="${pageContext.request.contextPath}/admin/user-controller" class="menu-link" data-table="users">
                 <span class="emoji">🧑‍💻</span> Tài Khoản Khách Hàng
             </a>
-            <a href="${pageContext.request.contextPath}/admin/profiles" class="menu-link" data-table="thong_tin_nguoi_dung">
-                <span class="emoji">📝</span> Hồ Sơ Cá Nhân
-            </a>
         </div>
 
         <div class="menu-group">
@@ -35,25 +32,20 @@
 
         <div class="menu-group">
             <h3>Đặt Vé</h3>
-            <a href="${pageContext.request.contextPath}/admin/bookings" class="menu-link" data-table="ve_da_dat">
-                <span class="emoji">🎟️</span> Đơn Đặt Vé
-            </a>
-            <a href="${pageContext.request.contextPath}/admin/tickets" class="menu-link" data-table="ve">
-                <span class="emoji">🎫</span> Chi Tiết Vé
-            </a>
             <a href="${pageContext.request.contextPath}/admin/LoaiVe" class="menu-link" data-table="loai_ve">
                 <span class="emoji">💺</span> Loại Vé
             </a>
+            <a href="${pageContext.request.contextPath}/" class="menu-link" data-table="loai_ve">
+                <span class="emoji">💺</span> Danh Sách Ve
+            </a>
+        </div>
+        <div class="menu-group">
+            <h3>Trang chủ</h3>
+            <a href="${pageContext.request.contextPath}/index.jsp">
+                <span style="color: white; padding-left: 20px" class="emoji">⚙️  Trang Chủ</span>
+            </a>
+
         </div>
 
-        <div class="menu-group">
-            <h3>Đối Tác & Đánh Giá</h3>
-            <a href="${pageContext.request.contextPath}/admin/agents" class="menu-link" data-table="dai_ly">
-                <span class="emoji">🤝</span> Đại Lý
-            </a>
-            <a href="${pageContext.request.contextPath}/admin/reviews" class="menu-link" data-table="danh_gia_hang_bay">
-                <span class="emoji">⭐</span> Đánh Giá Hãng Bay
-            </a>
-        </div>
     </div>
 
