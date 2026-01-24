@@ -34,6 +34,9 @@
         </c:if>
         <c:if test="${sessionScope.user != null}">
             <a href="${pageContext.request.contextPath}/ThongTinNguoiDungController?id=${sessionScope.user.id}">${sessionScope.user.username}</a>
+            <form action="${pageContext.request.contextPath}/DangXuatController" method="post">
+                <button class="btn-dang-xuat" type="submit">Đăng Xuất</button>
+            </form>
         </c:if>
     </div>
 </header>
