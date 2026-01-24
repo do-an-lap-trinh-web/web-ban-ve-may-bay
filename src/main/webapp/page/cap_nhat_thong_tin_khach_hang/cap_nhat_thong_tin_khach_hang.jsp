@@ -17,8 +17,8 @@
 <!--update form info-->
     <div class="update-user-info">
         <h1 class="title-update-user-info">Cập Nhật Thông Tin</h1>
-        <div>
-            ${sessionScope.mesageUpdate}
+        <div style="text-align: center">
+            ${sessionScope.messageUpdate}
         </div>
         <form action="${pageContext.request.contextPath}/CapNhatThongTinNguoiDungController" method="post">
             <input type="hidden" name="id" value="${info.id}">
