@@ -1,21 +1,17 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: nguye
-  Date: 12/13/2025
-  Time: 11:57 AM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="them_ve.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/admin/quan_ly_ve/them_ve.css">
 </head>
 <body>
 <div class="form-container">
     <h2> Thêm một vé mới</h2>
-
-    <form action="" method="post">
+    <div>
+        ${requestScope.message}
+    </div>
+    <form action="${pageContext.request.contextPath}/admin/ThemVeController" method="post">
 
         <div>
             <label for="idChuyenBay">ID chuyến bay</label>
@@ -40,7 +36,7 @@
 
         <div class="button-group">
             <button type="submit" class="submit-btn">Thêm vé</button>
-            <a href="quan_ly_ve.jsp" class="back-btn">Quay Lại</a>
+            <a href="${pageContext.request.contextPath}/admin/VeController" class="back-btn">Quay Lại</a>
         </div>
     </form>
 </div>
