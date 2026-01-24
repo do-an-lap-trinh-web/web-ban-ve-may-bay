@@ -1,4 +1,4 @@
-package com.edu.hcmuaf.fit.webbanvemaybay.controllers.admin;
+package com.edu.hcmuaf.fit.webbanvemaybay.controllers.admin.get;
 
 import com.edu.hcmuaf.fit.webbanvemaybay.models.SanBay;
 import com.edu.hcmuaf.fit.webbanvemaybay.services.admin.SanBayService;
@@ -7,7 +7,6 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "SanBayController", value = "/admin/SanBayController")

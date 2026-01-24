@@ -1,4 +1,4 @@
-package com.edu.hcmuaf.fit.webbanvemaybay.controllers.admin;
+package com.edu.hcmuaf.fit.webbanvemaybay.controllers.admin.add;
 
 import com.edu.hcmuaf.fit.webbanvemaybay.models.Ve;
 import com.edu.hcmuaf.fit.webbanvemaybay.services.admin.VeService;
