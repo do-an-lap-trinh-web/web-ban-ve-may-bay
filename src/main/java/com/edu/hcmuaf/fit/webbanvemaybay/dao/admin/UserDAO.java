@@ -136,9 +136,10 @@ public class UserDAO extends DBContext {
     public List<User> getUserByInput(String input) {
         try {
             Jdbi jdbi = get();
+            String textInput = "%"  + input + "%";
             return jdbi.withHandle(h -> {
-                String q = "select * from users where id = :input or username = :input or email = :input";
-                return h.createQuery(q).bind("input", input).mapToBean(User.class).list();
+                String q = "select * from users where id = :input or username like :textInput or email like :textInput or so_dien_thoai like :textInput";
+                return h.createQuery(q).bind("input", input).bind("textInput", textInput).mapToBean(User.class).list();
             });
 
         } catch (Exception e) {
