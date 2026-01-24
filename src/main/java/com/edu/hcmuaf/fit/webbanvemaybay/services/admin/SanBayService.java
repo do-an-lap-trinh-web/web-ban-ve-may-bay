@@ -25,4 +25,9 @@ public class SanBayService {
         SanBayDAO sanBayDAO = new SanBayDAO();
         return sanBayDAO.updateSanBayById(sanBay);
     }
+
+    public boolean removeSanBayById(String id) {
+        SanBayDAO sanBayDAO = new SanBayDAO();
+        return sanBayDAO.removeSanBayById(id);
+    }
 }

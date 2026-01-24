@@ -25,7 +25,7 @@
         </div>
     </div>
     <div>
-        <%= request.getAttribute("message")%>
+        ${sessionScope.messageRemove}
     </div>
 
     <div class="table-container">
@@ -48,7 +48,10 @@
                     <td>${item.quocGia}</td>
                     <td style="display: flex; justify-content: center; gap: 10px;">
                         <a href="${pageContext.request.contextPath}/admin/SuaSanBayController?id=${item.id}" class="action-btn edit">sửa</a>
-                        <a href="${pageContext.request.contextPath}">xoá</a>
+                        <form action="${pageContext.request.contextPath}/admin/XoaSanBayController" method="post">
+                            <input type="hidden" name="id" value="${item.id}" id="">
+                            <button type="submit">xoá</button>
+                        </form>
                     </td>
                 </tr>
             </c:forEach>
