@@ -95,4 +95,37 @@ public class VeDAO extends DBContext {
             return false;
         }
     }
+
+    public List<Ve> getVeByPageAndInput(int offset, int pageSize, String input) {
+        try {
+            Jdbi jdbi = get();
+            String textInput = "%" + input + "%";
+            return jdbi.withHandle(h -> {
+                String q = "SELECT * FROM ve where id = :input or id_chuyen_bay = :input or id_loai_ve = :input " +
+                        "LIMIT :limit OFFSET :offset";
+                return h.createQuery(q)
+                        .bind("input", input)
+                        .bind("limit", pageSize)
+                        .bind("offset", offset)
+                        .mapToBean(Ve.class)
+                        .list();
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public int getTotalVeCountByInput(String input) {
+        try {
+            Jdbi jdbi = get();
+            return jdbi.withHandle(h ->
+                    h.createQuery("SELECT COUNT(*) FROM ve where id = :input or id_chuyen_bay = :input or id_loai_ve = :input")
+                            .bind("input", input)
+                            .mapTo(Integer.class).one()
+            );
+        } catch (Exception e) {
+            return 0;
+        }
+    }
 }

@@ -34,4 +34,14 @@ public class VeService {
     public boolean removeVeById(String id) {
         return veDAO.removeVeById(id);
     }
+
+    public List<Ve> getVeByPageAndInput(int page, int pageSize, String input) {
+        int offset = (page - 1) * pageSize;
+        return veDAO.getVeByPageAndInput(offset, pageSize, input);
+    }
+
+    public int getTotalPagesByInput(int pageSize, String input) {
+        int totalRecords = veDAO.getTotalVeCountByInput(input);
+        return (int) Math.ceil((double) totalRecords / pageSize);
+    }
 }
