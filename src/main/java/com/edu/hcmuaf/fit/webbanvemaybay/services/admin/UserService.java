@@ -43,4 +43,9 @@ public class UserService {
         UserDAO userDAO = new UserDAO();
         userDAO.updateUser(user, details);
     }
+
+    public List<User> getUserByInput(String input) {
+        UserDAO userDAO = new UserDAO();
+        return userDAO.getUserByInput(input);
+    }
 }

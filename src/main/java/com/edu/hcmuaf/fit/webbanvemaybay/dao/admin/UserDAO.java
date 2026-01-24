@@ -4,14 +4,9 @@ import com.edu.hcmuaf.fit.webbanvemaybay.dao.DBContext;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.ThongTinNguoiDung;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.User;
 import org.jdbi.v3.core.Jdbi;
-import org.jdbi.v3.core.statement.PreparedBatch;
-import org.jdbi.v3.sqlobject.config.RegisterBeanMapper;
-import org.jdbi.v3.sqlobject.statement.SqlQuery;
 
 
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 public class UserDAO extends DBContext {
     // lấy danh sách user trong database
@@ -136,6 +131,20 @@ public class UserDAO extends DBContext {
             e.printStackTrace();
         }
 
+    }
+
+    public List<User> getUserByInput(String input) {
+        try {
+            Jdbi jdbi = get();
+            return jdbi.withHandle(h -> {
+                String q = "select * from users where id = :input or username = :input or email = :input";
+                return h.createQuery(q).bind("input", input).mapToBean(User.class).list();
+            });
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
 

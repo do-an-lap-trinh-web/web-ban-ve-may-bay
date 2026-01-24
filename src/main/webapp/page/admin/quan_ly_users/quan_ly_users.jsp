@@ -14,8 +14,8 @@
         <h1><span class="emoji">🧑‍💻</span> Quản Lý Tài Khoản Người Dùng</h1>
 
         <div class="toolbar">
-            <form action="">
-                <input type="text" id="searchUser" placeholder="Tìm kiếm theo Username, Email, SĐT...">
+            <form action="${pageContext.request.contextPath}/admin/TimKiemUserController" method="get">
+                <input type="text" id="searchUser" name="input" placeholder="Tìm kiếm theo Username, Email">
                 <button class="btn btn-primary">Tìm</button>
             </form>
 
