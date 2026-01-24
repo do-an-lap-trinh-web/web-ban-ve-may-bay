@@ -25,7 +25,7 @@
             <a href="${pageContext.request.contextPath}/admin/HangBayController" class="menu-link" data-table="hang_bay">
                 <span class="emoji">🏢</span> Quản Lý Hãng Bay
             </a>
-            <a href="${pageContext.request.contextPath}/admin/airports" class="menu-link" data-table="san_bay">
+            <a href="${pageContext.request.contextPath}/admin/SanBayController" class="menu-link" data-table="san_bay">
                 <span class="emoji">🛫</span> Quản Lý Sân Bay
             </a>
             <a href="${pageContext.request.contextPath}/admin/flight-info" class="menu-link" data-table="gioi_thieu_chuyen_bay">
