@@ -15,4 +15,14 @@ public class SanBayService {
         SanBayDAO sanBayDAO = new SanBayDAO();
         return sanBayDAO.addSanBay(sanBay);
     }
+
+    public SanBay getSanBayById(String id) {
+        SanBayDAO sanBayDAO = new SanBayDAO();
+        return sanBayDAO.getSanBayById(id);
+    }
+
+    public boolean updateSanBayById(SanBay sanBay) {
+        SanBayDAO sanBayDAO = new SanBayDAO();
+        return sanBayDAO.updateSanBayById(sanBay);
+    }
 }

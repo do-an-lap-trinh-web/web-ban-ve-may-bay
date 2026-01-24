@@ -47,7 +47,7 @@
                     <td>${item.thanhPho}</td>
                     <td>${item.quocGia}</td>
                     <td style="display: flex; justify-content: center; gap: 10px;">
-                        <a href="${pageContext.request.contextPath}" class="action-btn edit">sửa</a>
+                        <a href="${pageContext.request.contextPath}/admin/SuaSanBayController?id=${item.id}" class="action-btn edit">sửa</a>
                         <a href="${pageContext.request.contextPath}">xoá</a>
                     </td>
                 </tr>

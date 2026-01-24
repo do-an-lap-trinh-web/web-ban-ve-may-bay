@@ -34,4 +34,32 @@ public class SanBayDAO extends DBContext {
             return false;
         }
     }
+
+    public SanBay getSanBayById(String id) {
+        try {
+            Jdbi jdbi = get();
+            SanBay sanBay = jdbi.withHandle(h -> {
+                String q = "select * from san_bay where id = :id";
+                return h.createQuery(q).bind("id", id).mapToBean(SanBay.class).findFirst().orElse(null);
+            });
+            return sanBay;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public boolean updateSanBayById(SanBay sanBay) {
+        try {
+            Jdbi jdbi = get();
+            int soLuong = jdbi.withHandle(h -> {
+                String q = "update san_bay set ten_san_bay = :tenSanBay, thanh_pho = :thanhPho, quoc_gia = :quocGia where id = :id";
+                return h.createUpdate(q).bindBean(sanBay).execute();
+            });
+            return soLuong > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
