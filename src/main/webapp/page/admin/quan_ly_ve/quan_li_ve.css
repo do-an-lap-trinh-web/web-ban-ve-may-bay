@@ -4,7 +4,7 @@ body{
     display: flex;
     justify-content: center;
     padding-top: 20px;
-    margin: 0;
+    margin: 0 0 0 200px;
 }
 
 .container{
@@ -109,10 +109,14 @@ body{
     font-weight: 400;
 }
 
-.example-flights{
+.example-flights {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 30px;
+    display: block;       /* Biến table thành khối */
+    overflow-x: auto;    /* Thêm thanh cuộn ngang nếu bảng quá rộng */
+    max-height: 500px;   /* Giới hạn chiều cao bảng */
+    overflow-y: auto;    /* Thêm thanh cuộn dọc */
 }
 
 .example-flights thead th{
