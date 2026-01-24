@@ -12,8 +12,8 @@
 <div class="container">
     <div class="search-flight-bar">
         <div class="search-form">
-            <form action="" class="search-by-flight-code">
-                <input type="text" placeholder="Tìm kiếm theo ID">
+            <form action="${pageContext.request.contextPath}/admin/TimKiemSanBayController" method="get" class="search-by-flight-code">
+                <input type="text" name="input" placeholder="Tìm kiếm...">
                 <button type="submit" class="btn-search-from-so-hieu-chuyen-bay">Tìm kiếm</button>
             </form>
         </div>

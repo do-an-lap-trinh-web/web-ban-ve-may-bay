@@ -76,4 +76,18 @@ public class SanBayDAO extends DBContext {
             return false;
         }
     }
+
+    public List<SanBay> getSanBayByInput(String input) {
+        try {
+            Jdbi jdbi = get();
+            String textInput = "%" +  input + "%";
+            return jdbi.withHandle(h -> {
+                String q = "select * from san_bay where id=:input or ten_san_bay like :textInput or thanh_pho like :textInput or quoc_gia like :textInput";
+                return h.createQuery(q).bind("input", input).bind("textInput", textInput).mapToBean(SanBay.class).list();
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
