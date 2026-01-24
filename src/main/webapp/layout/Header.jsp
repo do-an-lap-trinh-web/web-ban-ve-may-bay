@@ -34,7 +34,7 @@
             <a href="${pageContext.request.contextPath}/page/dang_ky/dang_ky.jsp">Đăng Ký</a>
         </c:if>
         <c:if test="${sessionScope.user != null}">
-            <a href="${pageContext.request.contextPath}/page/thong_tin_khach_hang/thong_tin_khach_hang.jsp">${sessionScope.user.username}</a>
+            <a href="${pageContext.request.contextPath}/ThongTinNguoiDungController?id=${sessionScope.user.id}">${sessionScope.user.username}</a>
         </c:if>
     </div>
 </header>

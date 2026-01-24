@@ -5,9 +5,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Title</title>
-    <link rel="stylesheet" href="cap_nhat_thong_tin_khach_hang.css">
-	<link rel="stylesheet" href="../../layout/StyleHeader.css">
-	<link rel="stylesheet" href="../../layout/StyleFooter.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/page/cap_nhat_thong_tin_khach_hang/cap_nhat_thong_tin_khach_hang.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleHeader.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleFooter.css">
 </head>
 <body>
 <!--start header-->

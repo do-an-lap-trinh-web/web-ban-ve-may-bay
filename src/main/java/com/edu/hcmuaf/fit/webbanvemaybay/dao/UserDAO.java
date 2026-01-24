@@ -152,4 +152,18 @@ public class UserDAO extends DBContext {
             return "đổi mật khẩu thất bại do lỗi hệ thống";
         }
     }
+
+    public User getUserById(String id) {
+        try {
+            Jdbi jdbi = get();
+            return jdbi.withHandle(h -> {
+                String q = "select * from users where id=:id";
+                return h.createQuery(q).bind("id", id).mapToBean(User.class).findFirst().orElse(null);
+            });
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
