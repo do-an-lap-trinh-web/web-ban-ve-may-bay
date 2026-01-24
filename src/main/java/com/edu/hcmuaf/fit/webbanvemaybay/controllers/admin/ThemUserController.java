@@ -23,6 +23,7 @@ public class ThemUserController extends HttpServlet {
         user.setPassword(request.getParameter("password").toString());
         user.setEmail(request.getParameter("email"));
         user.setSoDienThoai(request.getParameter("soDienThoai"));
+        user.setRole(request.getParameter("role"));
         user.setCodeXacThuc(null);
         user.setHangXacThuc(null);
         String res = userService.addUser(user);
