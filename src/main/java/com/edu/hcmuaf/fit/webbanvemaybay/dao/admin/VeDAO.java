@@ -81,4 +81,18 @@ public class VeDAO extends DBContext {
             return false;
         }
     }
+
+    public boolean removeVeById(String id) {
+        try {
+            Jdbi jdbi = get();
+            int soLuong = jdbi.withHandle(h -> {
+                String q = "delete from ve where id = :id";
+                return h.createUpdate(q).bind("id", id).execute();
+            });
+            return soLuong > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

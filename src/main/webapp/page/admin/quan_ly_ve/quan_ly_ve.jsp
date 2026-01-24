@@ -26,6 +26,9 @@
         </div>
 
         <table class="example-flights">
+            <div>
+                ${sessionScope.messageRemove}
+            </div>
             <thead>
                 <tr>
                     <th style="text-align: center">ID</th>
@@ -48,7 +51,11 @@
                         <td style="text-align: center">
                             <div class="act-btns">
                                 <a href="${pageContext.request.contextPath}/admin/SuaVeController?id=${item.id}" class="btn-act-edit-del btn-edit">Sửa</a>
-                                <button class="btn-act-edit-del btn-delete">Xóa</button>
+                                <form action="${pageContext.request.contextPath}/admin/XoaVeController" method="post">
+                                    <input type="hidden" name="id" value="${item.id}">
+                                    <button class="btn-act-edit-del btn-delete">Xóa</button>
+                                </form>
+
                             </div>
                         </td>
                     </tr>

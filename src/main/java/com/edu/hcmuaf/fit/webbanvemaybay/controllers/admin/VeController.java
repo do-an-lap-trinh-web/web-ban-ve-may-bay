@@ -14,7 +14,7 @@ public class VeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int page = 1;
-        int pageSize = 9;
+        int pageSize = 8;
 
         String pageStr = request.getParameter("page");
         if (pageStr != null && !pageStr.isEmpty()) {

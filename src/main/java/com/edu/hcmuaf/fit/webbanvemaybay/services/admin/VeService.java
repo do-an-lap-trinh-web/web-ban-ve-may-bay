@@ -30,4 +30,8 @@ public class VeService {
     public boolean updateVeById(Ve ve) {
         return veDAO.updateVeById(ve);
     }
+
+    public boolean removeVeById(String id) {
+        return veDAO.removeVeById(id);
+    }
 }
