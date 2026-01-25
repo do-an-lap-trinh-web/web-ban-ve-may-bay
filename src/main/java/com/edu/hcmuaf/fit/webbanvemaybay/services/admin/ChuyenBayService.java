@@ -33,4 +33,9 @@ public class ChuyenBayService {
         ChuyenBayDAO chuyenBayDAO = new ChuyenBayDAO();
         return chuyenBayDAO.updateChuyenBayById(chuyenBay);
     }
+
+    public boolean removeChuyenBayById(String id) {
+        ChuyenBayDAO chuyenBayDAO = new ChuyenBayDAO();
+        return chuyenBayDAO.removeChuyenBayById(id);
+    }
 }

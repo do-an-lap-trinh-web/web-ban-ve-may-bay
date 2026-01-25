@@ -80,4 +80,17 @@ public class ChuyenBayDAO extends DBContext {
             return false;
         }
     }
+
+    public boolean removeChuyenBayById(String id) {
+        try {
+            Jdbi jdbi = get();
+            return jdbi.withHandle(h -> {
+                String q = "delete from chuyen_bay where id = :id";
+                return h.createUpdate(q).bind("id", id).execute();
+            }) > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
