@@ -4,6 +4,7 @@ import com.edu.hcmuaf.fit.webbanvemaybay.dao.DBContext;
 import com.edu.hcmuaf.fit.webbanvemaybay.dao.admin.UserDAO;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.User;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.ThongTinNguoiDung;
+import com.edu.hcmuaf.fit.webbanvemaybay.services.core.HashPassword;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class UserService {
     // hàm thêm một user vào database
     public String addUser(User user) {
         UserDAO userDAO = new UserDAO();
+        user.setPassword(HashPassword.hashPassword(user.getPassword()));
         return userDAO.addUser(user);
     }
 
