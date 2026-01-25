@@ -12,7 +12,7 @@ public class VeDAO extends DBContext {
         try {
             Jdbi jdbi = get();
             return jdbi.withHandle(h -> {
-                String q = "SELECT * FROM ve LIMIT :limit OFFSET :offset";
+                String q = "select * from ve limit :limit offset :offset";
                 return h.createQuery(q)
                         .bind("limit", pageSize)
                         .bind("offset", offset)
@@ -29,7 +29,7 @@ public class VeDAO extends DBContext {
         try {
             Jdbi jdbi = get();
             return jdbi.withHandle(h ->
-                    h.createQuery("SELECT COUNT(*) FROM ve").mapTo(Integer.class).one()
+                    h.createQuery("select count(*) from ve").mapTo(Integer.class).one()
             );
         } catch (Exception e) {
             return 0;
@@ -101,8 +101,8 @@ public class VeDAO extends DBContext {
             Jdbi jdbi = get();
             String textInput = "%" + input + "%";
             return jdbi.withHandle(h -> {
-                String q = "SELECT * FROM ve where id = :input or id_chuyen_bay = :input or id_loai_ve = :input " +
-                        "LIMIT :limit OFFSET :offset";
+                String q = "select * from ve where id = :input or id_chuyen_bay = :input or id_loai_ve = :input " +
+                        "limit :limit offset :offset";
                 return h.createQuery(q)
                         .bind("input", input)
                         .bind("limit", pageSize)
@@ -120,7 +120,7 @@ public class VeDAO extends DBContext {
         try {
             Jdbi jdbi = get();
             return jdbi.withHandle(h ->
-                    h.createQuery("SELECT COUNT(*) FROM ve where id = :input or id_chuyen_bay = :input or id_loai_ve = :input")
+                    h.createQuery("select count(*) from ve where id = :input or id_chuyen_bay = :input or id_loai_ve = :input")
                             .bind("input", input)
                             .mapTo(Integer.class).one()
             );
