@@ -92,3 +92,30 @@ main {
 .khoang-cach-form {
     height: 20px;
 }
+.input-form{
+    margin: 0 0 18px 0;
+}
+
+.input-form label{
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+
+.note-text{
+    display: block;
+    font-size: 12px;
+    color: #7a7a7a;
+    margin: 0 0 10px 0;
+    line-height: 1.35;
+}
+
+.input-form .input{
+    margin: 0;
+}
+
+.input-form .input input{
+    width: 100%;
+}
+
