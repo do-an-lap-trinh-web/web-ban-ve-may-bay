@@ -20,7 +20,7 @@
 
         <div class="btn-add-ticket-from-quan-li-ve">
             <a href="${pageContext.request.contextPath}/page/admin/quan_ly_chuyen_bay/them_chuyen_bay.jsp" class="btn-add-ticket-from-qlv">
-                <span class="btn-add-ticket-icon">+</span>Thêm vé
+                <span class="btn-add-ticket-icon">+</span>Thêm
             </a>
         </div>
     </div>

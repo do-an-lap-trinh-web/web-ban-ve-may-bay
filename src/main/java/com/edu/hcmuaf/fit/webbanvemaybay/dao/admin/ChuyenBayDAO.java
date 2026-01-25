@@ -34,4 +34,19 @@ public class ChuyenBayDAO extends DBContext {
             return 0;
         }
     }
+
+    public boolean addChuyenBay(ChuyenBay chuyenBay) {
+        try {
+            Jdbi jdbi = get();
+            int soLuong = jdbi.withHandle(h -> {
+                String q = "insert into chuyen_bay(id, thoi_gian_khoi_hanh, thoi_gian_ha_canh, id_so_hieu_chuyen_bay) " +
+                        "values (:id, :thoiGianKhoiHanh, :thoiGianHaCanh, :idSoHieuChuyenBay)";
+                return h.createUpdate(q).bindBean(chuyenBay).execute();
+            });
+            return soLuong > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

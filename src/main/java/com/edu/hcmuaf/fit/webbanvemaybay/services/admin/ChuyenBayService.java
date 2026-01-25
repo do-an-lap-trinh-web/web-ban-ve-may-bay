@@ -18,4 +18,9 @@ public class ChuyenBayService {
         int totalRecords = chuyenBayDAO.getTotalChuyenBayCount();
         return (int) Math.ceil((double) totalRecords / pageSize);
     }
+
+    public boolean addChuyenBay(ChuyenBay chuyenBay) {
+        ChuyenBayDAO chuyenBayDAO = new ChuyenBayDAO();
+        return chuyenBayDAO.addChuyenBay(chuyenBay);
+    }
 }
