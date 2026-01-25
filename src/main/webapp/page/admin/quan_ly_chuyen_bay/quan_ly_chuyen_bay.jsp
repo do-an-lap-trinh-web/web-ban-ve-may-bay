@@ -12,7 +12,7 @@
 <div class="container">
     <div class="search-flight-bar">
         <div class="search-form">
-            <form action="${pageContext.request.contextPath}/admin" method="get" class="search-by-flight-code">
+            <form action="${pageContext.request.contextPath}/admin/TimKiemChuyenBayController" method="get" class="search-by-flight-code">
                 <input type="text" name="input" placeholder="Tìm kiếm...">
                 <button type="submit" class="btn-search-from-quan-li-ve">Tìm kiếm</button>
             </form>

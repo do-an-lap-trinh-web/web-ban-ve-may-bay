@@ -57,7 +57,7 @@ public class ChuyenBayDAO extends DBContext {
                 String q = "select * from chuyen_bay where id = :id";
                 return h.createQuery(q).bind("id", id).mapToBean(ChuyenBay.class).findFirst().orElse(null);
             });
-        }  catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
@@ -71,11 +71,11 @@ public class ChuyenBayDAO extends DBContext {
                         "id_so_hieu_chuyen_bay = :idSoHieuChuyenBay where id = :id";
                 return h.createUpdate(q)
                         .bind("thoiGianKhoiHanh", chuyenBay.getThoiGianKhoiHanh())
-                        .bind("thoiGianHaCanh",  chuyenBay.getThoiGianHaCanh())
-                        .bind("idSoHieuChuyenBay",  chuyenBay.getIdSoHieuChuyenBay())
-                        .bind("id",  chuyenBay.getId()).execute();
+                        .bind("thoiGianHaCanh", chuyenBay.getThoiGianHaCanh())
+                        .bind("idSoHieuChuyenBay", chuyenBay.getIdSoHieuChuyenBay())
+                        .bind("id", chuyenBay.getId()).execute();
             }) > 0;
-        }  catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
@@ -91,6 +91,42 @@ public class ChuyenBayDAO extends DBContext {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    public List<ChuyenBay> getChuyenBayByPageAndInput(int offset, int pageSize, String input) {
+        try {
+            Jdbi jdbi = get();
+            String textInput = "%" + input + "%";
+            return jdbi.withHandle(h -> {
+                String q = "select * from chuyen_bay where id = :input or thoi_gian_khoi_hanh = :textInput or thoi_gian_ha_canh = :textInput or " +
+                        "id_so_hieu_chuyen_bay = :input limit :limit offset :offset";
+                return h.createQuery(q)
+                        .bind("input", input)
+                        .bind("textInput", textInput)
+                        .bind("limit", pageSize)
+                        .bind("offset", offset)
+                        .mapToBean(ChuyenBay.class)
+                        .list();
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public int getTotalChuyenBayCountByInput(String input) {
+        try {
+            Jdbi jdbi = get();
+            return jdbi.withHandle(h -> {
+                String q = "select * from chuyen_bay where id = :input or thoi_gian_khoi_hanh = :textInput or " +
+                        "thoi_gian_ha_canh = :textInput or + id_so_hieu_chuyen_bay = :input";
+                return h.createQuery(q)
+                        .bind("input", input)
+                        .mapTo(Integer.class).one();
+            });
+        } catch (Exception e) {
+            return 0;
         }
     }
 }
