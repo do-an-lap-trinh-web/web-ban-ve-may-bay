@@ -71,7 +71,7 @@
 
 			<div class="btn-dang-nhap">
 				<p>
-					Nếu bạn đã có tài khoảng <a href="../dang_nhap/dang_nhap.jsp">Đăng nhập tại đây</a>
+					Nếu bạn đã có tài khoảng <a href="${pageContext.request.contextPath}/page/dang_nhap/dang_nhap.jsp">Đăng nhập tại đây</a>
 				</p>
 			</div>
 
