@@ -9,6 +9,15 @@ public class User {
     private String codeXacThuc;
     private String hangXacThuc;
     private String role;
+    private int status;
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
     public User() {}
 
