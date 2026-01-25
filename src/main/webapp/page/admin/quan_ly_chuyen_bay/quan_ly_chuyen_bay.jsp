@@ -48,7 +48,7 @@
                 <td style="text-align: center" class="flight-price">${item.idSoHieuChuyenBay}</td>
                 <td style="text-align: center">
                     <div class="act-btns">
-                        <a href="${pageContext.request.contextPath}/admin?id=${item.id}" class="btn-act-edit-del btn-edit">Sửa</a>
+                        <a href="${pageContext.request.contextPath}/admin/SuaChuyenBayController?id=${item.id}" class="btn-act-edit-del btn-edit">Sửa</a>
                         <form action="${pageContext.request.contextPath}/admin" method="post">
                             <input type="hidden" name="id" value="${item.id}">
                             <button class="btn-act-edit-del btn-delete">Xóa</button>

@@ -49,4 +49,35 @@ public class ChuyenBayDAO extends DBContext {
             return false;
         }
     }
+
+    public ChuyenBay getChuyenBayById(String id) {
+        try {
+            Jdbi jdbi = get();
+            return jdbi.withHandle(h -> {
+                String q = "select * from chuyen_bay where id = :id";
+                return h.createQuery(q).bind("id", id).mapToBean(ChuyenBay.class).findFirst().orElse(null);
+            });
+        }  catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public boolean updateChuyenBayById(ChuyenBay chuyenBay) {
+        try {
+            Jdbi jdbi = get();
+            return jdbi.withHandle(h -> {
+                String q = "update chuyen_bay set thoi_gian_khoi_hanh = :thoiGianKhoiHanh, thoi_gian_ha_canh = :thoiGianHaCanh, " +
+                        "id_so_hieu_chuyen_bay = :idSoHieuChuyenBay where id = :id";
+                return h.createUpdate(q)
+                        .bind("thoiGianKhoiHanh", chuyenBay.getThoiGianKhoiHanh())
+                        .bind("thoiGianHaCanh",  chuyenBay.getThoiGianHaCanh())
+                        .bind("idSoHieuChuyenBay",  chuyenBay.getIdSoHieuChuyenBay())
+                        .bind("id",  chuyenBay.getId()).execute();
+            }) > 0;
+        }  catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
