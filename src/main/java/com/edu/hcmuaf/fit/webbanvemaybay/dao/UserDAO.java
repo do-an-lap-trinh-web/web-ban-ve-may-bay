@@ -38,8 +38,8 @@ public class UserDAO extends DBContext {
                 return "username đã tồn tại";
             }
             int res = jdbi.withHandle(h -> {
-                return h.createUpdate("insert into users (id, username, password, so_dien_thoai, email, code_xac_thuc, hang_xac_thuc, role)" +
-                        " values (:id, :username, :password, :soDienThoai, :email, :codeXacThuc, :hangXacThuc, :role)").bindBean(user).executeAndReturnGeneratedKeys().mapTo(Integer.class).one();
+                return h.createUpdate("insert into users (id, username, password, so_dien_thoai, email, code_xac_thuc, hang_xac_thuc, role, status)" +
+                        " values (:id, :username, :password, :soDienThoai, :email, :codeXacThuc, :hangXacThuc, :role, :status)").bindBean(user).executeAndReturnGeneratedKeys().mapTo(Integer.class).one();
             });
             jdbi.withHandle(h -> {
                 return h.createUpdate("insert into thong_tin_nguoi_dung (id_user, ho, ten, dia_chi, gioi_tinh, ngay_sinh)" +
@@ -176,6 +176,26 @@ public class UserDAO extends DBContext {
             });
             return soLuong > 0;
         } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean verifyUser(String email, String code) {
+        try {
+            Jdbi jdbi = get();
+            int soLuong = jdbi.withHandle(h -> {
+                String q = "select count(*) from users where email=:email and code_xac_thuc=:codeXacThuc";
+                return h.createQuery(q).bind("email", email).bind("codeXacThuc", code).mapTo(Integer.class).one();
+            });
+            if (soLuong > 0) {
+                return jdbi.withHandle(h -> {
+                    String q = "update users set code_xac_thuc= null, status=1 where email=:email and code_xac_thuc=:codeXacThuc";
+                    return h.createUpdate(q).bind("codeXacThuc", code).bind("email", email).execute();
+                }) > 0;
+            }
+            return false;
+        }  catch (Exception e) {
             e.printStackTrace();
             return false;
         }

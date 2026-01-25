@@ -8,18 +8,18 @@ public class GuiMail {
 
 
     public static boolean guiMaXacThuc(String email, String noiDung) {
-        // 1. Thông tin cấu hình Email của bạn (Người gửi)
+
         final String fromEmail = "23130351@st.hcmuaf.edu.vn";
-        final String password = "yjye wwvc jjej ssre"; // Mật khẩu ứng dụng 16 ký tự
+        final String password = "yjye wwvc jjej ssre";
 
-        // 2. Thiết lập cấu hình hệ thống
+
         Properties props = new Properties();
-        props.put("mail.smtp.host", "smtp.gmail.com"); // SMTP Host
-        props.put("mail.smtp.port", "587"); // TLS Port
-        props.put("mail.smtp.auth", "true"); // Cho phép xác thực
-        props.put("mail.smtp.starttls.enable", "true"); // Bắt buộc dùng TLS
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
 
-        // 3. Tạo phiên làm việc (Session)
+
         Session session = Session.getInstance(props, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -28,16 +28,16 @@ public class GuiMail {
         });
 
         try {
-            // 4. Tạo tin nhắn
+
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(fromEmail));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
             message.setSubject("Mã Xác Thực Quên Mật Khẩu", "UTF-8");
 
-            // Gửi nội dung định dạng HTML hoặc Text
+
             message.setContent("<h3>Mã xác nhận của bạn là: <b style='color:red;'>" + noiDung + "</b></h3>", "text/html; charset=UTF-8");
 
-            // 5. Gửi email
+
             Transport.send(message);
             return true;
         } catch (MessagingException e) {
@@ -45,4 +45,37 @@ public class GuiMail {
             return false;
         }
     }
+    public static void sendVerificationEmail(String toEmail, String code) {
+        final String fromEmail = "23130351@st.hcmuaf.edu.vn";
+        final String password = "yjye wwvc jjej ssre";
+
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+
+        Authenticator auth = new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(fromEmail, password);
+            }
+        };
+
+        Session session = Session.getInstance(props, auth);
+        try {
+            Message msg = new MimeMessage(session);
+            msg.setFrom(new InternetAddress(fromEmail));
+            msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
+            msg.setSubject("Xác thực tài khoản Web Bán Vé Máy Bay");
+
+            String link = "http://localhost:8080/web_ban_ve_may_bay_war_exploded/VerifyController?email=" + toEmail + "&code=" + code;
+            msg.setContent("<h3>Chào mừng bạn!</h3><p>Vui lòng nhấn vào link để kích hoạt tài khoản: "
+                    + "<a href='" + link + "'>Xác nhận ngay</a></p>", "text/html; charset=UTF-8");
+
+            Transport.send(msg);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

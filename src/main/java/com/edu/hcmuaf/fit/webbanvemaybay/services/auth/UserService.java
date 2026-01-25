@@ -8,6 +8,7 @@ import com.edu.hcmuaf.fit.webbanvemaybay.services.core.KiemTraThongTinDangKy;
 
 import java.time.LocalDateTime;
 import java.util.Random;
+import java.util.UUID;
 
 public class UserService {
 
@@ -22,7 +23,17 @@ public class UserService {
         }
         String passwordHash = HashPassword.hashPassword(user.getPassword());
         user.setPassword(passwordHash);
-        return userDAO.addUser(user);
+        UUID uuid = UUID.randomUUID();
+        String code = uuid.toString();
+        user.setCodeXacThuc(code);
+        user.setStatus(0);
+        String isAdd = userDAO.addUser(user);
+        if (isAdd.equals("thêm tài khoảng thành công")) {
+            GuiMail.sendVerificationEmail(user.getEmail(), code);
+            return "Hãy xác nhận tài khoản của bạn bằng các nhấn vào link được gửi trong email";
+        }
+
+        return isAdd;
     }
 
     public User login(String username, String password) {
