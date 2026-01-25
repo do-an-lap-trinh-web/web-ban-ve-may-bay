@@ -26,6 +26,7 @@ public class ThemUserController extends HttpServlet {
         user.setRole(request.getParameter("role"));
         user.setCodeXacThuc(null);
         user.setHangXacThuc(null);
+        user.setStatus(1);
         String res = userService.addUser(user);
         request.setAttribute("message", res);
 
