@@ -22,11 +22,12 @@ public class DaiLyDAO extends DBContext {
         try {
             Jdbi jdbi = get();
             return jdbi.withHandle(h -> {
-                String q = "update dai_ly set dia_chi=:diaChi, so_dien_thoai=:soDienThoai, email=:email, link_fb=:linkFb, link_yt=:linkYt, " +
+                String q = "update dai_ly set dia_chi=:diaChi, ten_dia_chi=:tenDiaChi, so_dien_thoai=:soDienThoai, email=:email, link_fb=:linkFb, link_yt=:linkYt, " +
                         "link_tiktok=:linkTiktok where id=:id";
                 return h.createUpdate(q)
                         .bind("id", daiLy.getId())
                         .bind("diaChi", daiLy.getDiaChi())
+                        .bind("tenDiaChi", daiLy.getTenDiaChi())
                         .bind("soDienThoai",  daiLy.getSoDienThoai())
                         .bind("email", daiLy.getEmail())
                         .bind("linkFb", daiLy.getLinkFb())

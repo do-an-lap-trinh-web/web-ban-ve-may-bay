@@ -8,6 +8,15 @@ public class DaiLy {
     private String linkFb;
     private String linkYt;
     private String linkTiktok;
+    private String tenDiaChi;
+
+    public String getTenDiaChi() {
+        return tenDiaChi;
+    }
+
+    public void setTenDiaChi(String tenDiaChi) {
+        this.tenDiaChi = tenDiaChi;
+    }
 
     public DaiLy() {}
 
@@ -33,4 +42,17 @@ public class DaiLy {
     public void setLinkYt(String linkYt) { this.linkYt = linkYt; }
     public String getLinkTiktok() { return linkTiktok; }
     public void setLinkTiktok(String linkTiktok) { this.linkTiktok = linkTiktok; }
+
+    @Override
+    public String toString() {
+        return "DaiLy{" +
+                "id=" + id +
+                ", diaChi='" + diaChi + '\'' +
+                ", soDienThoai='" + soDienThoai + '\'' +
+                ", email='" + email + '\'' +
+                ", linkFb='" + linkFb + '\'' +
+                ", linkYt='" + linkYt + '\'' +
+                ", linkTiktok='" + linkTiktok + '\'' +
+                '}';
+    }
 }

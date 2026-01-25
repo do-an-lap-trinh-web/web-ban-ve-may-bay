@@ -18,6 +18,7 @@ public class SuaDaiLyController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
         String diaChi = request.getParameter("diaChi");
+        String tenDiaChi = request.getParameter("tenDiaChi");
         String soDienThoai = request.getParameter("soDienThoai");
         String email = request.getParameter("email");
         String linkFb = request.getParameter("linkFb");
@@ -28,6 +29,7 @@ public class SuaDaiLyController extends HttpServlet {
         daiLy.setId(Integer.parseInt(id));
         daiLy.setEmail(email);
         daiLy.setDiaChi(diaChi);
+        daiLy.setTenDiaChi(tenDiaChi);
         daiLy.setSoDienThoai(soDienThoai);
         daiLy.setLinkFb(linkFb);
         daiLy.setLinkYt(linkYt);

@@ -22,11 +22,17 @@
                     <label>ID Hệ Thống</label>
                     <input type="number" name="id" value="${daiLy.id}" readonly>
                 </div>
-
+                <div class="form-group">
+                    <label>Địa Chỉ Trụ Sở</label>
+                    <textarea style="min-width: 100%; max-width: 100%" rows="4" name="diaChi" placeholder="Nhập địa chỉ...">
+                        ${daiLy.diaChi}
+                    </textarea>
+                </div>
                 <div class="row">
+
                     <div class="form-group col">
                         <label>Địa Chỉ Trụ Sở</label>
-                        <input type="text" name="diaChi" value="${daiLy.diaChi}" placeholder="Nhập địa chỉ...">
+                        <input type="text" name="tenDiaChi" value="${daiLy.tenDiaChi}" placeholder="Nhập địa chỉ...">
                     </div>
                     <div class="form-group col">
                         <label>Số Điện Thoại</label>
