@@ -8,4 +8,9 @@ public class DaiLyService {
         DaiLyDAO daiLyDAO = new DaiLyDAO();
         return daiLyDAO.getDaiLy();
     }
+
+    public boolean updateDaiLyById(DaiLy daiLy) {
+        DaiLyDAO daiLyDAO = new DaiLyDAO();
+        return daiLyDAO.upDateDaiLyById(daiLy);
+    }
 }

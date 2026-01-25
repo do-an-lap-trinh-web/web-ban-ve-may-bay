@@ -16,7 +16,7 @@
             <p>${message}</p>
         </div>
 
-        <form action="UpdateAboutController" method="POST">
+        <form action="${pageContext.request.contextPath}/admin/SuaDaiLyController" method="POST">
             <div class="form-section">
                 <div class="form-group">
                     <label>ID Hệ Thống</label>
@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="form-group col">
                         <label>Địa Chỉ Trụ Sở</label>
-                        <input type="text" name="dia_chi" value="${daiLy.diaChi}" placeholder="Nhập địa chỉ...">
+                        <input type="text" name="diaChi" value="${daiLy.diaChi}" placeholder="Nhập địa chỉ...">
                     </div>
                     <div class="form-group col">
                         <label>Số Điện Thoại</label>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="form-group social-input tt">
                     <label>Tiktok</label>
-                    <input type="url" name="linkTikTok" value="${daiLy.linkTiktok}" placeholder="https://tiktok.com/...">
+                    <input type="url" name="linkTiktok" value="${daiLy.linkTiktok}" placeholder="https://tiktok.com/...">
                 </div>
             </div>
 
