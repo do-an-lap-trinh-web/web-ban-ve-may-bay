@@ -19,6 +19,9 @@
             <a href="${pageContext.request.contextPath}/admin/SoHieuChuyenBayController" class="menu-link" data-table="chuyen_bay">
                 <span class="emoji">✈️</span> Quản Lý Số Hiệu Chuyến Bay
             </a>
+            <a href="${pageContext.request.contextPath}/admin/ChuyenBayController" class="menu-link">
+                <span class="emoji">✈️</span> Quản Lý Chuyến Bay
+            </a>
             <a href="${pageContext.request.contextPath}/admin/HangBayController" class="menu-link" data-table="hang_bay">
                 <span class="emoji">🏢</span> Quản Lý Hãng Bay
             </a>
