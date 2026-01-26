@@ -20,7 +20,7 @@ a {
     border-top: 5px solid #0056b3;
 }
 
-.search-flight-bar{
+.searching-bar{
     display: flex;
     width: 100%;
     margin-bottom: 25px;
@@ -36,7 +36,7 @@ a {
     align-items: center;
 }
 
-.search-by-flight-code{
+.search-flight{
     display: flex;
     padding: 5px;
     border: 1px solid #ced4da;
@@ -47,7 +47,7 @@ a {
     margin: 0;
 }
 
-.search-by-flight-code input{
+.search-flight input{
     flex: 1;
     padding: 10px 15px;
     border: none;
@@ -57,11 +57,11 @@ a {
     background: transparent;
 }
 
-.search-by-flight-code input:focus{
+.search-flight input:focus{
     box-shadow: 0 0 0 2px rgba(10, 50, 250, 0.4);
 }
 
-.btn-search-from-so-hieu-chuyen-bay{
+.btn-search{
     background-color: #0056b3;
     color: white;
     border: none;
@@ -75,22 +75,22 @@ a {
     white-space: nowrap;
 }
 
-.btn-search-from-so-hieu-chuyen-bay:hover{
+.btn-search:hover{
     background-color: #004494;
 }
 
-.btn-add-ticket-from-so-hieu-chuyen-bay{
+.add-ticket{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.btn-add-ticket-from-shcb{
+.btn-add-ticket{
     background-color: #28a745;
     color: white;
     border: none;
     padding: 0 25px;
-    height: 52px;
+    height: 40px;
     border-radius: 5px;
     font-size: 15px;
     font-weight: 700;
@@ -103,7 +103,7 @@ a {
     white-space: nowrap;
 }
 
-.btn-add-ticket-from-shcb:hover{
+.btn-add-ticket-from:hover{
     background-color: #218838;
     transform: translateY(-2px);
     box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
@@ -114,13 +114,13 @@ a {
     font-weight: 400;
 }
 
-.example-flights{
+.flights{
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 30px;
 }
 
-.example-flights thead th{
+.flights thead th{
     background-color: #f8f9fa;
     color: #495057;
     text-align: left;
@@ -132,7 +132,7 @@ a {
     white-space: nowrap;
 }
 
-.example-flights thead th.action-from-so-hieu-chuyen-bay{
+.flights thead th.action{
     text-align: center;
     width: 120px;
 }
@@ -147,7 +147,7 @@ a {
 }
 
 
-.example-flights thead th {
+.flights thead th {
     position: sticky;
     top: 0;
     background-color: #f8f9fa;
@@ -157,10 +157,12 @@ a {
 
 
 .action-btn {
-    padding: 4px 10px;
+    padding: 5px 15px;
     border-radius: 4px;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
 }
 
 .action-btn.edit {
