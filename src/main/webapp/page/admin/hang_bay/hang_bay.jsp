@@ -9,7 +9,7 @@
 <body>
 <%@include file="../AdminMenuSidebar.jsp" %>
     <div class="container">
-        <div class="search-flight-bar">
+        <div class="searching-bar">
             <div class="search-form">
                 <form action="${pageContext.request.contextPath}/admin/TimKiemHangBayController" method="get" class="search-by-flight-name">
                     <input type="text" name="input" placeholder="Tìm kiếm...">
@@ -17,8 +17,8 @@
                 </form>
             </div>
 
-            <div class="btn-add-ticket-from-hang-bay">
-                <a href="${pageContext.request.contextPath}/page/admin/hang_bay/them_hang_bay.jsp" class="btn-add-ticket-from-hb">
+            <div class="btn-add-ticket">
+                <a href="${pageContext.request.contextPath}/page/admin/hang_bay/them_hang_bay.jsp" class="btn-add-ticket">
                     <span class="btn-add-ticket-icon">+</span> Thêm Hãng Bay
                 </a>
             </div>
@@ -26,13 +26,13 @@
         <div>
             ${requestScope.message}
         </div>
-        <table class="example-flights">
+        <table class="flights">
             <thead>
             <tr>
                 <th style="text-align: center; width: 60px;">ID</th>
                 <th>Tên Hãng Bay</th>
                 <th>Quốc Gia</th>
-                <th class="action-from-hang-bay">Thao tác</th>
+                <th class="action">Thao tác</th>
             </tr>
             </thead>
 
@@ -46,7 +46,7 @@
                     <td>${item.quocGia}</td>
 
                     <td>
-                        <div class="action-from-hang-bay">
+                        <div class="action">
                             <a href="${pageContext.request.contextPath}/admin/SuaHangBayController?id=${item.id}" class="btn-action btn-edit">Sửa</a>
                             <form action="${pageContext.request.contextPath}/admin/XoaHangBayController" method="post">
                                 <input type="hidden" name="id" value="${item.id}">
