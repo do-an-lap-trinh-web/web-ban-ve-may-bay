@@ -29,15 +29,15 @@
 		<form action="${pageContext.request.contextPath}/RegisterController" method="post">
 			<div class="input-form">
 				<label>Username</label>
+				<p class="note-text">(Username phải có ít nhất 8 ký tự)</p>
 				<div class="input">
 					<input name="username" type="text" placeholder="Username">
 				</div>
 			</div>
 
-			<div class="khoang-cach-form"></div>
-
 			<div class="input-form">
 				<label>Password</label>
+				<p class="note-text">(Mật khẩu ≥ 8 ký tự, gồm chữ hoa, chữ thường, số và ký tự đặc biệt)</p>
 				<div class="input">
 					<input name="password" type="password" placeholder="Password">
 				</div>
