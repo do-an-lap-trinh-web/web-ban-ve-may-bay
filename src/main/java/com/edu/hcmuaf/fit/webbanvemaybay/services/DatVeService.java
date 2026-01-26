@@ -1,9 +1,11 @@
 package com.edu.hcmuaf.fit.webbanvemaybay.services;
 
+import com.edu.hcmuaf.fit.webbanvemaybay.dao.VeDAO;
 import com.edu.hcmuaf.fit.webbanvemaybay.dao.VeDaDatDAO;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.DTO.VeDaDatDto;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.DTO.VeDto;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.DatVe;
+import com.edu.hcmuaf.fit.webbanvemaybay.services.admin.VeService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +16,11 @@ public class DatVeService {
     public Boolean datVeByUser(DatVe datVe) {
         VeDaDatDAO veDaDatDAO = new VeDaDatDAO();
         boolean isAdd = veDaDatDAO.addVeDaDat(datVe);
-        if (isAdd) {
+        VeDAO veDAO = new VeDAO();
+        List<DatVe> listDatVe =  new ArrayList<>();
+        listDatVe.add(datVe);
+        boolean isSetSoLuongVe = veDAO.setSoLuongVe(listDatVe);
+        if (isAdd && isSetSoLuongVe) {
             return true;
         }
         return false;
@@ -34,7 +40,9 @@ public class DatVeService {
                 soLuong++;
             }
         }
-        if (soLuong == datVeList.size()) {
+        VeDAO veDAO = new VeDAO();
+        boolean isSetSoLuongVe = veDAO.setSoLuongVe(datVeList);
+        if ((soLuong == datVeList.size()) && isSetSoLuongVe) {
             return true;
         }
         return false;

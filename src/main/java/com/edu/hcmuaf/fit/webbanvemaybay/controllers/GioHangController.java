@@ -96,5 +96,7 @@ public class GioHangController extends HttpServlet {
             System.out.println(session.getAttribute("gioHang"));
             request.getRequestDispatcher("page/gio_hang/gio_hang.jsp").forward(request, response);
         }
+
+
     }
 }

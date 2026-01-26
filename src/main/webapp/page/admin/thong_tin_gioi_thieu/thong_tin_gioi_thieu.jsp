@@ -23,7 +23,7 @@
                     <input type="number" name="id" value="${daiLy.id}" readonly>
                 </div>
                 <div class="form-group">
-                    <label>Địa Chỉ Trụ Sở</label>
+                    <label>Map địa chỉ trụ sở</label>
                     <textarea style="min-width: 100%; max-width: 100%" rows="4" name="diaChi" placeholder="Nhập địa chỉ...">
                         ${daiLy.diaChi}
                     </textarea>

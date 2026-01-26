@@ -1,5 +1,6 @@
 package com.edu.hcmuaf.fit.webbanvemaybay.dao;
 
+import com.edu.hcmuaf.fit.webbanvemaybay.models.DatVe;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.Ve;
 import org.jdbi.v3.core.Jdbi;
 
@@ -31,6 +32,38 @@ public class VeDAO extends DBContext {
         } catch (Exception e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public boolean setSoLuongVe(List<DatVe> listDatVe) {
+        try {
+            Jdbi jdbi = get();
+            return jdbi.withHandle(h -> {
+                String q = "update ve set so_luong_ton=so_luong_ton - :soLuong where id=:idVe";
+                for (DatVe datVe : listDatVe) {
+                    h.createUpdate(q).bind("soLuong", datVe.getSoLuong()).bind("idVe", datVe.getIdVe()).execute();
+                }
+                return true;
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean addSoLuongVe(List<DatVe> listDatVe) {
+        try {
+            Jdbi jdbi = get();
+            return jdbi.withHandle(h -> {
+                String q = "update ve set so_luong_ton=so_luong_ton + :soLuong where id=:idVe";
+                for (DatVe datVe : listDatVe) {
+                    h.createUpdate(q).bind("soLuong", datVe.getSoLuong()).bind("idVe", datVe.getIdVe()).execute();
+                }
+                return true;
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 }
