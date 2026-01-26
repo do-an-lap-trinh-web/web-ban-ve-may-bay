@@ -17,7 +17,7 @@
                 </form>
             </div>
 
-            <div class="btn-add-ticket">
+            <div class="add-ticket">
                 <a href="${pageContext.request.contextPath}/page/admin/hang_bay/them_hang_bay.jsp" class="btn-add-ticket">
                     <span class="btn-add-ticket-icon">+</span> Thêm Hãng Bay
                 </a>
