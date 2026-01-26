@@ -20,7 +20,7 @@ body {
     box-sizing: border-box;
 }
 
-.search-flight-bar {
+.searching-bar {
     display: flex;
     width: 100%;
     margin-bottom: 25px;
@@ -61,7 +61,7 @@ body {
     background-color: #fcfcfc;
 }
 
-.btn-search-from-hang-bay {
+.btn-search {
     background-color: #0056b3;
     color: white;
     border: none;
@@ -75,17 +75,17 @@ body {
     white-space: nowrap;
 }
 
-.btn-search-from-hang-bay:hover {
+.btn-search:hover {
     background-color: #004494;
 }
 
-.btn-add-ticket-from-hang-bay {
+.add-ticket {
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-.btn-add-ticket-from-hb {
+.btn-add-ticket {
     background-color: #28a745;
     color: white;
     border: none;
@@ -104,7 +104,7 @@ body {
     text-decoration: none;
 }
 
-.btn-add-ticket-from-hb:hover {
+.btn-add-ticket:hover {
     background-color: #218838;
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(40, 167, 69, 0.3);
@@ -117,13 +117,13 @@ body {
     line-height: 1;
 }
 
-.example-flights {
+.flights {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 30px;
 }
 
-.example-flights thead th {
+.flights thead th {
     background-color: #f8f9fa;
     color: #495057;
     text-align: left;
@@ -135,31 +135,43 @@ body {
     white-space: nowrap;
 }
 
-.example-flights tbody td {
+.flights tbody td {
     padding: 15px;
     border-bottom: 1px solid #e9ecef;
     vertical-align: middle;
     color: #333;
 }
 
-.example-flights tbody tr:hover {
+.flights tbody tr:hover {
     background-color: #f0f8ff;
 }
 
-th.action-from-hang-bay {
+.flights tbody td:last-child {
+    text-align: center;
+}
+
+th.action {
     text-align: center;
     width: 140px;
 }
 
-div.action-from-hang-bay {
+div.action {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 10px;
+    width: 100%
+}
+
+div.action form {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 30px;
 }
 
 .btn-action {
     border: none;
-    padding: 6px 12px;
     border-radius: 5px;
     font-size: 13px;
     font-weight: 600;
@@ -167,6 +179,14 @@ div.action-from-hang-bay {
     transition: all 0.2s;
     color: white;
     text-decoration: none;
+    line-height: 1;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    height: 30px;
+    min-width: 60px;
 }
 
 .btn-edit {

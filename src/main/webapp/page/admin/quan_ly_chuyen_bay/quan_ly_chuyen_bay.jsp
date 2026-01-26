@@ -10,22 +10,22 @@
 <body>
 <%@ include file="../../admin/AdminMenuSidebar.jsp" %>
 <div class="container">
-    <div class="search-flight-bar">
+    <div class="searching-bar">
         <div class="search-form">
-            <form action="${pageContext.request.contextPath}/admin/TimKiemChuyenBayController" method="get" class="search-by-flight-code">
+            <form action="${pageContext.request.contextPath}/admin/TimKiemChuyenBayController" method="get" class="search-by-flight">
                 <input type="text" name="input" placeholder="Tìm kiếm...">
-                <button type="submit" class="btn-search-from-quan-li-ve">Tìm kiếm</button>
+                <button type="submit" class="btn-search">Tìm kiếm</button>
             </form>
         </div>
 
-        <div class="btn-add-ticket-from-quan-li-ve">
-            <a href="${pageContext.request.contextPath}/page/admin/quan_ly_chuyen_bay/them_chuyen_bay.jsp" class="btn-add-ticket-from-qlv">
+        <div class="add-ticket">
+            <a href="${pageContext.request.contextPath}/page/admin/quan_ly_chuyen_bay/them_chuyen_bay.jsp" class="btn-add-ticket">
                 <span class="btn-add-ticket-icon">+</span>Thêm
             </a>
         </div>
     </div>
 
-    <table class="example-flights">
+    <table class="flights">
         <div>
             ${sessionScope.messageRemove}
         </div>
@@ -35,25 +35,24 @@
             <th style="text-align: center">Thời gian khởi hành</th>
             <th style="text-align: center">Thời gian hạ cánh</th>
             <th style="text-align: center">ID số hiệu chuyến bay</th>
-            <th style="text-align: center" class="action-from-quan-li-ve">Thao Tác</th>
+            <th style="text-align: center" class="action">Thao Tác</th>
         </tr>
         </thead>
 
         <tbody>
         <c:forEach items="${listChuyenBay}" var="item">
             <tr>
-                <td style="text-align: center" class="flight-code">${item.id}</td>
+                <td style="text-align: center">${item.id}</td>
                 <td style="text-align: center">${item.thoiGianKhoiHanh}</td>
                 <td style="text-align: center">${item.thoiGianHaCanh}</td>
-                <td style="text-align: center" class="flight-price">${item.idSoHieuChuyenBay}</td>
+                <td style="text-align: center">${item.idSoHieuChuyenBay}</td>
                 <td style="text-align: center">
                     <div class="act-btns">
-                        <a href="${pageContext.request.contextPath}/admin/SuaChuyenBayController?id=${item.id}" class="btn-act-edit-del btn-edit">Sửa</a>
+                        <a href="${pageContext.request.contextPath}/admin/SuaChuyenBayController?id=${item.id}" class="btn-act btn-edit">Sửa</a>
                         <form action="${pageContext.request.contextPath}/admin/XoaChuyenBayController" method="post">
                             <input type="hidden" name="id" value="${item.id}">
-                            <button class="btn-act-edit-del btn-delete">Xóa</button>
+                            <button class="btn-act btn-delete">Xóa</button>
                         </form>
-
                     </div>
                 </td>
             </tr>

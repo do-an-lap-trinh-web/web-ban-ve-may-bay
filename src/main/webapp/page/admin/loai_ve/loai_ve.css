@@ -27,7 +27,7 @@ a {
     border-top: 5px solid #0056b3;
 }
 
-.search-ticket-bar{
+.searching-bar{
     display: flex;
     width: 100%;
     margin-bottom: 25px;
@@ -68,7 +68,7 @@ a {
     box-shadow: 0 0 0 2px rgba(10, 50, 250, 0.4);
 }
 
-.btn-search-from-loai-ve{
+.btn-search{
     background-color: #0056b3;
     color: white;
     border: none;
@@ -82,17 +82,17 @@ a {
     white-space: nowrap;
 }
 
-.btn-search-from-loai-ve:hover{
+.btn-search:hover{
     background-color: #004494;
 }
 
-.btn-add-ticket-from-loai-ve{
+.add-ticket{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.btn-add-ticket-from-lv{
+.btn-add-ticket{
     background-color: #28a745;
     color: white;
     border: none;
@@ -110,7 +110,7 @@ a {
     white-space: nowrap;
 }
 
-.btn-add-ticket-from-lv:hover{
+.btn-add-ticket:hover{
     background-color: #218838;
     transform: translateY(-2px);
     box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
@@ -125,7 +125,7 @@ a {
     margin-right: 10px;
 }
 
-.example-tickets{
+.tickets{
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 30px;
@@ -134,7 +134,7 @@ a {
     table-layout: fixed;
 }
 
-.example-tickets thead th{
+.tickets thead th{
     background-color: #f8f9fa;
     color: #495057;
     text-align: left;
@@ -146,10 +146,10 @@ a {
     white-space: nowrap;
 }
 
-.example-flights thead th.action-from-loai-ve{
-    text-align: center;
-    width: 120px;
-}
+/*.example-flights thead th.action-from-loai-ve{*/
+/*    text-align: center;*/
+/*    width: 120px;*/
+/*}*/
 
 /*.example-flights tbody td{
     padding: 15px;
@@ -268,6 +268,51 @@ a {
 .btn-delete:hover{
     background-color: #c9302c;
 }*/
+
+.btn-thao-tac {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 0 2px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+.btn-thao-tac:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    color: white;
+}
+
+.btn-sua {
+    background-color: #f0ad4e;
+}
+
+.btn-sua:hover {
+    background-color: #ec971f;
+}
+
+.btn-hoso {
+    background-color: #17a2b8;
+}
+
+.btn-hoso:hover {
+    background-color: #138496;
+}
+
+.btn-xoa {
+    background-color: #d9534f;
+}
+
+.btn-xoa:hover {
+    background-color: #c9302c;
+}
 
 .page-moving{
     display: flex;

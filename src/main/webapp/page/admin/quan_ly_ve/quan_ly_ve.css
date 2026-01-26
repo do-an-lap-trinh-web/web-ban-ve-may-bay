@@ -15,7 +15,7 @@ body {
     border-top: 5px solid #0056b3;
 }
 
-.search-flight-bar {
+.searching-bar {
     display: flex;
     width: 100%;
     margin-bottom: 25px;
@@ -56,7 +56,7 @@ body {
     box-shadow: 0 0 0 2px rgba(10, 50, 250, 0.4);
 }
 
-.btn-search-from-quan-li-ve {
+.btn-search {
     background-color: #0056b3;
     color: white;
     border: none;
@@ -70,22 +70,22 @@ body {
     white-space: nowrap;
 }
 
-.btn-search-from-quan-li-ve:hover {
+.btn-search:hover {
     background-color: #004494;
 }
 
-.btn-add-ticket-from-quan-li-ve {
+.add-ticket {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.btn-add-ticket-from-qlv {
+.btn-add-ticket {
     background-color: #28a745;
     color: white;
     border: none;
     padding: 0 25px;
-    height: 52px;
+    height: 40px;
     border-radius: 5px;
     font-size: 15px;
     font-weight: 700;
@@ -96,9 +96,10 @@ body {
     gap: 10px;
     transition: all 0.3s;
     white-space: nowrap;
+    text-decoration: none;
 }
 
-.btn-add-ticket-from-qlv:hover {
+.btn-add-ticket:hover {
     background-color: #218838;
     transform: translateY(-2px);
     box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
@@ -109,7 +110,7 @@ body {
     font-weight: 400;
 }
 
-.example-flights {
+.flights {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 30px;
@@ -119,7 +120,7 @@ body {
     overflow-y: auto; /* Thêm thanh cuộn dọc */
 }
 
-.example-flights thead th {
+.flights thead th {
     background-color: #f8f9fa;
     color: #495057;
     text-align: left;
@@ -131,25 +132,25 @@ body {
     white-space: nowrap;
 }
 
-.example-flights thead th.action-from-quan-li-ve {
+.flights thead th.action {
     text-align: center;
     width: 120px;
 }
 
-.example-flights tbody td {
+.flights tbody td {
     padding: 15px;
     border-bottom: 1px solid #e9ecef;
     vertical-align: middle;
     color: #333;
 }
 
-.example-flights tbody td:nth-child(6) {
+.flights tbody td:nth-child(6) {
     text-align: center;
     vertical-align: middle;
     display: table-cell;
 }
 
-.example-flights tbody tr:hover {
+.flights tbody tr:hover {
     background-color: #f0f8ff;
 }
 
@@ -159,43 +160,43 @@ body {
     font-size: 15px;
 }
 
-.route-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+/*.route-info {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    gap: 10px;*/
+/*}*/
 
-.location {
-    font-weight: 600;
-}
+/*.location {*/
+/*    font-weight: 600;*/
+/*}*/
 
-.icon-arrow {
-    color: #1ba0e2;
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 1;
-}
+/*.icon-arrow {*/
+/*    color: #1ba0e2;*/
+/*    font-size: 20px;*/
+/*    font-weight: bold;*/
+/*    line-height: 1;*/
+/*}*/
 
-.time-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-}
+/*.time-info {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    gap: 5px;*/
+/*}*/
 
-.flight-time-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    white-space: nowrap;
-}
+/*.flight-time-row {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    gap: 10px;*/
+/*    white-space: nowrap;*/
+/*}*/
 
-.flight-date {
-    font-size: 15px;
-    color: #888;
-    margin-top: 5px;
-    white-space: nowrap;
-}
+/*.flight-date {*/
+/*    font-size: 15px;*/
+/*    color: #888;*/
+/*    margin-top: 5px;*/
+/*    white-space: nowrap;*/
+/*}*/
 
 .flight-price {
     color: #d9534f;
@@ -203,54 +204,68 @@ body {
     font-size: 15px;
 }
 
-.left-ticket {
-    display: inline-block;
-    margin: 0 auto;
-    border-radius: 20px;
-    font-size: 15px;
-    font-weight: 700;
-}
+/*.left-ticket {*/
+/*    display: inline-block;*/
+/*    margin: 0 auto;*/
+/*    border-radius: 20px;*/
+/*    font-size: 15px;*/
+/*    font-weight: 700;*/
+/*}*/
 
-.left-ticket.available {
-    background-color: #e6f9ea;
-    color: #28a745;
-}
+/*.left-ticket.available {*/
+/*    background-color: #e6f9ea;*/
+/*    color: #28a745;*/
+/*}*/
 
-.left-ticket.low-stock {
-    background-color: #e6f9ea;
-    color: #ff0500;
-}
+/*.left-ticket.low-stock {*/
+/*    background-color: #e6f9ea;*/
+/*    color: #ff0500;*/
+/*}*/
 
 .act-btns {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
 }
 
-.btn-act-edit-del {
+.act-btns form {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.btn-act {
     border: none;
-    padding: 5px 10px;
+    padding: 0 10px;
     border-radius: 5px;
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
     color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    min-width: 60px;
+    text-decoration: none;
 }
 
-.btn-edit {
+.btn-act.btn-edit {
     background-color: #f0ad4e;
 }
 
-.btn-edit:hover {
+.btn-act.btn-edit:hover {
     background-color: #ec971f;
 }
 
-.btn-delete {
+.btn-act.btn-delete {
     background-color: #d9534f;
 }
 
-.btn-delete:hover {
+.btn-act.btn-delete:hover {
     background-color: #c9302c;
 }
 
