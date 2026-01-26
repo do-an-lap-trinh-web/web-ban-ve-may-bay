@@ -79,7 +79,7 @@ body {
     background-color: #004494;
 }
 
-.btn-add-ticket {
+.add-ticket {
     display: flex;
     justify-content: flex-end;
     align-items: center;
