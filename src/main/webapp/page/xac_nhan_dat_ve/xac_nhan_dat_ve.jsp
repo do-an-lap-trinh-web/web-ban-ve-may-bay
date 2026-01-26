@@ -43,7 +43,7 @@
             <div class="input">
                 <form action="${pageContext.request.contextPath}/DatVeController" method="post">
                     <input type="hidden" name="idVe" value="${requestScope.veInfo.idVe}">
-                    <input type="number" name="soLuong" value=${requestScope.soLuong} min="1">
+                    <input type="number" name="soLuong" value="${requestScope.soLuong}" min="1">
                     <button type="submit">Xác nhận số lượng</button>
                 </form>
             </div>
@@ -57,12 +57,23 @@
             </h3>
         </div>
 
-        <div >
+        <div>
+            <!-- ✅ GIỮ NÚT THANH TOÁN BAN ĐẦU -->
             <form action="${pageContext.request.contextPath}/ThanhToanController" method="post">
                 <input type="hidden" name="soLuong" value="${requestScope.soLuong}">
                 <input type="hidden" name="idVe" value="${requestScope.veInfo.idVe}">
                 <button class="btn-xac-nhan-dat-ve" type="submit">Thanh toán</button>
             </form>
+
+            <div class="pay-actions">
+                <!-- ✅ CHỈ GIỮ NÚT THANH TOÁN VNPAY -->
+                <form action="${pageContext.request.contextPath}/VnpayCreatePaymentController" method="get">
+                    <input type="hidden" name="idVe" value="${requestScope.veInfo.idVe}">
+                    <input type="hidden" name="soLuong" value="${requestScope.soLuong}">
+                    <button type="submit">Thanh toán VNPay</button>
+                </form>
+            </div>
+
         </div>
     </div>
 </div>

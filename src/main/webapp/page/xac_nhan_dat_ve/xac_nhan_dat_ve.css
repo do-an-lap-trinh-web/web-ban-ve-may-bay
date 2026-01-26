@@ -80,6 +80,14 @@ span {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     scale: 1.05;
 }
-
+.btn-vnpay{
+    padding: 6px 12px;
+    border: 1px solid #0d6efd;
+    background: #0d6efd;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.btn-vnpay:hover{ opacity: .9; }
 
 
