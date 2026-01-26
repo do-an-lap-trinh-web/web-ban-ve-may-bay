@@ -46,13 +46,13 @@
                 <td style="text-align: center">${item.thoiGianKhoiHanh}</td>
                 <td style="text-align: center">${item.thoiGianHaCanh}</td>
                 <td style="text-align: center">${item.idSoHieuChuyenBay}</td>
+                <td style="text-align: center">
                     <div class="act-btns">
                         <a href="${pageContext.request.contextPath}/admin/SuaChuyenBayController?id=${item.id}" class="btn-act btn-edit">Sửa</a>
                         <form action="${pageContext.request.contextPath}/admin/XoaChuyenBayController" method="post">
                             <input type="hidden" name="id" value="${item.id}">
                             <button class="btn-act btn-delete">Xóa</button>
                         </form>
-
                     </div>
                 </td>
             </tr>
