@@ -10,16 +10,16 @@
 <body>
 <%@include file="../AdminMenuSidebar.jsp" %>
 <div class="container">
-    <div class="search-flight-bar">
+    <div class="searching-bar">
         <div class="search-form">
-            <form action="${pageContext.request.contextPath}/admin/TimKiemSoHieuChuyenBayController" method="get" class="search-by-flight-code">
+            <form action="${pageContext.request.contextPath}/admin/TimKiemSoHieuChuyenBayController" method="get" class="search-flight">
                 <input type="text" name="input" placeholder="Nhập id, mã chuyến bay,...">
-                <button type="submit" class="btn-search-from-so-hieu-chuyen-bay">Tìm kiếm</button>
+                <button type="submit" class="btn-search">Tìm kiếm</button>
             </form>
         </div>
 
-        <div class="btn-add-ticket-from-so-hieu-chuyen-bay">
-            <a href="${pageContext.request.contextPath}/page/admin/so_hieu_chuyen_bay/them_so_hieu_chuyen_bay.jsp" class="btn-add-ticket-from-shcb">
+        <div class="add-ticket">
+            <a href="${pageContext.request.contextPath}/page/admin/so_hieu_chuyen_bay/them_so_hieu_chuyen_bay.jsp" class="btn-add-ticket">
                 <span class="btn-add-ticket-icon">+</span>Thêm Chuyến Bay
             </a>
         </div>
@@ -64,7 +64,7 @@
 <%--    </table>--%>
 
     <div class="table-container">
-        <table class="example-flights" id="flightTable">
+        <table class="flights" id="flightTable">
             <thead>
             <tr>
                 <th style="text-align: center; width: 60px;">ID</th>
@@ -72,7 +72,7 @@
                 <th>ID - Sân Bay Đi</th>
                 <th>ID - Sân Bay Đến</th>
                 <th>ID - Hãng Bay</th>
-                <th class="action-from-so-hieu-chuyen-bay">Thao tác</th>
+                <th class="action">Thao tác</th>
             </tr>
             </thead>
             <tbody>
