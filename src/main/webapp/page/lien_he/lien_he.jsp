@@ -1,52 +1,53 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
 	<meta charset="UTF-8">
-	<title>Liên hệ với chúng tôi</title>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/page/lien_he/lien_he.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleHeader.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleFooter.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-	      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-	      crossorigin="anonymous" referrerpolicy="no-referrer"/>
-	<link rel="stylesheet" href="../../layout/StyleHeader.css">
-	<link rel="stylesheet" href="../../layout/StyleFooter.css">
+	<title>Thông tin liên hệ</title>
+
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleHeader.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleFooter.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/page/lien_he/lien_he.css?v=1">
 </head>
+
 <body>
-<!--start header-->
+
 <%@include file="../../layout/Header.jsp"%>
-<!--end header-->
 
-<h1 class="title">
-	ĐẶT VÉ MÁY BAY SỐ 1 VIỆT NAM
-</h1>
+<div class="lh-container">
+	<h2 class="lh-title">ĐẶT VÉ MÁY BAY SỐ 1 VIỆT NAM</h2>
 
-<div class="info-contact">
-	<div class="info-contact-item">
-		<i class="fa-solid fa-phone"></i>
-		<span>${daiLy.soDienThoai}</span>
+	<div class="lh-info">
+		<div class="lh-item">
+			<span class="lh-icon"><i class="fa-solid fa-phone"></i></span>
+			<span class="lh-text">935 034 063</span>
+		</div>
+
+		<div class="lh-item">
+			<span class="lh-icon"><i class="fa-solid fa-envelope"></i></span>
+			<span class="lh-text">emailinfo@gmail.com</span>
+		</div>
+
+		<div class="lh-item">
+			<span class="lh-icon"><i class="fa-solid fa-location-dot"></i></span>
+			<span class="lh-text">VQCR+GP6, khu phố 6, Thủ Đức, Thành phố Hồ Chí Minh</span>
+		</div>
 	</div>
-
-	<div class="info-contact-item">
-		<i class="fa-solid fa-envelope"></i>
-		<span>${daiLy.email}</span>
-	</div>
-
-	<div class="info-contact-item">
-		<i class="fa-solid fa-location-dot"></i>
-		<span>${daiLy.tenDiaChi}</span>
-	</div>
-
 </div>
 
-<div class="map">
-<%--	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1089.05205875554!2d106.7917679884357!3d10.871488936231628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175276398969f7b%3A0x9672b7efd0893fc4!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBOw7RuZyBMw6JtIFRQLiBI4buTIENow60gTWluaA!5e1!3m2!1svi!2s!4v1762577022717!5m2!1svi!2s"--%>
-<%--	        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"--%>
-<%--	        referrerpolicy="no-referrer-when-downgrade"></iframe>--%>
-    ${daiLy.diaChi}
+<div class="lh-map">
+	<iframe
+			src="https://www.google.com/maps?q=Tr%C6%B0%E1%BB%9Dng%20%C4%90%E1%BA%A1i%20h%E1%BB%8Dc%20N%C3%B4ng%20L%C3%A2m%20TP%20H%E1%BB%93%20Ch%C3%AD%20Minh&output=embed"
+			loading="lazy"
+			referrerpolicy="no-referrer-when-downgrade"
+			allowfullscreen>
+	</iframe>
 </div>
+
 <%@include file="../../layout/Footer.jsp"%>
+
 </body>
 </html>
