@@ -20,7 +20,6 @@
     }
 %>
 
-<a class="link-quay-lai" href="../../index.jsp">⬅Quay Lại Trang Chủ</a>
 <main>
 	<div class="main-content">
 		<h1 class="title-form">
@@ -116,6 +115,10 @@
 
 			<div class="login-link">
 				Nếu bạn đã có tài khoản? <a href="${pageContext.request.contextPath}/page/dang_nhap/dang_nhap.jsp">Đăng nhập tại đây</a>
+			</div>
+
+			<div class="back-button">
+				Hoặc <a class="link-quay-lai" href="../../index.jsp">Quay lại trang chủ</a>
 			</div>
 
 		</form>
