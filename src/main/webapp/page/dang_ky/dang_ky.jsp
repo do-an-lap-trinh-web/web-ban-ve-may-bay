@@ -40,25 +40,25 @@
 			<div class="form-row">
 				<div class="form-group">
 					<label>Họ <span>(*)</span></label>
-					<input type="text" name="ho" placeholder="Họ, ví dụ: PHAM" required>
+					<input type="text" name="ho" value="${userOldData != null ? userOldData.ho : ''}" placeholder="Họ, ví dụ: Nguyễn" required>
 				</div>
 				<div class="form-group">
 					<label>Tên đệm & Tên <span>(*)</span></label>
-					<input type="text" name="ten" placeholder="Tên đệm & tên" required>
+					<input type="text" name="ten" value="${userOldData != null ? userOldData.ten : ''}" placeholder="Tên đệm & tên" required>
 				</div>
 			</div>
 
 			<div class="form-row">
 				<div class="form-group">
 					<label>Ngày, tháng, năm sinh <span>(*)</span></label>
-					<input type="date" name="ngaySinh" required>
+					<input type="date" name="ngaySinh" value="${userOldData != null ? userOldData.ngaySinh : ''}" required>
 				</div>
 				<div class="form-group">
 					<label>Giới tính <span>(*)</span></label>
 					<select name="gioiTinh" required>
 						<option value="">Chọn giới tính</option>
-						<option value="Nam">Nam</option>
-						<option value="Nu">Nữ</option>
+						<option value="Nam" ${userOldData != null && userOldData.gioiTinh == 'Nam' ? 'selected' : ''}>Nam</option>
+						<option value="Nu" ${userOldData != null && userOldData.gioiTinh == 'Nu' ? 'selected' : ''}>Nữ</option>
 					</select>
 				</div>
 			</div>
@@ -68,7 +68,7 @@
 			<div class="form-row">
 				<div class="form-group">
 					<label>Email <span>(*)</span></label>
-					<input type="email" name="email" placeholder="Email của bạn" required>
+					<input type="email" name="email" value="${userOldData.email != null ? userOldData.email : ''}" placeholder="Email của bạn" required>
 				</div>
 				<div class="form-group">
 					<label>Số điện thoại <span>(*)</span></label>
@@ -78,6 +78,7 @@
 						</select>
 						<input type="tel" name="soDienThoai"
 						       placeholder="Số điện thoại"
+						       value="${userOldData != null ? userOldData.soDienThoai : ''}"
 						       style="flex: 1;"
 						       pattern="[0-9]{10,11}"
 						       maxlength="11"
@@ -92,8 +93,8 @@
 			<div class="form-row">
 				<div class="form-group">
 					<label>Username <span>(*)</span></label>
-					<input type="text" name="username" placeholder="Tên tài khoản" required>
-					<p class="note-text">Sử dụng để đăng nhập vào hệ thống.</p>
+					<input type="text" name="username" value="${userOldData.username != null ? userOldData.username : ''}" placeholder="Tên tài khoản" required>
+					<p class="note-text">Sử dụng để đăng nhập.</p>
 				</div>
 			</div>
 			<div class="form-row">
@@ -125,5 +126,16 @@
 	</div>
 </main>
 <script src="dang_ky.js"></script>
+<script>
+	const password = document.querySelector('input[name="password"]');
+	const confirm = document.querySelector('input[name="confirmPassword"]');
+
+	document.querySelector('form').onsubmit = function(e) {
+		if (password.value !== confirm.value) {
+			alert("Mật khẩu xác nhận không trùng khớp!");
+			e.preventDefault();
+		}
+	};
+</script>
 </body>
 </html>
