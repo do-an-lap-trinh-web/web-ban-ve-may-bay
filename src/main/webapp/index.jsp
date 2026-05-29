@@ -58,7 +58,7 @@
 %>
 <%@ include file="layout/Header.jsp"%>
 
-<!-- ✅ NỘI DUNG TRANG CHỦ -->
+
 <div>
     <div class="container">
 		<div class="title-selection">
