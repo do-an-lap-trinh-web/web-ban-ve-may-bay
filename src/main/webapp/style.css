@@ -22,16 +22,22 @@ a {
     display: flex;
     justify-content: space-between;
 }
-.card-selection {
+.card-selection-link {
+    display: block;
     width: 18%;
+    text-decoration: none;
+    color: inherit;
+}
+.card-selection-link:hover .card-selection {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+.card-selection {
+    width: 100%;
     height: 500px;
     border-radius: 10px;
-    box-shadow: 0 0 10px 0;
-    transition: 0.3s;
-}
-
-.card-selection:hover {
-    scale: 1.1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-selection img {
