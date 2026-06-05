@@ -13,7 +13,6 @@ import java.io.IOException;
 public class DatVeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         HttpSession session = request.getSession();
         if (session.getAttribute("user") == null) {
             request.setAttribute("messageLogin", "Bạn phải đăng nhập!");
@@ -22,13 +21,35 @@ public class DatVeController extends HttpServlet {
         }
         String idVe = request.getParameter("idVe");
         String soLuong = request.getParameter("soLuong");
+        if (soLuong == null || soLuong.isEmpty()) {
+            soLuong = "1";
+        }
+        String voucherCode = request.getParameter("voucherCode");
 
         TimVeService timVeService = new TimVeService();
         VeDto veInfo = timVeService.getVeByIdVe(Integer.parseInt(idVe));
 
+        com.edu.hcmuaf.fit.webbanvemaybay.dao.VeDAO veDAO = new com.edu.hcmuaf.fit.webbanvemaybay.dao.VeDAO();
+        com.edu.hcmuaf.fit.webbanvemaybay.models.Ve ve = veDAO.getVeById(Integer.parseInt(idVe));
+
+        int ptGiam = 0;
+        if (voucherCode != null && !voucherCode.trim().isEmpty()) {
+            String code = voucherCode.trim().toUpperCase();
+            if (code.equals("SALE30")) ptGiam = 30;
+            else if (code.equals("SALE20")) ptGiam = 20;
+            else if (code.equals("SALE15")) ptGiam = 15;
+        }
+
+        double giaGoc = ve.getGia();
+        double giamGia = giaGoc * (ptGiam / 100.0) * Integer.parseInt(soLuong);
+        double tongGiaVal = (giaGoc * Integer.parseInt(soLuong)) - giamGia;
+
         request.setAttribute("veInfo", veInfo);
-        request.setAttribute("tongGia", veInfo.getGia());
+        request.setAttribute("tongGia", FormatVND.formatVND(tongGiaVal));
         request.setAttribute("soLuong", soLuong);
+        request.setAttribute("voucherCode", voucherCode);
+        request.setAttribute("giamGia", FormatVND.formatVND(giamGia));
+        request.setAttribute("ptGiam", ptGiam);
         request.getRequestDispatcher("page/xac_nhan_dat_ve/xac_nhan_dat_ve.jsp").forward(request, response);
     }
 
@@ -36,14 +57,32 @@ public class DatVeController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String idVe = request.getParameter("idVe");
         int soLuong = Integer.parseInt(request.getParameter("soLuong"));
+        String voucherCode = request.getParameter("voucherCode");
 
         TimVeService timVeService = new TimVeService();
         VeDto veInfo = timVeService.getVeByIdVe(Integer.parseInt(idVe));
 
+        com.edu.hcmuaf.fit.webbanvemaybay.dao.VeDAO veDAO = new com.edu.hcmuaf.fit.webbanvemaybay.dao.VeDAO();
+        com.edu.hcmuaf.fit.webbanvemaybay.models.Ve ve = veDAO.getVeById(Integer.parseInt(idVe));
+
+        int ptGiam = 0;
+        if (voucherCode != null && !voucherCode.trim().isEmpty()) {
+            String code = voucherCode.trim().toUpperCase();
+            if (code.equals("SALE30")) ptGiam = 30;
+            else if (code.equals("SALE20")) ptGiam = 20;
+            else if (code.equals("SALE15")) ptGiam = 15;
+        }
+
+        double giaGoc = ve.getGia();
+        double giamGia = giaGoc * (ptGiam / 100.0) * soLuong;
+        double tongGiaVal = (giaGoc * soLuong) - giamGia;
+
         request.setAttribute("veInfo", veInfo);
-        double tongGia = Double.parseDouble(veInfo.getGia().replace(".", "")) * soLuong;
-        request.setAttribute("tongGia", FormatVND.formatVND(tongGia));
+        request.setAttribute("tongGia", FormatVND.formatVND(tongGiaVal));
         request.setAttribute("soLuong", soLuong);
+        request.setAttribute("voucherCode", voucherCode);
+        request.setAttribute("giamGia", FormatVND.formatVND(giamGia));
+        request.setAttribute("ptGiam", ptGiam);
         request.getRequestDispatcher("page/xac_nhan_dat_ve/xac_nhan_dat_ve.jsp").forward(request, response);
     }
 }
