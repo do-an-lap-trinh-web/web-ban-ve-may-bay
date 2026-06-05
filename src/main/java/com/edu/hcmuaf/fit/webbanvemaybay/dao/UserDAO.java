@@ -63,7 +63,7 @@ public class UserDAO extends DBContext {
             Jdbi jdbi = get();
             User user = jdbi.withHandle(h-> {
                 String q = "select * from users where username=:username and password=:password";
-                return h.createQuery(q).bind("username", username).bind("password", password).mapToBean(User.class).one();
+                return h.createQuery(q).bind("username", username).bind("password", password).mapToBean(User.class).findFirst().orElse(null);
             });
             if (user != null) {
                 return user;
