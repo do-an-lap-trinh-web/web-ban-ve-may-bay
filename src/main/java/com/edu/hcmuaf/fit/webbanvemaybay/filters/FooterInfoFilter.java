@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebFilter(urlPatterns = "/*")
+@WebFilter(urlPatterns = "/*", dispatcherTypes = {DispatcherType.REQUEST, DispatcherType.FORWARD})
 public class FooterInfoFilter implements Filter {
     public void init(FilterConfig config) throws ServletException {
     }

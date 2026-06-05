@@ -222,7 +222,7 @@
 
 	<div class="container selection-ve-quoc-te" style="margin-top: 50px; margin-bottom: 50px;">
 		<div class="title-selection">
-			<h1>Vé Khuyến Mãi (Tồn kho & Bán chậm nhất)</h1>
+			<h1>Vé Khuyến Mãi</h1>
 		</div>
 
 		<div class="list-card-selection">
