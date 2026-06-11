@@ -109,11 +109,11 @@
 			<div style="display: flex; align-items: center; gap: 20px;">
 				<div>
 					<label>Ngày khơi hành: </label>
-					<input class="input-ngay-khoi-hanh" type="date" name="ngay_di" id="" required>
+					<input class="input-ngay-khoi-hanh" type="date" name="ngay_di" id="ngay_di" min="${requestScope.today}" required>
 				</div>
 				<div id="return-date-container" style="display: none;">
 					<label>Ngày về: </label>
-					<input class="input-ngay-khoi-hanh" type="date" name="ngay_ve" id="ngay_ve">
+					<input class="input-ngay-khoi-hanh" type="date" name="ngay_ve" id="ngay_ve" min="${requestScope.today}">
 					<div style="margin-top: 5px; display: flex; align-items: center; gap: 5px;">
 						<input class="cb" type="checkbox" name="ngay_ve_linh_hoat" id="ngay_ve_linh_hoat">
 						<label for="ngay_ve_linh_hoat" style="font-size: 0.9rem; color: #555; cursor: pointer;">Chọn ngày về linh hoạt (±3 ngày)</label>
@@ -146,16 +146,34 @@
 
     function toggleReturnDate(show) {
         var returnContainer = document.getElementById('return-date-container');
+        var ngayDiInput = document.getElementById('ngay_di');
         var ngayVeInput = document.getElementById('ngay_ve');
         if (show) {
             returnContainer.style.display = 'block';
             ngayVeInput.setAttribute('required', 'required');
+            ngayVeInput.min = ngayDiInput.value || ngayDiInput.min;
         } else {
             returnContainer.style.display = 'none';
             ngayVeInput.removeAttribute('required');
             ngayVeInput.value = '';
         }
     }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var today = new Date().toISOString().split('T')[0];
+        var ngayDiInput = document.getElementById('ngay_di');
+        var ngayVeInput = document.getElementById('ngay_ve');
+
+        ngayDiInput.min = ngayDiInput.min || today;
+        ngayVeInput.min = ngayVeInput.min || today;
+
+        ngayDiInput.addEventListener('change', function () {
+            ngayVeInput.min = ngayDiInput.value || ngayDiInput.min;
+            if (ngayVeInput.value && ngayVeInput.value < ngayVeInput.min) {
+                ngayVeInput.value = '';
+            }
+        });
+    });
 </script>
 </body>
 </html>

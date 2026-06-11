@@ -7,6 +7,7 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 @WebServlet(name = "ThongTinTimVeController", value = "/ThongTinTimVeController")
 public class ThongTinTimVeController extends HttpServlet {
@@ -18,6 +19,7 @@ public class ThongTinTimVeController extends HttpServlet {
         TimVeService timVeService = new TimVeService();
         ThongTinTimVeDto thongTinTimVeDto = timVeService.getThongTinTimVeDto(khoiHanh, haCanh);
         request.setAttribute("thongTinTimVeDto", thongTinTimVeDto);
+        request.setAttribute("today", LocalDate.now().toString());
         request.getRequestDispatcher("page/tim_ve/tim_ve.jsp").forward(request, response);
     }
 
