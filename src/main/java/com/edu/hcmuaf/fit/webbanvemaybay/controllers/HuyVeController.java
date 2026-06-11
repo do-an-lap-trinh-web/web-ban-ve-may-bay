@@ -27,7 +27,7 @@ public class HuyVeController extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/VeDaDatController");
             return;
         }
-        request.setAttribute("messageHuyVe", "Lỗi, không thể huỷ vé");
+        request.setAttribute("messageHuyVe", "Lỗi: Không thể huỷ vé. Vé chỉ có thể huỷ trước 1 ngày trước giờ khởi hành.");
         request.getRequestDispatcher("/page/list_ve_da_dat/list_ve_da_dat.jsp").forward(request, response);
     }
 }
