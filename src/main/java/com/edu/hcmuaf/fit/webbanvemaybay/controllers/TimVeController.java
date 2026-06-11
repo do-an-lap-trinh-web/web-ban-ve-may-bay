@@ -7,6 +7,8 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 
 @WebServlet(name = "TimVeController", value = "/TimVeController")
@@ -29,6 +31,20 @@ public class TimVeController extends HttpServlet {
         boolean isRoundTrip = "round_trip".equals(loaiHinh);
         boolean isReturnFlexible = "on".equals(ngayVeLinhHoat);
 
+        if (isNgayTrongQuaKhu(ngayDi)) {
+            request.setAttribute("message", "Ngay khoi hanh khong duoc nho hon ngay hien tai.");
+            request.setAttribute("listVeRes", null);
+            request.getRequestDispatcher("page/list_ve/list_ve.jsp").forward(request, response);
+            return;
+        }
+
+        if (isRoundTrip && isNgayVeKhongHopLe(ngayDi, ngayVe)) {
+            request.setAttribute("message", "Ngay ve phai lon hon hoac bang ngay khoi hanh va khong duoc o qua khu.");
+            request.setAttribute("listVeRes", null);
+            request.getRequestDispatcher("page/list_ve/list_ve.jsp").forward(request, response);
+            return;
+        }
+
         TimVeService timVeService = new TimVeService();
         List<VeDto> listVeRes = timVeService.getListVeByFilter(
                 khoiHanh, haCanh, hang_ghe, diemDi, diemDen, xepVe, ngayDi
@@ -41,8 +57,13 @@ public class TimVeController extends HttpServlet {
                 String tuNgay = ngayVe;
                 String denNgay = ngayVe;
                 try {
-                    java.time.LocalDate date = java.time.LocalDate.parse(ngayVe);
-                    tuNgay = date.minusDays(3).toString();
+                    LocalDate date = LocalDate.parse(ngayVe);
+                    LocalDate ngayKhoiHanh = LocalDate.parse(ngayDi);
+                    LocalDate ngayBatDauTim = date.minusDays(3);
+                    if (ngayBatDauTim.isBefore(ngayKhoiHanh)) {
+                        ngayBatDauTim = ngayKhoiHanh;
+                    }
+                    tuNgay = ngayBatDauTim.toString();
                     denNgay = date.plusDays(3).toString();
                 } catch (Exception e) {
                 }
@@ -61,6 +82,24 @@ public class TimVeController extends HttpServlet {
         }
 
         request.getRequestDispatcher("page/list_ve/list_ve.jsp").forward(request, response);
+    }
+
+    private boolean isNgayTrongQuaKhu(String ngay) {
+        try {
+            return LocalDate.parse(ngay).isBefore(LocalDate.now());
+        } catch (DateTimeParseException | NullPointerException e) {
+            return true;
+        }
+    }
+
+    private boolean isNgayVeKhongHopLe(String ngayDi, String ngayVe) {
+        try {
+            LocalDate ngayKhoiHanh = LocalDate.parse(ngayDi);
+            LocalDate ngayTroVe = LocalDate.parse(ngayVe);
+            return ngayTroVe.isBefore(LocalDate.now()) || ngayTroVe.isBefore(ngayKhoiHanh);
+        } catch (DateTimeParseException | NullPointerException e) {
+            return true;
+        }
     }
 
     @Override

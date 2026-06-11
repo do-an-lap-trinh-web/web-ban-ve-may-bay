@@ -12,6 +12,11 @@
 <body>
 <%@include file="../../layout/Header.jsp" %>
 <div class="container" style="margin-top: 20px;">
+    <c:if test="${not empty message}">
+        <div style="background-color: #fff1f0; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid #ff4d4f; color: #a8071a;">
+            ${message}
+        </div>
+    </c:if>
     <c:if test="${isRoundTrip}">
         <div style="background-color: #e6f7ff; padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 5px solid #1890ff;">
             <h3 style="margin: 0; color: #0050b3; font-size: 1.25rem;">Hành trình khứ hồi</h3>
