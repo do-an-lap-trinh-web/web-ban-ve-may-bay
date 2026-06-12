@@ -73,12 +73,16 @@
                                     <label style="font-size: 0.8rem;">SL:</label>
                                     <input type="number" name="soLuong"
                                            value="${item.soLuong}"
+                                           min="1"
+                                           step="1"
+                                           required
+                                           data-quantity-input
                                            style="width: 50px; border: 1px solid #ccc; border-radius: 4px; padding: 2px 5px;"
                                     >
                                     <button type="submit">xác nhận</button>
                                 </form>
 
-                                <span class="price-simple" style="font-weight: bold; color: #ff5722;">${item.veDto.gia}</span>
+                                <span class="price-simple" data-line-price data-unit-price="${item.veDto.gia}" style="font-weight: bold; color: #ff5722;">${item.veDto.gia}</span>
                             </div>
                         </div>
                     </div>
@@ -104,5 +108,51 @@
 
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var quantityInputs = document.querySelectorAll('[data-quantity-input]');
+            var totalElement = document.querySelector('.total-row span:last-child');
+
+            function parseMoney(value) {
+                return Number(String(value).replace(/[^\d]/g, '')) || 0;
+            }
+
+            function formatMoney(value) {
+                return new Intl.NumberFormat('vi-VN').format(value) + ' đồng';
+            }
+
+            function updatePrices() {
+                var total = 0;
+
+                quantityInputs.forEach(function (input) {
+                    var quantity = parseInt(input.value, 10);
+                    if (isNaN(quantity) || quantity < 1) {
+                        quantity = 1;
+                        input.value = quantity;
+                    }
+
+                    var priceRow = input.closest('.price-row');
+                    var priceElement = priceRow.querySelector('[data-line-price]');
+                    var unitPrice = parseMoney(priceElement.dataset.unitPrice);
+                    var lineTotal = unitPrice * quantity;
+
+                    priceElement.textContent = formatMoney(lineTotal);
+                    total += lineTotal;
+                });
+
+                if (totalElement) {
+                    totalElement.textContent = formatMoney(total);
+                }
+            }
+
+            quantityInputs.forEach(function (input) {
+                input.addEventListener('input', updatePrices);
+                input.addEventListener('blur', updatePrices);
+                input.form.addEventListener('submit', updatePrices);
+            });
+
+            updatePrices();
+        });
+    </script>
 </body>
 </html>

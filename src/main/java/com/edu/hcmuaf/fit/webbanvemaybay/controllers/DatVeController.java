@@ -11,6 +11,15 @@ import java.io.IOException;
 
 @WebServlet(name = "DatVeController", value = "/DatVeController")
 public class DatVeController extends HttpServlet {
+    private int parseSoLuongHopLe(String soLuong) {
+        try {
+            int soLuongParsed = Integer.parseInt(soLuong);
+            return Math.max(soLuongParsed, 1);
+        } catch (NumberFormatException e) {
+            return 1;
+        }
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -20,10 +29,7 @@ public class DatVeController extends HttpServlet {
             return;
         }
         String idVe = request.getParameter("idVe");
-        String soLuong = request.getParameter("soLuong");
-        if (soLuong == null || soLuong.isEmpty()) {
-            soLuong = "1";
-        }
+        int soLuong = parseSoLuongHopLe(request.getParameter("soLuong"));
         String voucherCode = request.getParameter("voucherCode");
 
         TimVeService timVeService = new TimVeService();
@@ -41,8 +47,8 @@ public class DatVeController extends HttpServlet {
         }
 
         double giaGoc = ve.getGia();
-        double giamGia = giaGoc * (ptGiam / 100.0) * Integer.parseInt(soLuong);
-        double tongGiaVal = (giaGoc * Integer.parseInt(soLuong)) - giamGia;
+        double giamGia = giaGoc * (ptGiam / 100.0) * soLuong;
+        double tongGiaVal = (giaGoc * soLuong) - giamGia;
 
         request.setAttribute("veInfo", veInfo);
         request.setAttribute("tongGia", FormatVND.formatVND(tongGiaVal));
@@ -56,7 +62,7 @@ public class DatVeController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String idVe = request.getParameter("idVe");
-        int soLuong = Integer.parseInt(request.getParameter("soLuong"));
+        int soLuong = parseSoLuongHopLe(request.getParameter("soLuong"));
         String voucherCode = request.getParameter("voucherCode");
 
         TimVeService timVeService = new TimVeService();
