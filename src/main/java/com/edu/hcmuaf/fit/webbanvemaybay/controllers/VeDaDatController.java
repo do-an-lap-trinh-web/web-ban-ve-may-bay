@@ -37,6 +37,20 @@ public class VeDaDatController extends HttpServlet {
         return voucherCopy;
     }
 
+    private Map<String, List<String>> copyGiaDaThanhToan(HttpSession session) {
+        Map<String, List<String>> giaDaThanhToan = (Map<String, List<String>>) session.getAttribute("giaDaThanhToan");
+        Map<String, List<String>> giaCopy = new HashMap<>();
+
+        if (giaDaThanhToan == null) {
+            return giaCopy;
+        }
+
+        for (Map.Entry<String, List<String>> entry : giaDaThanhToan.entrySet()) {
+            giaCopy.put(entry.getKey(), new ArrayList<>(entry.getValue()));
+        }
+        return giaCopy;
+    }
+
     private String chuanHoaNgayDat(String ngayDat) {
         if (ngayDat == null) {
             return "";
@@ -61,6 +75,19 @@ public class VeDaDatController extends HttpServlet {
         veDto.setGia(FormatVND.formatVND(giaSauGiam));
     }
 
+    private boolean apDungGiaDaThanhToan(VeDto veDto, DatVe datVe, Map<String, List<String>> giaCopy) {
+        String key = datVe.getIdVe() + "|" + datVe.getSoLuong() + "|" + chuanHoaNgayDat(datVe.getNgayDat());
+        List<String> danhSachGia = giaCopy.get(key);
+
+        if (danhSachGia == null || danhSachGia.isEmpty()) {
+            return false;
+        }
+
+        veDto.setGia(danhSachGia.remove(0));
+        return true;
+    }
+
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -81,12 +108,15 @@ public class VeDaDatController extends HttpServlet {
             List<VeDaDatDto> listVeDaDatDto = new ArrayList<>();
             TimVeService timVeService = new TimVeService();
             Map<String, List<Integer>> voucherCopy = copyVoucherDaThanhToan(session);
+            Map<String, List<String>> giaCopy = copyGiaDaThanhToan(session);
 
             for (DatVe datVe : listVeDaDat) {
                 VeDto veDto = timVeService.getVeByIdVe(datVe.getIdVe());
 
                 if (veDto != null) {
-                    apDungVoucherDaThanhToan(veDto, datVe, voucherCopy);
+                    if (!apDungGiaDaThanhToan(veDto, datVe, giaCopy)) {
+                        apDungVoucherDaThanhToan(veDto, datVe, voucherCopy);
+                    }
                     VeDaDatDto veDaDatDto = new VeDaDatDto();
                     veDaDatDto.setVeDto(veDto);
                     veDaDatDto.setSoLuong(datVe.getSoLuong());

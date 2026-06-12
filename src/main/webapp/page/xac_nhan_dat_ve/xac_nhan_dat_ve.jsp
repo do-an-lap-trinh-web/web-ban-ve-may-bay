@@ -50,6 +50,14 @@
                         <label style="font-weight: bold;">Mã giảm giá (Voucher):</label>
                         <input type="text" name="voucherCode" value="${requestScope.voucherCode}" placeholder="SALE15, SALE20, SALE30" style="padding: 5px; border: 1px solid #ccc; border-radius: 4px; text-transform: uppercase;">
                     </div>
+                    <div style="margin-bottom: 10px; font-size: 0.9rem; color: #555;">
+                        Ma co the dung: <b>SALE15</b>, <b>SALE20</b>, <b>SALE30</b>
+                    </div>
+                    <div style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                        <label style="font-weight: bold;">Diem doi thuong:</label>
+                        <input type="number" name="diemDoi" value="${requestScope.diemDoi}" min="0" max="${requestScope.diemThuong}" step="1" data-reward-input style="width: 90px; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+                        <span style="font-size: 0.9rem; color: #555;">Dang co ${requestScope.diemThuong} diem, 1 diem = ${requestScope.giaTriMotDiem} dong</span>
+                    </div>
                     <button type="submit" style="background-color: #438bf1; color: white; border: none; padding: 7px 15px; border-radius: 4px; cursor: pointer;">Áp dụng / Cập nhật</button>
                 </form>
             </div>
@@ -66,8 +74,19 @@
                         Số tiền được giảm: -${requestScope.giamGia} đồng
                     </span><br>
                 </c:if>
+                <c:if test="${requestScope.diemDoi > 0}">
+                    <span style="font-size: 0.95rem; color: #4caf50; font-weight: bold;">
+                        Da doi ${requestScope.diemDoi} diem thuong
+                    </span><br>
+                    <span data-reward-discount style="font-size: 0.9rem; color: #777; font-weight: normal;">
+                        Tien doi diem: -${requestScope.giamGiaDiem} dong
+                    </span><br>
+                </c:if>
+                <span data-reward-earn style="font-size: 0.9rem; color: #777; font-weight: normal;">
+                    Du kien nhan: ${requestScope.diemDuKienNhan} diem
+                </span><br>
                 Tổng thanh toán: <br>
-                <span data-total-payment data-unit-price="${requestScope.veInfo.gia}" data-discount-percent="${requestScope.ptGiam}" style="color: #ff5722; font-size: 1.5rem;">${requestScope.tongGia}</span>
+                <span data-total-payment data-unit-price="${requestScope.veInfo.gia}" data-discount-percent="${requestScope.ptGiam}" data-reward-point-value="${requestScope.giaTriMotDiem}" style="color: #ff5722; font-size: 1.5rem;">${requestScope.tongGia}</span>
             </h3>
         </div>
 
@@ -76,6 +95,7 @@
                 <input type="hidden" name="soLuong" value="${requestScope.soLuong}" data-payment-quantity>
                 <input type="hidden" name="idVe" value="${requestScope.veInfo.idVe}">
                 <input type="hidden" name="voucherCode" value="${requestScope.voucherCode}">
+                <input type="hidden" name="diemDoi" value="${requestScope.diemDoi}" data-payment-reward>
                 <button class="btn-xac-nhan-dat-ve" type="submit">Thanh toán</button>
             </form>
         </div>
@@ -86,8 +106,12 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var quantityInput = document.querySelector('[data-booking-quantity]');
+        var rewardInput = document.querySelector('[data-reward-input]');
         var paymentQuantityInput = document.querySelector('[data-payment-quantity]');
+        var paymentRewardInput = document.querySelector('[data-payment-reward]');
         var totalElement = document.querySelector('[data-total-payment]');
+        var rewardDiscountElement = document.querySelector('[data-reward-discount]');
+        var rewardEarnElement = document.querySelector('[data-reward-earn]');
 
         if (!quantityInput || !totalElement) {
             return;
@@ -110,16 +134,48 @@
 
             var unitPrice = parseMoney(totalElement.dataset.unitPrice);
             var discountPercent = Number(totalElement.dataset.discountPercent) || 0;
-            var total = unitPrice * quantity * (1 - discountPercent / 100);
+            var rewardPointValue = Number(totalElement.dataset.rewardPointValue) || 0;
+            var totalBeforeReward = unitPrice * quantity * (1 - discountPercent / 100);
+            var rewardPoints = rewardInput ? parseInt(rewardInput.value, 10) : 0;
+            var maxRewardPoints = rewardInput ? parseInt(rewardInput.max, 10) : 0;
+
+            if (isNaN(rewardPoints) || rewardPoints < 0) {
+                rewardPoints = 0;
+            }
+            if (!isNaN(maxRewardPoints)) {
+                rewardPoints = Math.min(rewardPoints, maxRewardPoints);
+            }
+            if (rewardPointValue > 0) {
+                rewardPoints = Math.min(rewardPoints, Math.floor(totalBeforeReward / rewardPointValue));
+            }
+            if (rewardInput) {
+                rewardInput.value = rewardPoints;
+            }
+
+            var rewardDiscount = rewardPoints * rewardPointValue;
+            var total = totalBeforeReward - rewardDiscount;
 
             totalElement.textContent = formatMoney(total);
             if (paymentQuantityInput) {
                 paymentQuantityInput.value = quantity;
             }
+            if (paymentRewardInput) {
+                paymentRewardInput.value = rewardPoints;
+            }
+            if (rewardDiscountElement) {
+                rewardDiscountElement.textContent = 'Tien doi diem: -' + formatMoney(rewardDiscount);
+            }
+            if (rewardEarnElement) {
+                rewardEarnElement.textContent = 'Du kien nhan: ' + Math.floor(total / 100000) + ' diem';
+            }
         }
 
         quantityInput.addEventListener('input', updateBookingTotal);
         quantityInput.addEventListener('blur', updateBookingTotal);
+        if (rewardInput) {
+            rewardInput.addEventListener('input', updateBookingTotal);
+            rewardInput.addEventListener('blur', updateBookingTotal);
+        }
         updateBookingTotal();
     });
 </script>

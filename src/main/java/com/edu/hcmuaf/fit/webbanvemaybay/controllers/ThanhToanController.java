@@ -4,8 +4,10 @@ import com.edu.hcmuaf.fit.webbanvemaybay.models.DTO.VeDaDatDto;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.DTO.VeDto;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.DatVe;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.User;
+import com.edu.hcmuaf.fit.webbanvemaybay.dao.VeDAO;
 import com.edu.hcmuaf.fit.webbanvemaybay.services.DatVeService;
 import com.edu.hcmuaf.fit.webbanvemaybay.services.TimVeService;
+import com.edu.hcmuaf.fit.webbanvemaybay.services.core.FormatVND;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -21,6 +23,7 @@ import java.util.Map;
 @WebServlet(name = "ThanhToanController", value = "/ThanhToanController")
 public class ThanhToanController extends HttpServlet {
     private static final DateTimeFormatter NGAY_DAT_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private static final int GIA_TRI_MOT_DIEM = 1000;
 
     private int parseSoLuongHopLe(String soLuong) {
         try {
@@ -29,6 +32,24 @@ public class ThanhToanController extends HttpServlet {
         } catch (NumberFormatException e) {
             return 1;
         }
+    }
+
+    private int parseSoKhongAm(String value) {
+        try {
+            int parsed = Integer.parseInt(value);
+            return Math.max(parsed, 0);
+        } catch (NumberFormatException e) {
+            return 0;
+        }
+    }
+
+    private int getDiemThuong(HttpSession session) {
+        Object diemThuong = session.getAttribute("diemThuong");
+        if (diemThuong instanceof Integer) {
+            return (Integer) diemThuong;
+        }
+        session.setAttribute("diemThuong", 0);
+        return 0;
     }
 
     private int tinhPhanTramGiam(String voucherCode) {
@@ -63,6 +84,22 @@ public class ThanhToanController extends HttpServlet {
         session.setAttribute("voucherDaThanhToan", voucherDaThanhToan);
     }
 
+    private void luuGiaDaThanhToan(HttpSession session, int idVe, int soLuong, String ngayDat, double giaMotVeDaThanhToan) {
+        Map<String, List<String>> giaDaThanhToan = (Map<String, List<String>>) session.getAttribute("giaDaThanhToan");
+        if (giaDaThanhToan == null) {
+            giaDaThanhToan = new HashMap<>();
+        }
+
+        String key = idVe + "|" + soLuong + "|" + ngayDat;
+        List<String> danhSachGia = giaDaThanhToan.get(key);
+        if (danhSachGia == null) {
+            danhSachGia = new ArrayList<>();
+            giaDaThanhToan.put(key, danhSachGia);
+        }
+        danhSachGia.add(0, FormatVND.formatVND(giaMotVeDaThanhToan));
+        session.setAttribute("giaDaThanhToan", giaDaThanhToan);
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
@@ -78,6 +115,14 @@ public class ThanhToanController extends HttpServlet {
         String idVe = request.getParameter("idVe");
         int soLuong = parseSoLuongHopLe(request.getParameter("soLuong"));
         int ptGiam = tinhPhanTramGiam(request.getParameter("voucherCode"));
+        int diemThuong = getDiemThuong(session);
+        int diemMuonDoi = parseSoKhongAm(request.getParameter("diemDoi"));
+
+        VeDAO veDAO = new VeDAO();
+        double giaGoc = veDAO.getVeById(Integer.parseInt(idVe)).getGia();
+        double tongSauVoucher = giaGoc * soLuong * (1 - ptGiam / 100.0);
+        int diemDoi = Math.min(Math.min(diemMuonDoi, diemThuong), (int) (tongSauVoucher / GIA_TRI_MOT_DIEM));
+        double tongThanhToan = tongSauVoucher - (diemDoi * GIA_TRI_MOT_DIEM);
 
         User user = (User) session.getAttribute("user");
         if (user != null) {
@@ -89,7 +134,10 @@ public class ThanhToanController extends HttpServlet {
             DatVeService datVeService = new DatVeService();
             boolean isDatVe = datVeService.datVeByUser(datVe);
             if (isDatVe) {
+                int diemNhan = (int) (tongThanhToan / 100000);
+                session.setAttribute("diemThuong", diemThuong - diemDoi + diemNhan);
                 luuVoucherDaThanhToan(session, datVe.getIdVe(), datVe.getSoLuong(), datVe.getNgayDat(), ptGiam);
+                luuGiaDaThanhToan(session, datVe.getIdVe(), datVe.getSoLuong(), datVe.getNgayDat(), tongThanhToan / datVe.getSoLuong());
                 response.sendRedirect(request.getContextPath() + "/VeDaDatController");
             }
             request.setAttribute("message", "Lỗi đặt vé");
