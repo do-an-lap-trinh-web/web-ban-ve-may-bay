@@ -52,16 +52,59 @@ public class ThanhToanController extends HttpServlet {
         return 0;
     }
 
-    private int tinhPhanTramGiam(String voucherCode) {
+    private static class Voucher {
+        private final String code;
+        private final String airlineKeyword;
+        private final double minOrder;
+        private final int percent;
+        private final double fixedDiscount;
+        private final double maxDiscount;
+
+        private Voucher(String code, String airlineKeyword, double minOrder, int percent, double fixedDiscount, double maxDiscount) {
+            this.code = code;
+            this.airlineKeyword = airlineKeyword;
+            this.minOrder = minOrder;
+            this.percent = percent;
+            this.fixedDiscount = fixedDiscount;
+            this.maxDiscount = maxDiscount;
+        }
+
+        private boolean appliesToAirline(String airline) {
+            return airlineKeyword == null || (airline != null && airline.contains(airlineKeyword));
+        }
+    }
+
+    private static final Voucher[] VOUCHERS = {
+            new Voucher("FLIGHT50K", null, 1500000, 0, 50000, 50000),
+            new Voucher("BAY100K", null, 3000000, 0, 100000, 100000),
+            new Voucher("WEEKEND5", null, 2000000, 5, 0, 150000),
+            new Voucher("VNA200K", "Vietnam Airlines", 5000000, 0, 200000, 200000)
+    };
+
+    private Voucher timVoucher(String voucherCode) {
         if (voucherCode == null || voucherCode.trim().isEmpty()) {
-            return 0;
+            return null;
         }
 
         String code = voucherCode.trim().toUpperCase();
-        if (code.equals("SALE30")) return 30;
-        if (code.equals("SALE20")) return 20;
-        if (code.equals("SALE15")) return 15;
-        return 0;
+        for (Voucher voucher : VOUCHERS) {
+            if (voucher.code.equals(code)) {
+                return voucher;
+            }
+        }
+        return null;
+    }
+
+    private double tinhTienGiamVoucher(Voucher voucher, double tongGoc, String hangBay) {
+        if (voucher == null || tongGoc < voucher.minOrder || !voucher.appliesToAirline(hangBay)) {
+            return 0;
+        }
+
+        double tienGiam = voucher.fixedDiscount;
+        if (voucher.percent > 0) {
+            tienGiam = tongGoc * voucher.percent / 100.0;
+        }
+        return Math.min(Math.min(tienGiam, voucher.maxDiscount), tongGoc);
     }
 
     private void luuVoucherDaThanhToan(HttpSession session, int idVe, int soLuong, String ngayDat, int ptGiam) {
@@ -114,15 +157,23 @@ public class ThanhToanController extends HttpServlet {
         }
         String idVe = request.getParameter("idVe");
         int soLuong = parseSoLuongHopLe(request.getParameter("soLuong"));
-        int ptGiam = tinhPhanTramGiam(request.getParameter("voucherCode"));
+        String voucherCode = request.getParameter("voucherCode");
         int diemThuong = getDiemThuong(session);
         int diemMuonDoi = parseSoKhongAm(request.getParameter("diemDoi"));
 
         VeDAO veDAO = new VeDAO();
         double giaGoc = veDAO.getVeById(Integer.parseInt(idVe)).getGia();
-        double tongSauVoucher = giaGoc * soLuong * (1 - ptGiam / 100.0);
-        int diemDoi = Math.min(Math.min(diemMuonDoi, diemThuong), (int) (tongSauVoucher / GIA_TRI_MOT_DIEM));
+
+        TimVeService timVeService = new TimVeService();
+        VeDto veInfo = timVeService.getVeByIdVe(Integer.parseInt(idVe));
+
+        Voucher voucher = timVoucher(voucherCode);
+        double tongGoc = giaGoc * soLuong;
+        double giamGia = tinhTienGiamVoucher(voucher, tongGoc, veInfo != null ? veInfo.getHangBay() : null);
+        double tongSauVoucher = tongGoc - giamGia;
+        int diemDoi = Math.min(Math.min(diemMuonDoi, diemThuong), (int) Math.floor((tongSauVoucher * 0.1) / GIA_TRI_MOT_DIEM));
         double tongThanhToan = tongSauVoucher - (diemDoi * GIA_TRI_MOT_DIEM);
+        int ptGiam = voucher != null ? voucher.percent : 0;
 
         User user = (User) session.getAttribute("user");
         if (user != null) {
