@@ -77,6 +77,7 @@
                                            step="1"
                                            required
                                            data-quantity-input
+                                           data-ticket-id="${item.veDto.idVe}"
                                            style="width: 50px; border: 1px solid #ccc; border-radius: 4px; padding: 2px 5px;"
                                     >
                                     <button type="submit">xác nhận</button>
@@ -99,7 +100,7 @@
                         <span>${sessionScope.tongTien}</span>
                     </div>
 
-                    <form action="${pageContext.request.contextPath}/ThanhToanGioHangController" method="post">
+                    <form action="${pageContext.request.contextPath}/ThanhToanGioHangController" method="post" data-checkout-form>
                         <button class="btn-checkout">Xác nhận đặt vé</button>
                     </form>
 
@@ -145,11 +146,53 @@
                 }
             }
 
+            function syncCheckoutQuantities() {
+                var checkoutForm = document.querySelector('[data-checkout-form]');
+                if (!checkoutForm) {
+                    return;
+                }
+
+                checkoutForm.querySelectorAll('[data-sync-field]').forEach(function (field) {
+                    field.remove();
+                });
+
+                quantityInputs.forEach(function (input) {
+                    var quantity = parseInt(input.value, 10);
+                    if (isNaN(quantity) || quantity < 1) {
+                        quantity = 1;
+                        input.value = quantity;
+                    }
+
+                    var idInput = document.createElement('input');
+                    idInput.type = 'hidden';
+                    idInput.name = 'idVe';
+                    idInput.value = input.dataset.ticketId;
+                    idInput.setAttribute('data-sync-field', 'true');
+
+                    var quantityInput = document.createElement('input');
+                    quantityInput.type = 'hidden';
+                    quantityInput.name = 'soLuong';
+                    quantityInput.value = quantity;
+                    quantityInput.setAttribute('data-sync-field', 'true');
+
+                    checkoutForm.appendChild(idInput);
+                    checkoutForm.appendChild(quantityInput);
+                });
+            }
+
             quantityInputs.forEach(function (input) {
                 input.addEventListener('input', updatePrices);
                 input.addEventListener('blur', updatePrices);
                 input.form.addEventListener('submit', updatePrices);
             });
+
+            var checkoutForm = document.querySelector('[data-checkout-form]');
+            if (checkoutForm) {
+                checkoutForm.addEventListener('submit', function () {
+                    updatePrices();
+                    syncCheckoutQuantities();
+                });
+            }
 
             updatePrices();
         });

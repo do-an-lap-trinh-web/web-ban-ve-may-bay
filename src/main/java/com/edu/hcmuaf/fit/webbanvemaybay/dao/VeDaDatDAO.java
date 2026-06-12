@@ -28,7 +28,7 @@ public class VeDaDatDAO extends DBContext {
         try {
             Jdbi jdbi = get();
             List<DatVe> listVeDaDat = jdbi.withHandle(h -> {
-                String q = "select * from ve_da_dat where id_user = :idUser";
+                String q = "select * from ve_da_dat where id_user = :idUser order by id desc";
                 return h.createQuery(q).bind("idUser", idUser).mapToBean(DatVe.class).list();
             });
             return listVeDaDat;
