@@ -44,6 +44,23 @@ public class GioHangController extends HttpServlet {
             request.getRequestDispatcher("/index.jsp").forward(request, response);
             return;
         }
+        String action = request.getParameter("action");
+        if ("remove".equals(action)) {
+            String veIdStr = request.getParameter("ve");
+            if (veIdStr != null) {
+                try {
+                    int veId = Integer.parseInt(veIdStr);
+                    List<GioHangItem> listGioHang = (List<GioHangItem>) session.getAttribute("gioHang");
+                    if (listGioHang != null) {
+                        listGioHang.removeIf(item -> item.getVeDto().getIdVe() == veId);
+                        double tongTien = tinhTongTien(listGioHang);
+                        session.setAttribute("tongTien", FormatVND.formatVND(tongTien));
+                        session.setAttribute("gioHang", listGioHang);
+                    }
+                } catch (NumberFormatException e) {
+                }
+            }
+        }
         request.getRequestDispatcher("page/gio_hang/gio_hang.jsp").forward(request, response);
     }
 
