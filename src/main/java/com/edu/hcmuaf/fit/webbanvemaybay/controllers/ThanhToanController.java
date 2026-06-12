@@ -16,6 +16,15 @@ import java.util.List;
 
 @WebServlet(name = "ThanhToanController", value = "/ThanhToanController")
 public class ThanhToanController extends HttpServlet {
+    private int parseSoLuongHopLe(String soLuong) {
+        try {
+            int soLuongParsed = Integer.parseInt(soLuong);
+            return Math.max(soLuongParsed, 1);
+        } catch (NumberFormatException e) {
+            return 1;
+        }
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
@@ -29,7 +38,7 @@ public class ThanhToanController extends HttpServlet {
             return;
         }
         String idVe = request.getParameter("idVe");
-        int soLuong = Integer.parseInt(request.getParameter("soLuong"));
+        int soLuong = parseSoLuongHopLe(request.getParameter("soLuong"));
 
         User user = (User) session.getAttribute("user");
         if (user != null) {

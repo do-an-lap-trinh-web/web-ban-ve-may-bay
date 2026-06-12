@@ -44,7 +44,7 @@
                     <input type="hidden" name="idVe" value="${requestScope.veInfo.idVe}">
                     <div style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
                         <label style="font-weight: bold;">Số lượng:</label>
-                        <input type="number" name="soLuong" value="${requestScope.soLuong}" min="1" style="width: 70px; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+                        <input type="number" name="soLuong" value="${requestScope.soLuong}" min="1" step="1" required data-booking-quantity style="width: 70px; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
                     </div>
                     <div style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
                         <label style="font-weight: bold;">Mã giảm giá (Voucher):</label>
@@ -67,13 +67,13 @@
                     </span><br>
                 </c:if>
                 Tổng thanh toán: <br>
-                <span style="color: #ff5722; font-size: 1.5rem;">${requestScope.tongGia}</span>
+                <span data-total-payment data-unit-price="${requestScope.veInfo.gia}" data-discount-percent="${requestScope.ptGiam}" style="color: #ff5722; font-size: 1.5rem;">${requestScope.tongGia}</span>
             </h3>
         </div>
 
         <div >
             <form action="${pageContext.request.contextPath}/ThanhToanController" method="post">
-                <input type="hidden" name="soLuong" value="${requestScope.soLuong}">
+                <input type="hidden" name="soLuong" value="${requestScope.soLuong}" data-payment-quantity>
                 <input type="hidden" name="idVe" value="${requestScope.veInfo.idVe}">
                 <input type="hidden" name="voucherCode" value="${requestScope.voucherCode}">
                 <button class="btn-xac-nhan-dat-ve" type="submit">Thanh toán</button>
@@ -83,5 +83,45 @@
 </div>
 <%@ include file="../../layout/Footer.jsp" %>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var quantityInput = document.querySelector('[data-booking-quantity]');
+        var paymentQuantityInput = document.querySelector('[data-payment-quantity]');
+        var totalElement = document.querySelector('[data-total-payment]');
+
+        if (!quantityInput || !totalElement) {
+            return;
+        }
+
+        function parseMoney(value) {
+            return Number(String(value).replace(/[^\d]/g, '')) || 0;
+        }
+
+        function formatMoney(value) {
+            return new Intl.NumberFormat('vi-VN').format(value) + ' đồng';
+        }
+
+        function updateBookingTotal() {
+            var quantity = parseInt(quantityInput.value, 10);
+            if (isNaN(quantity) || quantity < 1) {
+                quantity = 1;
+                quantityInput.value = quantity;
+            }
+
+            var unitPrice = parseMoney(totalElement.dataset.unitPrice);
+            var discountPercent = Number(totalElement.dataset.discountPercent) || 0;
+            var total = unitPrice * quantity * (1 - discountPercent / 100);
+
+            totalElement.textContent = formatMoney(total);
+            if (paymentQuantityInput) {
+                paymentQuantityInput.value = quantity;
+            }
+        }
+
+        quantityInput.addEventListener('input', updateBookingTotal);
+        quantityInput.addEventListener('blur', updateBookingTotal);
+        updateBookingTotal();
+    });
+</script>
 </body>
 </html>

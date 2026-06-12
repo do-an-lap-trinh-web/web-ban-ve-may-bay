@@ -87,11 +87,21 @@
                                 } catch (Exception e) {
                                 }
                             }
+                            String thanhTien = "0";
+                            if (itemObj != null && itemObj.getVeDto() != null && itemObj.getVeDto().getGia() != null) {
+                                try {
+                                    double donGia = Double.parseDouble(itemObj.getVeDto().getGia().replaceAll("[^0-9]", ""));
+                                    thanhTien = com.edu.hcmuaf.fit.webbanvemaybay.services.core.FormatVND.formatVND(donGia * itemObj.getSoLuong());
+                                } catch (Exception e) {
+                                    thanhTien = itemObj.getVeDto().getGia();
+                                }
+                            }
                             pageContext.setAttribute("canCancel", canCancel);
+                            pageContext.setAttribute("thanhTien", thanhTien);
                         %>
                         <div class="card-footer">
                             <span class="quantity">Số lượng: ${item.soLuong}</span>
-                            <span class="price">Giá: ${item.veDto.gia}đ</span>
+                            <span class="price">Giá: ${thanhTien}đ</span>
                             <c:choose>
                                 <c:when test="${canCancel}">
                                     <form action="${pageContext.request.contextPath}/HuyVeController" method="post">
