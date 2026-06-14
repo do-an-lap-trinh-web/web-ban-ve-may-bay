@@ -45,7 +45,7 @@
 
         <div class="divider">HOẶC</div>
 
-        <button class="btn-google" onclick="window.location.href='GoogleLoginController'">
+        <button type="button" class="btn-google" onclick="loginWithGoogle()">
             <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo">
             Đăng nhập bằng Google
         </button>
@@ -77,6 +77,21 @@
             passwordField.type = "password";
             eyeIcon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>';
         }
+    }
+</script>
+
+<script>
+    function loginWithGoogle() {
+        const clientId = "826731372195-vjh60mr742ukbsth61tg2st4n7f3rpf8.apps.googleusercontent.com";
+
+        const redirectUri = "http://localhost:8080/web_ban_ve_may_bay_war_exploded/GoogleLoginController";
+
+        const googleAuthUrl = "https://accounts.google.com/o/oauth2/auth?scope=email profile&redirect_uri="
+            + redirectUri
+            + "&response_type=code&client_id="
+            + clientId;
+
+        window.location.href = googleAuthUrl;
     }
 </script>
 
