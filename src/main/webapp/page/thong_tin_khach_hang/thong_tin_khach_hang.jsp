@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Thông Tin Khách Hàng</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/page/thong_tin_khach_hang/thong_tin_khach_hang.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleHeader.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleFooter.css">

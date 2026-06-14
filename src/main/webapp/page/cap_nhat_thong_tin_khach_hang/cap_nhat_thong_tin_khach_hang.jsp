@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Cập nhật thông tin người dùng</title>
+	<title>Cập Nhật Thông Tin</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/page/cap_nhat_thong_tin_khach_hang/cap_nhat_thong_tin_khach_hang.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleHeader.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleFooter.css">
@@ -15,57 +15,56 @@
 <!--end header-->
 
 <!--update form info-->
-    <div class="update-user-info">
-        <h1 class="title-update-user-info">Cập Nhật Thông Tin</h1>
-        <div style="text-align: center">
-            ${sessionScope.messageUpdate}
+<div class="profile-wrapper">
+    <div class="profile-card">
+        <div class="profile-header">
+            <h1>Cập Nhật Thông Tin</h1>
         </div>
-        <form action="${pageContext.request.contextPath}/CapNhatThongTinNguoiDungController" method="post">
+
+        <div class="message-alert">
+            ${sessionScope.messageUpdate}
+            <c:remove var="messageUpdate" scope="session"/> </div>
+
+        <form action="${pageContext.request.contextPath}/CapNhatThongTinNguoiDungController" method="post" class="form-grid">
             <input type="hidden" name="id" value="${info.id}">
             <input type="hidden" name="idUser" value="${info.idUser}">
-            <div class="update-form-info">
-                <label for="name">Họ và tên</label>
-                <div class="input">
-                    <input id="name" name="fullName" type="text" placeholder="Nhập họ và tên người dùng"
-                        value="${info.ho == null || info.ten == null ? "" : info.ho += ' ' += info.ten}"
-                    >
-                </div>
+
+            <div class="form-group full-width">
+                <label>Email liên hệ</label>
+                <input value="${user.email}" id="email" name="email" type="email" placeholder="Nhập email" required>
             </div>
 
-            <div class="update-form-info">
-                <label for="email">Email</label>
-                <div class="input">
-                    <input value="${user.email == null ? "" : user.email}" id="email" name="email" type="email" placeholder="Nhập email">
-                </div>
+            <div class="form-group">
+                <label>Họ và tên đệm</label>
+                <input value="${info.ho}" name="ho" type="text" placeholder="VD: Nguyễn Văn">
             </div>
-            <div class="update-form-info">
-                <label for="ngaySinh">Ngày sinh</label>
-                <div class="input">
-                    <input value="${info.ngaySinh == null ? "" : info.ngaySinh}" id="ngaySinh" name="ngaySinh" type="date">
-                </div>
+            <div class="form-group">
+                <label>Tên</label>
+                <input value="${info.ten}" name="ten" type="text" placeholder="VD: A">
             </div>
 
-            <div class="update-form-info">
-                <label for="gender">Giới tính</label>
-                <select id="gender" name="gioiTinh">
+            <div class="form-group">
+                <label>Giới tính</label>
+                <select name="gioiTinh">
                     <option value="">--Chọn Giới Tính--</option>
                     <option value="Nam" <c:if test="${info.gioiTinh == 'Nam'}">selected</c:if>>Nam</option>
-                    <option value="Nữ" <c:if test="${info.gioiTinh == 'Nu'}">selected</c:if>>Nữ</option>
+                    <option value="Nữ" <c:if test="${info.gioiTinh == 'Nữ' || info.gioiTinh == 'Nu'}">selected</c:if>>Nữ</option>
                 </select>
             </div>
-
-            <div class="update-form-info">
-                <label for="address">Địa chỉ</label>
-                <div class="textarea">
-                    <textarea id="address" name="diaChi" placeholder="Nhập địa chỉ">${info.diaChi == null ? "" : info.diaChi}</textarea>
-                </div>
+            <div class="form-group">
+                <label>Ngày sinh</label>
+                <input value="${info.ngaySinh}" name="ngaySinh" type="date">
             </div>
 
-            <div class="btn-form-update">
-                <button type="submit">Hoàn Tất Cập Nhật</button>
+            <div class="form-group full-width">
+                <label>Địa chỉ</label>
+                <textarea name="diaChi" placeholder="Nhập địa chỉ cụ thể...">${info.diaChi}</textarea>
             </div>
+
+            <button type="submit" class="btn-action">Hoàn Tất Cập Nhật</button>
         </form>
     </div>
+</div>
 <!--end update form info-->
 
 <%@ include file="../../layout/Footer.jsp" %>
