@@ -1,64 +1,124 @@
-/*header*/
-
-/*end header*/
-
-/*update form*/
-.update-user-info {
-    max-width: 500px;
-    margin: 25px auto;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+.profile-wrapper {
+    background-color: #f4f6f9;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    min-height: 60vh;
     font-family: Arial, sans-serif;
 }
 
-h1 {
-    text-align: center;
-    margin-top: 20px ;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    font-size: 20px;
-}
-
-input, select, textarea {
+.profile-card {
+    background: #ffffff;
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 15px;
+    max-width: 750px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 40px;
     box-sizing: border-box;
-    transition: 0.2s;
 }
 
-input:focus, select:focus, textarea:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 3px rgba(0,123,255,0.4);
-}
-
-.btn-form-update {
+.profile-header {
+    border-bottom: 2px solid #f0f2f5;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
     text-align: center;
-    margin-top: 20px;
 }
 
-.btn-form-update button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 25px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.profile-header h1 {
+    margin: 0;
+    color: #005aab;
+    font-size: 26px;
+}
+
+.message-alert {
+    text-align: center;
+    font-weight: bold;
+    color: #28a745; /* Màu xanh thành công */
+    margin-bottom: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     font-size: 15px;
-    transition: 0.3s;
-    font-size: 20px;
+    color: #333;
+    font-family: Arial, sans-serif !important;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
-.btn-form-update button:hover {
-    scale: 1.05;
-    background-color: #286090;
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
 }
 
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #005aab;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 90, 171, 0.1);
+}
+
+.form-group input:disabled,
+.form-group input[readonly] {
+    background-color: #f8f9fa;
+    color: #777;
+    cursor: not-allowed;
+    border-color: #eee;
+}
+
+.btn-action {
+    grid-column: 1 / -1;
+    background-color: #005aab;
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    display: block;
+}
+
+.btn-action:hover {
+    background-color: #004482;
+}
+
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    .profile-card {
+        padding: 25px;
+    }
+}

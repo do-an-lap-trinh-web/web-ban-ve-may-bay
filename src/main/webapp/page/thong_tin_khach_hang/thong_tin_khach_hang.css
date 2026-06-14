@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     min-height: 60vh;
+    font-family: Arial, sans-serif;
 }
 
 .profile-card {
@@ -66,9 +67,9 @@
     border-radius: 8px;
     font-size: 15px;
     color: #333;
-    font-family: inherit;
     transition: all 0.3s ease;
     box-sizing: border-box;
+    font-family: Arial, sans-serif !important;
 }
 
 .form-group textarea {
