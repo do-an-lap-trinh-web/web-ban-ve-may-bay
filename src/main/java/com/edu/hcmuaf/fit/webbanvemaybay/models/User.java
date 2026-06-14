@@ -10,6 +10,10 @@ public class User {
     private String hangXacThuc;
     private String role;
     private int status;
+    private String ngaySinh;
+    private String ho;
+    private String ten;
+    private String gioiTinh;
 
     public int getStatus() {
         return status;
@@ -43,4 +47,16 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public String getNgaySinh() { return ngaySinh; }
+    public void setNgaySinh(String ngaySinh) {this.ngaySinh = ngaySinh;}
+
+    public String getHo() { return ho; }
+    public void setHo(String ho) {this.ho = ho; }
+
+    public String getTen() { return ten; }
+    public void setTen(String ten) {this.ten = ten;}
+
+    public String getGioiTinh() { return gioiTinh; }
+    public void setGioiTinh(String gioiTinh) {this.gioiTinh = gioiTinh;}
 }
