@@ -1,107 +1,176 @@
-
+:root {
+    --primary-color: #005aab;
+    --border-color: #ccc;
+    --text-gray: #666;
+}
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-a {
-    text-decoration: none;
-}
-
-main {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
     display: flex;
     justify-content: center;
-}
+    align-items: center;
+    height: 100vh;
+    margin: 0;}
 
-.link-quay-lai {
-    color: #438bf1;
-    font-size: 20px;
-    margin-left: 20px;
-    text-decoration: none;
-}
-
-.main-content {
-    width: 600px;
-    margin: 50px 0px 0px 0px;
-    border-radius: 20px;
-    padding: 0px 0px 20px 0px;
-    box-shadow: 0 0 10px -5px;
-    color: black;
-}
-
-.title-form {
-    text-align: center;
-}
-
-.input-form {
+.login-container {
+    background: white;
     width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    text-align: center;
 }
 
-.input-form label{
-    display: block;
-    margin-left: 30px;
-    font-size: 20px;
-}
-.input-form .input{
-    display: flex;
-    justify-content: center;
-}
-.input-form .input input {
-    display: block;
-    margin: 10px 0px 0px 0px;
-    width: calc(100% - 100px);
-    border: 1px solid #337ab7;
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-size: 20px;
-    transition: 0.3s;
+.login-container h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 24px;
 }
 
-.input-form .input input:focus {
-    border: 1px solid #337ab7;
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 15px;
     outline: none;
+    transition: 0.3s;
+    box-sizing: border-box;
 }
 
-
-.input-form .input input:hover {
-    scale: 1.05;
+.form-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(0, 90, 171, 0.2);
 }
 
-.btn-form {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-}
-
-.btn-form button {
-    background-color: #337ab7;
-    width: 30%;
-    border: none;
-    padding: 10px 30px;
-    color: white;
-    font-size: 20px;
-    border-radius: 30px;
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 38px;
     cursor: pointer;
+    color: #888;
 }
 
-.btn-form button:hover {
-    background-color: #286090;
+.toggle-password:hover {
+    color: var(--primary-color);
 }
 
-.btn-quen-mat-khau {
-    text-align: center;
-    margin-top: 20px;
+.btn-login {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 14px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
 }
 
-.btn-quen-mat-khau a {
-    color: red;
+.btn-login:hover {
+    background-color: #004485;
+}
+
+.forgot-password {
+    display: block;
+    margin-top: 15px;
+    color: #d9534f;
     text-decoration: none;
+    font-size: 14px;
 }
 
-.btn-quen-mat-khau a:hover {
+.forgot-password:hover {
     text-decoration: underline;
 }
 
-.khoang-cach-form {
-    height: 20px;
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 25px 0;
+    color: var(--text-gray);
+    font-size: 13px;
+}
+
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+}
+
+.divider:not(:empty)::before { margin-right: .25em; }
+.divider:not(:empty)::after { margin-left: .25em; }
+
+.btn-google {
+    background-color: white;
+    color: #444;
+    border: 1px solid var(--border-color);
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.btn-google:hover {
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.btn-google img {
+    width: 20px;
+}
+
+.register-link {
+    margin-top: 25px;
+    font-size: 14px;
+    color: var(--text-gray);
+}
+
+.register-link a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.back-home {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.back-home a {
+    color: var(--text-gray);
+    text-decoration: none;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.back-home a:hover {
+    color: var(--primary-color);
 }
