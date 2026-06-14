@@ -200,4 +200,17 @@ public class UserDAO extends DBContext {
             return false;
         }
     }
+
+    public User getUserByEmail(String email) {
+        try {
+            Jdbi jdbi = get();
+            return jdbi.withHandle(h -> {
+                String q = "select * from users where email=:email";
+                return h.createQuery(q).bind("email", email).mapToBean(User.class).findFirst().orElse(null);
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
