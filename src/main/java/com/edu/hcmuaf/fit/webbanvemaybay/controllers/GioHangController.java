@@ -16,6 +16,26 @@ import java.util.List;
 
 @WebServlet(name = "GioHangController", value = "/GioHangController")
 public class GioHangController extends HttpServlet {
+    private int parseSoLuongHopLe(String soLuong) {
+        try {
+            int soLuongParsed = Integer.parseInt(soLuong);
+            return Math.max(soLuongParsed, 1);
+        } catch (NumberFormatException e) {
+            return 1;
+        }
+    }
+
+    private double tinhTongTien(List<GioHangItem> listGioHang) {
+        double tongTien = 0;
+        if (listGioHang == null) {
+            return tongTien;
+        }
+        for (GioHangItem item : listGioHang) {
+            tongTien += Double.parseDouble(item.getVeDto().getGia().replace(".", "")) * item.getSoLuong();
+        }
+        return tongTien;
+    }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -23,6 +43,23 @@ public class GioHangController extends HttpServlet {
             request.setAttribute("messageLogin", "Bạn phải đăng nhập!");
             request.getRequestDispatcher("/index.jsp").forward(request, response);
             return;
+        }
+        String action = request.getParameter("action");
+        if ("remove".equals(action)) {
+            String veIdStr = request.getParameter("ve");
+            if (veIdStr != null) {
+                try {
+                    int veId = Integer.parseInt(veIdStr);
+                    List<GioHangItem> listGioHang = (List<GioHangItem>) session.getAttribute("gioHang");
+                    if (listGioHang != null) {
+                        listGioHang.removeIf(item -> item.getVeDto().getIdVe() == veId);
+                        double tongTien = tinhTongTien(listGioHang);
+                        session.setAttribute("tongTien", FormatVND.formatVND(tongTien));
+                        session.setAttribute("gioHang", listGioHang);
+                    }
+                } catch (NumberFormatException e) {
+                }
+            }
         }
         request.getRequestDispatcher("page/gio_hang/gio_hang.jsp").forward(request, response);
     }
@@ -60,9 +97,7 @@ public class GioHangController extends HttpServlet {
                     session.setAttribute("gioHang", listGioHang);
                 }
 
-                for (GioHangItem item : listGioHang) {
-                    tongTien += Double.parseDouble(item.getVeDto().getGia().replace(".", "")) * item.getSoLuong();
-                }
+                tongTien = tinhTongTien(listGioHang);
                 session.setAttribute("tongTien", FormatVND.formatVND(tongTien));
             } else {
                 List<GioHangItem> newListGioHang = new ArrayList<GioHangItem>();
@@ -79,18 +114,17 @@ public class GioHangController extends HttpServlet {
         }
 
         if (action.equals("update")) {
-            String soLuong = request.getParameter("soLuong");
+            int soLuong = parseSoLuongHopLe(request.getParameter("soLuong"));
             List<GioHangItem> listGioHang = (List<GioHangItem>) session.getAttribute("gioHang");
-            double tongTien = 0;
-            for (GioHangItem item : listGioHang) {
-                if (item.getVeDto().getIdVe() == Integer.parseInt(idVe)) {
-                    item.setSoLuong(Integer.parseInt(soLuong));
-                    break;
+            if (listGioHang != null) {
+                for (GioHangItem item : listGioHang) {
+                    if (item.getVeDto().getIdVe() == Integer.parseInt(idVe)) {
+                        item.setSoLuong(soLuong);
+                        break;
+                    }
                 }
             }
-            for (GioHangItem item : listGioHang) {
-                tongTien += Double.parseDouble(item.getVeDto().getGia().replace(".", "")) * item.getSoLuong();
-            }
+            double tongTien = tinhTongTien(listGioHang);
             session.setAttribute("tongTien", FormatVND.formatVND(tongTien));
             session.setAttribute("gioHang", listGioHang);
             System.out.println(session.getAttribute("gioHang"));

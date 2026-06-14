@@ -1,7 +1,11 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<div id="loading-overlay">
+    <div class="loading-spinner"></div>
+</div>
+
 <header>
     <div class="logo">
         <img src="${pageContext.request.contextPath}/access/trang_chu/Logo.png" alt="">
@@ -41,3 +45,34 @@
     </div>
 </header>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    var loader = document.getElementById('loading-overlay');
+
+    if (loader) {
+        setTimeout(function() {
+            loader.classList.add('loading-hidden');
+        }, 150);
+    }
+
+    document.body.addEventListener('click', function (e) {
+        var anchor = e.target.closest('a');
+        if (anchor) {
+            var href = anchor.getAttribute('href');
+            var target = anchor.getAttribute('target');
+
+            if (href && !href.startsWith('#') && href !== 'javascript:void(0);' && target !== '_blank') {
+                if (loader) {
+                    loader.classList.remove('loading-hidden');
+                }
+            }
+        }
+    });
+
+    document.body.addEventListener('submit', function () {
+        if (loader) {
+            loader.classList.remove('loading-hidden');
+        }
+    });
+});
+</script>

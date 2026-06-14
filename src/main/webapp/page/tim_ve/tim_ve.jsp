@@ -21,6 +21,14 @@
 </div>
 <div class="container">
 	<form action="${pageContext.request.contextPath}/TimVeController" class="form-tim-ve">
+		<div style="display: flex; gap: 20px; margin-bottom: 25px; justify-content: center; font-size: 1.1rem;">
+			<label style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+				<input type="radio" name="loai_hinh" value="one_way" checked onclick="toggleReturnDate(false)"> Một chiều
+			</label>
+			<label style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+				<input type="radio" name="loai_hinh" value="round_trip" onclick="toggleReturnDate(true)"> Khứ hồi
+			</label>
+		</div>
 		<div class="form-quoc-gia">
 			<div>
 				<label>Khởi hành tại: </label>
@@ -68,7 +76,7 @@
 					<label>Điểm đi: </label>
                     <select name="diem_di" class="select select-diem-di" required>
                         <c:forEach var="diemDi" items="${thongTinTimVeDto.listDiemDi}">
-                            <option>
+                            <option <c:if test="${diemDi == param.diemDi}">selected</c:if>>
                                     ${diemDi}
                             </option>
                         </c:forEach>
@@ -83,7 +91,7 @@
 					<label>Điểm đến: </label>
                     <select name="diem_den" class="select select-diem-di" required>
                         <c:forEach var="diemDen" items="${thongTinTimVeDto.listDiemDen}">
-                            <option>
+                            <option <c:if test="${diemDen == param.diemDen}">selected</c:if>>
                                     ${diemDen}
                             </option>
                         </c:forEach>
@@ -98,9 +106,19 @@
 					<label>Chọn vé giá thấp nhất</label>
 				</div>
 			</div>
-			<div>
-				<label>Ngày khơi hành: </label>
-				<input class="input-ngay-khoi-hanh" type="date" name="ngay_di" id="">
+			<div style="display: flex; align-items: center; gap: 20px;">
+				<div>
+					<label>Ngày khơi hành: </label>
+					<input class="input-ngay-khoi-hanh" type="date" name="ngay_di" id="ngay_di" min="${requestScope.today}" required>
+				</div>
+				<div id="return-date-container" style="display: none;">
+					<label>Ngày về: </label>
+					<input class="input-ngay-khoi-hanh" type="date" name="ngay_ve" id="ngay_ve" min="${requestScope.today}">
+					<div style="margin-top: 5px; display: flex; align-items: center; gap: 5px;">
+						<input class="cb" type="checkbox" name="ngay_ve_linh_hoat" id="ngay_ve_linh_hoat">
+						<label for="ngay_ve_linh_hoat" style="font-size: 0.9rem; color: #555; cursor: pointer;">Chọn ngày về linh hoạt (±3 ngày)</label>
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -125,6 +143,37 @@
 
         window.location.href = url;
     }
+
+    function toggleReturnDate(show) {
+        var returnContainer = document.getElementById('return-date-container');
+        var ngayDiInput = document.getElementById('ngay_di');
+        var ngayVeInput = document.getElementById('ngay_ve');
+        if (show) {
+            returnContainer.style.display = 'block';
+            ngayVeInput.setAttribute('required', 'required');
+            ngayVeInput.min = ngayDiInput.value || ngayDiInput.min;
+        } else {
+            returnContainer.style.display = 'none';
+            ngayVeInput.removeAttribute('required');
+            ngayVeInput.value = '';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var today = new Date().toISOString().split('T')[0];
+        var ngayDiInput = document.getElementById('ngay_di');
+        var ngayVeInput = document.getElementById('ngay_ve');
+
+        ngayDiInput.min = ngayDiInput.min || today;
+        ngayVeInput.min = ngayVeInput.min || today;
+
+        ngayDiInput.addEventListener('change', function () {
+            ngayVeInput.min = ngayDiInput.value || ngayDiInput.min;
+            if (ngayVeInput.value && ngayVeInput.value < ngayVeInput.min) {
+                ngayVeInput.value = '';
+            }
+        });
+    });
 </script>
 </body>
 </html>

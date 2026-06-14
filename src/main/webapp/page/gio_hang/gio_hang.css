@@ -226,9 +226,28 @@ body {
     margin-top: 10px;
 }
 
+.quantity-form label {
+    font-size: 0.8rem;
+}
+
 .quantity-form input[type="number"] {
+    width: 50px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 2px 5px;
     outline: none;
     text-align: center;
+}
+
+.quantity-form button {
+    border: none;
+    background: #e8f1ff;
+    color: #0056b3;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 9px;
 }
 
 .airline-simple {
@@ -258,12 +277,152 @@ body {
     font-size: 16px;
 }
 
+.voucher-section,
+.reward-section {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.section-heading span:last-child {
+    color: #0056b3;
+    font-size: 13px;
+}
+
+.voucher-option {
+    align-items: center;
+    background: #fff;
+    border: 1px solid #d8e2ef;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    padding: 10px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.voucher-option:hover,
+.voucher-option.is-selected {
+    border-color: #ff5722;
+    box-shadow: 0 2px 8px rgba(255, 87, 34, 0.12);
+}
+
+.voucher-option.is-selected {
+    background: #fff8f5;
+}
+
+.voucher-option.is-disabled {
+    background: #f6f8fb;
+    border-color: #e2e8f0;
+    box-shadow: none;
+    cursor: not-allowed;
+    opacity: 0.58;
+}
+
+.voucher-option.is-disabled input,
+.voucher-option.is-disabled span {
+    cursor: not-allowed;
+}
+
+.voucher-option input {
+    display: none;
+    accent-color: #ff5722;
+}
+
+.voucher-radio-dot {
+    align-items: center;
+    border: 2px solid #b7c4d4;
+    border-radius: 50%;
+    display: flex;
+    flex: 0 0 18px;
+    height: 18px;
+    justify-content: center;
+    width: 18px;
+}
+
+.voucher-option.is-selected .voucher-radio-dot {
+    border-color: #ff5722;
+}
+
+.voucher-option.is-selected .voucher-radio-dot::after {
+    background: #ff5722;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 8px;
+    width: 8px;
+}
+
+.voucher-option strong,
+.voucher-option small {
+    display: block;
+}
+
+.voucher-option strong {
+    color: #222;
+    font-size: 14px;
+}
+
+.voucher-option small {
+    color: #666;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.voucher-option.is-empty {
+    border-style: dashed;
+}
+
+.reward-control {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+}
+
+.reward-control input[type="range"] {
+    flex: 1;
+    accent-color: #0056b3;
+}
+
+.reward-control input[type="number"] {
+    border: 1px solid #ccd8e5;
+    border-radius: 6px;
+    padding: 7px;
+    text-align: center;
+    width: 82px;
+}
+
+.reward-note {
+    color: #666;
+    font-size: 12px;
+    line-height: 1.4;
+    margin-top: 8px;
+}
+
 .summary-row {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
     font-size: 14px;
     color: #555;
+}
+
+.discount-row span:last-child {
+    color: #e64a19;
+    font-weight: 700;
 }
 
 .total-row {
@@ -302,4 +461,33 @@ body {
     transform: translateY(0);
     box-shadow: 0 2px 5px rgba(0, 86, 179, 0.2);
     background-color: #003370;
+}
+
+.btn-checkout:disabled {
+    background: #9aa8b5;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.empty-cart {
+    border-left-color: #9aa8b5;
+    color: #667085;
+    text-align: center;
+}
+
+@media (max-width: 780px) {
+    .cart-layout {
+        flex-direction: column;
+    }
+
+    .price-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .summary-box {
+        position: static;
+    }
 }

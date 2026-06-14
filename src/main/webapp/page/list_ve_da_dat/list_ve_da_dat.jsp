@@ -21,6 +21,14 @@
 </script>
 <%
     }
+    String messageHuyVe = (String) request.getAttribute("messageHuyVe");
+    if (messageHuyVe != null) {
+%>
+<script>
+    alert("<%= messageHuyVe %>")
+</script>
+<%
+    }
 %>
 <div class="list-ve">
     <h1>Danh sách vé máy bay đã đặt</h1>
@@ -65,15 +73,47 @@
                             </div>
                         </div>
 
+                        <%
+                            com.edu.hcmuaf.fit.webbanvemaybay.models.DTO.VeDaDatDto itemObj = (com.edu.hcmuaf.fit.webbanvemaybay.models.DTO.VeDaDatDto) pageContext.getAttribute("item");
+                            boolean canCancel = false;
+                            if (itemObj != null && itemObj.getVeDto() != null && itemObj.getVeDto().getThoiGianKhoiHanh() != null) {
+                                try {
+                                    String depTimeStr = itemObj.getVeDto().getThoiGianKhoiHanh().replace(" ", "T");
+                                    if (depTimeStr.contains(".")) {
+                                        depTimeStr = depTimeStr.substring(0, depTimeStr.indexOf("."));
+                                    }
+                                    java.time.LocalDateTime departureTime = java.time.LocalDateTime.parse(depTimeStr);
+                                    canCancel = java.time.LocalDateTime.now().plusDays(1).isBefore(departureTime);
+                                } catch (Exception e) {
+                                }
+                            }
+                            String thanhTien = "0";
+                            if (itemObj != null && itemObj.getVeDto() != null && itemObj.getVeDto().getGia() != null) {
+                                try {
+                                    double donGia = Double.parseDouble(itemObj.getVeDto().getGia().replaceAll("[^0-9]", ""));
+                                    thanhTien = com.edu.hcmuaf.fit.webbanvemaybay.services.core.FormatVND.formatVND(donGia * itemObj.getSoLuong());
+                                } catch (Exception e) {
+                                    thanhTien = itemObj.getVeDto().getGia();
+                                }
+                            }
+                            pageContext.setAttribute("canCancel", canCancel);
+                            pageContext.setAttribute("thanhTien", thanhTien);
+                        %>
                         <div class="card-footer">
                             <span class="quantity">Số lượng: ${item.soLuong}</span>
-                            <span class="price">Giá: ${item.veDto.gia}đ</span>
-                            <form action="${pageContext.request.contextPath}/HuyVeController" method="post">
-                                <input type="hidden" name="idVe" value="${item.veDto.idVe}">
-                                <input type="hidden" name="idUser" value="${sessionScope.user.id}">
-                                <button class="cancel-button">Hủy vé</button>
-                            </form>
-
+                            <span class="price">Giá: ${thanhTien}đ</span>
+                            <c:choose>
+                                <c:when test="${canCancel}">
+                                    <form action="${pageContext.request.contextPath}/HuyVeController" method="post">
+                                        <input type="hidden" name="idVe" value="${item.veDto.idVe}">
+                                        <input type="hidden" name="idUser" value="${sessionScope.user.id}">
+                                        <button class="cancel-button">Hủy vé</button>
+                                    </form>
+                                </c:when>
+                                <c:otherwise>
+                                    <button class="cancel-button" disabled style="background-color: #ccc; cursor: not-allowed;" title="Chỉ được phép hủy vé trước 1 ngày trước giờ khởi hành">Không thể hủy</button>
+                                </c:otherwise>
+                            </c:choose>
                         </div>
                     </div>
                 </c:forEach>
