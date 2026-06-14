@@ -1,7 +1,10 @@
 package com.edu.hcmuaf.fit.webbanvemaybay.controllers.auth;
 
+import com.edu.hcmuaf.fit.webbanvemaybay.dao.UserDAO;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.GoogleUser;
+import com.edu.hcmuaf.fit.webbanvemaybay.models.User;
 import com.edu.hcmuaf.fit.webbanvemaybay.services.core.GoogleConstants;
+import com.edu.hcmuaf.fit.webbanvemaybay.services.core.HashPassword;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import jakarta.servlet.*;
@@ -28,10 +31,30 @@ public class GoogleLoginController extends HttpServlet {
 
         try {
             String accessToken = getToken(code);
-
             GoogleUser googleUser = getUserInfo(accessToken);
 
-            System.out.println("Đăng nhập thành công: " + googleUser.getEmail() + " - " + googleUser.getName());
+            UserDAO userDAO = new UserDAO();
+            User user = userDAO.getUserByEmail(googleUser.getEmail());
+
+            if (user == null) {
+                user = new User();
+
+                String usernameBase = googleUser.getEmail().split("@")[0];
+                String uniqueUsername = "gg_" + usernameBase + "_" + (System.currentTimeMillis() % 10000);
+
+                user.setUsername(uniqueUsername);
+                user.setPassword(HashPassword.hashPassword("PassGoogle@12345"));
+                user.setEmail(googleUser.getEmail());
+                user.setSoDienThoai("0000000000");
+
+                user.setRole("user");
+                user.setStatus(1);
+
+                user = userDAO.getUserByEmail(googleUser.getEmail());
+            }
+
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
 
             response.sendRedirect(request.getContextPath() + "/index.jsp");
 
