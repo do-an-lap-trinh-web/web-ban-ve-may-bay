@@ -16,6 +16,8 @@ public class SuaDaiLyController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+
         String id = request.getParameter("id");
         String diaChi = request.getParameter("diaChi");
         String tenDiaChi = request.getParameter("tenDiaChi");
@@ -25,8 +27,13 @@ public class SuaDaiLyController extends HttpServlet {
         String linkYt = request.getParameter("linkYt");
         String linkTiktok =  request.getParameter("linkTiktok");
 
+        int safeId = 1;
+        if (id != null && !id.trim().isEmpty()) {
+            safeId = Integer.parseInt(id.trim());
+        }
+
         DaiLy daiLy = new DaiLy();
-        daiLy.setId(Integer.parseInt(id));
+        daiLy.setId(safeId);
         daiLy.setEmail(email);
         daiLy.setDiaChi(diaChi);
         daiLy.setTenDiaChi(tenDiaChi);
@@ -37,13 +44,15 @@ public class SuaDaiLyController extends HttpServlet {
 
         DaiLyService daiLyService = new DaiLyService();
         boolean isUpdate = daiLyService.updateDaiLyById(daiLy);
+
         if (isUpdate) {
-            request.setAttribute("message","thành công");
-            request.setAttribute("daiLy",daiLyService.getDaiLy());
-            request.getRequestDispatcher("/page/admin/thong_tin_gioi_thieu/thong_tin_gioi_thieu.jsp").forward(request,response);
+            request.setAttribute("message", "Thành công");
+            request.setAttribute("daiLy", daiLyService.getDaiLy());
+            request.getRequestDispatcher("/page/admin/thong_tin_gioi_thieu/thong_tin_gioi_thieu.jsp").forward(request, response);
         } else {
-            request.setAttribute("message", "thất bại");
+            request.setAttribute("message", "Thất bại");
             request.setAttribute("daiLy", daiLy);
+            request.getRequestDispatcher("/page/admin/thong_tin_gioi_thieu/thong_tin_gioi_thieu.jsp").forward(request, response);
         }
     }
 }
