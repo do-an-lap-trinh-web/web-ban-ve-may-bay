@@ -1,3 +1,14 @@
+body {
+    font-family: Arial, sans-serif !important;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+}
+
+table, input, button, select, textarea, .btn, .badge, h1, th, td {
+    font-family: Arial, sans-serif !important;
+}
+
 .main-content {
     margin-left: 260px;
     padding: 20px 40px;
