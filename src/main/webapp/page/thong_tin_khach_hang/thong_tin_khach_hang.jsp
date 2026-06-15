@@ -54,8 +54,7 @@
                 <input type="text" value="${info.diaChi == null ? 'Chưa cập nhật' : info.diaChi}" disabled>
             </div>
 
-            <a href="${pageContext.request.contextPath}/CapNhatThongTinNguoiDungController?id=${info.id}" class="btn-action">Chỉnh Sửa Thông Tin</a>
-        </div>
+            <a href="${pageContext.request.contextPath}/CapNhatThongTinNguoiDungController?id=${user.id}" class="btn-action">Chỉnh Sửa Thông Tin</a>        </div>
     </div>
 </div>
 
