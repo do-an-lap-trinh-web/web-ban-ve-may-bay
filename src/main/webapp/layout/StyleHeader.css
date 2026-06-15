@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 .main-header {
     background-color: #ffffff;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
@@ -25,12 +30,15 @@
     color: #005aab;
     font-size: 22px;
     font-weight: 700;
+    margin-right: 50px;
 }
 
 .nav-links {
     display: flex;
     gap: 25px;
     align-items: center;
+    flex-wrap: wrap;
+    flex-grow: 1;
 }
 
 .nav-links a {
