@@ -27,7 +27,16 @@
             </div>
             <div class="form-group">
                 <label>Vai Trò:</label>
-                <input type="text" name="role" value="${user.role}">
+                <select name="role" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+                    <option value="user" <c:if test="${user.role == 'user'}">selected</c:if>>
+                        Khách Hàng (user)
+                    </option>
+
+                    <option value="admin" <c:if test="${user.role == 'admin'}">selected</c:if>>
+                        Quản Trị Viên (admin)
+                    </option>
+
+                </select>
             </div>
 
             <hr>
