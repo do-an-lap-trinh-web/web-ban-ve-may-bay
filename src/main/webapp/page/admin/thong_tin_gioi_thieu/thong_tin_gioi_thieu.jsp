@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
@@ -13,26 +12,26 @@
     <div class="form-container">
         <div class="form-header">
             <h2><span class="emoji">ℹ️</span> Cấu Hình Thông Tin Giới Thiệu</h2>
-            <p>${message}</p>
+            <p style="font-weight: bold; color: ${message == 'thành công' ? '#28a745' : '#dc3545'};">${message}</p>
         </div>
 
         <form action="${pageContext.request.contextPath}/admin/SuaDaiLyController" method="POST">
             <div class="form-section">
+
                 <div class="form-group">
                     <label>ID Hệ Thống</label>
-                    <input type="number" name="id" value="${daiLy.id}" readonly>
+                    <input type="number" name="id" value="${daiLy.id != null ? daiLy.id : '1'}" readonly style="background-color: #e9ecef; cursor: not-allowed; color: #6c757d;">
                 </div>
+
                 <div class="form-group">
                     <label>Map địa chỉ trụ sở</label>
-                    <textarea style="min-width: 100%; max-width: 100%" rows="4" name="diaChi" placeholder="Nhập địa chỉ...">
-                        ${daiLy.diaChi}
-                    </textarea>
+                    <textarea style="min-width: 100%; max-width: 100%" rows="4" name="tenDiaChi" placeholder="Dán thẻ <iframe> của Google Map vào đây...">${daiLy.tenDiaChi}</textarea>
                 </div>
-                <div class="row">
 
+                <div class="row">
                     <div class="form-group col">
                         <label>Địa Chỉ Trụ Sở</label>
-                        <input type="text" name="tenDiaChi" value="${daiLy.tenDiaChi}" placeholder="Nhập địa chỉ...">
+                        <input type="text" name="diaChi" value="${daiLy.diaChi}" placeholder="Nhập địa chỉ...">
                     </div>
                     <div class="form-group col">
                         <label>Số Điện Thoại</label>
@@ -63,7 +62,7 @@
             </div>
 
             <div class="button-group">
-                <a href="" class="btn btn-back"> Quay lại</a>
+                <a href="${pageContext.request.contextPath}/admin/SuaDaiLyController" class="btn btn-back"> Quay lại</a>
                 <button type="submit" class="btn btn-update">Lưu thay đổi</button>
             </div>
         </form>
@@ -72,5 +71,3 @@
 
 </body>
 </html>
-
-
