@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Thông Tin Khách Hàng</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/page/thong_tin_khach_hang/thong_tin_khach_hang.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleHeader.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleFooter.css">
@@ -15,50 +15,48 @@
 <!--end header-->
 
 <!--form info-->
-    <div class="user-info">
-        <h1 class="title-form-info">Thông Tin Khách Hàng</h1>
-        <div class="info-group">
-            <label>Họ và tên</label>
-            <div class="info-box">
-                <c:if test="${info.ho == null || info.ten == null}">
-                    <span>
-                        chưa có
-                    </span>
-                </c:if>
-                <c:if test="${info.ho != null && info.ten != null}">
-                    <span>
-                            ${info.ho}
-                    </span>
-                    <span>
-                            ${info.ten}
-                    </span>
-                </c:if>
+<div class="profile-wrapper">
+    <div class="profile-card">
+        <div class="profile-header">
+            <h1>Thông Tin Hồ Sơ</h1>
+        </div>
 
+        <div class="form-grid">
+            <div class="form-group">
+                <label>Tên đăng nhập</label>
+                <input type="text" value="${user.username}" disabled>
             </div>
-        </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" value="${user.email == null ? 'Chưa cập nhật' : user.email}" disabled>
+            </div>
 
-        <div class="info-group">
-            <label>Email</label>
-            <div class="info-box">${user.email == null ? "chưa có" : user.email}</div>
-        </div>
-        <div class="info-group">
-            <label>Giới tính</label>
-            <div class="info-box">${info.gioiTinh == null ? "chưa có" : info.gioiTinh}</div>
-        </div>
-        <div class="info-group">
-            <label>Ngày sinh</label>
-            <div class="info-box">${info.ngaySinh == null ? "chưa có" : info.ngaySinh}</div>
-        </div>
+            <div class="form-group">
+                <label>Họ và tên đệm</label>
+                <input type="text" value="${info.ho == null ? 'Chưa cập nhật' : info.ho}" disabled>
+            </div>
+            <div class="form-group">
+                <label>Tên</label>
+                <input type="text" value="${info.ten == null ? 'Chưa cập nhật' : info.ten}" disabled>
+            </div>
 
-        <div class="info-group">
-            <label>Địa chỉ</label>
-            <div class="info-box">${info.diaChi == null ? "chưa có" : info.diaChi}</div>
-        </div >
+            <div class="form-group">
+                <label>Giới tính</label>
+                <input type="text" value="${info.gioiTinh == null ? 'Chưa cập nhật' : info.gioiTinh}" disabled>
+            </div>
+            <div class="form-group">
+                <label>Ngày sinh</label>
+                <input type="text" value="${info.ngaySinh == null ? 'Chưa cập nhật' : info.ngaySinh}" disabled>
+            </div>
 
-        <div class="btn-update">
-            <a href="${pageContext.request.contextPath}/CapNhatThongTinNguoiDungController?id=${info.id}">Cập Nhật Thông Tin</a>
-        </div>
+            <div class="form-group full-width">
+                <label>Địa chỉ</label>
+                <input type="text" value="${info.diaChi == null ? 'Chưa cập nhật' : info.diaChi}" disabled>
+            </div>
+
+            <a href="${pageContext.request.contextPath}/CapNhatThongTinNguoiDungController?id=${user.id}" class="btn-action">Chỉnh Sửa Thông Tin</a>        </div>
     </div>
+</div>
 
 <%@include file="../../layout/Footer.jsp"%>
 </body>
