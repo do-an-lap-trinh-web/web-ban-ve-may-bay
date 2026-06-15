@@ -13,7 +13,8 @@ public class UserDAO extends DBContext {
     public List<User> getListUser() {
         return get().withHandle(h -> {
             return h.createQuery("select id, username, password, so_dien_thoai as soDienThoai, " +
-                    "email, code_xac_thuc as codeXacThuc, hang_xac_thuc as hangXacThuc " +
+                    "email, code_xac_thuc as codeXacThuc, hang_xac_thuc as hangXacThuc, " +
+                    "role, status " +
                     "from users").mapToBean(User.class).list();
         });
     }
