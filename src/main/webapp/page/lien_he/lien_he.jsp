@@ -49,6 +49,9 @@
 			</div>
 
 			<div class="contact-form">
+				<c:if test="${sessionScope.contactMessage != null}">
+					<p style="font-weight: bold; color: #28a745; margin-bottom: 15px;">${sessionScope.contactMessage}</p>
+					<c:remove var="contactMessage" scope="session"/> </c:if>
 				<h3>Gửi yêu cầu hỗ trợ</h3>
 				<form action="${pageContext.request.contextPath}/ThongTinLienHeController" method="POST">					<div class="form-group">
 						<input type="text" name="hoTen" placeholder="Họ và tên của bạn" required>
