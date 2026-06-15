@@ -1,41 +1,200 @@
-/*header*/
-
-/*end header*/
-
-:root {
-    --xanh: #438bf1;
-}
-
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif !important;
+    background-color: #f4f6f9;
+    margin: 0;
 }
 
-.title {
+.contact-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.page-title {
     text-align: center;
-    color: var(--xanh);
+    color: #005aab;
+    font-size: 32px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
-.fa-phone, .fa-envelope, .fa-location-dot {
-    background-color: var(--xanh);
+.top-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.info-form-wrapper {
+    padding: 40px;
+}
+
+.info-box {
+    margin-bottom: 30px;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info-icon {
+    background-color: #e6f0fa;
+    color: #005aab;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.info-text h4 {
+    margin: 0 0 5px 0;
+    color: #333;
+    font-size: 16px;
+}
+
+.info-text p {
+    margin: 0;
+    color: #666;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.contact-form h3 {
+    color: #005aab;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f2f5;
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: Arial, sans-serif !important;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #005aab;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 90, 171, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 120px;
+}
+
+.submit-btn {
+    background-color: #005aab;
     color: white;
-    padding: 5px;
-    border-radius: 25%;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+    font-family: Arial, sans-serif;
 }
 
-.info-contact {
+.submit-btn:hover {
+    background-color: #004482;
+}
+
+.map-wrapper {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    background-color: #eee;
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.faq-section {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.faq-section h3 {
+    text-align: center;
+    color: #005aab;
+    margin-bottom: 30px;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.faq-category {
+    color: #fca311;
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 5px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 0px 250px;
-    margin-top: 30px;
+    font-size: 16px;
+    transition: color 0.3s;
 }
 
-.map {
-    padding: 0px 100px;
-    margin-top: 50px;
+.faq-question:hover {
+    color: #005aab;
 }
 
-.map iframe {
-    width: 100%;
-    height: 600px;
+.faq-answer {
+    display: none;
+    color: #555;
+    margin-top: 15px;
+    line-height: 1.6;
+    font-size: 15px;
+    background-color: #f9fbfd;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 3px solid #005aab;
+}
+
+@media (max-width: 900px) {
+    .top-section { grid-template-columns: 1fr; }
+    .map-wrapper { height: 400px; }
 }
