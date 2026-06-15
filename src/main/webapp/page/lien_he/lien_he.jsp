@@ -50,8 +50,7 @@
 
 			<div class="contact-form">
 				<h3>Gửi yêu cầu hỗ trợ</h3>
-				<form action="#" method="POST">
-					<div class="form-group">
+				<form action="${pageContext.request.contextPath}/ThongTinLienHeController" method="POST">					<div class="form-group">
 						<input type="text" name="hoTen" placeholder="Họ và tên của bạn" required>
 					</div>
 					<div class="form-group">
