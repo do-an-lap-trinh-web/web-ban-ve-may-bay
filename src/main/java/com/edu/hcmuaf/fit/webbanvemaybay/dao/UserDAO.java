@@ -229,4 +229,21 @@ public class UserDAO extends DBContext {
             return false;
         }
     }
+
+    public String getPasswordById(int userId) {
+        try {
+            org.jdbi.v3.core.Jdbi jdbi = get();
+            return jdbi.withHandle(h -> {
+                String q = "SELECT password FROM users WHERE id = :id";
+                return h.createQuery(q)
+                        .bind("id", userId)
+                        .mapTo(String.class)
+                        .findFirst()
+                        .orElse(null);
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

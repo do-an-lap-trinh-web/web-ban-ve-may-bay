@@ -2,6 +2,8 @@ package com.edu.hcmuaf.fit.webbanvemaybay.controllers.auth;
 
 import com.edu.hcmuaf.fit.webbanvemaybay.dao.UserDAO;
 import com.edu.hcmuaf.fit.webbanvemaybay.models.User;
+// IMPORT CLASS MÃ HÓA CỦA BẠN VÀO ĐÂY
+import com.edu.hcmuaf.fit.webbanvemaybay.services.core.HashPassword;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -26,14 +28,18 @@ public class CapNhatMatKhauController extends HttpServlet {
 
         String redirectUrl = request.getContextPath() + "/ThongTinNguoiDungController?id=" + currentUser.getId();
 
-        String currentPassword = currentUser.getPassword();
-        if (currentPassword == null || currentPassword.trim().isEmpty()) {
-            session.setAttribute("errorPassword", "Tài khoản đăng nhập bằng Google không sử dụng mật khẩu hệ thống!");
+        if (currentUser.getUsername() != null && currentUser.getUsername().startsWith("gg_")) {
+            session.setAttribute("errorPassword", "Tài khoản đăng nhập bằng Google không thể đổi mật khẩu!");
             response.sendRedirect(redirectUrl);
             return;
         }
 
-        if (!currentPassword.equals(matKhauCu)) {
+        UserDAO userDAO = new UserDAO();
+        String currentPasswordHashed = userDAO.getPasswordById(currentUser.getId());
+
+        String matKhauCuDaMaHoa = HashPassword.hashPassword(matKhauCu);
+
+        if (currentPasswordHashed == null || !currentPasswordHashed.equals(matKhauCuDaMaHoa)) {
             session.setAttribute("errorPassword", "Mật khẩu cũ không chính xác!");
             response.sendRedirect(redirectUrl);
             return;
@@ -45,12 +51,11 @@ public class CapNhatMatKhauController extends HttpServlet {
             return;
         }
 
-        com.edu.hcmuaf.fit.webbanvemaybay.dao.UserDAO userDAO = new com.edu.hcmuaf.fit.webbanvemaybay.dao.UserDAO();
-        boolean isUpdated = userDAO.updatePassword(currentUser.getId(), matKhauMoi);
+        String matKhauMoiDaMaHoa = HashPassword.hashPassword(matKhauMoi);
+
+        boolean isUpdated = userDAO.updatePassword(currentUser.getId(), matKhauMoiDaMaHoa);
 
         if (isUpdated) {
-            currentUser.setPassword(matKhauMoi);
-            session.setAttribute("user", currentUser);
             session.setAttribute("successPassword", "Đổi mật khẩu thành công!");
         } else {
             session.setAttribute("errorPassword", "Hệ thống bận, vui lòng thử lại sau!");
