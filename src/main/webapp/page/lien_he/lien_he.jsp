@@ -13,7 +13,7 @@
 <%@include file="../../layout/Header.jsp"%>
 
 <div class="contact-container">
-	<h1 class="page-title">LIÊN HỆ MÁY BAY ONLINE</h1>
+	<h1 class="page-title">THÔNG TIN LIÊN HỆ MÁY BAY ONLINE</h1>
 
 	<div class="top-section">
 
@@ -25,7 +25,7 @@
 					</div>
 					<div class="info-text">
 						<h4>Địa chỉ trụ sở</h4>
-						<p>${daiLy.tenDiaChi}</p>
+						<p>${daiLy.diaChi}</p>
 					</div>
 				</div>
 				<div class="info-item">
@@ -66,7 +66,7 @@
 		</div>
 
 		<div class="map-wrapper">
-			${daiLy.diaChi}
+			${daiLy.tenDiaChi}
 		</div>
 	</div>
 
