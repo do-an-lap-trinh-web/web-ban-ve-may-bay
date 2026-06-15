@@ -24,19 +24,28 @@ public class CapNhatMatKhauController extends HttpServlet {
             return;
         }
 
-        if (!currentUser.getPassword().equals(matKhauCu)) {
+        String redirectUrl = request.getContextPath() + "/ThongTinNguoiDungController?id=" + currentUser.getId();
+
+        String currentPassword = currentUser.getPassword();
+        if (currentPassword == null || currentPassword.trim().isEmpty()) {
+            session.setAttribute("errorPassword", "Tài khoản đăng nhập bằng Google không sử dụng mật khẩu hệ thống!");
+            response.sendRedirect(redirectUrl);
+            return;
+        }
+
+        if (!currentPassword.equals(matKhauCu)) {
             session.setAttribute("errorPassword", "Mật khẩu cũ không chính xác!");
-            response.sendRedirect(request.getContextPath() + "/page/profile/profile.jsp");
+            response.sendRedirect(redirectUrl);
             return;
         }
 
         if (!matKhauMoi.equals(xacNhanMatKhau)) {
             session.setAttribute("errorPassword", "Mật khẩu mới và xác nhận mật khẩu không khớp!");
-            response.sendRedirect(request.getContextPath() + "/page/profile/profile.jsp");
+            response.sendRedirect(redirectUrl);
             return;
         }
 
-        UserDAO userDAO = new UserDAO();
+        com.edu.hcmuaf.fit.webbanvemaybay.dao.UserDAO userDAO = new com.edu.hcmuaf.fit.webbanvemaybay.dao.UserDAO();
         boolean isUpdated = userDAO.updatePassword(currentUser.getId(), matKhauMoi);
 
         if (isUpdated) {
@@ -47,6 +56,6 @@ public class CapNhatMatKhauController extends HttpServlet {
             session.setAttribute("errorPassword", "Hệ thống bận, vui lòng thử lại sau!");
         }
 
-        response.sendRedirect(request.getContextPath() + "/page/profile/profile.jsp");
+        response.sendRedirect(redirectUrl);
     }
 }
