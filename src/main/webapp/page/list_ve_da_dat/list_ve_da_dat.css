@@ -1,208 +1,198 @@
-
-:root {
-    --xanh: #438bf1;
-}
-
 body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-.container{
-    padding-left: 100px;
-    padding-right: 100px;
+    font-family: Arial, sans-serif !important;
+    background-color: #f4f6f9;
 }
 
-a {
-    text-decoration: none;
-    color: black;
+.list-ve-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-.list-ve h1 {
-    color: var(--xanh);
-    margin-left: 100px;
+.page-title {
+    text-align: center;
+    color: #005aab;
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
-.list-ve-item {
-    padding: 0px 80px;
-    margin: 40px 0px 0px 0px;
+.booked-tickets-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.flight-card {
-    width: 100%; /* Chiều rộng thẻ */
-    background-color: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    padding: 25px;
-    color: #333;
-    margin-top: 10px;
+.booked-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #edf1f5;
+    overflow: hidden;
+    transition: transform 0.2s;
 }
 
-/* --- Header Section (Hãng bay và Thời gian) --- */
-.card-header {
+.booked-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.booked-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 15px;
+    align-items: center;
+    padding: 15px 25px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #edf1f5;
 }
 
-.airline-name {
+.airline-brand {
     display: flex;
     align-items: center;
-    font-size: 1.1em;
-    font-weight: 600;
-    color: #004d99; /* Màu xanh của hãng bay */
+    gap: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
 }
 
 .plane-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 8px;
-    color: #004d99;
+    color: #005aab;
+    font-size: 18px;
 }
 
-.flight-times {
-    text-align: right;
-}
-
-.time-detail {
-    line-height: 1.4;
-}
-
-.time-detail .label {
-    display: block;
-    font-size: 0.8em;
-    color: #6c757d;
-}
-
-.time-highlight {
-    font-size: 1.6em;
-    font-weight: 700;
-    color: #333;
-}
-
-/* --- Dấu phân cách --- */
-.separator {
-    border: 0;
-    border-top: 1px dashed #e0e0e0; /* Dùng đường đứt nét */
-    margin: 15px 0;
-}
-
-/* --- Body Section (Sân bay) --- */
-.card-body {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-    text-align: center;
-}
-
-.airport {
-    flex-basis: 40%; /* Chiếm khoảng 40% không gian */
-}
-
-.airport-code {
-    display: block;
-    font-size: 2em;
-    font-weight: 800;
-    color: #004d99; /* Mã sân bay nổi bật */
-}
-
-.airport-name {
-    display: block;
-    font-size: 0.9em;
-    color: #6c757d;
-    margin-top: 2px;
-}
-
-.route-icon {
-    flex-basis: 20%; /* Khoảng giữa */
-    color: #aaa;
-    font-size: 1.5em;
-}
-
-/* --- Footer Section (Số lượng và Nút) --- */
-.card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 10px;
-    border-top: 1px solid #f0f0f0; /* Viền nhẹ phía trên */
-}
-
-.quantity {
-    font-size: 1em;
-    font-weight: 500;
-    color: #6c757d;
-}
-
-.price {
-    font-size: 1.2em;
-    font-weight: 600;
-    color: #004d99;
-}
-
-.cancel-button {
-    padding: 8px 18px;
-    font-size: 1em;
-    font-weight: 600;
-    color: #fff;
-    background-color: #dc3545; /* Màu đỏ cho hành động hủy */
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.cancel-button:hover {
-    background-color: #c82333;
-}
-
-.content-xac-nhan {
-    display: none;
-    justify-content: center;
-}
-
-.card-xac-nhan {
-    width: 600px; /* Chiều rộng thẻ */
-    background-color: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    padding: 25px;
-    color: #333;
-    align-items: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-}
-
-.card-xac-nhan .flight-card {
-    width: auto;
-    margin: 30px 0 0 0;
-}
-
-.card-xac-nhan .flight-card .button-xac-nhan{
-    display: flex;
-    justify-content: center;
-}
-
-.card-xac-nhan-title {
-    font-size: 30px;
-    color: var(--xanh);
+.booking-status {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
     font-weight: bold;
 }
 
-.btn-xac-nhan-exit {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    border-radius: 50%;
-    font-size: 24px;
-    cursor: pointer;
-    color: gray;
+.booked-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
 }
 
-/*footer*/
+.flight-point {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
 
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+
+.flight-point .time {
+    font-size: 16px;
+    font-weight: bold;
+    color: #005aab;
+    margin-bottom: 5px;
+}
+
+.flight-point .airport-code {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 2px;
+}
+
+.flight-point .airport-name {
+    font-size: 13px;
+    color: #6c757d;
+}
+
+.flight-divider {
+    flex: 0.5;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.flight-divider .line {
+    flex: 1;
+    height: 2px;
+    background-color: #ced4da;
+}
+
+.flight-divider .dot {
+    width: 6px;
+    height: 6px;
+    background-color: #ced4da;
+    border-radius: 50%;
+}
+
+.booked-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-top: 1px dashed #e9ecef;
+    background-color: #fafbfc;
+}
+
+.ticket-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 14px;
+    color: #495057;
+}
+
+.total-price strong {
+    font-size: 18px;
+    color: #ff5722;
+}
+
+.btn-cancel {
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.btn-cancel.active {
+    background-color: #dc3545;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-cancel.active:hover {
+    background-color: #c82333;
+}
+
+.btn-cancel.disabled {
+    background-color: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
+.no-tickets-message {
+    text-align: center;
+    padding: 60px 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    color: #6c757d;
+}
+
+.btn-book-now {
+    display: inline-block;
+    margin-top: 15px;
+    background-color: #005aab;
+    color: white;
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.btn-book-now:hover {
+    background-color: #004482;
+}
