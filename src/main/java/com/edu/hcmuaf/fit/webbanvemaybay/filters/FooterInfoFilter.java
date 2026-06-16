@@ -44,21 +44,10 @@ public class FooterInfoFilter implements Filter {
                         DeXuatVeDto deXuat = new DeXuatVeDto();
                         deXuat.setVeDto(veDto);
                         deXuat.setSoLuongTon(ve.getSoLuongTon());
-                        
-                        int pt = 15;
-                        String code = "SALE15";
-                        if (ve.getSoLuongTon() >= 50) {
-                            pt = 30;
-                            code = "SALE30";
-                        } else if (ve.getSoLuongTon() >= 30) {
-                            pt = 20;
-                            code = "SALE20";
-                        }
-                        deXuat.setPhanTramGiam(pt);
-                        deXuat.setVoucherCode(code);
-                        
-                        double giaGiam = ve.getGia() * (1 - pt / 100.0);
-                        deXuat.setGiaDaGiam(com.edu.hcmuaf.fit.webbanvemaybay.services.core.FormatVND.formatVND(giaGiam));
+
+                        deXuat.setVoucherCode("SALE");
+                        deXuat.setPhanTramGiam(0);
+                        deXuat.setGiaDaGiam("");
                         listDeXuatVe.add(deXuat);
                     }
                 }
