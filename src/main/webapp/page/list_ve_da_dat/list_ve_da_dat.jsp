@@ -30,46 +30,40 @@
 <%
     }
 %>
-<div class="list-ve">
-    <h1>Danh sách vé máy bay đã đặt</h1>
+<div class="list-ve-container">
+    <h1 class="page-title">Vé Máy Bay Đã Đặt</h1>
 
-    <div class="list-ve-item">
+    <div class="booked-tickets-wrapper">
         <c:choose>
             <c:when test="${not empty listVeDaDat}">
                 <c:forEach var="item" items="${listVeDaDat}">
-                    <div class="flight-card">
-                        <div class="card-header">
-                            <span class="airline-name">
-                                <svg class="plane-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M21 16V14.5L14 10V3C14 2.45 13.55 2 13 2H11C10.45 2 10 2.45 10 3V10L3 14.5V16L10 13V20L8.5 22H9.5L12 21L14.5 22H15.5L14 20V13L21 16Z" fill="currentColor"/>
-                                </svg>
-                                ${item.veDto.hangBay}
-                            </span>
-                            <div class="flight-times">
-                                <div class="time-detail departure">
-                                    <span class="label">Cất cánh</span>
-                                    <span>${item.veDto.thoiGianKhoiHanh}</span>
-                                </div>
-                                <div class="time-detail arrival">
-                                    <span class="label">Hạ cánh</span>
-                                    <span>${item.veDto.thoiGianHaCanh}</span>
-                                </div>
+
+                    <div class="booked-card">
+                        <div class="booked-header">
+                            <div class="airline-brand">
+                                <span class="plane-icon">✈</span>
+                                <span class="airline-name">${item.veDto.hangBay}</span>
                             </div>
+                            <div class="booking-status">Đã đặt thành công</div>
                         </div>
 
-                        <hr class="separator">
+                        <div class="booked-body">
+                            <div class="flight-point text-right">
+                                <div class="time">${item.veDto.thoiGianKhoiHanh}</div>
+                                <div class="airport-code">${item.veDto.diemDi}</div>
+                                <div class="airport-name">${item.veDto.khoiHanh}</div>
+                            </div>
 
-                        <div class="card-body">
-                            <div class="airport departure">
-                                <span class="airport-code">${item.veDto.diemDi}</span>
-                                <span class="airport-name">${item.veDto.khoiHanh}</span>
+                            <div class="flight-divider">
+                                <span class="dot"></span>
+                                <div class="line"></div>
+                                <span class="dot"></span>
                             </div>
-                            <div class="route-icon">
-                                <span class="arrow">→</span>
-                            </div>
-                            <div class="airport arrival">
-                                <span class="airport-code">${item.veDto.diemDen}</span>
-                                <span class="airport-name">${item.veDto.haCanh}</span>
+
+                            <div class="flight-point text-left">
+                                <div class="time">${item.veDto.thoiGianHaCanh}</div>
+                                <div class="airport-code">${item.veDto.diemDen}</div>
+                                <div class="airport-name">${item.veDto.haCanh}</div>
                             </div>
                         </div>
 
@@ -99,30 +93,37 @@
                             pageContext.setAttribute("canCancel", canCancel);
                             pageContext.setAttribute("thanhTien", thanhTien);
                         %>
-                        <div class="card-footer">
-                            <span class="quantity">Số lượng: ${item.soLuong}</span>
-                            <span class="price">Giá: ${thanhTien}đ</span>
-                            <c:choose>
-                                <c:when test="${canCancel}">
-                                    <form action="${pageContext.request.contextPath}/HuyVeController" method="post">
-                                        <input type="hidden" name="idVe" value="${item.veDto.idVe}">
-                                        <input type="hidden" name="idUser" value="${sessionScope.user.id}">
-                                        <button class="cancel-button">Hủy vé</button>
-                                    </form>
-                                </c:when>
-                                <c:otherwise>
-                                    <button class="cancel-button" disabled style="background-color: #ccc; cursor: not-allowed;" title="Chỉ được phép hủy vé trước 1 ngày trước giờ khởi hành">Không thể hủy</button>
-                                </c:otherwise>
-                            </c:choose>
+
+                        <div class="booked-footer">
+                            <div class="ticket-summary">
+                                <span class="qty">Số lượng: <strong>${item.soLuong}</strong> vé</span>
+                                <span class="total-price">Tổng tiền: <strong>${thanhTien}đ</strong></span>
+                            </div>
+
+                            <div class="ticket-action">
+                                <c:choose>
+                                    <c:when test="${canCancel}">
+                                        <form action="${pageContext.request.contextPath}/HuyVeController" method="post" style="margin: 0;" onsubmit="return confirm('Bạn có chắc chắn muốn hủy vé máy bay này không? Thao tác này không thể hoàn tác.');">
+                                            <input type="hidden" name="idVe" value="${item.veDto.idVe}">
+                                            <input type="hidden" name="idUser" value="${sessionScope.user.id}">
+                                            <button type="submit" class="btn-cancel active">Hủy vé</button>
+                                        </form>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <button class="btn-cancel disabled" disabled title="Chỉ được phép hủy vé trước 1 ngày so với giờ khởi hành">Hết hạn hủy</button>
+                                    </c:otherwise>
+                                </c:choose>
+                            </div>
                         </div>
                     </div>
                 </c:forEach>
             </c:when>
 
-
             <c:otherwise>
-                <div class="no-tickets-message" style="text-align: center; padding: 50px; background: #fff; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                    <p style="font-size: 1.2rem; color: #666; margin-top: 20px;">Bạn chưa có vé máy bay nào đã đặt.</p>
+                <div class="no-tickets-message">
+                    <img src="${pageContext.request.contextPath}/access/trang_chu/no-data-icon.png" alt="No tickets" style="width: 80px; opacity: 0.5; margin-bottom: 15px;">
+                    <p>Bạn chưa có vé máy bay nào đã đặt.</p>
+                    <a href="${pageContext.request.contextPath}/" class="btn-book-now">Đặt vé ngay</a>
                 </div>
             </c:otherwise>
         </c:choose>
