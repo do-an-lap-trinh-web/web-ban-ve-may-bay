@@ -320,30 +320,36 @@
 		</div>
 
 		<div class="list-card-selection">
-			<c:forEach var="item" items="${listDeXuatVe}">
-				<a href="${pageContext.request.contextPath}/DatVeController?idVe=${item.veDto.idVe}&soLuong=1&voucherCode=${item.voucherCode}" class="card-selection-link">
-					<div class="card-selection promo-card" style="position: relative; border: 1px solid #eee; padding-top: 15px;">
-						<div class="badge-discount" style="position: absolute; top: 10px; left: 10px; background-color: #ff5722; color: white; padding: 3px 8px; border-radius: 5px; font-size: 11px; font-weight: bold;">
-							${item.voucherCode} (-${item.phanTramGiam}%)
-						</div>
-						<p style="margin-top: 35px; font-size: 15px; font-weight: bold; text-align: center; color: #333;">
-							${item.veDto.diemDi} ➔ ${item.veDto.diemDen}
-						</p>
-						<div style="font-size: 12px; color: #777; text-align: center; margin-bottom: 10px; line-height: 1.4;">
-							<div>${item.veDto.hangBay} (${item.veDto.soHieuChuyenBay})</div>
-							<div style="font-size: 11px; color: #999;">${item.veDto.thoiGianKhoiHanh}</div>
-						</div>
-						<div style="text-align: center; margin-top: 10px;">
-							<span style="text-decoration: line-through; color: #999; font-size: 13px; margin-right: 5px;">${item.veDto.gia}đ</span>
-							<span style="color: #ff5722; font-weight: bold; font-size: 16px;">${item.giaDaGiam}đ</span>
-						</div>
-						<div style="font-size: 11px; color: #438bf1; text-align: center; margin-top: 10px; font-weight: bold;">
-							Còn lại: ${item.soLuongTon} vé
-						</div>
-					</div>
-				</a>
-			</c:forEach>
-		</div>
+            <c:forEach var="item" items="${listDeXuatVe}">
+
+               <a href="${pageContext.request.contextPath}/DatVeController?idVe=${item.veDto.idVe}&soLuong=1" class="card-selection-link">
+                  <div class="card-selection promo-card" style="position: relative; border: 1px solid #eee; padding-top: 15px;">
+
+
+                     <div class="badge-discount" style="position: absolute; top: 10px; left: 10px; background-color: #ff5722; color: white; padding: 3px 8px; border-radius: 5px; font-size: 11px; font-weight: bold;">
+                        SALE
+                     </div>
+
+                     <p style="margin-top: 35px; font-size: 15px; font-weight: bold; text-align: center; color: #333;">
+                        ${item.veDto.diemDi} ➔ ${item.veDto.diemDen}
+                     </p>
+                     <div style="font-size: 12px; color: #777; text-align: center; margin-bottom: 10px; line-height: 1.4;">
+                        <div>${item.veDto.hangBay} (${item.veDto.soHieuChuyenBay})</div>
+                        <div style="font-size: 11px; color: #999;">${item.veDto.thoiGianKhoiHanh}</div>
+                     </div>
+
+
+                     <div style="text-align: center; margin-top: 10px;">
+                        <span style="color: #ff5722; font-weight: bold; font-size: 16px;">${item.veDto.gia}đ</span>
+                     </div>
+
+                     <div style="font-size: 11px; color: #438bf1; text-align: center; margin-top: 10px; font-weight: bold;">
+                        Còn lại: ${item.soLuongTon} vé
+                     </div>
+                  </div>
+               </a>
+            </c:forEach>
+        </div>
 	</div>
 </div>
 
