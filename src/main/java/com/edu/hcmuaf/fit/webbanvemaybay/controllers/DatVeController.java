@@ -99,7 +99,7 @@ public class DatVeController extends HttpServlet {
     private void hienThiXacNhanDatVe(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         if (session.getAttribute("user") == null) {
-            request.setAttribute("messageLogin", "Ban phai dang nhap!");
+            request.setAttribute("messageLogin", "Bạn phải đăng nhập!");
             request.getRequestDispatcher("/index.jsp").forward(request, response);
             return;
         }

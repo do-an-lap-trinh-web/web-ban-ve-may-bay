@@ -72,13 +72,18 @@ public class VeDAO extends DBContext {
         try {
             Jdbi jdbi = get();
             return jdbi.withHandle(h -> {
+//                String q = "SELECT v.id FROM ve v " +
+//                        "JOIN chuyen_bay cb ON v.id_chuyen_bay = cb.id " +
+//                        "LEFT JOIN ve_da_dat vdd ON v.id = vdd.id_ve " +
+//                        "WHERE v.so_luong_ton > 0 " +
+//                        "GROUP BY v.id, v.so_luong_ton " +
+//                        "ORDER BY COALESCE(SUM(vdd.so_luong), 0) ASC, v.so_luong_ton DESC " +
+//                        "LIMIT 5";
                 String q = "SELECT v.id FROM ve v " +
-                           "JOIN chuyen_bay cb ON v.id_chuyen_bay = cb.id " +
-                           "LEFT JOIN ve_da_dat vdd ON v.id = vdd.id_ve " +
-                           "WHERE v.so_luong_ton > 0 AND cb.is_deleted = 0 " +
-                           "GROUP BY v.id, v.so_luong_ton " +
-                           "ORDER BY COALESCE(SUM(vdd.so_luong), 0) ASC, v.so_luong_ton DESC " +
-                           "LIMIT 5";
+                        "JOIN chuyen_bay cb ON v.id_chuyen_bay = cb.id " +
+                        "WHERE v.so_luong_ton > 0 " +
+                        "ORDER BY RAND() " +
+                        "LIMIT 5";
                 return h.createQuery(q).mapTo(Integer.class).list();
             });
         } catch (Exception e) {

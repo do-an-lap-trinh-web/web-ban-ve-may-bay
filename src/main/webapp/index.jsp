@@ -333,10 +333,11 @@
                      <p style="margin-top: 35px; font-size: 15px; font-weight: bold; text-align: center; color: #333;">
                         ${item.veDto.diemDi} ➔ ${item.veDto.diemDen}
                      </p>
-                     <div style="font-size: 12px; color: #777; text-align: center; margin-bottom: 10px; line-height: 1.4;">
-                        <div>${item.veDto.hangBay} (${item.veDto.soHieuChuyenBay})</div>
-                        <div style="font-size: 11px; color: #999;">${item.veDto.thoiGianKhoiHanh}</div>
-                     </div>
+					  <div style="font-size: 12px; color: #777; text-align: center; margin-bottom: 10px; line-height: 1.4;">
+						  <div>${item.veDto.hangBay} (${item.veDto.soHieuChuyenBay})</div>
+						  <div style="color: #005aab; font-weight: bold; margin: 4px 0;">Hạng ghế: ${item.veDto.hangGhe}</div>
+						  <div style="font-size: 11px; color: #999;">${item.veDto.thoiGianKhoiHanh}</div>
+					  </div>
 
 
                      <div style="text-align: center; margin-top: 10px;">

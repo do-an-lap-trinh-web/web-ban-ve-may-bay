@@ -1,79 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Xác nhận đặt vé</title>
+    <title>Xác nhận đặt vé máy bay</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/page/xac_nhan_dat_ve/xac_nhan_dat_ve.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleHeader.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/layout/StyleFooter.css">
-    <style>
-        .voucher-option {
-            display: flex !important;
-            align-items: center !important;
-            background: #ffffff !important;
-            border: 2px solid #e2e8f0 !important;
-            border-radius: 10px !important;
-            cursor: pointer !important;
-            gap: 12px !important;
-            margin-bottom: 10px !important;
-            padding: 12px !important;
-            transition: all 0.2s ease-in-out !important;
-            width: 100% !important;
-            box-sizing: border-box !important;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.02) !important;
-        }
-        .voucher-option:hover {
-            border-color: #0056b3 !important;
-            background-color: #f8faff !important;
-            box-shadow: 0 2px 8px rgba(0, 86, 179, 0.1) !important;
-        }
-        .voucher-option.is-selected {
-            border-color: #28a745 !important;
-            background-color: #f4fbf7 !important;
-            box-shadow: 0 2px 8px rgba(40, 167, 69, 0.1) !important;
-        }
-        .voucher-option.is-disabled {
-            background: #f6f8fb !important;
-            border-color: #e2e8f0 !important;
-            opacity: 0.58 !important;
-            cursor: not-allowed !important;
-            box-shadow: none !important;
-        }
-        .voucher-option input[type="radio"] {
-            display: block !important;
-            margin: 0 !important;
-            width: 18px !important;
-            height: 18px !important;
-            accent-color: #28a745 !important;
-            cursor: pointer !important;
-        }
-        .voucher-option span {
-            display: flex !important;
-            flex-direction: column !important;
-            float: none !important;
-            text-align: left !important;
-        }
-        .voucher-option strong {
-            display: block !important;
-            color: #222 !important;
-            font-size: 14px !important;
-            font-weight: bold !important;
-        }
-        .voucher-option small {
-            display: block !important;
-            color: #666 !important;
-            font-size: 12px !important;
-            margin-top: 2px !important;
-        }
-        .total-payment span {
-            float: none !important;
-        }
-    </style>
 </head>
 <body>
 <%@include file="../../layout/Header.jsp" %>
+
 <%
     String message = (String) request.getAttribute("message");
     if (message != null) {
@@ -84,38 +22,55 @@
 <%
     }
 %>
-<div class="main">
-    <div class="page-xac-nhan-dat-ve">
-        <div class="title-xac-nhan-dat-ve">Đặt Vé Máy Bay</div>
 
-        <div class="flight-info">
-            <p><b>Hãng bay </b>${requestScope.veInfo.hangBay}</p>
+<div class="checkout-wrapper">
+    <h1 class="checkout-page-title">Xác Nhận Đặt Vé</h1>
 
-            <p><b>Khởi hành tại:</b> ${requestScope.veInfo.sanBayDi}
-                <span>Thời gian: ${requestScope.veInfo.thoiGianKhoiHanh}</span>
-            </p>
+    <div class="checkout-container">
 
-            <p><b>Hạ cánh tại:</b> ${requestScope.veInfo.sanBayDen}
-                <span>Thời gian: ${requestScope.veInfo.thoiGianHaCanh}</span>
-            </p>
-            <p><b>Giá vé:</b> ${requestScope.veInfo.gia} đồng</p>
+        <div class="checkout-card flight-card">
+            <div class="card-header">
+                <span class="airline-brand">✈ ${requestScope.veInfo.hangBay}</span>
+                <span class="ticket-price-badge">${requestScope.veInfo.gia} VNĐ / vé</span>
+            </div>
+
+            <div class="flight-route-display">
+                <div class="route-node text-right">
+                    <div class="route-time">${requestScope.veInfo.thoiGianKhoiHanh}</div>
+                    <div class="route-station">${requestScope.veInfo.sanBayDi}</div>
+                </div>
+
+                <div class="route-divider">
+                    <span class="dot"></span>
+                    <div class="line"></div>
+                    <span class="plane-icon">✈</span>
+                    <div class="line"></div>
+                    <span class="dot"></span>
+                </div>
+
+                <div class="route-node text-left">
+                    <div class="route-time">${requestScope.veInfo.thoiGianHaCanh}</div>
+                    <div class="route-station">${requestScope.veInfo.sanBayDen}</div>
+                </div>
+            </div>
         </div>
 
-        <div class="input-so-luong">
-            <div class="input" style="width: 100%;">
-                <form action="${pageContext.request.contextPath}/DatVeController" method="post">
-                    <input type="hidden" name="idVe" value="${requestScope.veInfo.idVe}">
-                    <div style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                        <label style="font-weight: bold; width: auto; margin: 0;">Số lượng:</label>
-                        <input type="number" name="soLuong" value="${requestScope.soLuong}" min="1" step="1" required data-booking-quantity style="width: 70px; padding: 5px; border: 1px solid #ccc; border-radius: 4px; text-align: left;">
+        <div class="checkout-card options-card">
+            <form action="${pageContext.request.contextPath}/DatVeController" method="post" id="updateForm">
+                <input type="hidden" name="idVe" value="${requestScope.veInfo.idVe}">
+
+                <div class="option-group quantity-group">
+                    <label>Số lượng:</label>
+                    <input type="number" name="soLuong" value="${requestScope.soLuong}" min="1" step="1" required data-booking-quantity class="qty-input">
+                </div>
+
+                <div class="option-group voucher-group">
+                    <div class="group-heading">
+                        <span>Mã giảm giá (Voucher)</span>
+                        <span data-selected-voucher class="selected-highlight">Chưa chọn</span>
                     </div>
 
-                    <div class="voucher-section" style="margin-bottom: 20px;">
-                        <div class="section-heading" style="margin-bottom: 10px; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
-                            <span>Voucher giảm giá:</span>
-                            <span data-selected-voucher style="font-weight: normal; color: #28a745; float: none !important;">Chưa chọn</span>
-                        </div>
-
+                    <div class="voucher-scroll-list">
                         <label class="voucher-option is-empty">
                             <input type="radio" name="voucherCode" value="" data-voucher-radio data-type="none" ${empty requestScope.voucherCode ? 'checked' : ''}>
                             <span>
@@ -152,61 +107,63 @@
                             <input type="radio" name="voucherCode" value="VNA200K" data-voucher-radio data-type="fixed" data-value="200000" data-max="200000" data-min="5000000" data-airline="Vietnam Airlines" ${requestScope.voucherCode == 'VNA200K' ? 'checked' : ''}>
                             <span>
                                 <strong>Vietnam Airlines -200.000đ</strong>
-                                <small>Đơn từ 5.000.000đ, chỉ áp dụng vé Vietnam Airlines</small>
+                                <small>Đơn từ 5tr, chỉ áp dụng vé Vietnam Airlines</small>
                             </span>
                         </label>
                     </div>
+                </div>
 
-                    <div style="margin-bottom: 15px; display: flex; flex-direction: column; gap: 8px;">
-                        <label style="font-weight: bold; margin: 0; width: auto;">Đổi điểm thưởng:</label>
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <input type="number" name="diemDoi" value="${requestScope.diemDoi}" min="0" max="${requestScope.diemThuong}" step="1" data-reward-input style="width: 90px; padding: 5px; border: 1px solid #ccc; border-radius: 4px; text-align: left;">
-                            <span style="font-size: 0.9rem; color: #555; float: none !important;">Đang có ${requestScope.diemThuong} điểm, 1 điểm = ${requestScope.giaTriMotDiem} đồng</span>
-                        </div>
+                <div class="option-group reward-group">
+                    <div class="group-heading">
+                        <span>Đổi điểm thưởng</span>
+                        <span class="reward-balance">Đang có ${requestScope.diemThuong} điểm</span>
                     </div>
-                    <button type="submit" style="background-color: #438bf1; color: white; border: none; padding: 7px 15px; border-radius: 4px; cursor: pointer;">Áp dụng / Cập nhật</button>
-                </form>
+                    <div class="reward-input-wrapper">
+                        <input type="number" name="diemDoi" value="${requestScope.diemDoi}" min="0" max="${requestScope.diemThuong}" step="1" data-reward-input class="qty-input">
+                        <span class="reward-rate-note">(1 điểm = ${requestScope.giaTriMotDiem} đồng)</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-outline-update" style="display: none;">Cập nhật lại giá</button>
+            </form>
+        </div>
+
+        <div class="checkout-card summary-card">
+            <div class="summary-details">
+                <div id="voucher-summary-section" class="summary-row text-success" style="display: ${not empty requestScope.voucherCode ? 'flex' : 'none'};">
+                    <span id="voucher-summary-title">✓ Mã ${requestScope.voucherCode} <c:if test="${requestScope.ptGiam > 0}">(giảm ${requestScope.ptGiam}%)</c:if></span>
+                    <span id="voucher-summary-discount">-${requestScope.giamGia} đ</span>
+                </div>
+
+                <div id="reward-summary-section" class="summary-row text-success" style="display: ${requestScope.diemDoi > 0 ? 'flex' : 'none'};">
+                    <span id="reward-summary-title">Đổi ${requestScope.diemDoi} điểm thưởng</span>
+                    <span id="reward-summary-discount">-${requestScope.giamGiaDiem} đ</span>
+                </div>
+
+                <div class="summary-row text-muted mt-2 border-top-dash">
+                    <span>Điểm thưởng nhận được:</span>
+                    <span data-reward-earn>${requestScope.diemDuKienNhan} điểm</span>
+                </div>
             </div>
-        </div>
 
-        <div class="total-payment"
-             style="margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-top: 2px solid #ddd; text-align: right;">
-            <h3 style="color: #333; line-height: 1.6;">
-                <div id="voucher-summary-section" style="display: ${not empty requestScope.voucherCode ? 'block' : 'none'}; float: none !important;">
-                    <span id="voucher-summary-title" style="font-size: 0.95rem; color: #4caf50; font-weight: bold; float: none !important;">
-                        ✓ Đã áp dụng voucher ${requestScope.voucherCode} <c:if test="${requestScope.ptGiam > 0}">(giảm ${requestScope.ptGiam}%)</c:if>
-                    </span><br>
-                    <span id="voucher-summary-discount" style="font-size: 0.9rem; color: #777; font-weight: normal; float: none !important;">
-                        Số tiền được giảm: -${requestScope.giamGia} đồng
-                    </span><br>
-                </div>
-                <div id="reward-summary-section" style="display: ${requestScope.diemDoi > 0 ? 'block' : 'none'}; float: none !important;">
-                    <span id="reward-summary-title" style="font-size: 0.95rem; color: #4caf50; font-weight: bold; float: none !important;">
-                        Đã đổi ${requestScope.diemDoi} điểm thưởng
-                    </span><br>
-                    <span id="reward-summary-discount" style="font-size: 0.9rem; color: #777; font-weight: normal; float: none !important;">
-                        Tiền đổi điểm: -${requestScope.giamGiaDiem} đồng
-                    </span><br>
-                </div>
-                <span data-reward-earn style="font-size: 0.9rem; color: #777; font-weight: normal; float: none !important;">
-                    Dự kiến nhận: ${requestScope.diemDuKienNhan} điểm
-                </span><br>
-                Tổng thanh toán: <br>
-                <span data-total-payment data-unit-price="${requestScope.veInfo.gia}" data-reward-point-value="${requestScope.giaTriMotDiem}" style="color: #ff5722; font-size: 1.5rem; float: none !important;">${requestScope.tongGia}</span>
-            </h3>
-        </div>
+            <div class="grand-total-row">
+                <span class="total-label">Tổng thanh toán:</span>
+                <span class="total-amount" data-total-payment data-unit-price="${requestScope.veInfo.gia}" data-reward-point-value="${requestScope.giaTriMotDiem}">${requestScope.tongGia}</span>
+            </div>
 
-        <div >
-            <form action="${pageContext.request.contextPath}/ThanhToanController" method="post">
+            <form action="${pageContext.request.contextPath}/ThanhToanController" method="post" class="final-checkout-form">
                 <input type="hidden" name="soLuong" value="${requestScope.soLuong}" data-payment-quantity>
                 <input type="hidden" name="idVe" value="${requestScope.veInfo.idVe}">
                 <input type="hidden" name="voucherCode" value="${requestScope.voucherCode}">
                 <input type="hidden" name="diemDoi" value="${requestScope.diemDoi}" data-payment-reward>
-                <button class="btn-xac-nhan-dat-ve" type="submit">Thanh toán</button>
+
+                <button class="btn-checkout-massive" type="submit">THANH TOÁN NGAY</button>
             </form>
         </div>
+
     </div>
 </div>
+
 <%@ include file="../../layout/Footer.jsp" %>
 
 <script>
@@ -316,10 +273,10 @@
             }
 
             if (voucherDiscount > 0) {
-                voucherSummarySection.style.display = 'block';
+                voucherSummarySection.style.display = 'flex';
                 var pctText = selectedRadio.dataset.type === 'percent' ? ' (giảm ' + selectedRadio.dataset.value + '%)' : '';
-                voucherSummaryTitle.textContent = '✓ Đã áp dụng voucher ' + selectedRadio.value + pctText;
-                voucherSummaryDiscount.textContent = 'Số tiền được giảm: -' + formatMoney(voucherDiscount);
+                voucherSummaryTitle.textContent = '✓ Đã áp dụng mã ' + selectedRadio.value + pctText;
+                voucherSummaryDiscount.textContent = '-' + formatMoney(voucherDiscount);
             } else {
                 voucherSummarySection.style.display = 'none';
             }
@@ -343,9 +300,9 @@
                 var total = tongSauVoucher - rewardDiscount;
 
                 if (rewardPoints > 0) {
-                    rewardSummarySection.style.display = 'block';
-                    rewardSummaryTitle.textContent = 'Đã đổi ' + rewardPoints + ' điểm thưởng';
-                    rewardSummaryDiscount.textContent = 'Tiền đổi điểm: -' + formatMoney(rewardDiscount);
+                    rewardSummarySection.style.display = 'flex';
+                    rewardSummaryTitle.textContent = 'Đổi ' + rewardPoints + ' điểm thưởng';
+                    rewardSummaryDiscount.textContent = '-' + formatMoney(rewardDiscount);
                 } else {
                     rewardSummarySection.style.display = 'none';
                 }
@@ -366,7 +323,7 @@
 
             totalElement.textContent = formatMoney(total);
             if (rewardEarnElement) {
-                rewardEarnElement.textContent = 'Dự kiến nhận: ' + Math.floor(total / 100000) + ' điểm';
+                rewardEarnElement.textContent = Math.floor(total / 100000) + ' điểm';
             }
         }
 
